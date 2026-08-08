@@ -178,3 +178,1646 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2nd PUC Maths - My AI Study Hub</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.card {
+    background: white;
+    margin-bottom: 20px;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    color: #4f46e5;
+    margin-top: 0;
+}
+
+.formula {
+    background: #eef2ff;
+    padding: 12px;
+    margin: 8px 0;
+    border-left: 4px solid #4f46e5;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.question {
+    background: #f9fafb;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    background: #4f46e5;
+    color: white;
+    cursor: pointer;
+}
+
+.answer {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #dcfce7;
+    border-radius: 7px;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📐 2nd PUC Mathematics</h1>
+<p>Formulas • Practice • KCET • JEE</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">⬅ Back to Home</a>
+
+<div class="card">
+<h2>📚 Chapters</h2>
+
+<p>1. Relations and Functions</p>
+<p>2. Inverse Trigonometric Functions</p>
+<p>3. Matrices</p>
+<p>4. Determinants</p>
+<p>5. Continuity and Differentiability</p>
+<p>6. Applications of Derivatives</p>
+<p>7. Integrals</p>
+<p>8. Applications of Integrals</p>
+<p>9. Differential Equations</p>
+<p>10. Vector Algebra</p>
+<p>11. Three Dimensional Geometry</p>
+<p>12. Linear Programming</p>
+<p>13. Probability</p>
+</div>
+
+<div class="card">
+<h2>📌 Important Formulas</h2>
+
+<h3>Matrices</h3>
+
+<div class="formula">
+(AB)ᵀ = BᵀAᵀ
+</div>
+
+<div class="formula">
+(AB)⁻¹ = B⁻¹A⁻¹
+</div>
+
+<div class="formula">
+A⁻¹ = adj(A) / |A|
+</div>
+
+<h3>Determinants</h3>
+
+<div class="formula">
+|a b; c d| = ad − bc
+</div>
+
+<div class="formula">
+|A| ≠ 0 ⇒ A is non-singular
+</div>
+
+<h3>Differentiation</h3>
+
+<div class="formula">
+d/dx (xⁿ) = nxⁿ⁻¹
+</div>
+
+<div class="formula">
+d/dx (sin x) = cos x
+</div>
+
+<div class="formula">
+d/dx (cos x) = −sin x
+</div>
+
+<div class="formula">
+d/dx (eˣ) = eˣ
+</div>
+
+<div class="formula">
+d/dx (log x) = 1/x
+</div>
+
+<h3>Integration</h3>
+
+<div class="formula">
+∫xⁿ dx = xⁿ⁺¹/(n+1) + C
+</div>
+
+<div class="formula">
+∫1/x dx = log|x| + C
+</div>
+
+<div class="formula">
+∫eˣ dx = eˣ + C
+</div>
+
+<div class="formula">
+∫cos x dx = sin x + C
+</div>
+
+<div class="formula">
+∫sin x dx = −cos x + C
+</div>
+
+<h3>Vectors</h3>
+
+<div class="formula">
+a · b = |a||b| cos θ
+</div>
+
+<div class="formula">
+|a × b| = |a||b| sin θ
+</div>
+
+<h3>Probability</h3>
+
+<div class="formula">
+P(A') = 1 − P(A)
+</div>
+
+<div class="formula">
+P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
+</div>
+
+</div>
+
+<div class="card">
+<h2>📝 Practice Questions</h2>
+
+<div class="question">
+<b>1.</b> Find the inverse of the matrix
+<br><br>
+A = [ 2  1 ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[ 1  1 ]
+
+<br><br>
+
+<button onclick="showAnswer('a1')">Show Answer</button>
+
+<div class="answer" id="a1">
+Answer: A⁻¹ = [ 1  −1 ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[−1&nbsp;&nbsp;2 ]
+</div>
+</div>
+
+<div class="question">
+<b>2.</b> Differentiate y = x³ + 2x² − 5x + 7.
+
+<br><br>
+
+<button onclick="showAnswer('a2')">Show Answer</button>
+
+<div class="answer" id="a2">
+dy/dx = 3x² + 4x − 5
+</div>
+</div>
+
+<div class="question">
+<b>3.</b> Evaluate ∫(2x + 3) dx.
+
+<br><br>
+
+<button onclick="showAnswer('a3')">Show Answer</button>
+
+<div class="answer" id="a3">
+Answer: x² + 3x + C
+</div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔥 KCET / JEE Style MCQs</h2>
+
+<div class="question">
+<b>1.</b> If A is a square matrix and |A| = 0, then A is:
+
+<br><br>
+
+A) Identity matrix<br>
+B) Singular matrix<br>
+C) Non-singular matrix<br>
+D) Zero matrix
+
+<br><br>
+
+<button onclick="showAnswer('m1')">Show Answer</button>
+
+<div class="answer" id="m1">
+Correct Answer: B) Singular matrix
+</div>
+</div>
+
+<div class="question">
+<b>2.</b> The derivative of sin x cos x is:
+
+<br><br>
+
+A) sin²x<br>
+B) cos²x<br>
+C) cos²x − sin²x<br>
+D) sin²x − cos²x
+
+<br><br>
+
+<button onclick="showAnswer('m2')">Show Answer</button>
+
+<div class="answer" id="m2">
+Correct Answer: C) cos²x − sin²x
+</div>
+</div>
+
+<div class="question">
+<b>3.</b> If two vectors are perpendicular, their dot product is:
+
+<br><br>
+
+A) 1<br>
+B) −1<br>
+C) 0<br>
+D) Maximum
+
+<br><br>
+
+<button onclick="showAnswer('m3')">Show Answer</button>
+
+<div class="answer" id="m3">
+Correct Answer: C) 0
+</div>
+</div>
+
+<div class="question">
+<b>4.</b> ∫₀¹ x dx is:
+
+<br><br>
+
+A) 1<br>
+B) 1/2<br>
+C) 2<br>
+D) 0
+
+<br><br>
+
+<button onclick="showAnswer('m4')">Show Answer</button>
+
+<div class="answer" id="m4">
+Correct Answer: B) 1/2
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 My AI Study Hub</p>
+<p>Keep Learning 🚀</p>
+</footer>
+
+<script>
+function showAnswer(id) {
+    const answer = document.getElementById(id);
+
+    if (answer.style.display === "block") {
+        answer.style.display = "none";
+    } else {
+        answer.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2nd PUC Physics - My AI Study Hub</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#0f766e,#2563eb);
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+header h1{margin:0;font-size:30px}
+header p{margin-bottom:0}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:10px 16px;
+    background:#111827;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+.card{
+    background:white;
+    margin-bottom:20px;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{color:#2563eb;margin-top:0}
+
+.formula{
+    background:#eff6ff;
+    padding:12px;
+    margin:8px 0;
+    border-left:4px solid #2563eb;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.question{
+    background:#f9fafb;
+    padding:15px;
+    margin:12px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+button{
+    border:0;
+    padding:10px 15px;
+    border-radius:7px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.answer{
+    display:none;
+    margin-top:10px;
+    padding:10px;
+    background:#dcfce7;
+    border-radius:7px;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>⚡ 2nd PUC Physics</h1>
+<p>Concepts • Formulas • Practice • KCET • JEE</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">⬅ Back to Home</a>
+
+<div class="card">
+<h2>📚 Chapters</h2>
+
+<p>1. Electric Charges and Fields</p>
+<p>2. Electrostatic Potential and Capacitance</p>
+<p>3. Current Electricity</p>
+<p>4. Moving Charges and Magnetism</p>
+<p>5. Magnetism and Matter</p>
+<p>6. Electromagnetic Induction</p>
+<p>7. Alternating Current</p>
+<p>8. Electromagnetic Waves</p>
+<p>9. Ray Optics and Optical Instruments</p>
+<p>10. Wave Optics</p>
+<p>11. Dual Nature of Radiation and Matter</p>
+<p>12. Atoms</p>
+<p>13. Nuclei</p>
+<p>14. Semiconductor Electronics</p>
+</div>
+
+<div class="card">
+<h2>📌 Important Formulas</h2>
+
+<h3>⚡ Electrostatics</h3>
+
+<div class="formula">
+F = (1/4πε₀) × (q₁q₂/r²)
+</div>
+
+<div class="formula">
+E = F/q
+</div>
+
+<div class="formula">
+V = (1/4πε₀) × (q/r)
+</div>
+
+<div class="formula">
+C = Q/V
+</div>
+
+<div class="formula">
+C = ε₀A/d
+</div>
+
+<h3>🔋 Current Electricity</h3>
+
+<div class="formula">
+V = IR
+</div>
+
+<div class="formula">
+R = ρL/A
+</div>
+
+<div class="formula">
+P = VI = I²R = V²/R
+</div>
+
+<h3>🧲 Moving Charges and Magnetism</h3>
+
+<div class="formula">
+F = qvB sinθ
+</div>
+
+<div class="formula">
+F = BIL sinθ
+</div>
+
+<div class="formula">
+B = μ₀I/(2πr)
+</div>
+
+<div class="formula">
+B = μ₀nI
+</div>
+
+<h3>🔄 Electromagnetic Induction</h3>
+
+<div class="formula">
+ε = −dΦ/dt
+</div>
+
+<div class="formula">
+Φ = BA cosθ
+</div>
+
+<h3>〰️ Alternating Current</h3>
+
+<div class="formula">
+Vᵣₘₛ = V₀/√2
+</div>
+
+<div class="formula">
+Iᵣₘₛ = I₀/√2
+</div>
+
+<div class="formula">
+Xᴸ = ωL
+</div>
+
+<div class="formula">
+Xᶜ = 1/(ωC)
+</div>
+
+<h3>🔭 Optics</h3>
+
+<div class="formula">
+1/f = 1/v − 1/u
+</div>
+
+<div class="formula">
+m = v/u
+</div>
+
+<div class="formula">
+n = sin i / sin r
+</div>
+
+<h3>☢️ Modern Physics</h3>
+
+<div class="formula">
+E = hf
+</div>
+
+<div class="formula">
+E = hc/λ
+</div>
+
+<div class="formula">
+λ = h/p
+</div>
+
+<div class="formula">
+E = mc²
+</div>
+
+</div>
+
+<div class="card">
+<h2>📝 Board Practice Questions</h2>
+
+<div class="question">
+<b>1.</b> State Coulomb's law and write its mathematical expression.
+
+<br><br>
+
+<button onclick="showAnswer('p1')">Show Answer</button>
+
+<div class="answer" id="p1">
+Coulomb's law states that the electrostatic force between two point charges
+is directly proportional to the product of their charges and inversely
+proportional to the square of the distance between them.
+<br><br>
+F = (1/4πε₀)(q₁q₂/r²)
+</div>
+</div>
+
+<div class="question">
+<b>2.</b> What is the SI unit of capacitance?
+
+<br><br>
+
+<button onclick="showAnswer('p2')">Show Answer</button>
+
+<div class="answer" id="p2">
+The SI unit of capacitance is farad (F).
+</div>
+</div>
+
+<div class="question">
+<b>3.</b> Write the expression for force on a moving charge in a magnetic field.
+
+<br><br>
+
+<button onclick="showAnswer('p3')">Show Answer</button>
+
+<div class="answer" id="p3">
+F = qvB sinθ
+</div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>🔥 KCET / JEE Style MCQs</h2>
+
+<div class="question">
+<b>1.</b> The SI unit of electric field is:
+
+<br><br>
+
+A) Volt<br>
+B) Newton/Coulomb<br>
+C) Coulomb/Newton<br>
+D) Joule
+
+<br><br>
+
+<button onclick="showAnswer('m1')">Show Answer</button>
+
+<div class="answer" id="m1">
+Correct Answer: B) Newton/Coulomb
+</div>
+</div>
+
+<div class="question">
+<b>2.</b> A charged particle enters a uniform magnetic field perpendicular to the field. Its path is:
+
+<br><br>
+
+A) Straight line<br>
+B) Circle<br>
+C) Parabola<br>
+D) Ellipse
+
+<br><br>
+
+<button onclick="showAnswer('m2')">Show Answer</button>
+
+<div class="answer" id="m2">
+Correct Answer: B) Circle
+</div>
+</div>
+
+<div class="question">
+<b>3.</b> If the frequency of an electromagnetic wave is increased, its wavelength:
+
+<br><br>
+
+A) Increases<br>
+B) Decreases<br>
+C) Remains constant<br>
+D) Becomes zero
+
+<br><br>
+
+<button onclick="showAnswer('m3')">Show Answer</button>
+
+<div class="answer" id="m3">
+Correct Answer: B) Decreases
+</div>
+</div>
+
+<div class="question">
+<b>4.</b> The energy of a photon is:
+
+<br><br>
+
+A) h/ν<br>
+B) hν<br>
+C) ν/h<br>
+D) hcν
+
+<br><br>
+
+<button onclick="showAnswer('m4')">Show Answer</button>
+
+<div class="answer" id="m4">
+Correct Answer: B) hν
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 My AI Study Hub</p>
+<p>Keep Learning ⚡</p>
+</footer>
+
+<script>
+function showAnswer(id){
+    const answer=document.getElementById(id);
+
+    if(answer.style.display==="block"){
+        answer.style.display="none";
+    }else{
+        answer.style.display="block";
+    }
+}
+</script>
+
+</body>
+    </html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2nd PUC Chemistry - My AI Study Hub</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#059669,#0f766e);
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+header h1{margin:0;font-size:30px}
+header p{margin-bottom:0}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:10px 16px;
+    background:#111827;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+.card{
+    background:white;
+    margin-bottom:20px;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+    color:#059669;
+    margin-top:0;
+}
+
+.formula{
+    background:#ecfdf5;
+    padding:12px;
+    margin:8px 0;
+    border-left:4px solid #059669;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.question{
+    background:#f9fafb;
+    padding:15px;
+    margin:12px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+button{
+    border:0;
+    padding:10px 15px;
+    border-radius:7px;
+    background:#059669;
+    color:white;
+    cursor:pointer;
+}
+
+.answer{
+    display:none;
+    margin-top:10px;
+    padding:10px;
+    background:#dcfce7;
+    border-radius:7px;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🧪 2nd PUC Chemistry</h1>
+<p>Concepts • Reactions • Formulas • KCET • JEE</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">⬅ Back to Home</a>
+
+<div class="card">
+<h2>📚 Chapters</h2>
+
+<p>1. Solutions</p>
+<p>2. Electrochemistry</p>
+<p>3. Chemical Kinetics</p>
+<p>4. The d- and f-Block Elements</p>
+<p>5. Coordination Compounds</p>
+<p>6. Haloalkanes and Haloarenes</p>
+<p>7. Alcohols, Phenols and Ethers</p>
+<p>8. Aldehydes, Ketones and Carboxylic Acids</p>
+<p>9. Amines</p>
+<p>10. Biomolecules</p>
+<p>11. Polymers</p>
+<p>12. Chemistry in Everyday Life</p>
+</div>
+
+<div class="card">
+<h2>📌 Important Formulas</h2>
+
+<h3>🧪 Solutions</h3>
+
+<div class="formula">
+Molarity (M) = moles of solute / volume of solution in L
+</div>
+
+<div class="formula">
+Molality (m) = moles of solute / mass of solvent in kg
+</div>
+
+<div class="formula">
+M₁V₁ = M₂V₂
+</div>
+
+<h3>⚡ Electrochemistry</h3>
+
+<div class="formula">
+ΔG° = −nFE°
+</div>
+
+<div class="formula">
+E°cell = E°cathode − E°anode
+</div>
+
+<div class="formula">
+Q = It
+</div>
+
+<h3>⏱ Chemical Kinetics</h3>
+
+<div class="formula">
+Rate = k[A]ⁿ
+</div>
+
+<div class="formula">
+For first order: k = (2.303/t) log(a/(a−x))
+</div>
+
+<div class="formula">
+t₁/₂ = 0.693/k
+</div>
+
+<h3>⚗️ Organic Chemistry</h3>
+
+<div class="formula">
+Alcohol + Na → Sodium alkoxide + H₂
+</div>
+
+<div class="formula">
+Aldehyde + [O] → Carboxylic acid
+</div>
+
+<div class="formula">
+R−NH₂ + HCl → R−NH₃⁺Cl⁻
+</div>
+
+</div>
+
+<div class="card">
+<h2>⚗️ Important Organic Reactions</h2>
+
+<div class="formula">
+R−X + KOH(aq) → R−OH + KX
+</div>
+
+<div class="formula">
+R−X + KOH(alc) → Alkene + KX + H₂O
+</div>
+
+<div class="formula">
+R−OH + [O] → Aldehyde/Ketone
+</div>
+
+<div class="formula">
+R−CHO + [O] → R−COOH
+</div>
+
+<div class="formula">
+R−COOH + R'−OH ⇌ R−COOR' + H₂O
+</div>
+
+</div>
+
+<div class="card">
+<h2>📝 Board Practice Questions</h2>
+
+<div class="question">
+<b>1.</b> Define molarity and write its formula.
+
+<br><br>
+
+<button onclick="showAnswer('q1')">Show Answer</button>
+
+<div class="answer" id="q1">
+Molarity is the number of moles of solute present in one litre of solution.
+<br><br>
+M = moles of solute / volume of solution in litres.
+</div>
+</div>
+
+<div class="question">
+<b>2.</b> Write the Nernst equation for a cell.
+
+<br><br>
+
+<button onclick="showAnswer('q2')">Show Answer</button>
+
+<div class="answer" id="q2">
+E = E° − (0.0591/n) log Q at 298 K.
+</div>
+</div>
+
+<div class="question">
+<b>3.</b> What is the half-life of a first-order reaction?
+
+<br><br>
+
+<button onclick="showAnswer('q3')">Show Answer</button>
+
+<div class="answer" id="q3">
+For a first-order reaction:
+<br><br>
+t₁/₂ = 0.693/k
+</div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>🔥 KCET / JEE Style MCQs</h2>
+
+<div class="question">
+<b>1.</b> The unit of molarity is:
+
+<br><br>
+
+A) mol kg⁻¹<br>
+B) mol L⁻¹<br>
+C) kg mol⁻¹<br>
+D) L mol⁻¹
+
+<br><br>
+
+<button onclick="showAnswer('m1')">Show Answer</button>
+
+<div class="answer" id="m1">
+Correct Answer: B) mol L⁻¹
+</div>
+</div>
+
+<div class="question">
+<b>2.</b> In a galvanic cell, oxidation occurs at:
+
+<br><br>
+
+A) Cathode<br>
+B) Anode<br>
+C) Salt bridge<br>
+D) Electrolyte
+
+<br><br>
+
+<button onclick="showAnswer('m2')">Show Answer</button>
+
+<div class="answer" id="m2">
+Correct Answer: B) Anode
+</div>
+</div>
+
+<div class="question">
+<b>3.</b> The half-life of a first-order reaction is:
+
+<br><br>
+
+A) Dependent on initial concentration<br>
+B) Independent of initial concentration<br>
+C) Always zero<br>
+D) Always one
+
+<br><br>
+
+<button onclick="showAnswer('m3')">Show Answer</button>
+
+<div class="answer" id="m3">
+Correct Answer: B) Independent of initial concentration
+</div>
+</div>
+
+<div class="question">
+<b>4.</b> Which functional group is present in alcohols?
+
+<br><br>
+
+A) −CHO<br>
+B) −COOH<br>
+C) −OH<br>
+D) −NH₂
+
+<br><br>
+
+<button onclick="showAnswer('m4')">Show Answer</button>
+
+<div class="answer" id="m4">
+Correct Answer: C) −OH
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 My AI Study Hub</p>
+<p>Keep Learning 🧪</p>
+</footer>
+
+<script>
+function showAnswer(id){
+    const answer=document.getElementById(id);
+
+    if(answer.style.display==="block"){
+        answer.style.display="none";
+    }else{
+        answer.style.display="block";
+    }
+}
+</script>
+
+</body>
+    </html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MCQ Practice - My AI Study Hub</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #dc2626, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.quiz-card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.subject {
+    color: #7c3aed;
+    font-weight: bold;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    background: #f9fafb;
+    color: #222;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #ede9fe;
+}
+
+.option.correct {
+    background: #dcfce7;
+    border-color: #16a34a;
+}
+
+.option.wrong {
+    background: #fee2e2;
+    border-color: #dc2626;
+}
+
+.result {
+    display: none;
+    background: #ecfdf5;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#score {
+    font-size: 28px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+#submitBtn,
+#restartBtn {
+    display: block;
+    margin: 25px auto;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: #7c3aed;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📝 MCQ Practice</h1>
+    <p>2nd PUC • KCET • JEE Practice</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">⬅ Back to Home</a>
+
+<div class="result" id="result">
+    <h2>🎉 Quiz Completed!</h2>
+    <p>Your Score:</p>
+    <div id="score">0/10</div>
+    <p id="message"></p>
+</div>
+
+
+<!-- QUESTION 1 -->
+
+<div class="quiz-card">
+    <p class="subject">📐 Mathematics</p>
+
+    <h3>1. If |A| = 0, then matrix A is:</h3>
+
+    <button class="option" data-correct="false">
+        A) Identity matrix
+    </button>
+
+    <button class="option" data-correct="true">
+        B) Singular matrix
+    </button>
+
+    <button class="option" data-correct="false">
+        C) Non-singular matrix
+    </button>
+
+    <button class="option" data-correct="false">
+        D) Orthogonal matrix
+    </button>
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="quiz-card">
+    <p class="subject">📐 Mathematics</p>
+
+    <h3>2. ∫₀¹ x dx is equal to:</h3>
+
+    <button class="option" data-correct="false">
+        A) 1
+    </button>
+
+    <button class="option" data-correct="true">
+        B) 1/2
+    </button>
+
+    <button class="option" data-correct="false">
+        C) 2
+    </button>
+
+    <button class="option" data-correct="false">
+        D) 0
+    </button>
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="quiz-card">
+    <p class="subject">📐 Mathematics</p>
+
+    <h3>3. d/dx(sin x) is:</h3>
+
+    <button class="option" data-correct="true">
+        A) cos x
+    </button>
+
+    <button class="option" data-correct="false">
+        B) −cos x
+    </button>
+
+    <button class="option" data-correct="false">
+        C) sin x
+    </button>
+
+    <button class="option" data-correct="false">
+        D) −sin x
+    </button>
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="quiz-card">
+    <p class="subject">⚡ Physics</p>
+
+    <h3>4. The SI unit of electric field is:</h3>
+
+    <button class="option" data-correct="false">
+        A) Joule
+    </button>
+
+    <button class="option" data-correct="true">
+        B) Newton/Coulomb
+    </button>
+
+    <button class="option" data-correct="false">
+        C) Coulomb
+    </button>
+
+    <button class="option" data-correct="false">
+        D) Watt
+    </button>
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="quiz-card">
+    <p class="subject">⚡ Physics</p>
+
+    <h3>5. Force on a moving charge in a magnetic field is:</h3>
+
+    <button class="option" data-correct="true">
+        A) qvB sinθ
+    </button>
+
+    <button class="option" data-correct="false">
+        B) qE
+    </button>
+
+    <button class="option" data-correct="false">
+        C) IR
+    </button>
+
+    <button class="option" data-correct="false">
+        D) V/R
+    </button>
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="quiz-card">
+    <p class="subject">⚡ Physics</p>
+
+    <h3>6. Energy of a photon is:</h3>
+
+    <button class="option" data-correct="false">
+        A) h/ν
+    </button>
+
+    <button class="option" data-correct="true">
+        B) hν
+    </button>
+
+    <button class="option" data-correct="false">
+        C) ν/h
+    </button>
+
+    <button class="option" data-correct="false">
+        D) hcν
+    </button>
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="quiz-card">
+    <p class="subject">🧪 Chemistry</p>
+
+    <h3>7. The unit of molarity is:</h3>
+
+    <button class="option" data-correct="false">
+        A) mol kg⁻¹
+    </button>
+
+    <button class="option" data-correct="true">
+        B) mol L⁻¹
+    </button>
+
+    <button class="option" data-correct="false">
+        C) kg mol⁻¹
+    </button>
+
+    <button class="option" data-correct="false">
+        D) L mol⁻¹
+    </button>
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="quiz-card">
+    <p class="subject">🧪 Chemistry</p>
+
+    <h3>8. Oxidation occurs at which electrode in a galvanic cell?</h3>
+
+    <button class="option" data-correct="true">
+        A) Anode
+    </button>
+
+    <button class="option" data-correct="false">
+        B) Cathode
+    </button>
+
+    <button class="option" data-correct="false">
+        C) Salt bridge
+    </button>
+
+    <button class="option" data-correct="false">
+        D) Electrolyte
+    </button>
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="quiz-card">
+    <p class="subject">🧪 Chemistry</p>
+
+    <h3>9. The functional group of alcohol is:</h3>
+
+    <button class="option" data-correct="false">
+        A) −CHO
+    </button>
+
+    <button class="option" data-correct="false">
+        B) −COOH
+    </button>
+
+    <button class="option" data-correct="true">
+        C) −OH
+    </button>
+
+    <button class="option" data-correct="false">
+        D) −NH₂
+    </button>
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="quiz-card">
+    <p class="subject">🧪 Chemistry</p>
+
+    <h3>10. For a first-order reaction, half-life is:</h3>
+
+    <button class="option" data-correct="false">
+        A) Dependent on initial concentration
+    </button>
+
+    <button class="option" data-correct="true">
+        B) Independent of initial concentration
+    </button>
+
+    <button class="option" data-correct="false">
+        C) Always zero
+    </button>
+
+    <button class="option" data-correct="false">
+        D) Always one
+    </button>
+</div>
+
+
+<button id="submitBtn">Submit Quiz</button>
+
+<button id="restartBtn" style="display:none;">
+    🔄 Restart Quiz
+</button>
+
+</div>
+
+<footer>
+    <p>© 2026 My AI Study Hub</p>
+    <p>Keep Practicing 🚀</p>
+</footer>
+
+
+<script>
+
+let score = 0;
+let answered = 0;
+
+const options = document.querySelectorAll(".option");
+
+options.forEach(function(option) {
+
+    option.addEventListener("click", function() {
+
+        const question = option.parentElement;
+
+        if (question.dataset.answered === "true") {
+            return;
+        }
+
+        question.dataset.answered = "true";
+
+        const questionOptions = question.querySelectorAll(".option");
+
+        questionOptions.forEach(function(btn) {
+            btn.disabled = true;
+        });
+
+        if (option.dataset.correct === "true") {
+
+            option.classList.add("correct");
+            score++;
+
+        } else {
+
+            option.classList.add("wrong");
+
+            questionOptions.forEach(function(btn) {
+
+                if (btn.dataset.correct === "true") {
+                    btn.classList.add("correct");
+                }
+
+            });
+
+        }
+
+        answered++;
+    });
+
+});
+
+
+document.getElementById("submitBtn").addEventListener("click", function() {
+
+    if (answered < 10) {
+
+        alert("Please answer all 10 questions first.");
+
+        return;
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("score").textContent =
+        score + "/10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "🏆 Excellent! Perfect score!";
+    }
+    else if (score >= 8) {
+        message = "🔥 Great job! Keep practicing!";
+    }
+    else if (score >= 5) {
+        message = "👍 Good effort! Practice more.";
+    }
+    else {
+        message = "📚 Keep studying and try again!";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    document.getElementById("submitBtn").style.display = "none";
+
+    document.getElementById("restartBtn").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+
+document.getElementById("restartBtn").addEventListener("click", function() {
+
+    location.reload();
+
+});
+
+</script>
+
+</body>
+    </html>
