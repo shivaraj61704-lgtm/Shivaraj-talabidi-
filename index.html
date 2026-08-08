@@ -1432,6 +1432,22 @@ footer {
     padding: 20px;
     margin-top: 30px;
 }
+    #timer {
+    font-size: 45px;
+    font-weight: bold;
+    color: #4f46e5;
+    margin: 15px;
+}
+
+.welcome button {
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: white;
+    cursor: pointer;
+}
 </style>
 </head>
 
@@ -1711,7 +1727,14 @@ footer {
 </button>
 
 </div>
+<div class="welcome">
+    <h2>⏱️ Study Timer</h2>
+    <p id="timer">25:00</p>
 
+    <button onclick="startTimer()">▶ Start</button>
+    <button onclick="pauseTimer()">⏸ Pause</button>
+    <button onclick="resetTimer()">🔄 Reset</button>
+</div>
 <footer>
     <p>© 2026 My AI Study Hub</p>
     <p>Keep Practicing 🚀</p>
@@ -1719,7 +1742,46 @@ footer {
 
 
 <script>
+let timerSeconds = 25 * 60;
+let timerInterval = null;
 
+function updateTimer() {
+    let minutes = Math.floor(timerSeconds / 60);
+    let seconds = timerSeconds % 60;
+
+    document.getElementById("timer").textContent =
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
+}
+
+function startTimer() {
+    if (timerInterval !== null) return;
+
+    timerInterval = setInterval(function () {
+        if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimer();
+        } else {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            alert("🎉 Study session completed!");
+        }
+    }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerSeconds = 25 * 60;
+    updateTimer();
+}
+
+updateTimer();
 let score = 0;
 let answered = 0;
 
@@ -1818,6 +1880,3 @@ document.getElementById("restartBtn").addEventListener("click", function() {
 });
 
 </script>
-
-</body>
-    </html>
