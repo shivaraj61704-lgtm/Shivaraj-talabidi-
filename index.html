@@ -1,105 +1,111 @@
- ```html
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PDF & PPT Editor</title>
 
-<!-- PDF.JS -->
+<!-- ================= PDF.JS ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
-<!-- PDF-LIB -->
-<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<!-- ================= PDF-LIB ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
-<!-- JSZIP -->
+<!-- ================= JSZIP ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
-<!-- PPTXGENJS -->
-<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<!-- ================= PPTXGENJS ================= -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 
 <style>
 *{
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     margin:0;
+    padding:0;
     width:100%;
     height:100%;
+    overflow:hidden;
     font-family:Arial,Helvetica,sans-serif;
     background:#eef1f5;
     color:#202124;
 }
 
-button,input{
-    font-family:inherit;
+button,
+input,
+select{
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 button{
     cursor:pointer;
 }
 
-/* ================= HEADER ================= */
+/* =========================================================
+HEADER
+========================================================= */
 
 .header{
     position:fixed;
+    top:0;
     left:0;
     right:0;
-    top:0;
     height:64px;
-    background:#fff;
-    border-bottom:1px solid #ddd;
+    background:#ffffff;
+    border-bottom:1px solid #dcdfe3;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    padding:0 18px;
+    padding:0 16px;
     z-index:1000;
 }
 
 .logo{
     font-size:20px;
-    font-weight:bold;
+    font-weight:700;
+    white-space:nowrap;
 }
 
 .logo span{
     color:#1677ff;
 }
 
-.mode{
+.mode-buttons{
     display:flex;
-    gap:6px;
-    margin-left:20px;
-    margin-right:auto;
+    gap:5px;
+    margin-left:25px;
 }
 
-.mode button{
-    border:1px solid #ddd;
+.mode-buttons button{
+    border:1px solid #d7dbe0;
     background:#fff;
-    padding:8px 13px;
+    padding:8px 14px;
     border-radius:7px;
 }
 
-.mode button.active{
+.mode-buttons button.active{
     background:#1677ff;
-    color:white;
+    color:#fff;
     border-color:#1677ff;
 }
 
 .header-right{
+    margin-left:auto;
     display:flex;
     gap:7px;
 }
 
 .header-btn{
-    border:1px solid #ddd;
-    background:white;
+    background:#fff;
+    border:1px solid #d7dbe0;
     padding:9px 12px;
     border-radius:7px;
 }
 
-.download{
+.download-btn{
     background:#1677ff;
     color:#fff;
     border:none;
@@ -108,7 +114,9 @@ button{
     font-weight:bold;
 }
 
-/* ================= APP ================= */
+/* =========================================================
+MAIN
+========================================================= */
 
 .app{
     position:absolute;
@@ -120,57 +128,57 @@ button{
     overflow:hidden;
 }
 
-/* ================= TOOLBAR ================= */
+/* =========================================================
+LEFT TOOLBAR
+========================================================= */
 
 .toolbar{
     width:220px;
     min-width:220px;
     background:#fff;
     border-right:1px solid #ddd;
-    padding:13px;
+    padding:12px;
     overflow-y:auto;
 }
 
-.title{
-    font-size:12px;
+.section-title{
+    font-size:11px;
     color:#777;
     font-weight:bold;
     text-transform:uppercase;
-    margin:7px 0 9px;
+    margin:8px 0;
 }
 
 .tool{
     width:100%;
-    border:1px solid #e0e2e5;
+    border:1px solid #e0e3e7;
     background:#fff;
-    padding:10px 11px;
     border-radius:7px;
+    padding:10px;
     margin-bottom:7px;
     text-align:left;
 }
 
 .tool:hover{
-    background:#f2f5f8;
+    background:#f4f6f8;
 }
 
-.tool.primary{
+.tool.blue{
     background:#1677ff;
-    border-color:#1677ff;
     color:white;
+    border-color:#1677ff;
 }
 
-.tool.danger{
+.tool.red{
     color:#d93025;
 }
 
-.section{
-    border-top:1px solid #e0e0e0;
-    margin-top:14px;
-    padding-top:13px;
+.divider{
+    border-top:1px solid #e2e2e2;
+    margin:14px 0;
 }
 
-input[type="text"],
-input[type="number"]{
+.text-control{
     width:100%;
     padding:8px;
     border:1px solid #ccc;
@@ -178,21 +186,23 @@ input[type="number"]{
     margin-bottom:7px;
 }
 
-input[type="color"]{
-    width:48px;
-    height:35px;
+.color-control{
+    width:45px;
+    height:34px;
 }
 
-/* ================= ADD PAGE MENU ================= */
+/* =========================================================
+ADD MENU
+========================================================= */
 
 .add-menu{
     display:none;
-    background:white;
     border:1px solid #ddd;
-    padding:7px;
+    background:#fff;
     border-radius:8px;
-    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    padding:6px;
     margin-bottom:7px;
+    box-shadow:0 5px 18px rgba(0,0,0,.12);
 }
 
 .add-menu.show{
@@ -200,31 +210,37 @@ input[type="color"]{
 }
 
 .add-menu button{
-    display:block;
     width:100%;
     border:none;
-    background:#f5f6f8;
+    background:#f5f6f7;
     padding:9px;
     margin:3px 0;
     border-radius:6px;
     text-align:left;
 }
 
-/* ================= PAGES ================= */
+.add-menu button:hover{
+    background:#e9edf2;
+}
 
-.pages{
+/* =========================================================
+PAGE PANEL
+========================================================= */
+
+.page-panel{
     width:190px;
     min-width:190px;
     background:#f7f8fa;
     border-right:1px solid #ddd;
-    padding:12px;
     overflow-y:auto;
+    padding:10px;
 }
 
-.pages-title{
+.page-panel-header{
     display:flex;
     justify-content:space-between;
-    margin-bottom:10px;
+    align-items:center;
+    padding:2px 3px 10px;
     font-size:13px;
     font-weight:bold;
     color:#555;
@@ -235,13 +251,13 @@ input[type="color"]{
     border:2px solid transparent;
     border-radius:7px;
     padding:5px;
-    margin-bottom:12px;
-    cursor:pointer;
+    margin-bottom:11px;
     position:relative;
+    cursor:pointer;
 }
 
 .thumbnail:hover{
-    box-shadow:0 2px 9px rgba(0,0,0,.12);
+    box-shadow:0 2px 10px rgba(0,0,0,.12);
 }
 
 .thumbnail.active{
@@ -254,44 +270,48 @@ input[type="color"]{
 
 .thumbnail.dragover{
     border-color:#1677ff;
-    transform:scale(1.03);
 }
 
 .thumbnail canvas{
     width:100%;
+    height:auto;
     display:block;
-    background:white;
+    background:#fff;
 }
 
-.thumb-label{
+.thumb-name{
     text-align:center;
-    color:#666;
     font-size:11px;
-    padding:5px 0 1px;
+    color:#666;
+    padding-top:4px;
 }
 
 .thumb-delete{
     position:absolute;
     right:3px;
     top:3px;
-    width:23px;
-    height:23px;
+    width:22px;
+    height:22px;
     border:none;
     border-radius:50%;
     background:#e53935;
-    color:white;
+    color:#fff;
     padding:0;
+    font-size:15px;
 }
 
-/* ================= EDITOR ================= */
+/* =========================================================
+EDITOR
+========================================================= */
 
 .editor{
     flex:1;
+    position:relative;
     overflow:auto;
     background:#dce1e7;
 }
 
-.editor-inner{
+.editor-area{
     min-width:100%;
     min-height:100%;
     padding:35px;
@@ -302,70 +322,75 @@ input[type="color"]{
 
 .page-wrapper{
     position:relative;
-    background:white;
-    box-shadow:0 5px 22px rgba(0,0,0,.25);
+    background:#fff;
+    box-shadow:0 5px 25px rgba(0,0,0,.25);
+    display:none;
 }
 
 #mainCanvas{
     display:block;
 }
 
-/* ================= ELEMENTS ================= */
+/* =========================================================
+OVERLAY ELEMENTS
+========================================================= */
 
-.element{
+.overlay{
     position:absolute;
-    border:1px dashed transparent;
-    cursor:move;
     user-select:none;
+    cursor:move;
+    border:1px dashed transparent;
 }
 
-.element:hover,
-.element.selected{
+.overlay:hover,
+.overlay.selected{
     border-color:#1677ff;
 }
 
-.element-text{
+.overlay-text{
     white-space:nowrap;
     padding:3px 5px;
 }
 
-.element-watermark{
+.overlay-watermark{
     white-space:nowrap;
     padding:3px 5px;
 }
 
-.element-image{
+.overlay-image{
     overflow:hidden;
 }
 
-.element-image img{
+.overlay-image img{
     width:100%;
     height:100%;
     object-fit:contain;
     pointer-events:none;
 }
 
-.element-delete{
+.overlay-delete{
     position:absolute;
     right:-10px;
     top:-10px;
     width:20px;
     height:20px;
+    padding:0;
     border:none;
     border-radius:50%;
     background:#e53935;
-    color:white;
+    color:#fff;
     display:none;
-    padding:0;
 }
 
-.element.selected .element-delete{
+.overlay.selected .overlay-delete{
     display:block;
 }
 
-/* ================= EMPTY ================= */
+/* =========================================================
+EMPTY SCREEN
+========================================================= */
 
-.empty{
+.empty-screen{
     position:absolute;
     inset:0;
     display:flex;
@@ -373,11 +398,11 @@ input[type="color"]{
     justify-content:center;
 }
 
-.empty-box{
-    width:430px;
+.empty-card{
+    width:440px;
     max-width:90%;
-    padding:45px 30px;
     background:white;
+    padding:45px 30px;
     border-radius:15px;
     text-align:center;
     box-shadow:0 5px 25px rgba(0,0,0,.12);
@@ -387,44 +412,48 @@ input[type="color"]{
     font-size:55px;
 }
 
-.empty-box h2{
-    margin-bottom:8px;
+.empty-card h2{
+    margin:10px 0;
 }
 
-.empty-box p{
+.empty-card p{
     color:#777;
     line-height:1.5;
 }
 
-.empty-box button{
+.empty-card button{
     background:#1677ff;
-    color:white;
+    color:#fff;
     border:none;
     padding:12px 24px;
     border-radius:7px;
 }
 
-/* ================= STATUS ================= */
+/* =========================================================
+STATUS
+========================================================= */
 
 .status{
     position:fixed;
-    bottom:23px;
+    bottom:20px;
     left:50%;
     transform:translateX(-50%);
     background:#202124;
-    color:white;
+    color:#fff;
     padding:10px 18px;
     border-radius:8px;
     display:none;
     z-index:5000;
 }
 
-/* ================= LOADING ================= */
+/* =========================================================
+LOADING
+========================================================= */
 
 .loading{
     position:fixed;
     inset:0;
-    background:rgba(255,255,255,.8);
+    background:rgba(255,255,255,.85);
     display:none;
     align-items:center;
     justify-content:center;
@@ -432,21 +461,21 @@ input[type="color"]{
 }
 
 .loading-box{
-    background:white;
-    padding:25px 35px;
+    background:#fff;
+    padding:28px 38px;
     border-radius:10px;
-    box-shadow:0 5px 25px rgba(0,0,0,.2);
     text-align:center;
+    box-shadow:0 5px 25px rgba(0,0,0,.2);
 }
 
 .spinner{
-    width:35px;
-    height:35px;
+    width:38px;
+    height:38px;
     border:4px solid #ddd;
     border-top-color:#1677ff;
     border-radius:50%;
     animation:spin 1s linear infinite;
-    margin:auto auto 12px;
+    margin:0 auto 13px;
 }
 
 @keyframes spin{
@@ -455,31 +484,22 @@ input[type="color"]{
     }
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================================================
+MOBILE
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:750px){
+
     .toolbar{
-        width:185px;
-        min-width:185px;
+        width:175px;
+        min-width:175px;
     }
 
-    .pages{
-        width:150px;
-        min-width:150px;
-    }
-}
-
-@media(max-width:650px){
-    .pages{
+    .page-panel{
         display:none;
     }
 
-    .toolbar{
-        width:170px;
-        min-width:170px;
-    }
-
-    .mode{
+    .mode-buttons{
         display:none;
     }
 
@@ -492,9 +512,9 @@ input[type="color"]{
 
 <body>
 
-<!-- =====================================================
+<!-- =========================================================
 HEADER
-===================================================== -->
+========================================================= -->
 
 <header class="header">
 
@@ -502,17 +522,17 @@ HEADER
         <span>PDF</span> & PPT Editor
     </div>
 
-    <div class="mode">
+    <div class="mode-buttons">
 
         <button
-            id="pdfModeBtn"
+            id="pdfMode"
             class="active"
             onclick="setMode('pdf')">
             📄 PDF
         </button>
 
         <button
-            id="pptModeBtn"
+            id="pptMode"
             onclick="setMode('ppt')">
             📊 PPT
         </button>
@@ -540,7 +560,7 @@ HEADER
         </button>
 
         <button
-            class="download"
+            class="download-btn"
             onclick="downloadDocument()">
             ⬇ Download
         </button>
@@ -550,36 +570,33 @@ HEADER
 </header>
 
 
-<!-- =====================================================
+<!-- =========================================================
 APP
-===================================================== -->
+========================================================= -->
 
 <div class="app">
 
-
-<!-- =====================================================
+<!-- =========================================================
 TOOLBAR
-===================================================== -->
+========================================================= -->
 
 <aside class="toolbar">
 
-    <div class="title">
+    <div class="section-title">
         Document
     </div>
 
     <button
-        class="tool primary"
+        class="tool blue"
         onclick="openDocument()">
         📂 Open PDF / PPTX
     </button>
 
-
     <button
-        class="tool primary"
+        class="tool blue"
         onclick="toggleAddMenu()">
         ➕ Add Page / Slide
     </button>
-
 
     <div
         id="addMenu"
@@ -589,28 +606,24 @@ TOOLBAR
             📄 Blank Page / Slide
         </button>
 
-        <button
-            onclick="choosePDFPages()">
+        <button onclick="choosePDFPages()">
             📥 Add PDF Pages
         </button>
 
-        <button
-            onclick="choosePPTPages()">
+        <button onclick="choosePPTPages()">
             📊 Add PPTX Slides
         </button>
 
-        <button
-            onclick="chooseImagePage()">
+        <button onclick="chooseImagePage()">
             🖼️ Add Image as Page
         </button>
 
     </div>
 
 
-    <div class="title">
-        Elements
+    <div class="section-title">
+        Add
     </div>
-
 
     <button
         class="tool"
@@ -618,13 +631,11 @@ TOOLBAR
         ✏️ Add Text
     </button>
 
-
     <button
         class="tool"
         onclick="addImage()">
         🖼️ Add Photo
     </button>
-
 
     <button
         class="tool"
@@ -633,156 +644,148 @@ TOOLBAR
     </button>
 
 
-    <div class="section">
+    <div class="divider"></div>
 
-        <div class="title">
-            Page / Slide
-        </div>
 
-        <button
-            class="tool"
-            onclick="previousPage()">
-            ← Previous
-        </button>
-
-        <button
-            class="tool"
-            onclick="nextPage()">
-            Next →
-        </button>
-
-        <button
-            class="tool"
-            onclick="rotatePage()">
-            🔄 Rotate
-        </button>
-
-        <button
-            class="tool danger"
-            onclick="deleteCurrentPage()">
-            🗑️ Delete
-        </button>
-
+    <div class="section-title">
+        Text
     </div>
 
+    <input
+        id="textInput"
+        class="text-control"
+        type="text"
+        placeholder="Enter text">
 
-    <div class="section">
+    <input
+        id="fontSize"
+        class="text-control"
+        type="number"
+        min="5"
+        max="200"
+        value="24">
 
-        <div class="title">
-            Text Settings
-        </div>
-
-        <input
-            id="textInput"
-            type="text"
-            placeholder="Text">
-
-
-        <input
-            id="fontSize"
-            type="number"
-            value="24"
-            min="5"
-            max="200">
-
-
-        <label style="font-size:12px">
-            Text Color
-        </label>
-
-        <input
-            id="textColor"
-            type="color"
-            value="#000000">
-
+    <div style="font-size:12px;margin-bottom:4px">
+        Text Color
     </div>
 
-
-    <div class="section">
-
-        <div class="title">
-            Watermark
-        </div>
-
-        <input
-            id="watermarkInput"
-            type="text"
-            placeholder="Watermark">
+    <input
+        id="textColor"
+        class="color-control"
+        type="color"
+        value="#000000">
 
 
-        <input
-            id="watermarkSize"
-            type="number"
-            value="45"
-            min="10"
-            max="150">
+    <div class="divider"></div>
 
 
-        <label style="font-size:12px">
-            Opacity
-        </label>
-
-        <input
-            id="watermarkOpacity"
-            type="range"
-            min=".05"
-            max="1"
-            step=".05"
-            value=".3"
-            style="width:100%">
-
+    <div class="section-title">
+        Watermark
     </div>
 
+    <input
+        id="watermarkInput"
+        class="text-control"
+        type="text"
+        placeholder="Watermark text">
 
-    <div class="section">
+    <input
+        id="watermarkSize"
+        class="text-control"
+        type="number"
+        min="10"
+        max="150"
+        value="45">
 
-        <div class="title">
-            View
-        </div>
-
-        <button
-            class="tool"
-            onclick="zoomOut()">
-            − Zoom Out
-        </button>
-
-        <button
-            class="tool"
-            onclick="zoomIn()">
-            + Zoom In
-        </button>
-
+    <div style="font-size:12px">
+        Opacity
     </div>
 
+    <input
+        id="watermarkOpacity"
+        type="range"
+        min=".05"
+        max="1"
+        step=".05"
+        value=".3"
+        style="width:100%">
 
-    <div class="section">
 
-        <button
-            class="tool"
-            onclick="addPageNumbers()">
-            🔢 Page Numbers
-        </button>
+    <div class="divider"></div>
 
-        <button
-            class="tool"
-            onclick="clearItems()">
-            🧹 Clear Added Items
-        </button>
 
+    <div class="section-title">
+        Page / Slide
     </div>
+
+    <button
+        class="tool"
+        onclick="previousPage()">
+        ← Previous
+    </button>
+
+    <button
+        class="tool"
+        onclick="nextPage()">
+        Next →
+    </button>
+
+    <button
+        class="tool"
+        onclick="rotatePage()">
+        🔄 Rotate
+    </button>
+
+    <button
+        class="tool red"
+        onclick="deleteCurrentPage()">
+        🗑️ Delete
+    </button>
+
+
+    <div class="divider"></div>
+
+
+    <div class="section-title">
+        Other
+    </div>
+
+    <button
+        class="tool"
+        onclick="addPageNumbers()">
+        🔢 Page Numbers
+    </button>
+
+    <button
+        class="tool"
+        onclick="clearItems()">
+        🧹 Clear Added Items
+    </button>
+
+    <button
+        class="tool"
+        onclick="zoomOut()">
+        − Zoom Out
+    </button>
+
+    <button
+        class="tool"
+        onclick="zoomIn()">
+        + Zoom In
+    </button>
 
 </aside>
 
 
-<!-- =====================================================
-THUMBNAILS
-===================================================== -->
+<!-- =========================================================
+PAGE PANEL
+========================================================= -->
 
-<aside class="pages">
+<aside class="page-panel">
 
-    <div class="pages-title">
+    <div class="page-panel-header">
 
-        <span id="pageTitle">
+        <span id="panelTitle">
             Pages
         </span>
 
@@ -797,20 +800,21 @@ THUMBNAILS
 </aside>
 
 
-<!-- =====================================================
+<!-- =========================================================
 EDITOR
-===================================================== -->
+========================================================= -->
 
 <main class="editor">
 
-    <div class="editor-inner">
+    <div class="editor-area">
 
         <div
             id="pageWrapper"
-            class="page-wrapper"
-            style="display:none">
+            class="page-wrapper">
 
-            <canvas id="mainCanvas"></canvas>
+            <canvas
+                id="mainCanvas">
+            </canvas>
 
         </div>
 
@@ -818,10 +822,10 @@ EDITOR
 
 
     <div
-        id="empty"
-        class="empty">
+        id="emptyScreen"
+        class="empty-screen">
 
-        <div class="empty-box">
+        <div class="empty-card">
 
             <div class="empty-icon">
                 📄
@@ -832,9 +836,7 @@ EDITOR
             </h2>
 
             <p>
-                Edit PDF and PowerPoint presentations,
-                add pages, slides, text, images and
-                watermarks.
+                Open a PDF or PPTX file to start editing.
             </p>
 
             <button
@@ -851,9 +853,9 @@ EDITOR
 </div>
 
 
-<!-- =====================================================
-FILE INPUTS
-===================================================== -->
+<!-- =========================================================
+INPUTS
+========================================================= -->
 
 <input
     id="mainFile"
@@ -861,13 +863,11 @@ FILE INPUTS
     accept=".pdf,.pptx"
     hidden>
 
-
 <input
     id="extraPDF"
     type="file"
     accept=".pdf"
     hidden>
-
 
 <input
     id="extraPPT"
@@ -875,13 +875,11 @@ FILE INPUTS
     accept=".pptx"
     hidden>
 
-
 <input
     id="imagePage"
     type="file"
     accept="image/png,image/jpeg,image/jpg"
     hidden>
-
 
 <input
     id="imageElement"
@@ -890,9 +888,9 @@ FILE INPUTS
     hidden>
 
 
-<!-- =====================================================
+<!-- =========================================================
 STATUS
-===================================================== -->
+========================================================= -->
 
 <div
     id="status"
@@ -900,9 +898,9 @@ STATUS
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
 LOADING
-===================================================== -->
+========================================================= -->
 
 <div
     id="loading"
@@ -924,7 +922,7 @@ LOADING
 <script>
 
 /* =========================================================
-PDF.JS
+PDF WORKER
 ========================================================= */
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -932,58 +930,75 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 
 /* =========================================================
-GLOBAL VARIABLES
+GLOBAL STATE
 ========================================================= */
 
-let mode="pdf";
+let mode = "pdf";
 
-let originalPDF=null;
+let pages = [];
 
-let originalPPT=null;
+let currentPage = 0;
 
-let pdfDocument=null;
+let zoom = 1.25;
 
-let pages=[];
+let originalPDF = null;
 
-let currentPage=0;
+let originalPDFDocument = null;
 
-let zoom=1.25;
+let originalPPT = null;
 
-let undoStack=[];
+let undoStack = [];
 
-let redoStack=[];
+let redoStack = [];
+
+/*
+IMPORTANT:
+
+Each PPT slide gets its own completed PNG snapshot.
+
+This is the main fix for slide mixing.
+*/
+
+let pptRenderCache = new Map();
 
 
 /* =========================================================
 UTILITY
 ========================================================= */
 
-function status(message){
+function showStatus(message){
 
-    const s=
+    const el =
         document.getElementById("status");
 
-    s.innerText=message;
+    el.innerText = message;
 
-    s.style.display="block";
+    el.style.display = "block";
 
-    setTimeout(
-        ()=>s.style.display="none",
-        2500
+    clearTimeout(
+        window.statusTimer
     );
+
+    window.statusTimer =
+        setTimeout(
+            ()=>{
+                el.style.display="none";
+            },
+            2500
+        );
 
 }
 
 
-function loading(message){
+function showLoading(message){
 
     document.getElementById(
         "loadingText"
-    ).innerText=message;
+    ).innerText = message;
 
     document.getElementById(
         "loading"
-    ).style.display="flex";
+    ).style.display = "flex";
 
 }
 
@@ -992,7 +1007,7 @@ function hideLoading(){
 
     document.getElementById(
         "loading"
-    ).style.display="none";
+    ).style.display = "none";
 
 }
 
@@ -1003,34 +1018,34 @@ MODE
 
 function setMode(newMode){
 
-    mode=newMode;
+    mode = newMode;
 
     document
-        .getElementById("pdfModeBtn")
+        .getElementById("pdfMode")
         .classList.toggle(
             "active",
-            mode==="pdf"
+            mode === "pdf"
         );
 
     document
-        .getElementById("pptModeBtn")
+        .getElementById("pptMode")
         .classList.toggle(
             "active",
-            mode==="ppt"
+            mode === "ppt"
         );
 
     document
-        .getElementById("pageTitle")
-        .innerText=
-        mode==="pdf"
-        ?"Pages"
-        :"Slides";
+        .getElementById("panelTitle")
+        .innerText =
+        mode === "ppt"
+        ? "Slides"
+        : "Pages";
 
 }
 
 
 /* =========================================================
-OPEN
+OPEN DOCUMENT
 ========================================================= */
 
 function openDocument(){
@@ -1046,89 +1061,101 @@ document
 .getElementById("mainFile")
 .addEventListener(
     "change",
-    handleMainFile
-);
+    async function(e){
 
+        const file =
+            e.target.files[0];
 
-async function handleMainFile(event){
+        if(!file)
+            return;
 
-    const file=event.target.files[0];
+        try{
 
-    if(!file) return;
+            const name =
+                file.name.toLowerCase();
 
-    const name=
-        file.name.toLowerCase();
+            if(
+                name.endsWith(".pdf")
+            ){
 
-    try{
+                await loadPDF(file);
 
-        if(name.endsWith(".pdf")){
+            }
+            else if(
+                name.endsWith(".pptx")
+            ){
 
-            await openPDF(file);
+                await loadPPTX(file);
+
+            }
+            else{
+
+                alert(
+                    "Please select a PDF or PPTX file."
+                );
+
+            }
 
         }
+        catch(error){
 
-        else if(
-            name.endsWith(".pptx")
-        ){
+            console.error(error);
 
-            await openPPTX(file);
-
-        }
-
-        else{
+            hideLoading();
 
             alert(
-                "Please select a PDF or PPTX file."
+                "Could not open the file.\n\n"+
+                error.message
             );
 
         }
 
-    }
-    catch(error){
-
-        console.error(error);
-
-        alert(
-            "Unable to open file.\n\n"+
-            error.message
-        );
+        e.target.value = "";
 
     }
-
-    event.target.value="";
-
-}
+);
 
 
 /* =========================================================
-OPEN PDF
+LOAD PDF
 ========================================================= */
 
-async function openPDF(file){
+async function loadPDF(file){
 
-    loading("Opening PDF...");
+    showLoading(
+        "Opening PDF..."
+    );
 
-    originalPDF=
+    originalPDF =
         new Uint8Array(
             await file.arrayBuffer()
         );
 
-    pdfDocument=
-        await pdfjsLib.getDocument({
-            data:originalPDF
-        }).promise;
+
+    originalPDFDocument =
+        await pdfjsLib
+            .getDocument({
+                data:originalPDF
+            })
+            .promise;
 
 
-    pages=[];
+    pages = [];
 
 
     for(
         let i=1;
-        i<=pdfDocument.numPages;
+        i<=originalPDFDocument.numPages;
         i++
     ){
 
         pages.push({
+
+            id:
+                "pdf-" +
+                Date.now() +
+                "-" +
+                i,
 
             type:"pdf",
 
@@ -1143,27 +1170,30 @@ async function openPDF(file){
     }
 
 
-    mode="pdf";
-
     setMode("pdf");
 
-    currentPage=0;
+    currentPage = 0;
 
-    undoStack=[];
+    undoStack = [];
 
-    redoStack=[];
+    redoStack = [];
+
+    pptRenderCache.clear();
 
 
     showEditor();
+
 
     await renderThumbnails();
 
     await renderCurrentPage();
 
+
     hideLoading();
 
-    status(
-        pdfDocument.numPages+
+
+    showStatus(
+        pages.length+
         " PDF page(s) loaded"
     );
 
@@ -1171,54 +1201,94 @@ async function openPDF(file){
 
 
 /* =========================================================
-OPEN PPTX
+LOAD PPTX
 ========================================================= */
 
-async function openPPTX(file){
+async function loadPPTX(file){
 
-    loading("Reading PowerPoint...");
+    showLoading(
+        "Reading PowerPoint..."
+    );
 
-    const bytes=
+
+    const bytes =
         new Uint8Array(
             await file.arrayBuffer()
         );
 
-    originalPPT=bytes;
 
-    pages=
-        await parsePPTX(bytes);
+    originalPPT = bytes;
+
+    pptRenderCache.clear();
+
+
+    pages =
+        await parsePPTX(
+            bytes
+        );
 
 
     if(!pages.length){
 
         throw new Error(
-            "No slides were found."
+            "No PowerPoint slides found."
         );
 
     }
 
 
-    mode="ppt";
-
     setMode("ppt");
 
-    currentPage=0;
+    currentPage = 0;
 
-    undoStack=[];
+    undoStack = [];
 
-    redoStack=[];
+    redoStack = [];
+
 
     showEditor();
+
+
+    /*
+     * PRE-RENDER EVERY SLIDE.
+
+     * This is intentional.
+     * It prevents slides from mixing.
+     */
+
+    for(
+        let i=0;
+        i<pages.length;
+        i++
+    ){
+
+        showLoading(
+            "Rendering slide "+
+            (i+1)+
+            " of "+
+            pages.length+
+            "..."
+        );
+
+
+        await renderPPTSnapshot(
+            pages[i]
+        );
+
+    }
+
 
     await renderThumbnails();
 
     await renderCurrentPage();
 
+
     hideLoading();
 
-    status(
+
+    showStatus(
         pages.length+
-        " slide(s) loaded"
+        " PowerPoint slide(s) loaded"
     );
 
 }
@@ -1231,7 +1301,7 @@ SHOW EDITOR
 function showEditor(){
 
     document
-        .getElementById("empty")
+        .getElementById("emptyScreen")
         .style.display="none";
 
     document
@@ -1245,379 +1315,168 @@ function showEditor(){
 PPTX PARSER
 ========================================================= */
 
-/*
-   This parser reads the basic PPTX structure:
-
-   ppt/slides/slideX.xml
-   ppt/slides/_rels/slideX.xml.rels
-   ppt/media/*
-
-   It extracts:
-   - slide size
-   - text
-   - images
-   - basic positions
-
-   This makes the browser editor able to work
-   without a paid API/server.
-*/
-
 async function parsePPTX(bytes){
 
-    const zip=
-        await JSZip.loadAsync(bytes);
-
-    const slideFiles=[];
-
-
-    Object.keys(zip.files)
-    .filter(
-        x=>
-        /^ppt\/slides\/slide\d+\.xml$/
-        .test(x)
-    )
-    .forEach(
-        x=>slideFiles.push(x)
-    );
+    const zip =
+        await JSZip.loadAsync(
+            bytes
+        );
 
 
-    slideFiles.sort(
-        (a,b)=>{
+    const presentationXML =
+        await getZipText(
+            zip,
+            "ppt/presentation.xml"
+        );
 
-            const na=
-                Number(
-                    a.match(/slide(\d+)/)[1]
-                );
 
-            const nb=
-                Number(
-                    b.match(/slide(\d+)/)[1]
-                );
-
-            return na-nb;
-
-        }
-    );
+    const relsXML =
+        await getZipText(
+            zip,
+            "ppt/_rels/presentation.xml.rels"
+        );
 
 
     /*
-     * Default widescreen size.
-     * PPTX normally uses EMU units.
+     * Read actual slide order from
+     * presentation.xml.
      */
 
-    const slideWidth=13.333;
+    const slideRelationshipIds =
+        [
+            ...presentationXML.matchAll(
+                /<p:sldId[^>]*r:id="([^"]+)"/g
+            )
+        ]
+        .map(
+            x=>x[1]
+        );
 
-    const slideHeight=7.5;
+
+    /*
+     * Relationship ID -> slide XML
+     */
+
+    const relationMap =
+        {};
 
 
-    const result=[];
+    const relMatches =
+        [
+            ...relsXML.matchAll(
+                /<Relationship\b[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"/g
+            )
+        ];
+
+
+    relMatches.forEach(
+        match=>{
+
+            relationMap[
+                match[1]
+            ] =
+                normalizeTarget(
+                    "ppt/",
+                    match[2]
+                );
+
+        }
+    );
+
+
+    const result = [];
 
 
     for(
-        const slideFile of slideFiles
+        let i=0;
+        i<slideRelationshipIds.length;
+        i++
     ){
 
-        const xml=
+        const rid =
+            slideRelationshipIds[i];
+
+
+        const slidePath =
+            relationMap[rid];
+
+
+        if(
+            !slidePath ||
+            !zip.file(slidePath)
+        )
+            continue;
+
+
+        const slideXML =
             await zip
-                .file(slideFile)
+                .file(slidePath)
                 .async("text");
 
 
-        const elements=[];
+        const slideNumber =
+            i+1;
 
 
         /*
-         * TEXT BOXES
+         * Slide relationships
          */
 
-        const shapeMatches=
-            xml.match(
-                /<p:sp[\s\S]*?<\/p:sp>/g
-            )||[];
-
-
-        for(
-            const shape of shapeMatches
-        ){
-
-            const textMatches=
-                [
-                    ...shape.matchAll(
-                        /<a:t>([\s\S]*?)<\/a:t>/g
-                    )
-                ];
-
-
-            if(!textMatches.length)
-                continue;
-
-
-            let text=
-                textMatches
-                .map(
-                    x=>
-                    decodeXML(x[1])
-                )
-                .join("");
-
-
-            /*
-             * Position
-             */
-
-            const off =
-                shape.match(
-                    /<a:off[^>]*x="(\d+)"[^>]*y="(\d+)"/
-                );
-
-
-            const ext =
-                shape.match(
-                    /<a:ext[^>]*cx="(\d+)"[^>]*cy="(\d+)"/
-                );
-
-
-            let x=1;
-
-            let y=1;
-
-            let w=5;
-
-            let h=1;
-
-
-            if(off){
-
-                x=
-                    Number(off[1])/
-                    914400;
-
-                y=
-                    Number(off[2])/
-                    914400;
-
-            }
-
-
-            if(ext){
-
-                w=
-                    Number(ext[1])/
-                    914400;
-
-                h=
-                    Number(ext[2])/
-                    914400;
-
-            }
-
-
-            elements.push({
-
-                type:"pptText",
-
-                text:text,
-
-                x:x,
-
-                y:y,
-
-                w:w,
-
-                h:h,
-
-                fontSize:24,
-
-                color:"#000000"
-
-            });
-
-        }
-
-
-        /*
-         * IMAGES
-         */
-
-        const pictureMatches=
-            xml.match(
-                /<p:pic[\s\S]*?<\/p:pic>/g
-            )||[];
-
-
-        for(
-            const picture of pictureMatches
-        ){
-
-            const embed=
-                picture.match(
-                    /r:embed="([^"]+)"/
-                );
-
-
-            if(!embed)
-                continue;
-
-
-            const relPath=
-                slideFile
+        const relPath =
+            slidePath
                 .replace(
-                    /ppt\/slides\/slide\d+\.xml$/,
-                    "ppt/slides/_rels/"
-                )+
-                slideFile.match(
-                    /slide\d+\.xml$/
-                )[0]+
-                ".rels";
+                    /ppt\/slides\/([^/]+)$/,
+                    "ppt/slides/_rels/$1.rels"
+                );
 
 
-            let mediaPath=null;
+        let slideRels = "";
 
 
-            if(zip.file(relPath)){
+        if(zip.file(relPath)){
 
-                const relXML=
-                    await zip
-                        .file(relPath)
-                        .async("text");
-
-
-                const relRegex=
-                    new RegExp(
-                        '<Relationship[^>]*Id="'+
-                        escapeRegExp(embed[1])+
-                        '"[^>]*Target="([^"]+)"'
-                    );
-
-
-                const rel=
-                    relXML.match(relRegex);
-
-
-                if(rel){
-
-                    mediaPath=
-                        normalizeMediaPath(
-                            rel[1]
-                        );
-
-                }
-
-            }
-
-
-            if(
-                !mediaPath ||
-                !zip.file(mediaPath)
-            )
-                continue;
-
-
-            const imageBytes=
+            slideRels =
                 await zip
-                    .file(mediaPath)
-                    .async("base64");
-
-
-            const ext=
-                mediaPath
-                .split(".")
-                .pop()
-                .toLowerCase();
-
-
-            const dataURL=
-                "data:image/"+
-                (
-                    ext==="jpg" ||
-                    ext==="jpeg"
-                    ?"jpeg"
-                    :
-                    ext
-                )+
-                ";base64,"+
-                imageBytes;
-
-
-            const off=
-                picture.match(
-                    /<a:off[^>]*x="(\d+)"[^>]*y="(\d+)"/
-                );
-
-
-            const ex=
-                picture.match(
-                    /<a:ext[^>]*cx="(\d+)"[^>]*cy="(\d+)"/
-                );
-
-
-            let x=1;
-
-            let y=1;
-
-            let w=3;
-
-            let h=2;
-
-
-            if(off){
-
-                x=
-                    Number(off[1])/
-                    914400;
-
-                y=
-                    Number(off[2])/
-                    914400;
-
-            }
-
-
-            if(ex){
-
-                w=
-                    Number(ex[1])/
-                    914400;
-
-                h=
-                    Number(ex[2])/
-                    914400;
-
-            }
-
-
-            elements.push({
-
-                type:"pptImage",
-
-                src:dataURL,
-
-                x:x,
-
-                y:y,
-
-                w:w,
-
-                h:h
-
-            });
+                    .file(relPath)
+                    .async("text");
 
         }
+
+
+        const mediaMap =
+            await buildSlideMediaMap(
+                zip,
+                slideRels,
+                slidePath
+            );
+
+
+        const elements =
+            parseSlideElements(
+                slideXML,
+                mediaMap
+            );
 
 
         result.push({
 
+            id:
+                "ppt-" +
+                Date.now() +
+                "-" +
+                slideNumber,
+
             type:"ppt",
 
-            width:slideWidth,
+            width:13.333,
 
-            height:slideHeight,
+            height:7.5,
 
             rotation:0,
 
-            overlays:[],
+            elements:elements,
 
-            elements:elements
+            overlays:[]
 
         });
 
@@ -1630,7 +1489,483 @@ async function parsePPTX(bytes){
 
 
 /* =========================================================
-XML HELPERS
+GET ZIP TEXT
+========================================================= */
+
+async function getZipText(
+    zip,
+    path
+){
+
+    const file =
+        zip.file(path);
+
+    if(!file)
+        return "";
+
+    return await file.async(
+        "text"
+    );
+
+}
+
+
+/* =========================================================
+NORMALIZE TARGET
+========================================================= */
+
+function normalizeTarget(
+    base,
+    target
+){
+
+    target =
+        target
+            .replace(
+                /\\/g,
+                "/"
+            );
+
+
+    if(
+        target.startsWith("/")
+    ){
+
+        return target.substring(1);
+
+    }
+
+
+    const parts =
+        (
+            base+
+            target
+        )
+        .split("/");
+
+
+    const output=[];
+
+
+    parts.forEach(
+        part=>{
+
+            if(
+                !part ||
+                part==="."
+            )
+                return;
+
+
+            if(part===".."){
+
+                output.pop();
+
+            }
+            else{
+
+                output.push(part);
+
+            }
+
+        }
+    );
+
+
+    return output.join("/");
+
+}
+
+
+/* =========================================================
+BUILD MEDIA MAP
+========================================================= */
+
+async function buildSlideMediaMap(
+    zip,
+    relXML,
+    slidePath
+){
+
+    const map = {};
+
+
+    const matches =
+        [
+            ...relXML.matchAll(
+                /<Relationship\b[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"/g
+            )
+        ];
+
+
+    for(
+        const match of matches
+    ){
+
+        const rid =
+            match[1];
+
+        const target =
+            match[2];
+
+
+        /*
+         * Ignore hyperlinks.
+         */
+
+        if(
+            /hyperlink/i.test(
+                match[0]
+            )
+        )
+            continue;
+
+
+        const slideFolder =
+            slidePath.substring(
+                0,
+                slidePath.lastIndexOf("/")
+            )+
+            "/";
+
+
+        let mediaPath =
+            normalizeTarget(
+                slideFolder,
+                target
+            );
+
+
+        if(
+            !mediaPath.startsWith(
+                "ppt/"
+            )
+        ){
+
+            mediaPath =
+                "ppt/"+
+                mediaPath.replace(
+                    /^ppt\//,
+                    ""
+                );
+
+        }
+
+
+        if(
+            zip.file(mediaPath)
+        ){
+
+            const blob =
+                await zip
+                    .file(mediaPath)
+                    .async("blob");
+
+
+            const dataURL =
+                await blobToDataURL(
+                    blob
+                );
+
+
+            map[rid] =
+                dataURL;
+
+        }
+
+    }
+
+
+    return map;
+
+}
+
+
+/* =========================================================
+PARSE SLIDE ELEMENTS
+========================================================= */
+
+function parseSlideElements(
+    xml,
+    mediaMap
+){
+
+    const elements = [];
+
+
+    /*
+     * TEXT SHAPES
+     */
+
+    const shapes =
+        xml.match(
+            /<p:sp\b[\s\S]*?<\/p:sp>/g
+        ) || [];
+
+
+    shapes.forEach(
+        shape=>{
+
+            const textParts =
+                [
+                    ...shape.matchAll(
+                        /<a:t>([\s\S]*?)<\/a:t>/g
+                    )
+                ];
+
+
+            if(!textParts.length)
+                return;
+
+
+            const text =
+                textParts
+                    .map(
+                        m=>
+                        decodeXML(
+                            m[1]
+                        )
+                    )
+                    .join("");
+
+
+            if(!text.trim())
+                return;
+
+
+            const position =
+                getShapePosition(
+                    shape
+                );
+
+
+            const fontSize =
+                getFontSize(
+                    shape
+                );
+
+
+            const color =
+                getTextColor(
+                    shape
+                );
+
+
+            elements.push({
+
+                type:"text",
+
+                text:text,
+
+                x:position.x,
+
+                y:position.y,
+
+                w:position.w,
+
+                h:position.h,
+
+                fontSize:fontSize,
+
+                color:color
+
+            });
+
+        }
+    );
+
+
+    /*
+     * PICTURES
+     */
+
+    const pictures =
+        xml.match(
+            /<p:pic\b[\s\S]*?<\/p:pic>/g
+        ) || [];
+
+
+    pictures.forEach(
+        picture=>{
+
+            const embed =
+                picture.match(
+                    /r:embed="([^"]+)"/
+                );
+
+
+            if(!embed)
+                return;
+
+
+            const src =
+                mediaMap[
+                    embed[1]
+                ];
+
+
+            if(!src)
+                return;
+
+
+            const position =
+                getShapePosition(
+                    picture
+                );
+
+
+            elements.push({
+
+                type:"image",
+
+                src:src,
+
+                x:position.x,
+
+                y:position.y,
+
+                w:position.w,
+
+                h:position.h
+
+            });
+
+        }
+    );
+
+
+    return elements;
+
+}
+
+
+/* =========================================================
+GET SHAPE POSITION
+========================================================= */
+
+function getShapePosition(
+    xml
+){
+
+    const off =
+        xml.match(
+            /<a:off\b[^>]*x="(-?\d+)"[^>]*y="(-?\d+)"/
+        );
+
+
+    const ext =
+        xml.match(
+            /<a:ext\b[^>]*cx="(\d+)"[^>]*cy="(\d+)"/
+        );
+
+
+    let x=1;
+
+    let y=1;
+
+    let w=5;
+
+    let h=1;
+
+
+    if(off){
+
+        x =
+            Number(
+                off[1]
+            ) /
+            914400;
+
+        y =
+            Number(
+                off[2]
+            ) /
+            914400;
+
+    }
+
+
+    if(ext){
+
+        w =
+            Number(
+                ext[1]
+            ) /
+            914400;
+
+        h =
+            Number(
+                ext[2]
+            ) /
+            914400;
+
+    }
+
+
+    return {
+        x,
+        y,
+        w,
+        h
+    };
+
+}
+
+
+/* =========================================================
+GET FONT SIZE
+========================================================= */
+
+function getFontSize(
+    xml
+){
+
+    const match =
+        xml.match(
+            /<a:rPr\b[^>]*sz="(\d+)"/
+        );
+
+
+    if(!match)
+        return 24;
+
+
+    return (
+        Number(
+            match[1]
+        ) /
+        100
+    );
+
+}
+
+
+/* =========================================================
+GET TEXT COLOR
+========================================================= */
+
+function getTextColor(
+    xml
+){
+
+    const match =
+        xml.match(
+            /<a:srgbClr\b[^>]*val="([0-9A-Fa-f]{6})"/
+        );
+
+
+    if(!match)
+        return "#000000";
+
+
+    return "#"+
+        match[1];
+
+}
+
+
+/* =========================================================
+DECODE XML
 ========================================================= */
 
 function decodeXML(text){
@@ -1660,49 +1995,378 @@ function decodeXML(text){
 }
 
 
-function escapeRegExp(text){
+/* =========================================================
+BLOB -> DATA URL
+========================================================= */
 
-    return text.replace(
-        /[.*+?^${}()|[\]\\]/g,
-        "\\$&"
+function blobToDataURL(
+    blob
+){
+
+    return new Promise(
+        resolve=>{
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                ()=>{
+                    resolve(
+                        reader.result
+                    );
+                };
+
+            reader.readAsDataURL(
+                blob
+            );
+
+        }
     );
 
 }
 
 
-function normalizeMediaPath(path){
+/* =========================================================
+RENDER PPT SNAPSHOT
+========================================================= */
 
-    path=
-        path.replace(
-            /\\/g,
-            "/"
+/*
+IMPORTANT FIX:
+
+This function waits for ALL images to finish loading
+before returning.
+
+The previous version used img.onload directly,
+which could draw an old slide after the user
+had already selected another slide.
+
+This version never does that.
+*/
+
+async function renderPPTSnapshot(
+    state
+){
+
+    const key =
+        state.id;
+
+
+    if(
+        pptRenderCache.has(key)
+    ){
+
+        return pptRenderCache.get(
+            key
+        );
+
+    }
+
+
+    const canvas =
+        document.createElement(
+            "canvas"
         );
 
 
-    if(
-        path.startsWith("../")
+    const WIDTH = 1600;
+
+    const HEIGHT = 900;
+
+
+    canvas.width = WIDTH;
+
+    canvas.height = HEIGHT;
+
+
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
+
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        WIDTH,
+        HEIGHT
+    );
+
+
+    const scale =
+        WIDTH /
+        (
+            state.width*
+            96
+        );
+
+
+    /*
+     * First draw ALL images.
+     */
+
+    const imagePromises = [];
+
+
+    for(
+        const item of state.elements || []
     ){
 
-        return "ppt/"+
-            path.replace(
-                /^(\.\.\/)+/,
-                ""
+        if(
+            item.type !== "image"
+        )
+            continue;
+
+
+        const image =
+            new Image();
+
+
+        const promise =
+            new Promise(
+                resolve=>{
+
+                    image.onload =
+                        ()=>{
+                            resolve({
+                                image,
+                                item
+                            });
+                        };
+
+
+                    image.onerror =
+                        ()=>{
+                            resolve(null);
+                        };
+
+
+                    image.src =
+                        item.src;
+
+                }
             );
 
+
+        imagePromises.push(
+            promise
+        );
+
     }
 
 
-    if(
-        path.startsWith("/")
+    const loadedImages =
+        await Promise.all(
+            imagePromises
+        );
+
+
+    /*
+     * Draw images.
+     */
+
+    loadedImages.forEach(
+        data=>{
+
+            if(!data)
+                return;
+
+
+            const {
+                image,
+                item
+            } = data;
+
+
+            ctx.drawImage(
+
+                image,
+
+                item.x*
+                96*
+                scale,
+
+                item.y*
+                96*
+                scale,
+
+                item.w*
+                96*
+                scale,
+
+                item.h*
+                96*
+                scale
+
+            );
+
+        }
+    );
+
+
+    /*
+     * Draw text AFTER images.
+     */
+
+    for(
+        const item of state.elements || []
     ){
 
-        return path.substring(1);
+        if(
+            item.type !== "text"
+        )
+            continue;
+
+
+        const x =
+            item.x*
+            96*
+            scale;
+
+
+        const y =
+            item.y*
+            96*
+            scale;
+
+
+        const width =
+            Math.max(
+                100,
+                item.w*
+                96*
+                scale
+            );
+
+
+        const size =
+            item.fontSize*
+            scale;
+
+
+        ctx.fillStyle =
+            item.color ||
+            "#000000";
+
+
+        ctx.font =
+            size+
+            "px Arial";
+
+
+        drawWrappedText(
+            ctx,
+            item.text,
+            x,
+            y+size,
+            width,
+            size*1.25
+        );
 
     }
 
 
-    return "ppt/slides/"+
-        path;
+    /*
+     * Create an independent PNG.
+     */
+
+    const dataURL =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+
+    pptRenderCache.set(
+        key,
+        dataURL
+    );
+
+
+    return dataURL;
+
+}
+
+
+/* =========================================================
+WRAPPED TEXT
+========================================================= */
+
+function drawWrappedText(
+    ctx,
+    text,
+    x,
+    y,
+    maxWidth,
+    lineHeight
+){
+
+    const words =
+        text.split(/\s+/);
+
+
+    let line = "";
+
+
+    for(
+        let i=0;
+        i<words.length;
+        i++
+    ){
+
+        const test =
+            line+
+            words[i]+
+            " ";
+
+
+        const width =
+            ctx.measureText(
+                test
+            ).width;
+
+
+        if(
+            width>maxWidth &&
+            line
+        ){
+
+            ctx.fillText(
+                line,
+                x,
+                y
+            );
+
+
+            line =
+                words[i]+
+                " ";
+
+
+            y +=
+                lineHeight;
+
+        }
+        else{
+
+            line =
+                test;
+
+        }
+
+    }
+
+
+    if(line){
+
+        ctx.fillText(
+            line,
+            x,
+            y
+        );
+
+    }
 
 }
 
@@ -1713,17 +2377,19 @@ THUMBNAILS
 
 async function renderThumbnails(){
 
-    const container=
+    const container =
         document.getElementById(
             "thumbnails"
         );
 
-    container.innerHTML="";
+
+    container.innerHTML = "";
 
 
     document.getElementById(
         "pageCount"
-    ).innerText=pages.length;
+    ).innerText =
+        pages.length;
 
 
     for(
@@ -1732,122 +2398,147 @@ async function renderThumbnails(){
         i++
     ){
 
-        const div=
+        const state =
+            pages[i];
+
+
+        const thumb =
             document.createElement(
                 "div"
             );
 
 
-        div.className=
+        thumb.className =
             "thumbnail";
 
 
-        if(i===currentPage){
+        if(
+            i===currentPage
+        ){
 
-            div.classList.add(
+            thumb.classList.add(
                 "active"
             );
 
         }
 
 
-        div.draggable=true;
+        thumb.draggable = true;
 
 
         /*
-         * Preview canvas
+         * Canvas
          */
 
-        const canvas=
+        const canvas =
             document.createElement(
                 "canvas"
             );
 
 
-        canvas.width=160;
+        canvas.width =
+            320;
 
-        canvas.height=100;
+        canvas.height =
+            180;
 
 
-        div.appendChild(canvas);
+        thumb.appendChild(
+            canvas
+        );
 
 
-        const label=
+        /*
+         * Label
+         */
+
+        const label =
             document.createElement(
                 "div"
             );
 
 
-        label.className=
-            "thumb-label";
+        label.className =
+            "thumb-name";
 
 
-        label.innerText=
-            (
-                mode==="ppt"
-                ?"Slide "
-                :"Page "
-            )+
-            (i+1);
+        label.innerText =
+            mode==="ppt"
+            ?
+            "Slide "+(i+1)
+            :
+            "Page "+(i+1);
 
 
-        div.appendChild(label);
+        thumb.appendChild(
+            label
+        );
 
 
         /*
          * Delete
          */
 
-        const del=
+        const del =
             document.createElement(
                 "button"
             );
 
 
-        del.className=
+        del.className =
             "thumb-delete";
 
 
-        del.innerText="×";
+        del.innerText =
+            "×";
 
 
-        del.onclick=function(e){
+        del.onclick =
+            function(e){
 
-            e.stopPropagation();
+                e.stopPropagation();
 
-            deletePage(i);
+                deletePage(i);
 
-        };
-
-
-        div.appendChild(del);
+            };
 
 
-        div.onclick=function(){
-
-            currentPage=i;
-
-            renderThumbnails();
-
-            renderCurrentPage();
-
-        };
+        thumb.appendChild(
+            del
+        );
 
 
         /*
-         * Dragging
+         * Click
          */
 
-        div.addEventListener(
+        thumb.onclick =
+            async function(){
+
+                currentPage =
+                    i;
+
+                await renderThumbnails();
+
+                await renderCurrentPage();
+
+            };
+
+
+        /*
+         * Drag reorder
+         */
+
+        thumb.addEventListener(
             "dragstart",
-            function(e){
+            e=>{
 
                 e.dataTransfer.setData(
                     "text/plain",
-                    i
+                    String(i)
                 );
 
-                div.classList.add(
+                thumb.classList.add(
                     "dragging"
                 );
 
@@ -1855,11 +2546,11 @@ async function renderThumbnails(){
         );
 
 
-        div.addEventListener(
+        thumb.addEventListener(
             "dragend",
-            function(){
+            ()=>{
 
-                div.classList.remove(
+                thumb.classList.remove(
                     "dragging"
                 );
 
@@ -1867,13 +2558,13 @@ async function renderThumbnails(){
         );
 
 
-        div.addEventListener(
+        thumb.addEventListener(
             "dragover",
-            function(e){
+            e=>{
 
                 e.preventDefault();
 
-                div.classList.add(
+                thumb.classList.add(
                     "dragover"
                 );
 
@@ -1881,11 +2572,11 @@ async function renderThumbnails(){
         );
 
 
-        div.addEventListener(
+        thumb.addEventListener(
             "dragleave",
-            function(){
+            ()=>{
 
-                div.classList.remove(
+                thumb.classList.remove(
                     "dragover"
                 );
 
@@ -1893,18 +2584,18 @@ async function renderThumbnails(){
         );
 
 
-        div.addEventListener(
+        thumb.addEventListener(
             "drop",
-            function(e){
+            async e=>{
 
                 e.preventDefault();
 
-                div.classList.remove(
+                thumb.classList.remove(
                     "dragover"
                 );
 
 
-                const from=
+                const from =
                     Number(
                         e.dataTransfer.getData(
                             "text/plain"
@@ -1912,17 +2603,20 @@ async function renderThumbnails(){
                     );
 
 
-                const to=i;
+                const to =
+                    i;
 
 
-                if(from===to)
+                if(
+                    from===to
+                )
                     return;
 
 
                 saveState();
 
 
-                const moved=
+                const moved =
                     pages.splice(
                         from,
                         1
@@ -1936,14 +2630,16 @@ async function renderThumbnails(){
                 );
 
 
-                currentPage=to;
+                currentPage =
+                    to;
 
 
-                renderThumbnails();
+                await renderThumbnails();
 
-                renderCurrentPage();
+                await renderCurrentPage();
 
-                status(
+
+                showStatus(
                     "Pages/slides reordered"
                 );
 
@@ -1951,16 +2647,14 @@ async function renderThumbnails(){
         );
 
 
-        container.appendChild(div);
+        container.appendChild(
+            thumb
+        );
 
-
-        /*
-         * Draw preview
-         */
 
         await drawThumbnail(
             canvas,
-            pages[i]
+            state
         );
 
     }
@@ -1969,7 +2663,7 @@ async function renderThumbnails(){
 
 
 /* =========================================================
-THUMBNAIL DRAW
+DRAW THUMBNAIL
 ========================================================= */
 
 async function drawThumbnail(
@@ -1977,11 +2671,23 @@ async function drawThumbnail(
     state
 ){
 
-    const ctx=
-        canvas.getContext("2d");
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
 
 
-    ctx.fillStyle="white";
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    ctx.fillStyle =
+        "#ffffff";
+
 
     ctx.fillRect(
         0,
@@ -1991,62 +2697,78 @@ async function drawThumbnail(
     );
 
 
-    if(state.type==="ppt"){
+    /*
+     * PPT
+     */
 
-        drawPPTToCanvas(
-            canvas,
-            state,
-            true
-        );
+    if(
+        state.type==="ppt"
+    ){
 
-        return;
-
-    }
-
-
-    if(state.type==="imagePage"){
-
-        const img=
-            new Image();
-
-
-        img.onload=function(){
-
-            const scale=
-                Math.min(
-                    canvas.width/img.width,
-                    canvas.height/img.height
-                );
-
-
-            const w=
-                img.width*scale;
-
-            const h=
-                img.height*scale;
-
-
-            ctx.drawImage(
-                img,
-                (canvas.width-w)/2,
-                (canvas.height-h)/2,
-                w,
-                h
+        const dataURL =
+            await renderPPTSnapshot(
+                state
             );
 
-        };
+
+        const img =
+            await loadImage(
+                dataURL
+            );
 
 
-        img.src=state.src;
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
 
         return;
 
     }
 
 
-    if(state.type==="blank"){
+    /*
+     * IMAGE PAGE
+     */
 
-        ctx.strokeStyle="#ddd";
+    if(
+        state.type==="imagePage"
+    ){
+
+        const img =
+            await loadImage(
+                state.src
+            );
+
+
+        drawContain(
+            ctx,
+            img,
+            canvas.width,
+            canvas.height
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+     * BLANK
+     */
+
+    if(
+        state.type==="blank"
+    ){
+
+        ctx.strokeStyle =
+            "#ddd";
+
 
         ctx.strokeRect(
             1,
@@ -2055,33 +2777,37 @@ async function drawThumbnail(
             canvas.height-2
         );
 
+
         return;
 
     }
 
 
-    if(state.type==="pdf"){
+    /*
+     * PDF
+     */
 
-        if(!pdfDocument)
-            return;
+    if(
+        state.type==="pdf"
+    ){
+
+        const page =
+            await originalPDFDocument
+                .getPage(
+                    state.pageNumber
+                );
 
 
-        const page=
-            await pdfDocument.getPage(
-                state.pageNumber
-            );
-
-
-        const viewport=
+        const viewport =
             page.getViewport({
-                scale:.22
+                scale:.25
             });
 
 
-        canvas.width=
+        canvas.width =
             viewport.width;
 
-        canvas.height=
+        canvas.height =
             viewport.height;
 
 
@@ -2099,35 +2825,121 @@ async function drawThumbnail(
 
 
 /* =========================================================
-RENDER CURRENT
+LOAD IMAGE
+========================================================= */
+
+function loadImage(
+    src
+){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const img =
+                new Image();
+
+
+            img.onload =
+                ()=>{
+                    resolve(img);
+                };
+
+
+            img.onerror =
+                reject;
+
+
+            img.src =
+                src;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+DRAW CONTAIN
+========================================================= */
+
+function drawContain(
+    ctx,
+    img,
+    width,
+    height
+){
+
+    const scale =
+        Math.min(
+            width/img.width,
+            height/img.height
+        );
+
+
+    const w =
+        img.width*
+        scale;
+
+
+    const h =
+        img.height*
+        scale;
+
+
+    ctx.drawImage(
+        img,
+        (width-w)/2,
+        (height-h)/2,
+        w,
+        h
+    );
+
+}
+
+
+/* =========================================================
+RENDER CURRENT PAGE
 ========================================================= */
 
 async function renderCurrentPage(){
 
-    if(!pages.length)
+    if(
+        !pages.length
+    )
         return;
 
 
-    const state=
+    const state =
         pages[currentPage];
 
 
-    if(state.type==="pdf"){
+    if(!state)
+        return;
+
+
+    /*
+     * Every rendering operation works
+     * with this exact state object.
+     */
+
+    if(
+        state.type==="pdf"
+    ){
 
         await renderPDFPage(
             state
         );
 
     }
+    else if(
+        state.type==="ppt"
+    ){
 
-    else if(state.type==="ppt"){
-
-        renderPPTPage(
+        await renderPPTPage(
             state
         );
 
     }
-
     else if(
         state.type==="blank"
     ){
@@ -2137,12 +2949,11 @@ async function renderCurrentPage(){
         );
 
     }
-
     else if(
         state.type==="imagePage"
     ){
 
-        renderImagePage(
+        await renderImagePage(
             state
         );
 
@@ -2152,37 +2963,41 @@ async function renderCurrentPage(){
 
 
 /* =========================================================
-PDF PAGE
+RENDER PDF PAGE
 ========================================================= */
 
-async function renderPDFPage(state){
+async function renderPDFPage(
+    state
+){
 
-    const page=
-        await pdfDocument.getPage(
-            state.pageNumber
-        );
+    const page =
+        await originalPDFDocument
+            .getPage(
+                state.pageNumber
+            );
 
 
-    const viewport=
+    const viewport =
         page.getViewport({
 
             scale:zoom,
 
-            rotation:state.rotation
+            rotation:
+                state.rotation
 
         });
 
 
-    const canvas=
+    const canvas =
         document.getElementById(
             "mainCanvas"
         );
 
 
-    canvas.width=
+    canvas.width =
         viewport.width;
 
-    canvas.height=
+    canvas.height =
         viewport.height;
 
 
@@ -2202,7 +3017,92 @@ async function renderPDFPage(state){
     );
 
 
-    removeElements();
+    removeOverlays();
+
+    renderOverlays();
+
+}
+
+
+/* =========================================================
+RENDER PPT PAGE
+========================================================= */
+
+async function renderPPTPage(
+    state
+){
+
+    /*
+     * Get ONLY this slide's snapshot.
+     */
+
+    const dataURL =
+        await renderPPTSnapshot(
+            state
+        );
+
+
+    const img =
+        await loadImage(
+            dataURL
+        );
+
+
+    const canvas =
+        document.getElementById(
+            "mainCanvas"
+        );
+
+
+    const width =
+        state.width*
+        96*
+        zoom;
+
+
+    const height =
+        state.height*
+        96*
+        zoom;
+
+
+    canvas.width =
+        width;
+
+    canvas.height =
+        height;
+
+
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
+
+
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    setWrapper(
+        width,
+        height
+    );
+
+
+    removeOverlays();
 
     renderOverlays();
 
@@ -2213,31 +3113,53 @@ async function renderPDFPage(state){
 BLANK PAGE
 ========================================================= */
 
-function renderBlankPage(state){
+function renderBlankPage(
+    state
+){
 
-    const width=
-        state.width*zoom;
-
-    const height=
-        state.height*zoom;
+    let width =
+        state.width*
+        zoom;
 
 
-    const canvas=
+    let height =
+        state.height*
+        zoom;
+
+
+    if(
+        state.rotation===90 ||
+        state.rotation===270
+    ){
+
+        [width,height] =
+            [height,width];
+
+    }
+
+
+    const canvas =
         document.getElementById(
             "mainCanvas"
         );
 
 
-    canvas.width=width;
+    canvas.width =
+        width;
 
-    canvas.height=height;
-
-
-    const ctx=
-        canvas.getContext("2d");
+    canvas.height =
+        height;
 
 
-    ctx.fillStyle="white";
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
+
+
+    ctx.fillStyle =
+        "#ffffff";
+
 
     ctx.fillRect(
         0,
@@ -2253,7 +3175,7 @@ function renderBlankPage(state){
     );
 
 
-    removeElements();
+    removeOverlays();
 
     renderOverlays();
 
@@ -2264,153 +3186,125 @@ function renderBlankPage(state){
 IMAGE PAGE
 ========================================================= */
 
-function renderImagePage(state){
+async function renderImagePage(
+    state
+){
 
-    const canvas=
+    const img =
+        await loadImage(
+            state.src
+        );
+
+
+    let width =
+        img.width*
+        zoom;
+
+
+    let height =
+        img.height*
+        zoom;
+
+
+    if(
+        state.rotation===90 ||
+        state.rotation===270
+    ){
+
+        [width,height] =
+            [height,width];
+
+    }
+
+
+    const canvas =
         document.getElementById(
             "mainCanvas"
         );
 
 
-    const img=
-        new Image();
+    canvas.width =
+        width;
+
+    canvas.height =
+        height;
 
 
-    img.onload=function(){
-
-        let w=
-            img.width*zoom;
-
-        let h=
-            img.height*zoom;
-
-
-        if(
-            state.rotation===90 ||
-            state.rotation===270
-        ){
-
-            [w,h]=[h,w];
-
-        }
-
-
-        canvas.width=w;
-
-        canvas.height=h;
-
-
-        const ctx=
-            canvas.getContext("2d");
-
-
-        ctx.fillStyle="white";
-
-        ctx.fillRect(
-            0,
-            0,
-            w,
-            h
+    const ctx =
+        canvas.getContext(
+            "2d"
         );
 
 
-        ctx.save();
+    ctx.fillStyle =
+        "#ffffff";
 
 
-        if(state.rotation===90){
-
-            ctx.translate(w,0);
-
-            ctx.rotate(
-                Math.PI/2
-            );
-
-        }
-
-        else if(
-            state.rotation===180
-        ){
-
-            ctx.translate(w,h);
-
-            ctx.rotate(
-                Math.PI
-            );
-
-        }
-
-        else if(
-            state.rotation===270
-        ){
-
-            ctx.translate(0,h);
-
-            ctx.rotate(
-                -Math.PI/2
-            );
-
-        }
-
-
-        ctx.drawImage(
-            img,
-            0,
-            0,
-            img.width*zoom,
-            img.height*zoom
-        );
-
-
-        ctx.restore();
-
-
-        setWrapper(
-            w,
-            h
-        );
-
-
-        removeElements();
-
-        renderOverlays();
-
-    };
-
-
-    img.src=state.src;
-
-}
-
-
-/* =========================================================
-PPT PAGE
-========================================================= */
-
-function renderPPTPage(state){
-
-    const width=
-        state.width*96*zoom;
-
-    const height=
-        state.height*96*zoom;
-
-
-    const canvas=
-        document.getElementById(
-            "mainCanvas"
-        );
-
-
-    canvas.width=width;
-
-    canvas.height=height;
-
-
-    drawPPTToCanvas(
-        canvas,
-        state,
-        false
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
     );
+
+
+    ctx.save();
+
+
+    if(
+        state.rotation===90
+    ){
+
+        ctx.translate(
+            width,
+            0
+        );
+
+        ctx.rotate(
+            Math.PI/2
+        );
+
+    }
+    else if(
+        state.rotation===180
+    ){
+
+        ctx.translate(
+            width,
+            height
+        );
+
+        ctx.rotate(
+            Math.PI
+        );
+
+    }
+    else if(
+        state.rotation===270
+    ){
+
+        ctx.translate(
+            0,
+            height
+        );
+
+        ctx.rotate(
+            -Math.PI/2
+        );
+
+    }
+
+
+    ctx.drawImage(
+        img,
+        0,
+        0,
+        img.width*zoom,
+        img.height*zoom
+    );
+
+
+    ctx.restore();
 
 
     setWrapper(
@@ -2419,7 +3313,7 @@ function renderPPTPage(state){
     );
 
 
-    removeElements();
+    removeOverlays();
 
     renderOverlays();
 
@@ -2427,232 +3321,7 @@ function renderPPTPage(state){
 
 
 /* =========================================================
-DRAW PPT
-========================================================= */
-
-function drawPPTToCanvas(
-    canvas,
-    state,
-    thumbnail
-){
-
-    const ctx=
-        canvas.getContext("2d");
-
-
-    const scale=
-        thumbnail
-        ?
-        Math.min(
-            canvas.width/
-            (
-                state.width*96
-            ),
-            canvas.height/
-            (
-                state.height*96
-            )
-        )
-        :
-        zoom;
-
-
-    ctx.fillStyle="white";
-
-    ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    /*
-     * Existing PPT text
-     */
-
-    if(state.elements){
-
-        state.elements.forEach(
-            element=>{
-
-                if(
-                    element.type==="pptText"
-                ){
-
-                    const x=
-                        element.x*
-                        96*
-                        scale;
-
-                    const y=
-                        element.y*
-                        96*
-                        scale;
-
-
-                    const size=
-                        element.fontSize*
-                        scale;
-
-
-                    ctx.fillStyle=
-                        element.color||
-                        "#000000";
-
-
-                    ctx.font=
-                        size+
-                        "px Arial";
-
-
-                    /*
-                     * Wrap basic text
-                     */
-
-                    wrapText(
-                        ctx,
-                        element.text,
-                        x,
-                        y+
-                        size,
-                        Math.max(
-                            100,
-                            element.w*
-                            96*
-                            scale
-                        ),
-                        size*1.25
-                    );
-
-                }
-
-
-                if(
-                    element.type==="pptImage"
-                ){
-
-                    const img=
-                        new Image();
-
-
-                    img.onload=function(){
-
-                        ctx.drawImage(
-
-                            img,
-
-                            element.x*
-                            96*
-                            scale,
-
-                            element.y*
-                            96*
-                            scale,
-
-                            element.w*
-                            96*
-                            scale,
-
-                            element.h*
-                            96*
-                            scale
-
-                        );
-
-                    };
-
-
-                    img.src=
-                        element.src;
-
-                }
-
-            }
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-TEXT WRAP
-========================================================= */
-
-function wrapText(
-    ctx,
-    text,
-    x,
-    y,
-    maxWidth,
-    lineHeight
-){
-
-    const words=
-        text.split(" ");
-
-    let line="";
-
-
-    for(
-        let n=0;
-        n<words.length;
-        n++
-    ){
-
-        const test=
-            line+
-            words[n]+
-            " ";
-
-
-        const metrics=
-            ctx.measureText(
-                test
-            );
-
-
-        if(
-            metrics.width>
-            maxWidth &&
-            n>0
-        ){
-
-            ctx.fillText(
-                line,
-                x,
-                y
-            );
-
-            line=
-                words[n]+
-                " ";
-
-            y+=lineHeight;
-
-        }
-
-        else{
-
-            line=test;
-
-        }
-
-    }
-
-
-    ctx.fillText(
-        line,
-        x,
-        y
-    );
-
-}
-
-
-/* =========================================================
-WRAPPER
+SET WRAPPER
 ========================================================= */
 
 function setWrapper(
@@ -2660,41 +3329,46 @@ function setWrapper(
     height
 ){
 
-    const wrapper=
+    const wrapper =
         document.getElementById(
             "pageWrapper"
         );
 
 
-    wrapper.style.width=
+    wrapper.style.width =
         width+"px";
 
-    wrapper.style.height=
+
+    wrapper.style.height =
         height+"px";
 
 }
 
 
 /* =========================================================
-OVERLAYS
+REMOVE OVERLAYS
 ========================================================= */
 
-function removeElements(){
+function removeOverlays(){
 
     document
         .querySelectorAll(
-            ".element"
+            ".overlay"
         )
         .forEach(
-            x=>x.remove()
+            el=>el.remove()
         );
 
 }
 
 
+/* =========================================================
+RENDER OVERLAYS
+========================================================= */
+
 function renderOverlays(){
 
-    const state=
+    const state =
         pages[currentPage];
 
 
@@ -2712,152 +3386,204 @@ function renderOverlays(){
             let element;
 
 
+            /*
+             * TEXT
+             */
+
             if(
-                item.type==="text" ||
-                item.type==="watermark"
+                item.type==="text"
             ){
 
-                element=
+                element =
                     document.createElement(
                         "div"
                     );
 
 
-                element.className=
-                    "element "+
-                    (
-                        item.type==="watermark"
-                        ?
-                        "element-watermark"
-                        :
-                        "element-text"
-                    );
+                element.className =
+                    "overlay overlay-text";
 
 
-                element.innerText=
+                element.innerText =
                     item.text;
 
 
-                element.style.fontSize=
+                element.style.fontSize =
                     item.size+"px";
 
 
-                element.style.color=
+                element.style.color =
                     item.color;
 
 
-                element.style.opacity=
+                element.style.opacity =
+                    item.opacity ??
+                    1;
+
+            }
+
+
+            /*
+             * WATERMARK
+             */
+
+            else if(
+                item.type==="watermark"
+            ){
+
+                element =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                element.className =
+                    "overlay overlay-watermark";
+
+
+                element.innerText =
+                    item.text;
+
+
+                element.style.fontSize =
+                    item.size+"px";
+
+
+                element.style.color =
+                    item.color;
+
+
+                element.style.opacity =
                     item.opacity;
 
             }
 
 
-            if(
+            /*
+             * IMAGE
+             */
+
+            else if(
                 item.type==="image"
             ){
 
-                element=
+                element =
                     document.createElement(
                         "div"
                     );
 
 
-                element.className=
-                    "element element-image";
+                element.className =
+                    "overlay overlay-image";
 
 
-                element.style.width=
+                element.style.width =
                     item.width+"px";
 
 
-                element.style.height=
+                element.style.height =
                     item.height+"px";
 
 
-                const img=
+                const img =
                     document.createElement(
                         "img"
                     );
 
 
-                img.src=item.src;
+                img.src =
+                    item.src;
 
-                element.appendChild(img);
+
+                element.appendChild(
+                    img
+                );
 
             }
 
 
-            element.style.left=
+            if(!element)
+                return;
+
+
+            element.style.left =
                 item.x+"px";
 
 
-            element.style.top=
+            element.style.top =
                 item.y+"px";
 
 
-            element.dataset.index=
+            element.dataset.index =
                 index;
 
 
-            const deleteBtn=
+            const deleteButton =
                 document.createElement(
                     "button"
                 );
 
 
-            deleteBtn.className=
-                "element-delete";
-
-            deleteBtn.innerText="×";
+            deleteButton.className =
+                "overlay-delete";
 
 
-            deleteBtn.onclick=function(e){
+            deleteButton.innerText =
+                "×";
 
-                e.stopPropagation();
 
-                saveState();
+            deleteButton.onclick =
+                e=>{
 
-                state.overlays.splice(
-                    index,
-                    1
-                );
+                    e.stopPropagation();
 
-                renderCurrentPage();
+                    saveState();
 
-            };
+
+                    state.overlays.splice(
+                        index,
+                        1
+                    );
+
+
+                    renderCurrentPage();
+
+                };
 
 
             element.appendChild(
-                deleteBtn
+                deleteButton
             );
 
 
-            makeDraggable(
+            makeOverlayDraggable(
                 element
             );
 
 
-            element.onclick=function(e){
+            element.onclick =
+                e=>{
 
-                e.stopPropagation();
+                    e.stopPropagation();
 
-                document
-                    .querySelectorAll(
-                        ".element"
-                    )
-                    .forEach(
-                        x=>
-                        x.classList.remove(
-                            "selected"
+
+                    document
+                        .querySelectorAll(
+                            ".overlay"
                         )
+                        .forEach(
+                            x=>
+                            x.classList.remove(
+                                "selected"
+                            )
+                        );
+
+
+                    element.classList.add(
+                        "selected"
                     );
 
-
-                element.classList.add(
-                    "selected"
-                );
-
-            };
+                };
 
 
             document
@@ -2875,10 +3601,12 @@ function renderOverlays(){
 
 
 /* =========================================================
-DRAG ELEMENT
+DRAG OVERLAY
 ========================================================= */
 
-function makeDraggable(element){
+function makeOverlayDraggable(
+    element
+){
 
     element.addEventListener(
         "mousedown",
@@ -2886,7 +3614,7 @@ function makeDraggable(element){
 
             if(
                 e.target.classList.contains(
-                    "element-delete"
+                    "overlay-delete"
                 )
             )
                 return;
@@ -2895,87 +3623,95 @@ function makeDraggable(element){
             e.preventDefault();
 
 
-            const startX=e.clientX;
+            const startX =
+                e.clientX;
 
-            const startY=e.clientY;
+
+            const startY =
+                e.clientY;
 
 
-            const startLeft=
+            const startLeft =
                 parseFloat(
                     element.style.left
-                )||0;
+                ) || 0;
 
 
-            const startTop=
+            const startTop =
                 parseFloat(
                     element.style.top
-                )||0;
+                ) || 0;
 
 
-            const index=
+            const index =
                 Number(
                     element.dataset.index
                 );
 
 
-            function move(ev){
+            const move =
+                ev=>{
 
-                element.style.left=
-                    Math.max(
-                        0,
-                        startLeft+
-                        ev.clientX-
-                        startX
-                    )+"px";
-
-
-                element.style.top=
-                    Math.max(
-                        0,
-                        startTop+
-                        ev.clientY-
-                        startY
-                    )+"px";
-
-            }
+                    element.style.left =
+                        Math.max(
+                            0,
+                            startLeft+
+                            ev.clientX-
+                            startX
+                        )+
+                        "px";
 
 
-            function stop(){
+                    element.style.top =
+                        Math.max(
+                            0,
+                            startTop+
+                            ev.clientY-
+                            startY
+                        )+
+                        "px";
 
-                document.removeEventListener(
-                    "mousemove",
-                    move
-                );
-
-                document.removeEventListener(
-                    "mouseup",
-                    stop
-                );
-
-
-                const state=
-                    pages[currentPage];
+                };
 
 
-                if(
-                    state &&
-                    state.overlays[index]
-                ){
+            const stop =
+                ()=>{
 
-                    state.overlays[index].x=
-                        parseFloat(
-                            element.style.left
-                        );
+                    document.removeEventListener(
+                        "mousemove",
+                        move
+                    );
 
 
-                    state.overlays[index].y=
-                        parseFloat(
-                            element.style.top
-                        );
+                    document.removeEventListener(
+                        "mouseup",
+                        stop
+                    );
 
-                }
 
-            }
+                    const state =
+                        pages[currentPage];
+
+
+                    if(
+                        state &&
+                        state.overlays[index]
+                    ){
+
+                        state.overlays[index].x =
+                            parseFloat(
+                                element.style.left
+                            );
+
+
+                        state.overlays[index].y =
+                            parseFloat(
+                                element.style.top
+                            );
+
+                    }
+
+                };
 
 
             document.addEventListener(
@@ -3012,7 +3748,7 @@ function addText(){
     }
 
 
-    let text=
+    let text =
         document
             .getElementById(
                 "textInput"
@@ -3022,7 +3758,7 @@ function addText(){
 
     if(!text){
 
-        text=
+        text =
             prompt(
                 "Enter text:"
             );
@@ -3037,38 +3773,44 @@ function addText(){
     saveState();
 
 
-    pages[currentPage].overlays.push({
+    pages[currentPage]
+        .overlays
+        .push({
 
-        type:"text",
+            type:"text",
 
-        text:text,
+            text:text,
 
-        x:60,
+            x:60,
 
-        y:60,
+            y:60,
 
-        size:
-            Number(
+            size:
+                Number(
+                    document
+                        .getElementById(
+                            "fontSize"
+                        )
+                        .value
+                ) || 24,
+
+            color:
                 document
                     .getElementById(
-                        "fontSize"
-                    ).value
-            )||24,
+                        "textColor"
+                    )
+                    .value,
 
-        color:
-            document
-                .getElementById(
-                    "textColor"
-                ).value,
+            opacity:1
 
-        opacity:1
-
-    });
+        });
 
 
     renderCurrentPage();
 
-    status("Text added");
+    showStatus(
+        "Text added"
+    );
 
 }
 
@@ -3083,7 +3825,7 @@ function addWatermark(){
         return;
 
 
-    let text=
+    let text =
         document
             .getElementById(
                 "watermarkInput"
@@ -3093,7 +3835,7 @@ function addWatermark(){
 
     if(!text){
 
-        text=
+        text =
             prompt(
                 "Enter watermark:"
             );
@@ -3108,40 +3850,46 @@ function addWatermark(){
     saveState();
 
 
-    pages[currentPage].overlays.push({
+    pages[currentPage]
+        .overlays
+        .push({
 
-        type:"watermark",
+            type:"watermark",
 
-        text:text,
+            text:text,
 
-        x:100,
+            x:100,
 
-        y:300,
+            y:300,
 
-        size:
-            Number(
-                document
-                    .getElementById(
-                        "watermarkSize"
-                    ).value
-            )||45,
+            size:
+                Number(
+                    document
+                        .getElementById(
+                            "watermarkSize"
+                        )
+                        .value
+                ) || 45,
 
-        color:"#555555",
+            color:"#555555",
 
-        opacity:
-            Number(
-                document
-                    .getElementById(
-                        "watermarkOpacity"
-                    ).value
-            )
+            opacity:
+                Number(
+                    document
+                        .getElementById(
+                            "watermarkOpacity"
+                        )
+                        .value
+                )
 
-    });
+        });
 
 
     renderCurrentPage();
 
-    status("Watermark added");
+    showStatus(
+        "Watermark added"
+    );
 
 }
 
@@ -3169,40 +3917,47 @@ document
 .getElementById("imageElement")
 .addEventListener(
     "change",
-    function(event){
+    function(e){
 
-        const file=
-            event.target.files[0];
+        const file =
+            e.target.files[0];
 
         if(!file)
             return;
 
 
-        const reader=
+        const reader =
             new FileReader();
 
 
-        reader.onload=function(e){
+        reader.onload =
+            async function(){
 
-            const img=
-                new Image();
+                const src =
+                    reader.result;
 
 
-            img.onload=function(){
+                const img =
+                    await loadImage(
+                        src
+                    );
 
-                let width=220;
 
-                let height=
+                let width = 220;
+
+                let height =
                     width*
                     img.height/
                     img.width;
 
 
-                if(height>250){
+                if(
+                    height>250
+                ){
 
                     height=250;
 
-                    width=
+                    width =
                         height*
                         img.width/
                         img.height;
@@ -3219,7 +3974,7 @@ document
 
                         type:"image",
 
-                        src:e.target.result,
+                        src:src,
 
                         x:50,
 
@@ -3234,21 +3989,19 @@ document
 
                 renderCurrentPage();
 
-                status(
+                showStatus(
                     "Image added"
                 );
 
             };
 
 
-            img.src=e.target.result;
+        reader.readAsDataURL(
+            file
+        );
 
-        };
 
-
-        reader.readAsDataURL(file);
-
-        event.target.value="";
+        e.target.value="";
 
     }
 );
@@ -3273,76 +4026,87 @@ document
 .getElementById("imagePage")
 .addEventListener(
     "change",
-    function(event){
+    async function(e){
 
-        const file=
-            event.target.files[0];
+        const file =
+            e.target.files[0];
 
         if(!file)
             return;
 
 
-        const reader=
+        const reader =
             new FileReader();
 
 
-        reader.onload=function(e){
+        reader.onload =
+            async function(){
 
-            const img=
-                new Image();
+                const src =
+                    reader.result;
 
 
-            img.onload=function(){
+                const img =
+                    await loadImage(
+                        src
+                    );
+
 
                 saveState();
 
 
                 pages.splice(
+
                     currentPage+1,
+
                     0,
+
                     {
 
-                        type:"imagePage",
+                        id:
+                            "image-"+Date.now(),
 
-                        src:e.target.result,
+                        type:
+                            "imagePage",
 
-                        width:img.width,
+                        src:src,
 
-                        height:img.height,
+                        width:
+                            img.width,
+
+                        height:
+                            img.height,
 
                         rotation:0,
 
                         overlays:[]
 
                     }
+
                 );
 
 
                 currentPage++;
 
 
-                renderThumbnails();
+                await renderThumbnails();
 
-                renderCurrentPage();
-
-                closeAddMenu();
+                await renderCurrentPage();
 
 
-                status(
+                showStatus(
                     "Image page added"
                 );
 
             };
 
 
-            img.src=e.target.result;
+        reader.readAsDataURL(
+            file
+        );
 
-        };
 
-
-        reader.readAsDataURL(file);
-
-        event.target.value="";
+        e.target.value="";
 
     }
 );
@@ -3367,145 +4131,156 @@ document
 .getElementById("extraPDF")
 .addEventListener(
     "change",
-    importPDFPages
-);
+    async function(e){
+
+        const file =
+            e.target.files[0];
+
+        if(!file)
+            return;
 
 
-async function importPDFPages(event){
+        try{
 
-    const file=
-        event.target.files[0];
-
-    if(!file)
-        return;
-
-
-    try{
-
-        saveState();
-
-        loading(
-            "Importing PDF pages..."
-        );
-
-
-        const bytes=
-            new Uint8Array(
-                await file.arrayBuffer()
+            showLoading(
+                "Importing PDF pages..."
             );
 
 
-        const imported=
-            await pdfjsLib.getDocument({
-                data:bytes
-            }).promise;
+            saveState();
 
 
-        const newPages=[];
-
-
-        for(
-            let i=1;
-            i<=imported.numPages;
-            i++
-        ){
-
-            const page=
-                await imported.getPage(i);
-
-
-            const viewport=
-                page.getViewport({
-                    scale:2
-                });
-
-
-            const canvas=
-                document.createElement(
-                    "canvas"
+            const bytes =
+                new Uint8Array(
+                    await file.arrayBuffer()
                 );
 
 
-            canvas.width=
-                viewport.width;
-
-            canvas.height=
-                viewport.height;
-
-
-            await page.render({
-
-                canvasContext:
-                    canvas.getContext("2d"),
-
-                viewport:viewport
-
-            }).promise;
+            const imported =
+                await pdfjsLib
+                    .getDocument({
+                        data:bytes
+                    })
+                    .promise;
 
 
-            newPages.push({
+            const added=[];
 
-                type:"imagePage",
 
-                src:
-                    canvas.toDataURL(
-                        "image/png"
-                    ),
+            for(
+                let i=1;
+                i<=imported.numPages;
+                i++
+            ){
 
-                width:
-                    viewport.width,
+                const page =
+                    await imported.getPage(
+                        i
+                    );
 
-                height:
-                    viewport.height,
 
-                rotation:0,
+                const viewport =
+                    page.getViewport({
+                        scale:2
+                    });
 
-                overlays:[]
 
-            });
+                const canvas =
+                    document.createElement(
+                        "canvas"
+                    );
+
+
+                canvas.width =
+                    viewport.width;
+
+
+                canvas.height =
+                    viewport.height;
+
+
+                await page.render({
+
+                    canvasContext:
+                        canvas.getContext("2d"),
+
+                    viewport:viewport
+
+                }).promise;
+
+
+                added.push({
+
+                    id:
+                        "imported-pdf-"+Date.now()+"-"+i,
+
+                    type:"imagePage",
+
+                    src:
+                        canvas.toDataURL(
+                            "image/png"
+                        ),
+
+                    width:
+                        viewport.width,
+
+                    height:
+                        viewport.height,
+
+                    rotation:0,
+
+                    overlays:[]
+
+                });
+
+            }
+
+
+            pages.splice(
+
+                currentPage+1,
+
+                0,
+
+                ...added
+
+            );
+
+
+            currentPage++;
+
+
+            await renderThumbnails();
+
+            await renderCurrentPage();
+
+
+            hideLoading();
+
+
+            showStatus(
+                added.length+
+                " PDF page(s) added"
+            );
+
+        }
+        catch(error){
+
+            hideLoading();
+
+            console.error(error);
+
+            alert(
+                "Could not import PDF."
+            );
 
         }
 
 
-        pages.splice(
-            currentPage+1,
-            0,
-            ...newPages
-        );
-
-
-        currentPage++;
-
-
-        await renderThumbnails();
-
-        await renderCurrentPage();
-
-        closeAddMenu();
-
-        hideLoading();
-
-
-        status(
-            newPages.length+
-            " PDF page(s) added"
-        );
+        e.target.value="";
 
     }
-    catch(error){
-
-        hideLoading();
-
-        alert(
-            "Could not import PDF."
-        );
-
-    }
-
-
-    event.target.value="";
-
-}
+);
 
 
 /* =========================================================
@@ -3527,79 +4302,109 @@ document
 .getElementById("extraPPT")
 .addEventListener(
     "change",
-    importPPTPages
-);
+    async function(e){
+
+        const file =
+            e.target.files[0];
+
+        if(!file)
+            return;
 
 
-async function importPPTPages(event){
+        try{
 
-    const file=
-        event.target.files[0];
-
-    if(!file)
-        return;
-
-
-    try{
-
-        saveState();
-
-        loading(
-            "Importing PPTX slides..."
-        );
-
-
-        const bytes=
-            new Uint8Array(
-                await file.arrayBuffer()
+            showLoading(
+                "Importing PowerPoint..."
             );
 
 
-        const imported=
-            await parsePPTX(bytes);
+            saveState();
 
 
-        pages.splice(
-            currentPage+1,
-            0,
-            ...imported
-        );
+            const bytes =
+                new Uint8Array(
+                    await file.arrayBuffer()
+                );
 
 
-        currentPage++;
+            const imported =
+                await parsePPTX(
+                    bytes
+                );
 
 
-        await renderThumbnails();
+            /*
+             * Pre-render imported slides
+             * BEFORE inserting them.
+             */
 
-        await renderCurrentPage();
+            for(
+                let i=0;
+                i<imported.length;
+                i++
+            ){
 
-        closeAddMenu();
+                showLoading(
+                    "Rendering imported slide "+
+                    (i+1)+
+                    " of "+
+                    imported.length
+                );
 
-        hideLoading();
+
+                await renderPPTSnapshot(
+                    imported[i]
+                );
+
+            }
 
 
-        status(
-            imported.length+
-            " slide(s) added"
-        );
+            pages.splice(
+
+                currentPage+1,
+
+                0,
+
+                ...imported
+
+            );
+
+
+            currentPage++;
+
+
+            await renderThumbnails();
+
+            await renderCurrentPage();
+
+
+            hideLoading();
+
+
+            showStatus(
+                imported.length+
+                " slide(s) added"
+            );
+
+        }
+        catch(error){
+
+            hideLoading();
+
+            console.error(error);
+
+            alert(
+                "Could not import PPTX.\n\n"+
+                error.message
+            );
+
+        }
+
+
+        e.target.value="";
 
     }
-    catch(error){
-
-        hideLoading();
-
-        console.error(error);
-
-        alert(
-            "Could not import PPTX."
-        );
-
-    }
-
-
-    event.target.value="";
-
-}
+);
 
 
 /* =========================================================
@@ -3611,12 +4416,20 @@ function addBlankPage(){
     saveState();
 
 
-    if(mode==="ppt"){
+    if(
+        mode==="ppt"
+    ){
 
         pages.splice(
+
             currentPage+1,
+
             0,
+
             {
+
+                id:
+                    "blank-ppt-"+Date.now(),
 
                 type:"ppt",
 
@@ -3631,16 +4444,22 @@ function addBlankPage(){
                 overlays:[]
 
             }
+
         );
 
     }
-
     else{
 
         pages.splice(
+
             currentPage+1,
+
             0,
+
             {
+
+                id:
+                    "blank-pdf-"+Date.now(),
 
                 type:"blank",
 
@@ -3653,6 +4472,7 @@ function addBlankPage(){
                 overlays:[]
 
             }
+
         );
 
     }
@@ -3668,7 +4488,7 @@ function addBlankPage(){
     closeAddMenu();
 
 
-    status(
+    showStatus(
         mode==="ppt"
         ?
         "Blank slide added"
@@ -3692,9 +4512,13 @@ function deleteCurrentPage(){
 }
 
 
-function deletePage(index){
+function deletePage(
+    index
+){
 
-    if(pages.length<=1){
+    if(
+        pages.length<=1
+    ){
 
         alert(
             "At least one page/slide is required."
@@ -3708,6 +4532,22 @@ function deletePage(index){
     saveState();
 
 
+    const removed =
+        pages[index];
+
+
+    if(
+        removed &&
+        removed.id
+    ){
+
+        pptRenderCache.delete(
+            removed.id
+        );
+
+    }
+
+
     pages.splice(
         index,
         1
@@ -3718,7 +4558,7 @@ function deletePage(index){
         currentPage>=pages.length
     ){
 
-        currentPage=
+        currentPage =
             pages.length-1;
 
     }
@@ -3728,7 +4568,8 @@ function deletePage(index){
 
     renderCurrentPage();
 
-    status(
+
+    showStatus(
         mode==="ppt"
         ?
         "Slide deleted"
@@ -3743,35 +4584,39 @@ function deletePage(index){
 NAVIGATION
 ========================================================= */
 
-function previousPage(){
+async function previousPage(){
 
-    if(currentPage>0){
+    if(
+        currentPage<=0
+    )
+        return;
 
-        currentPage--;
 
-        renderThumbnails();
+    currentPage--;
 
-        renderCurrentPage();
 
-    }
+    await renderThumbnails();
+
+    await renderCurrentPage();
 
 }
 
 
-function nextPage(){
+async function nextPage(){
 
     if(
-        currentPage<
+        currentPage>=
         pages.length-1
-    ){
+    )
+        return;
 
-        currentPage++;
 
-        renderThumbnails();
+    currentPage++;
 
-        renderCurrentPage();
 
-    }
+    await renderThumbnails();
+
+    await renderCurrentPage();
 
 }
 
@@ -3789,7 +4634,7 @@ function rotatePage(){
     saveState();
 
 
-    pages[currentPage].rotation=
+    pages[currentPage].rotation =
         (
             pages[currentPage].rotation+
             90
@@ -3823,15 +4668,30 @@ function addPageNumbers(){
                 state.overlays=[];
 
 
+            let y=760;
+
+
+            if(
+                state.type==="pdf"
+            ){
+
+                y=760;
+
+            }
+
+
             state.overlays.push({
 
                 type:"text",
 
-                text:String(index+1),
+                text:
+                    String(
+                        index+1
+                    ),
 
                 x:280,
 
-                y:760,
+                y:y,
 
                 size:18,
 
@@ -3847,7 +4707,8 @@ function addPageNumbers(){
 
     renderCurrentPage();
 
-    status(
+
+    showStatus(
         "Page numbers added"
     );
 
@@ -3855,7 +4716,7 @@ function addPageNumbers(){
 
 
 /* =========================================================
-CLEAR
+CLEAR ITEMS
 ========================================================= */
 
 function clearItems(){
@@ -3867,12 +4728,14 @@ function clearItems(){
     saveState();
 
 
-    pages[currentPage].overlays=[];
+    pages[currentPage]
+        .overlays=[];
 
 
     renderCurrentPage();
 
-    status(
+
+    showStatus(
         "Added items cleared"
     );
 
@@ -3885,7 +4748,7 @@ ZOOM
 
 function zoomIn(){
 
-    zoom=
+    zoom =
         Math.min(
             3,
             zoom+.15
@@ -3899,7 +4762,7 @@ function zoomIn(){
 
 function zoomOut(){
 
-    zoom=
+    zoom =
         Math.max(
             .5,
             zoom-.15
@@ -3912,13 +4775,15 @@ function zoomOut(){
 
 
 /* =========================================================
-UNDO / REDO
+UNDO
 ========================================================= */
 
 function saveState(){
 
     undoStack.push(
-        JSON.stringify(pages)
+        JSON.stringify(
+            pages
+        )
     );
 
 
@@ -3938,9 +4803,11 @@ function saveState(){
 
 async function undo(){
 
-    if(!undoStack.length){
+    if(
+        !undoStack.length
+    ){
 
-        status(
+        showStatus(
             "Nothing to undo"
         );
 
@@ -3950,17 +4817,19 @@ async function undo(){
 
 
     redoStack.push(
-        JSON.stringify(pages)
+        JSON.stringify(
+            pages
+        )
     );
 
 
-    pages=
+    pages =
         JSON.parse(
             undoStack.pop()
         );
 
 
-    currentPage=
+    currentPage =
         Math.min(
             currentPage,
             pages.length-1
@@ -3974,11 +4843,17 @@ async function undo(){
 }
 
 
+/* =========================================================
+REDO
+========================================================= */
+
 async function redo(){
 
-    if(!redoStack.length){
+    if(
+        !redoStack.length
+    ){
 
-        status(
+        showStatus(
             "Nothing to redo"
         );
 
@@ -3988,17 +4863,19 @@ async function redo(){
 
 
     undoStack.push(
-        JSON.stringify(pages)
+        JSON.stringify(
+            pages
+        )
     );
 
 
-    pages=
+    pages =
         JSON.parse(
             redoStack.pop()
         );
 
 
-    currentPage=
+    currentPage =
         Math.min(
             currentPage,
             pages.length-1
@@ -4061,12 +4938,13 @@ async function downloadDocument(){
 
     try{
 
-        if(mode==="pdf"){
+        if(
+            mode==="pdf"
+        ){
 
             await exportPDF();
 
         }
-
         else{
 
             await exportPPTX();
@@ -4078,12 +4956,12 @@ async function downloadDocument(){
 
         console.error(error);
 
+        hideLoading();
+
         alert(
             "Export failed.\n\n"+
             error.message
         );
-
-        hideLoading();
 
     }
 
@@ -4096,62 +4974,60 @@ EXPORT PDF
 
 async function exportPDF(){
 
-    loading(
+    showLoading(
         "Creating PDF..."
     );
 
 
-    const output=
-        await PDFLib.PDFDocument.create();
+    const output =
+        await PDFLib
+            .PDFDocument
+            .create();
 
 
-    const font=
+    const font =
         await output.embedFont(
             PDFLib.StandardFonts.Helvetica
         );
-
-
-    let originalPDFDoc=null;
-
-
-    if(originalPDF){
-
-        originalPDFDoc=
-            await PDFLib.PDFDocument.load(
-                originalPDF
-            );
-
-    }
 
 
     for(
         const state of pages
     ){
 
-        let page;
+        let page = null;
 
 
         /*
-         * Original PDF
+         * ORIGINAL PDF PAGE
          */
 
         if(
             state.type==="pdf"
         ){
 
-            const copied=
-                await output.copyPages(
-                    originalPDFDoc,
-                    [state.pageNumber-1]
-                );
+            const copied =
+                await output
+                    .copyPages(
+                        originalPDFDocument,
+                        [
+                            state.pageNumber-1
+                        ]
+                    );
 
 
-            page=copied[0];
+            page =
+                copied[0];
 
-            output.addPage(page);
+
+            output.addPage(
+                page
+            );
 
 
-            if(state.rotation){
+            if(
+                state.rotation
+            ){
 
                 page.setRotation(
                     PDFLib.degrees(
@@ -4165,16 +5041,19 @@ async function exportPDF(){
 
 
         /*
-         * Blank
+         * BLANK
          */
 
         else if(
             state.type==="blank"
         ){
 
-            let w=state.width;
+            let w =
+                state.width;
 
-            let h=state.height;
+
+            let h =
+                state.height;
 
 
             if(
@@ -4182,12 +5061,13 @@ async function exportPDF(){
                 state.rotation===270
             ){
 
-                [w,h]=[h,w];
+                [w,h] =
+                    [h,w];
 
             }
 
 
-            page=
+            page =
                 output.addPage([
                     w,
                     h
@@ -4197,43 +5077,46 @@ async function exportPDF(){
 
 
         /*
-         * Image page
+         * IMAGE PAGE
          */
 
         else if(
             state.type==="imagePage"
         ){
 
-            const img=
+            const image =
                 await output.embedPng(
                     state.src
                 );
 
 
-            let w=img.width;
-
-            let h=img.height;
-
-
-            const maxW=595;
-
-            const maxH=842;
+            const maxW =
+                595;
 
 
-            const scale=
+            const maxH =
+                842;
+
+
+            const scale =
                 Math.min(
-                    maxW/w,
-                    maxH/h,
+                    maxW/image.width,
+                    maxH/image.height,
                     1
                 );
 
 
-            w*=scale;
+            const w =
+                image.width*
+                scale;
 
-            h*=scale;
+
+            const h =
+                image.height*
+                scale;
 
 
-            page=
+            page =
                 output.addPage([
                     w,
                     h
@@ -4241,7 +5124,7 @@ async function exportPDF(){
 
 
             page.drawImage(
-                img,
+                image,
                 {
                     x:0,
                     y:0,
@@ -4250,61 +5133,30 @@ async function exportPDF(){
                 }
             );
 
-
-            if(state.rotation){
-
-                page.setRotation(
-                    PDFLib.degrees(
-                        state.rotation
-                    )
-                );
-
-            }
-
         }
 
 
         /*
-         * PPT slide converted to PDF
+         * PPT SLIDE IN PDF
          */
 
         else if(
             state.type==="ppt"
         ){
 
-            const canvas=
-                document.createElement(
-                    "canvas"
+            const snapshot =
+                await renderPPTSnapshot(
+                    state
                 );
 
 
-            canvas.width=
-                1280;
-
-            canvas.height=
-                720;
-
-
-            drawPPTToCanvas(
-                canvas,
-                state,
-                false
-            );
-
-
-            const png=
-                canvas.toDataURL(
-                    "image/png"
-                );
-
-
-            const img=
+            const image =
                 await output.embedPng(
-                    png
+                    snapshot
                 );
 
 
-            page=
+            page =
                 output.addPage([
                     960,
                     540
@@ -4312,7 +5164,7 @@ async function exportPDF(){
 
 
             page.drawImage(
-                img,
+                image,
                 {
                     x:0,
                     y:0,
@@ -4328,10 +5180,6 @@ async function exportPDF(){
             continue;
 
 
-        /*
-         * Add overlays
-         */
-
         await drawPDFOverlays(
             page,
             state,
@@ -4342,7 +5190,7 @@ async function exportPDF(){
     }
 
 
-    const bytes=
+    const bytes =
         await output.save();
 
 
@@ -4360,7 +5208,8 @@ async function exportPDF(){
 
     hideLoading();
 
-    status(
+
+    showStatus(
         "PDF downloaded"
     );
 
@@ -4378,11 +5227,13 @@ async function drawPDFOverlays(
     font
 ){
 
-    if(!state.overlays)
+    if(
+        !state.overlays
+    )
         return;
 
 
-    const size=
+    const size =
         page.getSize();
 
 
@@ -4395,8 +5246,8 @@ async function drawPDFOverlays(
             item.type==="watermark"
         ){
 
-            const c=
-                hexRGB(
+            const rgb =
+                hexToRGB(
                     item.color
                 );
 
@@ -4425,9 +5276,9 @@ async function drawPDFOverlays(
 
                     color:
                         PDFLib.rgb(
-                            c.r,
-                            c.g,
-                            c.b
+                            rgb.r,
+                            rgb.g,
+                            rgb.b
                         ),
 
                     opacity:
@@ -4443,67 +5294,57 @@ async function drawPDFOverlays(
             item.type==="image"
         ){
 
-            try{
-
-                let image;
+            let image;
 
 
-                if(
-                    item.src
-                    .startsWith(
-                        "data:image/png"
-                    )
-                ){
+            if(
+                item.src.startsWith(
+                    "data:image/png"
+                )
+            ){
 
-                    image=
-                        await output.embedPng(
-                            item.src
-                        );
-
-                }
-                else{
-
-                    image=
-                        await output.embedJpg(
-                            item.src
-                        );
-
-                }
-
-
-                page.drawImage(
-                    image,
-                    {
-
-                        x:
-                            item.x/
-                            zoom,
-
-                        y:
-                            size.height-
-                            (
-                                item.y+
-                                item.height
-                            )/
-                            zoom,
-
-                        width:
-                            item.width/
-                            zoom,
-
-                        height:
-                            item.height/
-                            zoom
-
-                    }
-                );
+                image =
+                    await output.embedPng(
+                        item.src
+                    );
 
             }
-            catch(error){
+            else{
 
-                console.log(error);
+                image =
+                    await output.embedJpg(
+                        item.src
+                    );
 
             }
+
+
+            page.drawImage(
+                image,
+                {
+
+                    x:
+                        item.x/
+                        zoom,
+
+                    y:
+                        size.height-
+                        (
+                            item.y+
+                            item.height
+                        )/
+                        zoom,
+
+                    width:
+                        item.width/
+                        zoom,
+
+                    height:
+                        item.height/
+                        zoom
+
+                }
+            );
 
         }
 
@@ -4518,144 +5359,87 @@ EXPORT PPTX
 
 async function exportPPTX(){
 
-    loading(
+    showLoading(
         "Creating PowerPoint..."
     );
 
 
-    const pptx=
-        new pptxgen();
+    /*
+     * IMPORTANT:
+     * We create each slide independently.
+     */
+
+    const pptx =
+        new PptxGenJS();
 
 
-    pptx.layout=
+    pptx.layout =
         "LAYOUT_WIDE";
 
 
-    pptx.author=
-        "Free PDF & PPT Editor";
+    pptx.author =
+        "PDF & PPT Editor";
 
 
-    pptx.subject=
-        "Edited presentation";
-
-
-    pptx.title=
+    pptx.subject =
         "Edited Presentation";
 
 
-    pptx.company=
-        "Free PDF & PPT Editor";
+    pptx.title =
+        "Edited Presentation";
 
 
     for(
-        const state of pages
+        let i=0;
+        i<pages.length;
+        i++
     ){
 
-        const slide=
+        const state =
+            pages[i];
+
+
+        showLoading(
+            "Creating slide "+
+            (i+1)+
+            " of "+
+            pages.length+
+            "..."
+        );
+
+
+        const slide =
             pptx.addSlide();
 
 
-        /*
-         * White background
-         */
-
-        slide.background={
+        slide.background = {
             color:"FFFFFF"
         };
 
 
         /*
-         * Existing PPT elements
+         * EXISTING PPT SLIDE
          */
 
         if(
-            state.type==="ppt" &&
-            state.elements
+            state.type==="ppt"
         ){
 
-            for(
-                const item of state.elements
-            ){
-
-                if(
-                    item.type==="pptText"
-                ){
-
-                    slide.addText(
-                        item.text,
-                        {
-
-                            x:item.x,
-
-                            y:item.y,
-
-                            w:
-                                item.w||
-                                5,
-
-                            h:
-                                item.h||
-                                1,
-
-                            fontSize:
-                                item.fontSize||
-                                24,
-
-                            color:
-                                (
-                                    item.color||
-                                    "#000000"
-                                ).replace(
-                                    "#",
-                                    ""
-                                ),
-
-                            margin:0.05,
-
-                            breakLine:false
-
-                        }
-                    );
-
-                }
+            const snapshot =
+                await renderPPTSnapshot(
+                    state
+                );
 
 
-                if(
-                    item.type==="pptImage"
-                ){
-
-                    slide.addImage({
-
-                        data:item.src,
-
-                        x:item.x,
-
-                        y:item.y,
-
-                        w:item.w,
-
-                        h:item.h
-
-                    });
-
-                }
-
-            }
-
-        }
-
-
-        /*
-         * Image page
-         */
-
-        if(
-            state.type==="imagePage"
-        ){
+            /*
+             * Put the COMPLETE slide into
+             * THIS slide only.
+             */
 
             slide.addImage({
 
-                data:state.src,
+                data:
+                    snapshot,
 
                 x:0,
 
@@ -4671,62 +5455,80 @@ async function exportPPTX(){
 
 
         /*
-         * PDF page
-         *
-         * Render it to an image because PPTX
-         * cannot directly contain a PDF page.
+         * IMAGE PAGE
          */
 
-        if(
+        else if(
+            state.type==="imagePage"
+        ){
+
+            slide.addImage({
+
+                data:
+                    state.src,
+
+                x:0,
+
+                y:0,
+
+                w:13.333,
+
+                h:7.5
+
+            });
+
+        }
+
+
+        /*
+         * PDF PAGE
+         */
+
+        else if(
             state.type==="pdf"
         ){
 
-            const canvas=
+            const pdfPage =
+                await originalPDFDocument
+                    .getPage(
+                        state.pageNumber
+                    );
+
+
+            const viewport =
+                pdfPage.getViewport({
+                    scale:1
+                });
+
+
+            const canvas =
                 document.createElement(
                     "canvas"
                 );
 
 
-            canvas.width=
-                1280;
-
-            canvas.height=
-                720;
-
-
-            const page=
-                await pdfDocument.getPage(
-                    state.pageNumber
-                );
-
-
-            const viewport=
-                page.getViewport({
-                    scale:1
-                });
-
-
-            const scale=
+            const scale =
                 Math.min(
-                    1280/viewport.width,
-                    720/viewport.height
+                    1600/viewport.width,
+                    900/viewport.height
                 );
 
 
-            const finalViewport=
-                page.getViewport({
+            const finalViewport =
+                pdfPage.getViewport({
                     scale:scale
                 });
 
 
-            canvas.width=
+            canvas.width =
                 finalViewport.width;
 
-            canvas.height=
+
+            canvas.height =
                 finalViewport.height;
 
 
-            await page.render({
+            await pdfPage.render({
 
                 canvasContext:
                     canvas.getContext("2d"),
@@ -4758,160 +5560,171 @@ async function exportPPTX(){
 
 
         /*
-         * Blank pages need no background.
+         * OVERLAYS
          */
 
-
-        /*
-         * Added overlays
-         */
-
-        if(state.overlays){
-
-            for(
-                const item of state.overlays
-            ){
-
-                if(
-                    item.type==="text" ||
-                    item.type==="watermark"
-                ){
-
-                    slide.addText(
-                        item.text,
-                        {
-
-                            x:
-                                pixelsToInches(
-                                    item.x,
-                                    state
-                                ),
-
-                            y:
-                                pixelsToInches(
-                                    item.y,
-                                    state
-                                ),
-
-                            w:4,
-
-                            h:1,
-
-                            fontSize:
-                                item.size||
-                                24,
-
-                            color:
-                                item.color
-                                .replace(
-                                    "#",
-                                    ""
-                                ),
-
-                            transparency:
-                                Math.round(
-                                    (
-                                        1-
-                                        item.opacity
-                                    )*100
-                                ),
-
-                            margin:0.02
-
-                        }
-                    );
-
-                }
-
-
-                if(
-                    item.type==="image"
-                ){
-
-                    slide.addImage({
-
-                        data:item.src,
-
-                        x:
-                            pixelsToInches(
-                                item.x,
-                                state
-                            ),
-
-                        y:
-                            pixelsToInches(
-                                item.y,
-                                state
-                            ),
-
-                        w:
-                            pixelsToInches(
-                                item.width,
-                                state
-                            ),
-
-                        h:
-                            pixelsToInches(
-                                item.height,
-                                state
-                            )
-
-                    });
-
-                }
-
-            }
-
-        }
+        await addPPTOverlays(
+            slide,
+            state
+        );
 
     }
 
 
     await pptx.writeFile({
+
         fileName:
             "edited-presentation.pptx"
+
     });
 
 
     hideLoading();
 
-    status(
-        "PPTX downloaded"
+
+    showStatus(
+        "PowerPoint downloaded"
     );
 
 }
 
 
 /* =========================================================
-PIXELS TO PPT INCHES
+ADD PPT OVERLAYS
 ========================================================= */
 
-function pixelsToInches(
-    pixels,
+async function addPPTOverlays(
+    slide,
     state
 ){
 
-    /*
-     * Editor uses approximately 96 CSS pixels
-     * per inch.
-     */
+    if(
+        !state.overlays
+    )
+        return;
 
-    return pixels/
-        (
-            96*
-            zoom
-        );
+
+    for(
+        const item of state.overlays
+    ){
+
+        /*
+         * TEXT
+         */
+
+        if(
+            item.type==="text" ||
+            item.type==="watermark"
+        ){
+
+            slide.addText(
+                item.text,
+                {
+
+                    x:
+                        item.x/
+                        (
+                            96*
+                            zoom
+                        ),
+
+                    y:
+                        item.y/
+                        (
+                            96*
+                            zoom
+                        ),
+
+                    w:4,
+
+                    h:1,
+
+                    fontSize:
+                        item.size,
+
+                    color:
+                        item.color
+                            .replace(
+                                "#",
+                                ""
+                            ),
+
+                    transparency:
+                        Math.round(
+                            (
+                                1-
+                                item.opacity
+                            )*
+                            100
+                        ),
+
+                    margin:.02
+
+                }
+            );
+
+        }
+
+
+        /*
+         * IMAGE
+         */
+
+        if(
+            item.type==="image"
+        ){
+
+            slide.addImage({
+
+                data:
+                    item.src,
+
+                x:
+                    item.x/
+                    (
+                        96*
+                        zoom
+                    ),
+
+                y:
+                    item.y/
+                    (
+                        96*
+                        zoom
+                    ),
+
+                w:
+                    item.width/
+                    (
+                        96*
+                        zoom
+                    ),
+
+                h:
+                    item.height/
+                    (
+                        96*
+                        zoom
+                    )
+
+            });
+
+        }
+
+    }
 
 }
 
 
 /* =========================================================
-HEX RGB
+HEX TO RGB
 ========================================================= */
 
-function hexRGB(hex){
+function hexToRGB(
+    hex
+){
 
-    hex=
+    hex =
         hex.replace(
             "#",
             ""
@@ -4922,19 +5735,28 @@ function hexRGB(hex){
 
         r:
             parseInt(
-                hex.substring(0,2),
+                hex.substring(
+                    0,
+                    2
+                ),
                 16
             )/255,
 
         g:
             parseInt(
-                hex.substring(2,4),
+                hex.substring(
+                    2,
+                    4
+                ),
                 16
             )/255,
 
         b:
             parseInt(
-                hex.substring(4,6),
+                hex.substring(
+                    4,
+                    6
+                ),
                 16
             )/255
 
@@ -4952,26 +5774,33 @@ function downloadBlob(
     filename
 ){
 
-    const url=
+    const url =
         URL.createObjectURL(
             blob
         );
 
 
-    const a=
+    const a =
         document.createElement(
             "a"
         );
 
 
-    a.href=url;
+    a.href =
+        url;
 
-    a.download=filename;
+
+    a.download =
+        filename;
 
 
-    document.body.appendChild(a);
+    document.body.appendChild(
+        a
+    );
+
 
     a.click();
+
 
     a.remove();
 
@@ -4996,6 +5825,10 @@ document.addEventListener(
     "keydown",
     function(e){
 
+        /*
+         * Undo
+         */
+
         if(
             e.ctrlKey &&
             e.key.toLowerCase()==="z"
@@ -5005,8 +5838,14 @@ document.addEventListener(
 
             undo();
 
+            return;
+
         }
 
+
+        /*
+         * Redo
+         */
 
         if(
             e.ctrlKey &&
@@ -5017,22 +5856,19 @@ document.addEventListener(
 
             redo();
 
-        }
-
-
-        if(
-            e.key==="ArrowRight" &&
-            !e.ctrlKey
-        ){
-
-            nextPage();
+            return;
 
         }
 
+
+        /*
+         * Previous
+         */
 
         if(
             e.key==="ArrowLeft" &&
-            !e.ctrlKey
+            !e.ctrlKey &&
+            !e.shiftKey
         ){
 
             previousPage();
@@ -5041,20 +5877,37 @@ document.addEventListener(
 
 
         /*
-         * Delete selected added element
+         * Next
          */
 
-        if(e.key==="Delete"){
+        if(
+            e.key==="ArrowRight" &&
+            !e.ctrlKey &&
+            !e.shiftKey
+        ){
 
-            const selected=
+            nextPage();
+
+        }
+
+
+        /*
+         * Delete selected overlay
+         */
+
+        if(
+            e.key==="Delete"
+        ){
+
+            const selected =
                 document.querySelector(
-                    ".element.selected"
+                    ".overlay.selected"
                 );
 
 
             if(selected){
 
-                const index=
+                const index =
                     Number(
                         selected.dataset.index
                     );
@@ -5094,7 +5947,7 @@ document.addEventListener(
                 "#addMenu"
             ) &&
             !e.target.closest(
-                ".primary"
+                ".blue"
             )
         ){
 
@@ -5105,13 +5958,13 @@ document.addEventListener(
 
         if(
             !e.target.closest(
-                ".element"
+                ".overlay"
             )
         ){
 
             document
                 .querySelectorAll(
-                    ".element"
+                    ".overlay"
                 )
                 .forEach(
                     x=>
@@ -5129,4 +5982,3 @@ document.addEventListener(
 
 </body>
 </html>
-```
