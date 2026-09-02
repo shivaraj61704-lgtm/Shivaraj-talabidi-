@@ -3,194 +3,383 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Free PDF Editor</title>
 
+<!-- PDF.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<!-- PDF-LIB -->
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
     box-sizing:border-box;
 }
 
-body{
+html,body{
     margin:0;
+    width:100%;
+    height:100%;
     font-family:Arial,Helvetica,sans-serif;
-    background:#eef1f5;
-    color:#222;
+    background:#f1f3f6;
+    color:#202124;
 }
 
-header{
-    height:65px;
-    background:#20252b;
-    color:white;
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    height:64px;
+    background:#ffffff;
+    border-bottom:1px solid #ddd;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 20px;
-    position:sticky;
+    padding:0 18px;
+    position:fixed;
     top:0;
+    left:0;
+    right:0;
     z-index:1000;
 }
 
 .logo{
     font-size:21px;
-    font-weight:bold;
+    font-weight:700;
+    color:#202124;
 }
 
 .logo span{
-    color:#4da3ff;
+    color:#1677ff;
 }
 
-.headerButtons{
+.header-right{
     display:flex;
+    align-items:center;
     gap:8px;
 }
 
-button{
-    border:none;
+.header-btn{
+    border:1px solid #d4d7dc;
+    background:white;
+    color:#202124;
+    padding:9px 13px;
     border-radius:7px;
-    padding:10px 14px;
-    cursor:pointer;
     font-size:14px;
 }
 
-button:hover{
-    opacity:.85;
+.header-btn:hover{
+    background:#f4f6f8;
 }
 
-.primary{
-    background:#1976d2;
+.download-btn{
+    background:#1677ff;
     color:white;
+    border:none;
+    padding:10px 17px;
+    border-radius:7px;
+    font-weight:600;
 }
 
-.green{
-    background:#159447;
-    color:white;
+.download-btn:hover{
+    background:#075fd5;
 }
 
-.red{
-    background:#d93025;
-    color:white;
-}
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
 
-.gray{
-    background:#444;
-    color:white;
-}
-
-.workspace{
+.app{
+    position:absolute;
+    top:64px;
+    bottom:0;
+    left:0;
+    right:0;
     display:flex;
-    height:calc(100vh - 65px);
+    overflow:hidden;
 }
 
-/* LEFT SIDEBAR */
+/* =========================================================
+   LEFT TOOLBAR
+========================================================= */
 
-.sidebar{
-    width:260px;
+.toolbar{
+    width:225px;
+    min-width:225px;
     background:#fff;
     border-right:1px solid #ddd;
-    overflow:auto;
-    padding:15px;
+    padding:14px;
+    overflow-y:auto;
 }
 
-.sidebar h3{
-    margin-top:5px;
-    margin-bottom:12px;
+.toolbar-title{
+    font-size:13px;
+    font-weight:bold;
+    color:#777;
+    margin:5px 0 10px;
+    text-transform:uppercase;
 }
 
-.tool{
+.tool-button{
     width:100%;
-    margin-bottom:8px;
+    border:1px solid #e0e2e5;
+    background:#fff;
+    padding:11px 12px;
+    margin-bottom:7px;
+    border-radius:7px;
     text-align:left;
-    background:#f2f4f7;
-    border:1px solid #ddd;
+    font-size:14px;
 }
 
-.tool:hover{
-    background:#e4e9ef;
+.tool-button:hover{
+    background:#f3f6fa;
 }
 
-.section{
-    border-top:1px solid #ddd;
+.tool-button.primary{
+    background:#1677ff;
+    border-color:#1677ff;
+    color:white;
+}
+
+.tool-button.danger{
+    color:#d93025;
+}
+
+.tool-button.green{
+    color:#188038;
+}
+
+.tool-section{
+    border-top:1px solid #e2e2e2;
     margin-top:15px;
-    padding-top:15px;
+    padding-top:14px;
 }
 
-input,select{
+.setting-label{
+    font-size:12px;
+    color:#666;
+    margin:7px 0 4px;
+    display:block;
+}
+
+.setting-input{
     width:100%;
-    padding:9px;
     border:1px solid #ccc;
     border-radius:6px;
-    margin-bottom:8px;
+    padding:8px;
+    margin-bottom:6px;
 }
 
-/* THUMBNAILS */
+.color-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
 
-.pages{
+.color-row input{
+    width:48px;
+    height:35px;
+    padding:2px;
+}
+
+/* =========================================================
+   ADD PAGE MENU
+========================================================= */
+
+.add-page-menu{
+    display:none;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:7px;
+    margin-bottom:8px;
+    box-shadow:0 5px 18px rgba(0,0,0,.12);
+}
+
+.add-page-menu.show{
+    display:block;
+}
+
+.add-page-menu button{
+    display:block;
+    width:100%;
+    border:none;
+    background:#f7f8fa;
+    padding:10px;
+    margin:3px 0;
+    border-radius:6px;
+    text-align:left;
+}
+
+.add-page-menu button:hover{
+    background:#e8edf4;
+}
+
+/* =========================================================
+   PAGE PANEL
+========================================================= */
+
+.page-panel{
     width:190px;
-    background:#f7f7f7;
+    min-width:190px;
+    background:#f7f8fa;
     border-right:1px solid #ddd;
-    overflow:auto;
+    overflow-y:auto;
     padding:12px;
+}
+
+.page-panel-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+    font-size:13px;
+    font-weight:bold;
+    color:#555;
+}
+
+.page-count{
+    color:#999;
+    font-weight:normal;
 }
 
 .thumbnail{
     background:white;
     border:2px solid transparent;
+    border-radius:7px;
     margin-bottom:12px;
     padding:5px;
-    cursor:pointer;
     position:relative;
+    cursor:pointer;
+    transition:.15s;
+}
+
+.thumbnail:hover{
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
 
 .thumbnail.active{
-    border-color:#1976d2;
+    border-color:#1677ff;
+}
+
+.thumbnail.dragging{
+    opacity:.35;
+}
+
+.thumbnail.dragover{
+    border-color:#1677ff;
+    transform:scale(1.03);
 }
 
 .thumbnail canvas{
     width:100%;
     display:block;
+    background:white;
 }
 
-.pageLabel{
+.page-number{
     text-align:center;
-    padding:5px;
-    font-size:12px;
-}
-
-.deletePage{
-    position:absolute;
-    right:4px;
-    top:4px;
-    background:#d93025;
-    color:white;
-    padding:3px 6px;
-    border-radius:4px;
     font-size:11px;
+    color:#666;
+    padding:5px 0 2px;
 }
 
-/* CANVAS AREA */
+.page-delete{
+    position:absolute;
+    top:4px;
+    right:4px;
+    width:23px;
+    height:23px;
+    border:none;
+    border-radius:50%;
+    background:#e53935;
+    color:white;
+    font-size:15px;
+    line-height:23px;
+    padding:0;
+}
 
-.editorArea{
+.page-delete:hover{
+    background:#c62828;
+}
+
+.blank-preview{
+    width:100%;
+    aspect-ratio:0.707;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    border:1px solid #ddd;
+    color:#aaa;
+    font-size:24px;
+}
+
+.image-preview{
+    width:100%;
+    aspect-ratio:0.707;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:white;
+}
+
+.image-preview img{
+    max-width:100%;
+    max-height:100%;
+}
+
+/* =========================================================
+   EDITOR
+========================================================= */
+
+.editor{
     flex:1;
     overflow:auto;
-    background:#cfd4da;
+    background:#dfe3e8;
+    position:relative;
+}
+
+.editor-inner{
+    min-width:100%;
+    min-height:100%;
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    padding:30px;
+    padding:35px;
 }
 
-.pageWrapper{
+.page-wrapper{
     position:relative;
     background:white;
-    box-shadow:0 3px 15px rgba(0,0,0,.25);
+    box-shadow:0 5px 22px rgba(0,0,0,.25);
 }
 
 #pdfCanvas{
     display:block;
 }
+
+/* =========================================================
+   OVERLAY ITEMS
+========================================================= */
 
 .overlay{
     position:absolute;
@@ -200,1255 +389,805 @@ input,select{
 }
 
 .overlay:hover{
-    border-color:#1976d2;
+    border-color:#1677ff;
 }
 
-.textOverlay{
-    padding:4px;
+.overlay.selected{
+    border:1px dashed #1677ff;
+}
+
+.text-overlay{
     white-space:nowrap;
-    font-weight:normal;
+    padding:3px 5px;
 }
 
-.imageOverlay img{
+.watermark-overlay{
+    white-space:nowrap;
+    padding:3px 5px;
+}
+
+.image-overlay{
+    overflow:hidden;
+}
+
+.image-overlay img{
     width:100%;
     height:100%;
     object-fit:contain;
+    pointer-events:none;
 }
 
-/* STATUS */
+/* =========================================================
+   FLOATING ITEM DELETE
+========================================================= */
 
-.status{
-    position:fixed;
-    bottom:15px;
-    right:20px;
-    background:#20252b;
+.item-delete{
+    position:absolute;
+    right:-10px;
+    top:-10px;
+    width:20px;
+    height:20px;
+    border:none;
+    background:#e53935;
     color:white;
-    padding:9px 14px;
-    border-radius:6px;
+    border-radius:50%;
+    font-size:12px;
     display:none;
 }
 
-/* MOBILE */
+.overlay.selected .item-delete{
+    display:block;
+}
+
+/* =========================================================
+   EMPTY SCREEN
+========================================================= */
+
+.empty-screen{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.empty-box{
+    background:white;
+    width:430px;
+    max-width:90%;
+    padding:45px 30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 25px rgba(0,0,0,.1);
+}
+
+.empty-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.empty-box h2{
+    margin:0 0 8px;
+}
+
+.empty-box p{
+    color:#777;
+    line-height:1.5;
+}
+
+.big-open{
+    background:#1677ff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:12px 25px;
+    font-size:15px;
+    margin-top:10px;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    background:#202124;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:13px;
+    display:none;
+    z-index:5000;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.8);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:6000;
+}
+
+.loading-box{
+    background:white;
+    padding:25px 35px;
+    border-radius:10px;
+    box-shadow:0 5px 25px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+.spinner{
+    width:35px;
+    height:35px;
+    border:4px solid #ddd;
+    border-top-color:#1677ff;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:0 auto 12px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:900px){
-    .sidebar{
-        width:200px;
+
+    .toolbar{
+        width:190px;
+        min-width:190px;
     }
 
-    .pages{
-        width:130px;
+    .page-panel{
+        width:150px;
+        min-width:150px;
     }
+
 }
 
 @media(max-width:650px){
-    .pages{
+
+    .toolbar{
+        width:160px;
+        min-width:160px;
+    }
+
+    .page-panel{
         display:none;
     }
 
-    .sidebar{
-        width:170px;
-    }
-
-    .headerButtons button{
-        padding:7px;
+    .header-right .header-btn{
+        display:none;
     }
 
     .logo{
-        font-size:16px;
+        font-size:17px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class="logo">
-    <span>PDF</span> EDITOR
-</div>
+<header class="header">
 
-<div class="headerButtons">
-    <button class="gray" onclick="openPDF()">📄 Open PDF</button>
-    <button class="green" onclick="downloadPDF()">⬇ Download PDF</button>
-</div>
+    <div class="logo">
+        <span>PDF</span> Editor
+    </div>
+
+    <div class="header-right">
+
+        <button
+            class="header-btn"
+            onclick="openPDF()">
+            📄 Open PDF
+        </button>
+
+        <button
+            class="header-btn"
+            onclick="undo()">
+            ↶
+        </button>
+
+        <button
+            class="header-btn"
+            onclick="redo()">
+            ↷
+        </button>
+
+        <button
+            class="download-btn"
+            onclick="downloadPDF()">
+            ⬇ Download PDF
+        </button>
+
+    </div>
 
 </header>
 
-<div class="workspace">
 
-<!-- LEFT TOOLS -->
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
 
-<div class="sidebar">
+<div class="app">
 
-<h3>Tools</h3>
 
-<button class="tool" onclick="addText()">✏️ Add Text</button>
+<!-- =====================================================
+     TOOLBAR
+===================================================== -->
 
-<button class="tool" onclick="addWatermark()">💧 Add Watermark</button>
+<aside class="toolbar">
 
-<button class="tool" onclick="chooseImage()">🖼️ Add Photo</button>
+    <div class="toolbar-title">
+        Edit
+    </div>
 
-<button class="tool" onclick="addPageNumber()">🔢 Page Number</button>
+    <button
+        class="tool-button primary"
+        onclick="toggleAddPageMenu()">
+        ➕ Add Page
+    </button>
 
-<button class="tool" onclick="rotatePage()">🔄 Rotate Page</button>
+    <div
+        id="addPageMenu"
+        class="add-page-menu">
 
-<button class="tool" onclick="addBlankPage()">➕ Add Blank Page</button>
+        <button onclick="addBlankPage()">
+            📄 Blank Page
+        </button>
 
-<div class="section">
+        <button onclick="choosePDFToAdd()">
+            📥 Add Pages from PDF
+        </button>
 
-<h3>Page</h3>
+        <button onclick="chooseImageAsPage()">
+            🖼️ Add Image as Page
+        </button>
 
-<button class="tool" onclick="previousPage()">⬅ Previous</button>
+    </div>
 
-<button class="tool" onclick="nextPage()">Next ➡</button>
 
-<button class="tool red" onclick="deleteCurrentPage()">🗑️ Delete Page</button>
+    <button
+        class="tool-button"
+        onclick="addText()">
+        ✏️ Add Text
+    </button>
+
+
+    <button
+        class="tool-button"
+        onclick="addPhoto()">
+        🖼️ Add Photo
+    </button>
+
+
+    <button
+        class="tool-button"
+        onclick="addWatermark()">
+        💧 Add Watermark
+    </button>
+
+
+    <button
+        class="tool-button"
+        onclick="addPageNumbers()">
+        🔢 Page Numbers
+    </button>
+
+
+    <div class="tool-section">
+
+        <div class="toolbar-title">
+            Page
+        </div>
+
+        <button
+            class="tool-button"
+            onclick="previousPage()">
+            ← Previous Page
+        </button>
+
+        <button
+            class="tool-button"
+            onclick="nextPage()">
+            Next Page →
+        </button>
+
+        <button
+            class="tool-button"
+            onclick="rotatePage()">
+            🔄 Rotate
+        </button>
+
+        <button
+            class="tool-button danger"
+            onclick="deleteCurrentPage()">
+            🗑️ Delete Page
+        </button>
+
+    </div>
+
+
+    <div class="tool-section">
+
+        <div class="toolbar-title">
+            Text
+        </div>
+
+        <label class="setting-label">
+            Text
+        </label>
+
+        <input
+            id="textInput"
+            class="setting-input"
+            placeholder="Enter text">
+
+
+        <label class="setting-label">
+            Font Size
+        </label>
+
+        <input
+            id="fontSize"
+            class="setting-input"
+            type="number"
+            value="24"
+            min="5"
+            max="200">
+
+
+        <label class="setting-label">
+            Text Color
+        </label>
+
+        <div class="color-row">
+
+            <input
+                id="textColor"
+                type="color"
+                value="#000000">
+
+            <span>Choose color</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="tool-section">
+
+        <div class="toolbar-title">
+            Watermark
+        </div>
+
+        <label class="setting-label">
+            Watermark Text
+        </label>
+
+        <input
+            id="watermarkInput"
+            class="setting-input"
+            placeholder="Your watermark">
+
+
+        <label class="setting-label">
+            Size
+        </label>
+
+        <input
+            id="watermarkSize"
+            class="setting-input"
+            type="number"
+            value="45"
+            min="10"
+            max="150">
+
+
+        <label class="setting-label">
+            Opacity
+        </label>
+
+        <input
+            id="watermarkOpacity"
+            type="range"
+            min="0.05"
+            max="1"
+            value="0.3"
+            step="0.05"
+            style="width:100%">
+
+    </div>
+
+
+    <div class="tool-section">
+
+        <div class="toolbar-title">
+            View
+        </div>
+
+        <button
+            class="tool-button"
+            onclick="zoomOut()">
+            − Zoom Out
+        </button>
+
+        <button
+            class="tool-button"
+            onclick="zoomIn()">
+            + Zoom In
+        </button>
+
+    </div>
+
+
+    <div class="tool-section">
+
+        <button
+            class="tool-button"
+            onclick="undo()">
+            ↶ Undo
+        </button>
+
+        <button
+            class="tool-button"
+            onclick="redo()">
+            ↷ Redo
+        </button>
+
+        <button
+            class="tool-button"
+            onclick="clearCurrentPageItems()">
+            🧹 Clear Added Items
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     PAGE THUMBNAILS
+===================================================== -->
+
+<aside class="page-panel">
+
+    <div class="page-panel-title">
+
+        <span>Pages</span>
+
+        <span
+            id="pageCount"
+            class="page-count">
+            0
+        </span>
+
+    </div>
+
+    <div id="pages"></div>
+
+</aside>
+
+
+<!-- =====================================================
+     EDITOR
+===================================================== -->
+
+<main class="editor">
+
+    <div class="editor-inner">
+
+        <div
+            id="pageWrapper"
+            class="page-wrapper"
+            style="display:none">
+
+            <canvas id="pdfCanvas"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="emptyScreen"
+        class="empty-screen">
+
+        <div class="empty-box">
+
+            <div class="empty-icon">
+                📄
+            </div>
+
+            <h2>
+                Free PDF Editor
+            </h2>
+
+            <p>
+                Open a PDF to edit pages, add text,
+                photos and watermarks, then download
+                your finished PDF.
+            </p>
+
+            <button
+                class="big-open"
+                onclick="openPDF()">
+                Open PDF
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
 
 </div>
 
-<div class="section">
 
-<h3>Text Settings</h3>
+<!-- =====================================================
+     HIDDEN FILE INPUTS
+===================================================== -->
 
-<label>Text</label>
-<input id="textInput" placeholder="Type text">
+<input
+    id="pdfInput"
+    type="file"
+    accept="application/pdf"
+    hidden>
 
-<label>Font Size</label>
-<input id="fontSize" type="number" value="24">
+<input
+    id="extraPDFInput"
+    type="file"
+    accept="application/pdf"
+    hidden>
 
-<label>Text Color</label>
-<input id="textColor" type="color" value="#000000">
+<input
+    id="imagePageInput"
+    type="file"
+    accept="image/png,image/jpeg,image/jpg"
+    hidden>
+
+<input
+    id="photoInput"
+    type="file"
+    accept="image/png,image/jpeg,image/jpg"
+    hidden>
+
+
+<!-- =====================================================
+     STATUS
+===================================================== -->
+
+<div
+    id="status"
+    class="status">
+</div>
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div
+    id="loading"
+    class="loading">
+
+    <div class="loading-box">
+
+        <div class="spinner"></div>
+
+        <div id="loadingText">
+            Creating PDF...
+        </div>
+
+    </div>
 
 </div>
 
-<div class="section">
-
-<h3>Watermark</h3>
-
-<input id="watermarkInput" placeholder="Watermark text">
-
-<label>Opacity</label>
-<input id="watermarkOpacity"
-       type="range"
-       min="0.05"
-       max="1"
-       step="0.05"
-       value="0.3">
-
-<label>Watermark Size</label>
-<input id="watermarkSize" type="number" value="50">
-
-</div>
-
-<div class="section">
-
-<h3>Zoom</h3>
-
-<button class="tool" onclick="zoomOut()">➖ Zoom Out</button>
-
-<button class="tool" onclick="zoomIn()">➕ Zoom In</button>
-
-</div>
-
-<div class="section">
-
-<button class="tool" onclick="clearOverlays()">🧹 Clear Added Items</button>
-
-<button class="tool" onclick="resetEditor()">♻ Reset</button>
-
-</div>
-
-<input id="pdfInput"
-       type="file"
-       accept="application/pdf"
-       hidden
-       onchange="loadPDF(event)">
-
-<input id="imageInput"
-       type="file"
-       accept="image/*"
-       hidden
-       onchange="loadImage(event)">
-
-</div>
-
-<!-- PAGE THUMBNAILS -->
-
-<div class="pages" id="pages"></div>
-
-<!-- EDITOR -->
-
-<div class="editorArea" id="editorArea">
-
-<div id="pageWrapper" class="pageWrapper">
-
-<canvas id="pdfCanvas"></canvas>
-
-</div>
-
-</div>
-
-</div>
-
-<div id="status" class="status"></div>
 
 <script>
+
+/* =========================================================
+   PDF.JS SETUP
+========================================================= */
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
 "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
+
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+
+let originalPDFBytes = null;
+
 let pdfDocument = null;
 
-let currentPage = 1;
+let pages = [];
+
+let currentPage = 0;
 
 let zoom = 1.25;
 
-let pageStates = [];
+let undoStack = [];
 
-let draggedElement = null;
-
-let dragOffsetX = 0;
-
-let dragOffsetY = 0;
+let redoStack = [];
 
 
-/* ---------------- STATUS ---------------- */
+/* =========================================================
+   STATUS
+========================================================= */
 
-function status(message){
+function showStatus(message){
 
-    const s = document.getElementById("status");
+    const status =
+        document.getElementById("status");
 
-    s.innerText = message;
+    status.innerText = message;
 
-    s.style.display = "block";
+    status.style.display = "block";
 
-    setTimeout(()=>{
-        s.style.display="none";
+    setTimeout(function(){
+
+        status.style.display = "none";
+
     },2500);
+
 }
 
 
-/* ---------------- OPEN PDF ---------------- */
+/* =========================================================
+   LOADING
+========================================================= */
+
+function showLoading(message){
+
+    document.getElementById(
+        "loadingText"
+    ).innerText = message;
+
+    document.getElementById(
+        "loading"
+    ).style.display = "flex";
+
+}
+
+
+function hideLoading(){
+
+    document.getElementById(
+        "loading"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   OPEN PDF
+========================================================= */
 
 function openPDF(){
 
-    document.getElementById("pdfInput").click();
+    document
+        .getElementById("pdfInput")
+        .click();
 
 }
 
 
-async function loadPDF(event){
+document
+.getElementById("pdfInput")
+.addEventListener(
+    "change",
+    loadMainPDF
+);
 
-    const file = event.target.files[0];
+
+async function loadMainPDF(event){
+
+    const file =
+        event.target.files[0];
 
     if(!file) return;
-
-    const arrayBuffer = await file.arrayBuffer();
-
-    pdfDocument = await pdfjsLib.getDocument({
-        data:arrayBuffer
-    }).promise;
-
-    pageStates = [];
-
-    for(let i=0;i<pdfDocument.numPages;i++){
-
-        pageStates.push({
-            rotation:0,
-            overlays:[]
-        });
-
-    }
-
-    currentPage=1;
-
-    await renderThumbnails();
-
-    await renderPage();
-
-    status("PDF loaded successfully");
-
-}
-
-
-/* ---------------- RENDER PAGE ---------------- */
-
-async function renderPage(){
-
-    if(!pdfDocument) return;
-
-    const page =
-        await pdfDocument.getPage(currentPage);
-
-    const viewport =
-        page.getViewport({
-            scale:zoom,
-            rotation:pageStates[currentPage-1].rotation
-        });
-
-    const canvas =
-        document.getElementById("pdfCanvas");
-
-    const ctx =
-        canvas.getContext("2d");
-
-    canvas.width=viewport.width;
-    canvas.height=viewport.height;
-
-    await page.render({
-        canvasContext:ctx,
-        viewport:viewport
-    }).promise;
-
-    const wrapper =
-        document.getElementById("pageWrapper");
-
-    wrapper.style.width =
-        viewport.width+"px";
-
-    wrapper.style.height =
-        viewport.height+"px";
-
-    removeOverlayElements();
-
-    renderOverlays();
-
-    updateActiveThumbnail();
-
-}
-
-
-/* ---------------- THUMBNAILS ---------------- */
-
-async function renderThumbnails(){
-
-    const container =
-        document.getElementById("pages");
-
-    container.innerHTML="";
-
-    for(let i=1;i<=pdfDocument.numPages;i++){
-
-        const page =
-            await pdfDocument.getPage(i);
-
-        const viewport =
-            page.getViewport({
-                scale:.25
-            });
-
-        const div =
-            document.createElement("div");
-
-        div.className="thumbnail";
-
-        div.dataset.page=i;
-
-        const canvas =
-            document.createElement("canvas");
-
-        canvas.width=viewport.width;
-
-        canvas.height=viewport.height;
-
-        await page.render({
-            canvasContext:
-                canvas.getContext("2d"),
-            viewport:viewport
-        }).promise;
-
-        const label =
-            document.createElement("div");
-
-        label.className="pageLabel";
-
-        label.innerText="Page "+i;
-
-        const del =
-            document.createElement("button");
-
-        del.className="deletePage";
-
-        del.innerText="×";
-
-        del.onclick=(e)=>{
-
-            e.stopPropagation();
-
-            deletePage(i);
-
-        };
-
-        div.onclick=()=>{
-
-            currentPage=i;
-
-            renderPage();
-
-        };
-
-        div.appendChild(canvas);
-
-        div.appendChild(label);
-
-        div.appendChild(del);
-
-        container.appendChild(div);
-
-    }
-
-    updateActiveThumbnail();
-
-}
-
-
-/* ---------------- ACTIVE THUMBNAIL ---------------- */
-
-function updateActiveThumbnail(){
-
-    document
-    .querySelectorAll(".thumbnail")
-    .forEach(x=>{
-
-        x.classList.remove("active");
-
-        if(Number(x.dataset.page)===currentPage)
-            x.classList.add("active");
-
-    });
-
-}
-
-
-/* ---------------- NAVIGATION ---------------- */
-
-function nextPage(){
-
-    if(!pdfDocument) return;
-
-    if(currentPage<pdfDocument.numPages){
-
-        currentPage++;
-
-        renderPage();
-
-    }
-
-}
-
-
-function previousPage(){
-
-    if(!pdfDocument) return;
-
-    if(currentPage>1){
-
-        currentPage--;
-
-        renderPage();
-
-    }
-
-}
-
-
-/* ---------------- DELETE PAGE ---------------- */
-
-function deleteCurrentPage(){
-
-    if(!pdfDocument) return;
-
-    deletePage(currentPage);
-
-}
-
-
-function deletePage(pageNumber){
-
-    if(pdfDocument.numPages<=1){
-
-        status("At least one page is required");
-
-        return;
-
-    }
-
-    pageStates.splice(pageNumber-1,1);
-
-    createBlankPDFFromStates();
-
-}
-
-
-/* ---------------- BLANK PAGE ---------------- */
-
-function addBlankPage(){
-
-    pageStates.push({
-        rotation:0,
-        overlays:[]
-    });
-
-    createBlankPDFFromStates();
-
-}
-
-
-async function createBlankPDFFromStates(){
-
-    /*
-    Recreate a temporary PDF containing
-    the existing pages.
-
-    The final export rebuilds everything.
-    */
-
-    if(pageStates.length===0) return;
-
-    const container =
-        document.getElementById("pages");
-
-    container.innerHTML="";
-
-    currentPage =
-        Math.min(currentPage,pageStates.length);
-
-    await renderPageCountOnly();
-
-    status("Page structure updated");
-
-}
-
-
-async function renderPageCountOnly(){
-
-    const container =
-        document.getElementById("pages");
-
-    container.innerHTML="";
-
-    for(let i=1;i<=pageStates.length;i++){
-
-        const div =
-            document.createElement("div");
-
-        div.className="thumbnail";
-
-        div.dataset.page=i;
-
-        div.style.height="150px";
-
-        div.style.display="flex";
-
-        div.style.alignItems="center";
-
-        div.style.justifyContent="center";
-
-        div.style.flexDirection="column";
-
-        div.innerHTML=
-            "📄<br>Page "+i;
-
-        div.onclick=()=>{
-
-            currentPage=i;
-
-            renderPage();
-
-        };
-
-        container.appendChild(div);
-
-    }
-
-    updateActiveThumbnail();
-
-    renderCurrentExistingPage();
-
-}
-
-
-async function renderCurrentExistingPage(){
-
-    if(currentPage<=pdfDocument.numPages){
-
-        await renderPage();
-
-    }else{
-
-        renderBlankPage();
-
-    }
-
-}
-
-
-/* ---------------- BLANK PAGE RENDER ---------------- */
-
-function renderBlankPage(){
-
-    const canvas =
-        document.getElementById("pdfCanvas");
-
-    const wrapper =
-        document.getElementById("pageWrapper");
-
-    canvas.width=600;
-
-    canvas.height=800;
-
-    const ctx=canvas.getContext("2d");
-
-    ctx.fillStyle="white";
-
-    ctx.fillRect(0,0,600,800);
-
-    wrapper.style.width="600px";
-
-    wrapper.style.height="800px";
-
-    removeOverlayElements();
-
-    renderOverlays();
-
-}
-
-
-/* ---------------- OVERLAYS ---------------- */
-
-function removeOverlayElements(){
-
-    document
-    .querySelectorAll(".overlay")
-    .forEach(e=>e.remove());
-
-}
-
-
-function renderOverlays(){
-
-    const state =
-        pageStates[currentPage-1];
-
-    if(!state) return;
-
-    state.overlays.forEach((item,index)=>{
-
-        let el;
-
-        if(item.type==="text" ||
-           item.type==="watermark"){
-
-            el=document.createElement("div");
-
-            el.className="overlay textOverlay";
-
-            el.innerText=item.text;
-
-            el.style.fontSize=item.size+"px";
-
-            el.style.color=item.color;
-
-            el.style.opacity=item.opacity;
-
-        }
-
-        if(item.type==="image"){
-
-            el=document.createElement("div");
-
-            el.className="overlay imageOverlay";
-
-            el.style.width=item.width+"px";
-
-            el.style.height=item.height+"px";
-
-            const img=document.createElement("img");
-
-            img.src=item.src;
-
-            el.appendChild(img);
-
-        }
-
-        el.style.left=item.x+"px";
-
-        el.style.top=item.y+"px";
-
-        el.dataset.index=index;
-
-        makeDraggable(el);
-
-        document
-        .getElementById("pageWrapper")
-        .appendChild(el);
-
-    });
-
-}
-
-
-/* ---------------- DRAGGING ---------------- */
-
-function makeDraggable(element){
-
-    element.addEventListener("mousedown",function(e){
-
-        draggedElement=element;
-
-        const rect=
-            element.getBoundingClientRect();
-
-        dragOffsetX=
-            e.clientX-rect.left;
-
-        dragOffsetY=
-            e.clientY-rect.top;
-
-        function move(ev){
-
-            if(!draggedElement) return;
-
-            const wrapper =
-                document
-                .getElementById("pageWrapper")
-                .getBoundingClientRect();
-
-            let x=
-                ev.clientX-wrapper.left-dragOffsetX;
-
-            let y=
-                ev.clientY-wrapper.top-dragOffsetY;
-
-            x=Math.max(0,x);
-
-            y=Math.max(0,y);
-
-            element.style.left=x+"px";
-
-            element.style.top=y+"px";
-
-        }
-
-        function up(){
-
-            if(draggedElement){
-
-                const index=
-                    Number(draggedElement.dataset.index);
-
-                const state=
-                    pageStates[currentPage-1];
-
-                if(state && state.overlays[index]){
-
-                    state.overlays[index].x=
-                        parseFloat(draggedElement.style.left);
-
-                    state.overlays[index].y=
-                        parseFloat(draggedElement.style.top);
-
-                }
-
-            }
-
-            draggedElement=null;
-
-            document.removeEventListener(
-                "mousemove",move);
-
-            document.removeEventListener(
-                "mouseup",up);
-
-        }
-
-        document.addEventListener(
-            "mousemove",move);
-
-        document.addEventListener(
-            "mouseup",up);
-
-    });
-
-}
-
-
-/* ---------------- ADD TEXT ---------------- */
-
-function addText(){
-
-    if(!pdfDocument) return;
-
-    const text=
-        document.getElementById("textInput").value ||
-        prompt("Enter text");
-
-    if(!text) return;
-
-    const size=
-        Number(document.getElementById("fontSize").value)||24;
-
-    const color=
-        document.getElementById("textColor").value;
-
-    pageStates[currentPage-1].overlays.push({
-
-        type:"text",
-
-        text:text,
-
-        x:50,
-
-        y:50,
-
-        size:size,
-
-        color:color,
-
-        opacity:1
-
-    });
-
-    renderPage();
-
-}
-
-
-/* ---------------- WATERMARK ---------------- */
-
-function addWatermark(){
-
-    if(!pdfDocument) return;
-
-    const text=
-        document.getElementById("watermarkInput").value ||
-        prompt("Enter watermark");
-
-    if(!text) return;
-
-    const size=
-        Number(
-            document.getElementById("watermarkSize").value
-        )||50;
-
-    const opacity=
-        Number(
-            document.getElementById("watermarkOpacity").value
-        );
-
-    pageStates[currentPage-1].overlays.push({
-
-        type:"watermark",
-
-        text:text,
-
-        x:100,
-
-        y:300,
-
-        size:size,
-
-        color:"#555555",
-
-        opacity:opacity
-
-    });
-
-    renderPage();
-
-}
-
-
-/* ---------------- ADD IMAGE ---------------- */
-
-function chooseImage(){
-
-    document.getElementById("imageInput").click();
-
-}
-
-
-function loadImage(event){
-
-    const file=event.target.files[0];
-
-    if(!file) return;
-
-    const reader=new FileReader();
-
-    reader.onload=function(e){
-
-        pageStates[currentPage-1].overlays.push({
-
-            type:"image",
-
-            src:e.target.result,
-
-            x:50,
-
-            y:50,
-
-            width:200,
-
-            height:150
-
-        });
-
-        renderPage();
-
-    };
-
-    reader.readAsDataURL(file);
-
-}
-
-
-/* ---------------- PAGE NUMBER ---------------- */
-
-function addPageNumber(){
-
-    if(!pdfDocument) return;
-
-    pageStates.forEach((state,index)=>{
-
-        state.overlays.push({
-
-            type:"text",
-
-            text:String(index+1),
-
-            x:280,
-
-            y:750,
-
-            size:18,
-
-            color:"#000000",
-
-            opacity:1
-
-        });
-
-    });
-
-    renderPage();
-
-}
-
-
-/* ---------------- ROTATE ---------------- */
-
-function rotatePage(){
-
-    if(!pdfDocument) return;
-
-    const state=
-        pageStates[currentPage-1];
-
-    state.rotation=
-        (state.rotation+90)%360;
-
-    renderPage();
-
-}
-
-
-/* ---------------- ZOOM ---------------- */
-
-function zoomIn(){
-
-    zoom+=.15;
-
-    renderPage();
-
-}
-
-
-function zoomOut(){
-
-    zoom=Math.max(.5,zoom-.15);
-
-    renderPage();
-
-}
-
-
-/* ---------------- CLEAR ---------------- */
-
-function clearOverlays(){
-
-    if(!pdfDocument) return;
-
-    pageStates[currentPage-1].overlays=[];
-
-    renderPage();
-
-}
-
-
-/* ---------------- RESET ---------------- */
-
-function resetEditor(){
-
-    location.reload();
-
-}
-
-
-/* ---------------- DOWNLOAD ---------------- */
-
-async function downloadPDF(){
-
-    if(!pdfDocument){
-
-        alert("Please open a PDF first.");
-
-        return;
-
-    }
-
-    status("Creating PDF...");
 
     try{
 
-        const sourceBytes =
-            await getCurrentPDFBytes();
+        showLoading("Opening PDF...");
 
-        const sourcePDF =
-            await PDFLib.PDFDocument.load(sourceBytes);
-
-        const finalPDF =
-            await PDFLib.PDFDocument.create();
-
-        const helvetica =
-            await finalPDF.embedFont(
-                PDFLib.StandardFonts.Helvetica
+        originalPDFBytes =
+            new Uint8Array(
+                await file.arrayBuffer()
             );
 
-        const pagesToCopy =
-            Math.min(
-                sourcePDF.getPageCount(),
-                pageStates.length
-            );
+        pdfDocument =
+            await pdfjsLib.getDocument({
+                data:originalPDFBytes
+            }).promise;
 
-        for(let i=0;i<pagesToCopy;i++){
 
-            const [page] =
-                await finalPDF.copyPages(
-                    sourcePDF,[i]
-                );
+        pages = [];
 
-            finalPDF.addPage(page);
 
-            const finalPage =
-                finalPDF.getPage(i);
+        for(
+            let i=1;
+            i<=pdfDocument.numPages;
+            i++
+        ){
 
-            const state=
-                pageStates[i];
+            pages.push({
 
-            const {width,height}=
-                finalPage.getSize();
+                type:"original",
 
-            /*
-             * Add overlays
-             */
+                pageNumber:i,
 
-            for(const item of state.overlays){
+                rotation:0,
 
-                if(item.type==="text" ||
-                   item.type==="watermark"){
+                overlays:[]
 
-                    let colorHex=
-                        item.color.replace("#","");
-
-                    const r=
-                        parseInt(
-                            colorHex.substring(0,2),16
-                        )/255;
-
-                    const g=
-                        parseInt(
-                            colorHex.substring(2,4),16
-                        )/255;
-
-                    const b=
-                        parseInt(
-                            colorHex.substring(4,6),16
-                        )/255;
-
-                    finalPage.drawText(
-                        item.text,
-                        {
-                            x:item.x/zoom,
-                            y:height-
-                              item.y/zoom-
-                              item.size/zoom,
-
-                            size:item.size/zoom,
-
-                            font:helvetica,
-
-                            color:
-                                PDFLib.rgb(r,g,b),
-
-                            opacity:item.opacity
-                        }
-                    );
-
-                }
-
-                if(item.type==="image"){
-
-                    try{
-
-                        let image;
-
-                        if(
-                            item.src.startsWith(
-                                "data:image/png"
-                            )
-                        ){
-
-                            image=
-                                await finalPDF.embedPng(
-                                    item.src
-                                );
-
-                        }else{
-
-                            image=
-                                await finalPDF.embedJpg(
-                                    item.src
-                                );
-
-                        }
-
-                        finalPage.drawImage(
-                            image,
-                            {
-                                x:item.x/zoom,
-                                y:height-
-                                  item.y/zoom-
-                                  item.height/zoom,
-
-                                width:item.width/zoom,
-
-                                height:item.height/zoom
-                            }
-                        );
-
-                    }catch(err){
-
-                        console.log(
-                            "Image error",
-                            err
-                        );
-
-                    }
-
-                }
-
-            }
+            });
 
         }
 
-        /*
-         * Add blank pages if user created them.
-         */
 
-        if(pageStates.length>
-           sourcePDF.getPageCount()){
+        currentPage=0;
 
-            for(
-                let i=sourcePDF.getPageCount();
-                i<pageStates.length;
-                i++
-            ){
+        undoStack=[];
 
-                const blank=
-                    finalPDF.addPage([
-                        595.28,
-                        841.89
-                    ]);
+        redoStack=[];
 
-                const state=
-                    pageStates[i];
 
-                const {width,height}=
-                    blank.getSize();
+        document
+            .getElementById("emptyScreen")
+            .style.display="none";
 
-                for(const item of state.overlays){
 
-                    if(item.type==="text" ||
-                       item.type==="watermark"){
+        document
+            .getElementById("pageWrapper")
+            .style.display="block";
 
-                        blank.drawText(
-                            item.text,
-                            {
-                                x:item.x/zoom,
 
-                                y:height-
-                                  item.y/zoom-
-                                  item.size/zoom,
+        await renderThumbnails();
 
-                                size:item.size/zoom,
+        await renderCurrentPage();
 
-                                font:helvetica,
 
-                                color:
-                                    PDFLib.rgb(
-                                        0,0,0
-                                    ),
+        hideLoading();
 
-                                opacity:item.opacity
-                            }
-                        );
+        showStatus(
+            "PDF opened — "+
+            pages.length+
+            " pages"
+        );
 
-                    }
+    }
+    catch(error){
 
-                }
-
-            }
-
-        }
-
-        const bytes=
-            await finalPDF.save();
-
-        const blob=
-            new Blob(
-                [bytes],
-                {type:"application/pdf"}
-            );
-
-        const url=
-            URL.createObjectURL(blob);
-
-        const a=
-            document.createElement("a");
-
-        a.href=url;
-
-        a.download=
-            "edited-pdf.pdf";
-
-        document.body.appendChild(a);
-
-        a.click();
-
-        a.remove();
-
-        URL.revokeObjectURL(url);
-
-        status("PDF downloaded successfully");
-
-    }catch(error){
+        hideLoading();
 
         console.error(error);
 
         alert(
-            "Could not create the PDF.\n\n"+
+            "Unable to open this PDF.\n\n"+
             error.message
         );
 
@@ -1457,26 +1196,2580 @@ async function downloadPDF(){
 }
 
 
-/*
- * Get original PDF bytes.
- *
- * PDF.js keeps the loaded document internally,
- * so we request the data from the document.
- */
+/* =========================================================
+   SAVE STATE FOR UNDO
+========================================================= */
 
-async function getCurrentPDFBytes(){
+function saveState(){
 
-    if(pdfDocument && pdfDocument.getData){
+    undoStack.push(
+        JSON.stringify(pages)
+    );
 
-        return await pdfDocument.getData();
+    if(undoStack.length>30){
+
+        undoStack.shift();
 
     }
 
-    throw new Error(
-        "Original PDF data is unavailable."
+    redoStack=[];
+
+}
+
+
+/* =========================================================
+   UNDO
+========================================================= */
+
+async function undo(){
+
+    if(undoStack.length===0){
+
+        showStatus("Nothing to undo");
+
+        return;
+
+    }
+
+    redoStack.push(
+        JSON.stringify(pages)
+    );
+
+    pages =
+        JSON.parse(
+            undoStack.pop()
+        );
+
+    currentPage =
+        Math.min(
+            currentPage,
+            pages.length-1
+        );
+
+    await renderThumbnails();
+
+    await renderCurrentPage();
+
+    showStatus("Undo");
+
+}
+
+
+/* =========================================================
+   REDO
+========================================================= */
+
+async function redo(){
+
+    if(redoStack.length===0){
+
+        showStatus("Nothing to redo");
+
+        return;
+
+    }
+
+    undoStack.push(
+        JSON.stringify(pages)
+    );
+
+    pages =
+        JSON.parse(
+            redoStack.pop()
+        );
+
+    currentPage =
+        Math.min(
+            currentPage,
+            pages.length-1
+        );
+
+    await renderThumbnails();
+
+    await renderCurrentPage();
+
+    showStatus("Redo");
+
+}
+
+
+/* =========================================================
+   ADD PAGE MENU
+========================================================= */
+
+function toggleAddPageMenu(){
+
+    document
+        .getElementById("addPageMenu")
+        .classList.toggle("show");
+
+}
+
+
+/* =========================================================
+   CLOSE MENU
+========================================================= */
+
+function closeAddPageMenu(){
+
+    document
+        .getElementById("addPageMenu")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   ADD BLANK PAGE
+========================================================= */
+
+async function addBlankPage(){
+
+    saveState();
+
+    pages.splice(
+        currentPage+1,
+        0,
+        {
+
+            type:"blank",
+
+            width:595.28,
+
+            height:841.89,
+
+            rotation:0,
+
+            overlays:[]
+
+        }
+    );
+
+    currentPage++;
+
+    closeAddPageMenu();
+
+    await renderThumbnails();
+
+    await renderCurrentPage();
+
+    showStatus("Blank page added");
+
+}
+
+
+/* =========================================================
+   ADD PDF PAGES
+========================================================= */
+
+function choosePDFToAdd(){
+
+    document
+        .getElementById("extraPDFInput")
+        .click();
+
+}
+
+
+document
+.getElementById("extraPDFInput")
+.addEventListener(
+    "change",
+    importPDFPages
+);
+
+
+async function importPDFPages(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file) return;
+
+    try{
+
+        saveState();
+
+        showLoading(
+            "Importing PDF pages..."
+        );
+
+
+        const bytes =
+            new Uint8Array(
+                await file.arrayBuffer()
+            );
+
+
+        const imported =
+            await pdfjsLib.getDocument({
+                data:bytes
+            }).promise;
+
+
+        const newPages=[];
+
+
+        /*
+         * Convert imported pages into
+         * high quality images.
+         */
+
+        for(
+            let i=1;
+            i<=imported.numPages;
+            i++
+        ){
+
+            const page =
+                await imported.getPage(i);
+
+
+            const viewport =
+                page.getViewport({
+                    scale:2
+                });
+
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            canvas.width =
+                viewport.width;
+
+            canvas.height =
+                viewport.height;
+
+
+            await page.render({
+
+                canvasContext:
+                    canvas.getContext("2d"),
+
+                viewport:viewport
+
+            }).promise;
+
+
+            newPages.push({
+
+                type:"imagePage",
+
+                src:
+                    canvas.toDataURL(
+                        "image/png"
+                    ),
+
+                width:
+                    viewport.width,
+
+                height:
+                    viewport.height,
+
+                rotation:0,
+
+                overlays:[]
+
+            });
+
+        }
+
+
+        /*
+         * Insert after current page.
+         */
+
+        pages.splice(
+            currentPage+1,
+            0,
+            ...newPages
+        );
+
+
+        currentPage++;
+
+
+        closeAddPageMenu();
+
+        await renderThumbnails();
+
+        await renderCurrentPage();
+
+        hideLoading();
+
+
+        showStatus(
+            newPages.length+
+            " page(s) added"
+        );
+
+    }
+    catch(error){
+
+        hideLoading();
+
+        console.error(error);
+
+        alert(
+            "Could not import PDF pages.\n\n"+
+            error.message
+        );
+
+    }
+
+
+    event.target.value="";
+
+}
+
+
+/* =========================================================
+   ADD IMAGE AS PAGE
+========================================================= */
+
+function chooseImageAsPage(){
+
+    document
+        .getElementById("imagePageInput")
+        .click();
+
+}
+
+
+document
+.getElementById("imagePageInput")
+.addEventListener(
+    "change",
+    importImageAsPage
+);
+
+
+function importImageAsPage(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file) return;
+
+    saveState();
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload=function(e){
+
+        const img =
+            new Image();
+
+
+        img.onload=function(){
+
+            pages.splice(
+                currentPage+1,
+                0,
+                {
+
+                    type:"imagePage",
+
+                    src:e.target.result,
+
+                    width:img.width,
+
+                    height:img.height,
+
+                    rotation:0,
+
+                    overlays:[]
+
+                }
+            );
+
+
+            currentPage++;
+
+
+            closeAddPageMenu();
+
+            renderThumbnails();
+
+            renderCurrentPage();
+
+
+            showStatus(
+                "Image page added"
+            );
+
+        };
+
+
+        img.src=e.target.result;
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+    event.target.value="";
+
+}
+
+
+/* =========================================================
+   RENDER THUMBNAILS
+========================================================= */
+
+async function renderThumbnails(){
+
+    const container =
+        document.getElementById("pages");
+
+    container.innerHTML="";
+
+
+    document
+        .getElementById("pageCount")
+        .innerText=pages.length;
+
+
+    for(
+        let i=0;
+        i<pages.length;
+        i++
+    ){
+
+        const state=pages[i];
+
+
+        const div =
+            document.createElement("div");
+
+        div.className="thumbnail";
+
+        if(i===currentPage){
+
+            div.classList.add("active");
+
+        }
+
+
+        div.draggable=true;
+
+        div.dataset.index=i;
+
+
+        /*
+         * Preview
+         */
+
+        if(state.type==="blank"){
+
+            const preview =
+                document.createElement("div");
+
+            preview.className=
+                "blank-preview";
+
+            preview.innerText="📄";
+
+            div.appendChild(preview);
+
+        }
+
+
+        else if(
+            state.type==="imagePage"
+        ){
+
+            const preview =
+                document.createElement("div");
+
+            preview.className=
+                "image-preview";
+
+
+            const img =
+                document.createElement("img");
+
+            img.src=state.src;
+
+            preview.appendChild(img);
+
+            div.appendChild(preview);
+
+        }
+
+
+        else if(
+            state.type==="original"
+        ){
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+            canvas.width=140;
+
+            canvas.height=190;
+
+            div.appendChild(canvas);
+
+            drawOriginalThumbnail(
+                canvas,
+                state.pageNumber
+            );
+
+        }
+
+
+        const number =
+            document.createElement("div");
+
+        number.className="page-number";
+
+        number.innerText=
+            "Page "+(i+1);
+
+
+        div.appendChild(number);
+
+
+        /*
+         * Delete
+         */
+
+        const deleteBtn =
+            document.createElement(
+                "button"
+            );
+
+        deleteBtn.className=
+            "page-delete";
+
+        deleteBtn.innerText="×";
+
+
+        deleteBtn.onclick=function(e){
+
+            e.stopPropagation();
+
+            deletePage(i);
+
+        };
+
+
+        div.appendChild(deleteBtn);
+
+
+        /*
+         * Click
+         */
+
+        div.onclick=function(){
+
+            currentPage=i;
+
+            renderThumbnails();
+
+            renderCurrentPage();
+
+        };
+
+
+        /*
+         * Drag reorder
+         */
+
+        div.addEventListener(
+            "dragstart",
+            function(e){
+
+                div.classList.add(
+                    "dragging"
+                );
+
+                e.dataTransfer.setData(
+                    "text/plain",
+                    i
+                );
+
+            }
+        );
+
+
+        div.addEventListener(
+            "dragend",
+            function(){
+
+                div.classList.remove(
+                    "dragging"
+                );
+
+                document
+                    .querySelectorAll(
+                        ".thumbnail"
+                    )
+                    .forEach(x=>
+                        x.classList.remove(
+                            "dragover"
+                        )
+                    );
+
+            }
+        );
+
+
+        div.addEventListener(
+            "dragover",
+            function(e){
+
+                e.preventDefault();
+
+                div.classList.add(
+                    "dragover"
+                );
+
+            }
+        );
+
+
+        div.addEventListener(
+            "dragleave",
+            function(){
+
+                div.classList.remove(
+                    "dragover"
+                );
+
+            }
+        );
+
+
+        div.addEventListener(
+            "drop",
+            function(e){
+
+                e.preventDefault();
+
+                const from =
+                    Number(
+                        e.dataTransfer.getData(
+                            "text/plain"
+                        )
+                    );
+
+                const to=i;
+
+
+                if(from===to){
+
+                    return;
+
+                }
+
+
+                saveState();
+
+
+                const moved =
+                    pages.splice(
+                        from,
+                        1
+                    )[0];
+
+
+                pages.splice(
+                    to,
+                    0,
+                    moved
+                );
+
+
+                currentPage=to;
+
+
+                renderThumbnails();
+
+                renderCurrentPage();
+
+
+                showStatus(
+                    "Pages reordered"
+                );
+
+            }
+        );
+
+
+        container.appendChild(div);
+
+    }
+
+}
+
+
+/* =========================================================
+   ORIGINAL THUMBNAIL
+========================================================= */
+
+async function drawOriginalThumbnail(
+    canvas,
+    pageNumber
+){
+
+    if(!pdfDocument) return;
+
+    try{
+
+        const page =
+            await pdfDocument.getPage(
+                pageNumber
+            );
+
+
+        const viewport =
+            page.getViewport({
+                scale:.23
+            });
+
+
+        canvas.width=
+            viewport.width;
+
+        canvas.height=
+            viewport.height;
+
+
+        await page.render({
+
+            canvasContext:
+                canvas.getContext("2d"),
+
+            viewport:viewport
+
+        }).promise;
+
+    }
+    catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER CURRENT PAGE
+========================================================= */
+
+async function renderCurrentPage(){
+
+    if(
+        pages.length===0 ||
+        !pages[currentPage]
+    ){
+
+        return;
+
+    }
+
+
+    const state =
+        pages[currentPage];
+
+
+    if(state.type==="original"){
+
+        await renderOriginalPage(state);
+
+    }
+
+    else if(state.type==="blank"){
+
+        renderBlankPage(state);
+
+    }
+
+    else if(state.type==="imagePage"){
+
+        renderImagePage(state);
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER ORIGINAL PAGE
+========================================================= */
+
+async function renderOriginalPage(state){
+
+    const page =
+        await pdfDocument.getPage(
+            state.pageNumber
+        );
+
+
+    const viewport =
+        page.getViewport({
+
+            scale:zoom,
+
+            rotation:state.rotation
+
+        });
+
+
+    const canvas =
+        document.getElementById(
+            "pdfCanvas"
+        );
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    canvas.width=
+        viewport.width;
+
+    canvas.height=
+        viewport.height;
+
+
+    await page.render({
+
+        canvasContext:ctx,
+
+        viewport:viewport
+
+    }).promise;
+
+
+    setWrapperSize(
+        viewport.width,
+        viewport.height
+    );
+
+
+    removeOverlayElements();
+
+    renderOverlays();
+
+}
+
+
+/* =========================================================
+   BLANK PAGE
+========================================================= */
+
+function renderBlankPage(state){
+
+    const canvas =
+        document.getElementById(
+            "pdfCanvas"
+        );
+
+
+    const width =
+        state.width*zoom;
+
+    const height =
+        state.height*zoom;
+
+
+    canvas.width=width;
+
+    canvas.height=height;
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    ctx.fillStyle="white";
+
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    setWrapperSize(
+        width,
+        height
+    );
+
+
+    removeOverlayElements();
+
+    renderOverlays();
+
+}
+
+
+/* =========================================================
+   IMAGE PAGE
+========================================================= */
+
+function renderImagePage(state){
+
+    const canvas =
+        document.getElementById(
+            "pdfCanvas"
+        );
+
+
+    const wrapper =
+        document.getElementById(
+            "pageWrapper"
+        );
+
+
+    const img =
+        new Image();
+
+
+    img.onload=function(){
+
+        let w =
+            img.width*zoom;
+
+        let h =
+            img.height*zoom;
+
+
+        if(
+            state.rotation===90 ||
+            state.rotation===270
+        ){
+
+            [w,h]=[h,w];
+
+        }
+
+
+        canvas.width=w;
+
+        canvas.height=h;
+
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        ctx.fillStyle="white";
+
+        ctx.fillRect(
+            0,
+            0,
+            w,
+            h
+        );
+
+
+        ctx.save();
+
+
+        if(state.rotation===90){
+
+            ctx.translate(
+                w,
+                0
+            );
+
+            ctx.rotate(
+                Math.PI/2
+            );
+
+        }
+
+        else if(state.rotation===180){
+
+            ctx.translate(
+                w,
+                h
+            );
+
+            ctx.rotate(
+                Math.PI
+            );
+
+        }
+
+        else if(state.rotation===270){
+
+            ctx.translate(
+                0,
+                h
+            );
+
+            ctx.rotate(
+                -Math.PI/2
+            );
+
+        }
+
+
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            img.width*zoom,
+            img.height*zoom
+        );
+
+
+        ctx.restore();
+
+
+        setWrapperSize(
+            w,
+            h
+        );
+
+
+        removeOverlayElements();
+
+        renderOverlays();
+
+    };
+
+
+    img.src=state.src;
+
+}
+
+
+/* =========================================================
+   WRAPPER SIZE
+========================================================= */
+
+function setWrapperSize(
+    width,
+    height
+){
+
+    const wrapper =
+        document.getElementById(
+            "pageWrapper"
+        );
+
+
+    wrapper.style.width=
+        width+"px";
+
+    wrapper.style.height=
+        height+"px";
+
+}
+
+
+/* =========================================================
+   OVERLAYS
+========================================================= */
+
+function removeOverlayElements(){
+
+    document
+        .querySelectorAll(".overlay")
+        .forEach(
+            e=>e.remove()
+        );
+
+}
+
+
+function renderOverlays(){
+
+    const state =
+        pages[currentPage];
+
+
+    if(!state) return;
+
+
+    state.overlays.forEach(
+        (item,index)=>{
+
+            let element;
+
+
+            if(
+                item.type==="text" ||
+                item.type==="watermark"
+            ){
+
+                element =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                element.className=
+                    "overlay "+
+                    (
+                        item.type==="watermark"
+                        ?
+                        "watermark-overlay"
+                        :
+                        "text-overlay"
+                    );
+
+
+                element.innerText=
+                    item.text;
+
+
+                element.style.fontSize=
+                    item.size+"px";
+
+
+                element.style.color=
+                    item.color;
+
+
+                element.style.opacity=
+                    item.opacity;
+
+
+            }
+
+
+            else if(
+                item.type==="image"
+            ){
+
+                element =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                element.className=
+                    "overlay image-overlay";
+
+
+                element.style.width=
+                    item.width+"px";
+
+
+                element.style.height=
+                    item.height+"px";
+
+
+                const img =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                img.src=item.src;
+
+
+                element.appendChild(img);
+
+            }
+
+
+            element.style.left=
+                item.x+"px";
+
+
+            element.style.top=
+                item.y+"px";
+
+
+            element.dataset.index=
+                index;
+
+
+            /*
+             * Delete button
+             */
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteButton.className=
+                "item-delete";
+
+            deleteButton.innerText="×";
+
+
+            deleteButton.onclick=function(e){
+
+                e.stopPropagation();
+
+                saveState();
+
+                state.overlays.splice(
+                    index,
+                    1
+                );
+
+                renderCurrentPage();
+
+            };
+
+
+            element.appendChild(
+                deleteButton
+            );
+
+
+            makeDraggable(element);
+
+
+            element.addEventListener(
+                "click",
+                function(e){
+
+                    e.stopPropagation();
+
+                    document
+                        .querySelectorAll(
+                            ".overlay"
+                        )
+                        .forEach(
+                            x=>
+                            x.classList.remove(
+                                "selected"
+                            )
+                        );
+
+
+                    element.classList.add(
+                        "selected"
+                    );
+
+                }
+            );
+
+
+            document
+                .getElementById(
+                    "pageWrapper"
+                )
+                .appendChild(
+                    element
+                );
+
+        }
     );
 
 }
+
+
+/* =========================================================
+   DRAG OVERLAY
+========================================================= */
+
+function makeDraggable(element){
+
+    let startX=0;
+
+    let startY=0;
+
+    let startLeft=0;
+
+    let startTop=0;
+
+
+    element.addEventListener(
+        "mousedown",
+        function(e){
+
+            if(
+                e.target.classList.contains(
+                    "item-delete"
+                )
+            ){
+
+                return;
+
+            }
+
+
+            e.preventDefault();
+
+
+            startX=e.clientX;
+
+            startY=e.clientY;
+
+
+            startLeft=
+                parseFloat(
+                    element.style.left
+                )||0;
+
+
+            startTop=
+                parseFloat(
+                    element.style.top
+                )||0;
+
+
+            const index =
+                Number(
+                    element.dataset.index
+                );
+
+
+            function move(ev){
+
+                const dx =
+                    ev.clientX-startX;
+
+                const dy =
+                    ev.clientY-startY;
+
+
+                element.style.left=
+                    Math.max(
+                        0,
+                        startLeft+dx
+                    )+"px";
+
+
+                element.style.top=
+                    Math.max(
+                        0,
+                        startTop+dy
+                    )+"px";
+
+            }
+
+
+            function stop(){
+
+                document.removeEventListener(
+                    "mousemove",
+                    move
+                );
+
+
+                document.removeEventListener(
+                    "mouseup",
+                    stop
+                );
+
+
+                const state =
+                    pages[currentPage];
+
+
+                if(
+                    state &&
+                    state.overlays[index]
+                ){
+
+                    state.overlays[index].x=
+                        parseFloat(
+                            element.style.left
+                        );
+
+
+                    state.overlays[index].y=
+                        parseFloat(
+                            element.style.top
+                        );
+
+                }
+
+            }
+
+
+            document.addEventListener(
+                "mousemove",
+                move
+            );
+
+
+            document.addEventListener(
+                "mouseup",
+                stop
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ADD TEXT
+========================================================= */
+
+function addText(){
+
+    if(!pages.length){
+
+        alert("Open a PDF first.");
+
+        return;
+
+    }
+
+
+    const input =
+        document.getElementById(
+            "textInput"
+        );
+
+
+    let text=input.value.trim();
+
+
+    if(!text){
+
+        text=prompt(
+            "Enter text:"
+        );
+
+    }
+
+
+    if(!text) return;
+
+
+    saveState();
+
+
+    pages[currentPage].overlays.push({
+
+        type:"text",
+
+        text:text,
+
+        x:60,
+
+        y:60,
+
+        size:
+            Number(
+                document.getElementById(
+                    "fontSize"
+                ).value
+            )||24,
+
+        color:
+            document.getElementById(
+                "textColor"
+            ).value,
+
+        opacity:1
+
+    });
+
+
+    renderCurrentPage();
+
+    showStatus("Text added");
+
+}
+
+
+/* =========================================================
+   ADD WATERMARK
+========================================================= */
+
+function addWatermark(){
+
+    if(!pages.length){
+
+        alert("Open a PDF first.");
+
+        return;
+
+    }
+
+
+    let text =
+        document
+            .getElementById(
+                "watermarkInput"
+            )
+            .value.trim();
+
+
+    if(!text){
+
+        text=prompt(
+            "Enter watermark text:"
+        );
+
+    }
+
+
+    if(!text) return;
+
+
+    saveState();
+
+
+    pages[currentPage].overlays.push({
+
+        type:"watermark",
+
+        text:text,
+
+        x:100,
+
+        y:350,
+
+        size:
+            Number(
+                document.getElementById(
+                    "watermarkSize"
+                ).value
+            )||45,
+
+        color:"#555555",
+
+        opacity:
+            Number(
+                document.getElementById(
+                    "watermarkOpacity"
+                ).value
+            )
+
+    });
+
+
+    renderCurrentPage();
+
+    showStatus("Watermark added");
+
+}
+
+
+/* =========================================================
+   ADD PHOTO
+========================================================= */
+
+function addPhoto(){
+
+    if(!pages.length){
+
+        alert("Open a PDF first.");
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("photoInput")
+        .click();
+
+}
+
+
+document
+.getElementById("photoInput")
+.addEventListener(
+    "change",
+    loadPhoto
+);
+
+
+function loadPhoto(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file) return;
+
+
+    saveState();
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload=function(e){
+
+        const img =
+            new Image();
+
+
+        img.onload=function(){
+
+            let width=220;
+
+            let height =
+                width*
+                (
+                    img.height/
+                    img.width
+                );
+
+
+            if(height>250){
+
+                height=250;
+
+                width=
+                    height*
+                    (
+                        img.width/
+                        img.height
+                    );
+
+            }
+
+
+            pages[currentPage].overlays.push({
+
+                type:"image",
+
+                src:e.target.result,
+
+                x:50,
+
+                y:50,
+
+                width:width,
+
+                height:height
+
+            });
+
+
+            renderCurrentPage();
+
+            showStatus("Photo added");
+
+        };
+
+
+        img.src=e.target.result;
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+    event.target.value="";
+
+}
+
+
+/* =========================================================
+   PAGE NUMBERS
+========================================================= */
+
+function addPageNumbers(){
+
+    if(!pages.length){
+
+        alert("Open a PDF first.");
+
+        return;
+
+    }
+
+
+    saveState();
+
+
+    pages.forEach(
+        (state,index)=>{
+
+            state.overlays.push({
+
+                type:"text",
+
+                text:String(index+1),
+
+                x:285,
+
+                y:760,
+
+                size:18,
+
+                color:"#000000",
+
+                opacity:1
+
+            });
+
+        }
+    );
+
+
+    renderCurrentPage();
+
+    showStatus(
+        "Page numbers added"
+    );
+
+}
+
+
+/* =========================================================
+   DELETE PAGE
+========================================================= */
+
+function deleteCurrentPage(){
+
+    deletePage(
+        currentPage
+    );
+
+}
+
+
+function deletePage(index){
+
+    if(pages.length<=1){
+
+        alert(
+            "At least one page is required."
+        );
+
+        return;
+
+    }
+
+
+    saveState();
+
+
+    pages.splice(
+        index,
+        1
+    );
+
+
+    if(
+        currentPage>=pages.length
+    ){
+
+        currentPage=
+            pages.length-1;
+
+    }
+
+
+    renderThumbnails();
+
+    renderCurrentPage();
+
+    showStatus("Page deleted");
+
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function previousPage(){
+
+    if(
+        currentPage>0
+    ){
+
+        currentPage--;
+
+        renderThumbnails();
+
+        renderCurrentPage();
+
+    }
+
+}
+
+
+function nextPage(){
+
+    if(
+        currentPage<
+        pages.length-1
+    ){
+
+        currentPage++;
+
+        renderThumbnails();
+
+        renderCurrentPage();
+
+    }
+
+}
+
+
+/* =========================================================
+   ROTATE
+========================================================= */
+
+function rotatePage(){
+
+    if(!pages.length) return;
+
+
+    saveState();
+
+
+    pages[currentPage].rotation=
+        (
+            pages[currentPage].rotation+
+            90
+        )%360;
+
+
+    renderThumbnails();
+
+    renderCurrentPage();
+
+    showStatus("Page rotated");
+
+}
+
+
+/* =========================================================
+   ZOOM
+========================================================= */
+
+function zoomIn(){
+
+    zoom=
+        Math.min(
+            3,
+            zoom+.15
+        );
+
+
+    renderCurrentPage();
+
+}
+
+
+function zoomOut(){
+
+    zoom=
+        Math.max(
+            .5,
+            zoom-.15
+        );
+
+
+    renderCurrentPage();
+
+}
+
+
+/* =========================================================
+   CLEAR ITEMS
+========================================================= */
+
+function clearCurrentPageItems(){
+
+    if(!pages.length) return;
+
+
+    if(
+        pages[currentPage].overlays.length===0
+    ){
+
+        showStatus(
+            "No added items"
+        );
+
+        return;
+
+    }
+
+
+    saveState();
+
+
+    pages[currentPage].overlays=[];
+
+
+    renderCurrentPage();
+
+    showStatus(
+        "Added items cleared"
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD PDF
+========================================================= */
+
+async function downloadPDF(){
+
+    if(
+        !originalPDFBytes &&
+        pages.length===0
+    ){
+
+        alert(
+            "Please open or create a PDF first."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        showLoading(
+            "Creating your PDF..."
+        );
+
+
+        const output =
+            await PDFLib.PDFDocument.create();
+
+
+        const font =
+            await output.embedFont(
+                PDFLib.StandardFonts.Helvetica
+            );
+
+
+        /*
+         * Process every page.
+         */
+
+        for(
+            let i=0;
+            i<pages.length;
+            i++
+        ){
+
+            const state=pages[i];
+
+
+            /*
+             * ORIGINAL PDF PAGE
+             */
+
+            if(
+                state.type==="original"
+            ){
+
+                const source =
+                    await PDFLib.PDFDocument.load(
+                        originalPDFBytes
+                    );
+
+
+                const copied =
+                    await output.copyPages(
+                        source,
+                        [state.pageNumber-1]
+                    );
+
+
+                const page=
+                    copied[0];
+
+
+                output.addPage(page);
+
+
+                /*
+                 * Rotate
+                 */
+
+                if(state.rotation){
+
+                    page.setRotation(
+                        PDFLib.degrees(
+                            state.rotation
+                        )
+                    );
+
+                }
+
+
+                await drawExportOverlays(
+                    page,
+                    state,
+                    output,
+                    font
+                );
+
+            }
+
+
+            /*
+             * BLANK PAGE
+             */
+
+            else if(
+                state.type==="blank"
+            ){
+
+                let width =
+                    state.width;
+
+                let height =
+                    state.height;
+
+
+                if(
+                    state.rotation===90 ||
+                    state.rotation===270
+                ){
+
+                    [width,height]=
+                        [height,width];
+
+                }
+
+
+                const page =
+                    output.addPage([
+                        width,
+                        height
+                    ]);
+
+
+                await drawExportOverlays(
+                    page,
+                    state,
+                    output,
+                    font
+                );
+
+            }
+
+
+            /*
+             * IMAGE PAGE
+             */
+
+            else if(
+                state.type==="imagePage"
+            ){
+
+                const image =
+                    await output.embedPng(
+                        state.src
+                    );
+
+
+                let width =
+                    image.width;
+
+                let height =
+                    image.height;
+
+
+                const maxWidth=595;
+
+                const maxHeight=842;
+
+
+                const scale =
+                    Math.min(
+                        maxWidth/width,
+                        maxHeight/height,
+                        1
+                    );
+
+
+                width*=scale;
+
+                height*=scale;
+
+
+                const page =
+                    output.addPage([
+                        width,
+                        height
+                    ]);
+
+
+                page.drawImage(
+                    image,
+                    {
+                        x:0,
+                        y:0,
+                        width:width,
+                        height:height
+                    }
+                );
+
+
+                if(state.rotation){
+
+                    page.setRotation(
+                        PDFLib.degrees(
+                            state.rotation
+                        )
+                    );
+
+                }
+
+
+                await drawExportOverlays(
+                    page,
+                    state,
+                    output,
+                    font
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Save
+         */
+
+        const bytes =
+            await output.save();
+
+
+        const blob =
+            new Blob(
+                [bytes],
+                {
+                    type:
+                        "application/pdf"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const a =
+            document.createElement(
+                "a"
+            );
+
+
+        a.href=url;
+
+        a.download=
+            "edited-pdf.pdf";
+
+
+        document.body.appendChild(a);
+
+        a.click();
+
+        a.remove();
+
+
+        setTimeout(
+            function(){
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+            },
+            1000
+        );
+
+
+        hideLoading();
+
+        showStatus(
+            "PDF downloaded successfully"
+        );
+
+    }
+    catch(error){
+
+        hideLoading();
+
+        console.error(error);
+
+        alert(
+            "PDF export failed.\n\n"+
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   EXPORT OVERLAYS
+========================================================= */
+
+async function drawExportOverlays(
+    page,
+    state,
+    output,
+    font
+){
+
+    const {width,height}=
+        page.getSize();
+
+
+    for(
+        const item of state.overlays
+    ){
+
+        /*
+         * TEXT / WATERMARK
+         */
+
+        if(
+            item.type==="text" ||
+            item.type==="watermark"
+        ){
+
+            const color =
+                hexToRGB(
+                    item.color
+                );
+
+
+            /*
+             * The editor uses CSS pixels.
+             * Convert them approximately
+             * to PDF points.
+             */
+
+            const scaleFactor =
+                1/zoom;
+
+
+            const x =
+                item.x*
+                scaleFactor;
+
+
+            const y =
+                height-
+                (
+                    item.y+
+                    item.size
+                )*
+                scaleFactor;
+
+
+            page.drawText(
+                item.text,
+                {
+
+                    x:x,
+
+                    y:y,
+
+                    size:
+                        item.size*
+                        scaleFactor,
+
+                    font:font,
+
+                    color:
+                        PDFLib.rgb(
+                            color.r,
+                            color.g,
+                            color.b
+                        ),
+
+                    opacity:
+                        item.opacity
+
+                }
+            );
+
+        }
+
+
+        /*
+         * IMAGE
+         */
+
+        if(
+            item.type==="image"
+        ){
+
+            try{
+
+                let image;
+
+
+                if(
+                    item.src.startsWith(
+                        "data:image/png"
+                    )
+                ){
+
+                    image=
+                        await output.embedPng(
+                            item.src
+                        );
+
+                }
+                else{
+
+                    image=
+                        await output.embedJpg(
+                            item.src
+                        );
+
+                }
+
+
+                page.drawImage(
+                    image,
+                    {
+
+                        x:
+                            item.x/
+                            zoom,
+
+                        y:
+                            height-
+                            (
+                                item.y+
+                                item.height
+                            )/
+                            zoom,
+
+                        width:
+                            item.width/
+                            zoom,
+
+                        height:
+                            item.height/
+                            zoom
+
+                    }
+                );
+
+            }
+            catch(error){
+
+                console.log(
+                    "Image export error",
+                    error
+                );
+
+            }
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   HEX TO RGB
+========================================================= */
+
+function hexToRGB(hex){
+
+    hex=
+        hex.replace(
+            "#",
+            ""
+        );
+
+
+    return {
+
+        r:
+            parseInt(
+                hex.substring(0,2),
+                16
+            )/255,
+
+        g:
+            parseInt(
+                hex.substring(2,4),
+                16
+            )/255,
+
+        b:
+            parseInt(
+                hex.substring(4,6),
+                16
+            )/255
+
+    };
+
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        /*
+         * Delete selected overlay
+         */
+
+        if(
+            e.key==="Delete"
+        ){
+
+            const selected =
+                document.querySelector(
+                    ".overlay.selected"
+                );
+
+
+            if(selected){
+
+                const index =
+                    Number(
+                        selected.dataset.index
+                    );
+
+
+                saveState();
+
+
+                pages[
+                    currentPage
+                ].overlays.splice(
+                    index,
+                    1
+                );
+
+
+                renderCurrentPage();
+
+            }
+
+        }
+
+
+        /*
+         * Ctrl + Z
+         */
+
+        if(
+            e.ctrlKey &&
+            e.key.toLowerCase()==="z"
+        ){
+
+            e.preventDefault();
+
+            undo();
+
+        }
+
+
+        /*
+         * Ctrl + Y
+         */
+
+        if(
+            e.ctrlKey &&
+            e.key.toLowerCase()==="y"
+        ){
+
+            e.preventDefault();
+
+            redo();
+
+        }
+
+
+        /*
+         * Arrow page navigation
+         */
+
+        if(
+            e.key==="ArrowRight" &&
+            !e.ctrlKey
+        ){
+
+            nextPage();
+
+        }
+
+
+        if(
+            e.key==="ArrowLeft" &&
+            !e.ctrlKey
+        ){
+
+            previousPage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            !e.target.closest(
+                ".add-page-menu"
+            ) &&
+            !e.target.closest(
+                ".primary"
+            )
+        ){
+
+            closeAddPageMenu();
+
+        }
+
+
+        if(
+            !e.target.closest(
+                ".overlay"
+            )
+        ){
+
+            document
+                .querySelectorAll(
+                    ".overlay"
+                )
+                .forEach(
+                    x=>
+                    x.classList.remove(
+                        "selected"
+                    )
+                );
+
+        }
+
+    }
+);
 
 </script>
 
