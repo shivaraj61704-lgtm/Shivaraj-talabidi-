@@ -1,695 +1,261 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My AI Study Hub</title>
-</head>
-<body>
-    <h1>🎓 My AI Study Hub</h1>
-    <p>  Welcome to mr mathcool study website!</p>
-</body>
-</html>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My AI Study Hub</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
-        }
-
-        header {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            color: white;
-            text-align: center;
-            padding: 35px 15px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-
-        header p {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .welcome {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .welcome h2 {
-            margin-top: 0;
-        }
-
-        .subjects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card .icon {
-            font-size: 45px;
-        }
-
-        .card h3 {
-            margin: 12px 0 8px;
-        }
-
-        .card p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 18px;
-            background: #4f46e5;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        .card a:hover {
-            background: #3730a3;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            margin-top: 30px;
-            background: #111827;
-            color: white;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>🎓 My AI Study Hub</h1>
-    <p>Your smart study companion</p>
-</header>
-
-<div class="container">
-
-    <div class="welcome">
-        <h2>📚 Welcome!</h2>
-        <p>
-            Learn, practice and prepare for your exams with
-            notes, formulas and MCQs.
-        </p>
-    </div>
-
-    <div class="subjects">
-
-        <div class="card">
-            <div class="icon">📐</div>
-            <h3>Mathematics</h3>
-            <p>2nd PUC Maths chapters, formulas and practice questions.</p>
-            
-        </div>
-
-        <div class="card">
-            <div class="icon">⚡</div>
-            <h3>Physics</h3>
-            <p>Important concepts, formulas and exam questions.</p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🧪</div>
-            <h3>Chemistry</h3>
-            <p>Important reactions, concepts and MCQs.</p>
-            
-        </div>
-
-        <div class="card">
-            <div class="icon">📝</div>
-            <h3>MCQ Practice</h3>
-            <p>Practice questions for board exams and competitive exams.</p>
-            
-        </div>
-<body>
-    <!DOCTYPE html><html lang="en">
-<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>2nd PUC Complete Study Hub</title><style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free PDF Editor</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+<style>
+*{
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #222;
-    line-height: 1.6;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef1f5;
+    color:#222;
 }
 
-/* HEADER */
-header {
-    background: linear-gradient(135deg, #172554, #1e40af);
-    color: white;
-    text-align: center;
-    padding: 35px 15px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+header{
+    height:65px;
+    background:#20252b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-header h1 {
-    font-size: 32px;
-    margin-bottom: 8px;
+.logo{
+    font-size:21px;
+    font-weight:bold;
 }
 
-header p {
-    font-size: 16px;
+.logo span{
+    color:#4da3ff;
 }
 
-/* MAIN */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 25px 15px;
+.headerButtons{
+    display:flex;
+    gap:8px;
 }
 
-/* RED HEADLINES */
-h2,
-h3 {
-    color: red;
+button{
+    border:none;
+    border-radius:7px;
+    padding:10px 14px;
+    cursor:pointer;
+    font-size:14px;
 }
 
-.section-title {
-    text-align: center;
-    font-size: 27px;
-    margin: 30px 0 18px;
-    color: red;
+button:hover{
+    opacity:.85;
 }
 
-/* WELCOME */
-.welcome {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+.primary{
+    background:#1976d2;
+    color:white;
 }
 
-.welcome h2 {
-    margin-bottom: 10px;
+.green{
+    background:#159447;
+    color:white;
 }
 
-/* CONTENT GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
+.red{
+    background:#d93025;
+    color:white;
 }
 
-/* CARDS */
-.card {
-    background: white;
-    padding: 22px;
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: 0.25s;
+.gray{
+    background:#444;
+    color:white;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.workspace{
+    display:flex;
+    height:calc(100vh - 65px);
 }
 
-.icon {
-    font-size: 45px;
-    margin-bottom: 10px;
+/* LEFT SIDEBAR */
+
+.sidebar{
+    width:260px;
+    background:#fff;
+    border-right:1px solid #ddd;
+    overflow:auto;
+    padding:15px;
 }
 
-.card h3 {
-    margin-bottom: 8px;
+.sidebar h3{
+    margin-top:5px;
+    margin-bottom:12px;
 }
 
-.card p {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 15px;
+.tool{
+    width:100%;
+    margin-bottom:8px;
+    text-align:left;
+    background:#f2f4f7;
+    border:1px solid #ddd;
 }
 
-/* BUTTON */
-.btn {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: bold;
+.tool:hover{
+    background:#e4e9ef;
 }
 
-.btn:hover {
-    background: #1d4ed8;
+.section{
+    border-top:1px solid #ddd;
+    margin-top:15px;
+    padding-top:15px;
 }
 
-/* LIST */
-.list-box {
-    background: white;
-    padding: 22px;
-    border-radius: 18px;
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+input,select{
+    width:100%;
+    padding:9px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    margin-bottom:8px;
 }
 
-.list-box ul {
-    list-style: none;
+/* THUMBNAILS */
+
+.pages{
+    width:190px;
+    background:#f7f7f7;
+    border-right:1px solid #ddd;
+    overflow:auto;
+    padding:12px;
 }
 
-.list-box li {
-    padding: 9px 0;
-    border-bottom: 1px solid #eee;
+.thumbnail{
+    background:white;
+    border:2px solid transparent;
+    margin-bottom:12px;
+    padding:5px;
+    cursor:pointer;
+    position:relative;
 }
 
-.list-box li:last-child {
-    border-bottom: none;
+.thumbnail.active{
+    border-color:#1976d2;
 }
 
-/* NOTICE */
-.notice {
-    background: #fff7ed;
-    border-left: 5px solid red;
-    padding: 18px;
-    margin-top: 25px;
-    border-radius: 10px;
+.thumbnail canvas{
+    width:100%;
+    display:block;
 }
 
-.notice h3 {
-    margin-bottom: 5px;
+.pageLabel{
+    text-align:center;
+    padding:5px;
+    font-size:12px;
 }
 
-/* FOOTER */
-footer {
-    background: #172033;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 30px;
+.deletePage{
+    position:absolute;
+    right:4px;
+    top:4px;
+    background:#d93025;
+    color:white;
+    padding:3px 6px;
+    border-radius:4px;
+    font-size:11px;
 }
 
-footer h3 {
-    color: red;
-    margin-bottom: 8px;
+/* CANVAS AREA */
+
+.editorArea{
+    flex:1;
+    overflow:auto;
+    background:#cfd4da;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:30px;
+}
+
+.pageWrapper{
+    position:relative;
+    background:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.25);
+}
+
+#pdfCanvas{
+    display:block;
+}
+
+.overlay{
+    position:absolute;
+    cursor:move;
+    user-select:none;
+    border:1px dashed transparent;
+}
+
+.overlay:hover{
+    border-color:#1976d2;
+}
+
+.textOverlay{
+    padding:4px;
+    white-space:nowrap;
+    font-weight:normal;
+}
+
+.imageOverlay img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* STATUS */
+
+.status{
+    position:fixed;
+    bottom:15px;
+    right:20px;
+    background:#20252b;
+    color:white;
+    padding:9px 14px;
+    border-radius:6px;
+    display:none;
 }
 
 /* MOBILE */
-@media (max-width: 600px) {
 
-    header h1 {
-        font-size: 27px;
+@media(max-width:900px){
+    .sidebar{
+        width:200px;
     }
 
-    .section-title {
-        font-size: 23px;
-    }
-
-    .card {
-        padding: 18px;
+    .pages{
+        width:130px;
     }
 }
-</style></head><body><!-- HEADER --><header><h1>📚 2nd PUC Complete Study Hub</h1>
 
-<p>
-    Board Exam • KCET • JEE Preparation
-</p>
-
-</header><div class="container"><!-- WELCOME --><section class="welcome"><h2>👋 Welcome to Your Study Hub</h2>
-
-<p>
-    One place for 2nd PUC Mathematics, Physics and Chemistry.
-    Learn concepts, revise formulas, study derivations,
-    practise questions and prepare for Board, KCET and JEE.
-</p>
-
-</section><!-- SUBJECTS --><h2 class="section-title">
-    📚 Subjects
-</h2><div class="grid"><!-- MATHS -->
-<div class="card">
-
-    <div class="icon">🧮</div>
-
-    <h3>Mathematics</h3>
-
-    <p>
-        Chapters, exercises, formulas, definitions,
-        solutions, MCQs and competitive questions.
-    </p>
-    
-    </a>
-
-</div>
-
-
-<!-- PHYSICS -->
-<div class="card">
-
-    <div class="icon">⚡</div>
-
-    <h3>Physics</h3>
-
-    <p>
-        Concepts, formulas, derivations, diagrams,
-        numericals, board questions and MCQs.
-    </p>
-    </a>
-
-</div>
-
-
-<!-- CHEMISTRY -->
-<div class="card">
-
-    <div class="icon">🧪</div>
-
-    <h3>Chemistry</h3>
-
-    <p>
-        Concepts, definitions, reactions, equations,
-        formulas, board questions and MCQs.
-    </p>
-    </a>
-
-</div>
-
-</div><!-- MATHEMATICS CONTENT --><h2 class="section-title">
-    🧮 Mathematics Contains
-</h2><div class="list-box"><ul><li>📚 All 2nd PUC Mathematics Chapters</li><li>📖 NCERT Exercise-wise Questions & Answers</li><li>✍️ Step-by-step Board Exam Solutions</li><li>📐 Complete Formula Collection</li><li>📘 Important Definitions</li><li>⭐ Important Results and Theorems</li><li>📝 2-Mark, 3-Mark, 5-Mark and 6-Mark Questions</li><li>🎯 KCET MCQs</li><li>🔥 JEE-Level Questions</li><li>📅 Previous-Year-Style Questions</li></ul></div><!-- PHYSICS CONTENT --><h2 class="section-title">
-    ⚡ Physics Contains
-</h2><div class="list-box"><ul><li>📚 All 2nd PUC Physics Chapters</li><li>📐 Important Formulas</li><li>📖 Important Definitions</li><li>✍️ Complete Derivations</li><li>🖼️ Important Diagrams</li><li>🔢 Numerical Problems</li><li>📝 Board Exam Questions</li><li>🎯 KCET MCQs</li><li>🔥 JEE-Level Questions</li><li>📅 Previous-Year-Style Questions</li></ul></div><!-- CHEMISTRY CONTENT --><h2 class="section-title">
-    🧪 Chemistry Contains
-</h2><div class="list-box"><ul><li>📚 All 2nd PUC Chemistry Chapters</li><li>📘 Important Definitions</li><li>⚗️ Important Chemical Reactions</li><li>🧪 Named Reactions</li><li>📐 Important Formulas</li><li>🔢 Numerical Problems</li><li>📝 Board Exam Questions</li><li>🎯 KCET MCQs</li><li>🔥 JEE-Level Questions</li><li>📅 Previous-Year-Style Questions</li></ul></div><!-- PRACTICE --><h2 class="section-title">
-    🧠 Practice Zone
-</h2><div class="grid"><div class="card">
-
-    <div class="icon">❓</div>
-
-    <h3>MCQ Quiz</h3>
-
-    <p>
-        Test your knowledge with multiple-choice questions.
-    </p>
-    </a>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">🎯</div>
-
-    <h3>KCET Practice</h3>
-
-    <p>
-        Practice objective questions for KCET.
-    </p>
-    </a>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">🔥</div>
-
-    <h3>JEE Practice</h3>
-
-    <p>
-        Challenge yourself with JEE-level questions.
-    </p>
-    </a>
-
-</div>
-
-</div><!-- REVISION --><h2 class="section-title">
-</h2><div class="grid"><div class="card">
-
-    <div class="icon">📐</div>
-
-    <h3>Formula Sheet</h3>
-
-    <p>
-        Quickly revise important formulas.
-    </p>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">📖</div>
-
-    <h3>Definitions</h3>
-
-    <p>
-        Important definitions with examples.
-    </p>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">✍️</div>
-
-    <h3>Derivations</h3>
-
-    <p>
-        Revise important Physics derivations.
-    </p>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">⚗️</div>
-
-    <h3>Reactions</h3>
-
-    <p>
-        Quickly revise important Chemistry reactions.
-    </p>
-
-</div>
-
-</div><!-- EXAM ZONE --><h2 class="section-title">
-    🎓 Exam Preparation
-</h2><div class="grid"><div class="card">
-
-    <div class="icon">🏫</div>
-
-    <h3>Board Exam</h3>
-
-    <p>
-        Important questions and exam-oriented preparation.
-    </p>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">🎯</div>
-
-    <h3>KCET</h3>
-
-    <p>
-        MCQs and objective practice for KCET.
-    </p>
-
-</div>
-
-
-<div class="card">
-
-    <div class="icon">🚀</div>
-
-    <h3>JEE</h3>
-
-    <p>
-        Higher-level practice for competitive preparation.
-    </p>
-
-</div>
-
-</div><!-- STUDY TIP --><div class="notice"><h3>💡 Study Tip</h3>
-
-<p>
-    First understand the concept → learn the formula →
-    solve examples → practise questions → revise regularly.
-</p>
-
-</div></div><!-- FOOTER --><footer><h3>📚 2nd PUC Complete Study Hub</h3>
-
-<p>
-    Learn • Practice • Revise • Succeed 🎓
-</p>
-
-<p>
-    © 2026 Study Hub
-</p>
-
-</footer></body>
-    </html>
-    </div>
-
-</div>
-
-<footer>
-    <p>© 2026 My AI Study Hub</p>
-    <p>Made for students 📚</p>
-</footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>2nd PUC Maths - My AI Study Hub</title>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-}
-
-header {
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 30px;
-}
-
-header p {
-    margin-bottom: 0;
-}
-
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-
-.back {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 10px 16px;
-    background: #111827;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-.card {
-    background: white;
-    margin-bottom: 20px;
-    padding: 22px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.card h2 {
-    color: #4f46e5;
-    margin-top: 0;
-}
-
-.formula {
-    background: #eef2ff;
-    padding: 12px;
-    margin: 8px 0;
-    border-left: 4px solid #4f46e5;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.question {
-    background: #f9fafb;
-    padding: 15px;
-    margin: 12px 0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-}
-
-button {
-    border: none;
-    padding: 10px 15px;
-    border-radius: 7px;
-    background: #4f46e5;
-    color: white;
-    cursor: pointer;
-}
-
-.answer {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background: #dcfce7;
-    border-radius: 7px;
-}
-
-footer {
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+@media(max-width:650px){
+    .pages{
+        display:none;
+    }
+
+    .sidebar{
+        width:170px;
+    }
+
+    .headerButtons button{
+        padding:7px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
 }
 </style>
 </head>
@@ -697,5803 +263,1222 @@ footer {
 <body>
 
 <header>
-<h1>📐 2nd PUC Mathematics</h1>
-<p>Formulas • Practice • KCET • JEE</p>
+
+<div class="logo">
+    <span>PDF</span> EDITOR
+</div>
+
+<div class="headerButtons">
+    <button class="gray" onclick="openPDF()">📄 Open PDF</button>
+    <button class="green" onclick="downloadPDF()">⬇ Download PDF</button>
+</div>
+
 </header>
 
-<div class="container">
+<div class="workspace">
 
-<a class="back" href="index.html">⬅ Back to Home</a>
+<!-- LEFT TOOLS -->
 
-<div class="card">
-<h2>📚 Chapters</h2>
+<div class="sidebar">
 
-<p>1. Relations and Functions</p>
-<p>2. Inverse Trigonometric Functions</p>
-<p>3. Matrices</p>
-<p>4. Determinants</p>
-<p>5. Continuity and Differentiability</p>
-<p>6. Applications of Derivatives</p>
-<p>7. Integrals</p>
-<p>8. Applications of Integrals</p>
-<p>9. Differential Equations</p>
-<p>10. Vector Algebra</p>
-<p>11. Three Dimensional Geometry</p>
-<p>12. Linear Programming</p>
-<p>13. Probability</p>
-</div>
-<!-- ================= MATHS FORMULA REVISION ================= -->
+<h3>Tools</h3>
 
-<section class="formula-section">
+<button class="tool" onclick="addText()">✏️ Add Text</button>
 
-    <h1>📐 2nd PUC Maths Formula Bank</h1>
-    <p class="formula-subtitle">
-        Important formulas for Board, KCET & JEE revision
-    </p>
+<button class="tool" onclick="addWatermark()">💧 Add Watermark</button>
 
-    <!-- Relations and Functions -->
-    <div class="formula-card">
-        <h2>1️⃣ Relations & Functions</h2>
+<button class="tool" onclick="chooseImage()">🖼️ Add Photo</button>
 
-        <p><b>Composition:</b> (f ∘ g)(x) = f(g(x))</p>
-        <p><b>Identity function:</b> f(x) = x</p>
-        <p><b>Inverse function:</b> f⁻¹(f(x)) = x</p>
-        <p><b>One-one function:</b> f(x₁) = f(x₂) ⇒ x₁ = x₂</p>
-        <p><b>Onto function:</b> Range = Codomain</p>
-        <p><b>Number of functions from A to B:</b> n(B)<sup>n(A)</sup></p>
-        <p><b>Number of one-one functions:</b>
-            n(B)! / [n(B) − n(A)]!
-        </p>
-    </div>
+<button class="tool" onclick="addPageNumber()">🔢 Page Number</button>
 
-    <!-- Inverse Trigonometric Functions -->
-    <div class="formula-card">
-        <h2>2️⃣ Inverse Trigonometric Functions</h2>
+<button class="tool" onclick="rotatePage()">🔄 Rotate Page</button>
 
-        <p>sin⁻¹x + cos⁻¹x = π/2</p>
-        <p>tan⁻¹x + cot⁻¹x = π/2</p>
-        <p>sec⁻¹x + cosec⁻¹x = π/2</p>
+<button class="tool" onclick="addBlankPage()">➕ Add Blank Page</button>
 
-        <p>tan⁻¹x + tan⁻¹y =
-        tan⁻¹[(x+y)/(1−xy)]</p>
+<div class="section">
 
-        <p>tan⁻¹x − tan⁻¹y =
-        tan⁻¹[(x−y)/(1+xy)]</p>
+<h3>Page</h3>
 
-        <p>sin⁻¹x + sin⁻¹y =
-        sin⁻¹[x√(1−y²)+y√(1−x²)]</p>
-    </div>
+<button class="tool" onclick="previousPage()">⬅ Previous</button>
 
-    <!-- Matrices -->
-    <div class="formula-card">
-        <h2>3️⃣ Matrices</h2>
+<button class="tool" onclick="nextPage()">Next ➡</button>
 
-        <p><b>Matrix multiplication:</b>
-            (AB)<sub>ij</sub> = Σ a<sub>ik</sub>b<sub>kj</sub>
-        </p>
-
-        <p>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></p>
-
-        <p>(A + B)<sup>T</sup> =
-            A<sup>T</sup> + B<sup>T</sup>
-        </p>
-
-        <p>A A⁻¹ = A⁻¹ A = I</p>
-
-        <p><b>2 × 2 determinant:</b></p>
-        <p>
-            |a b|<br>
-            |c d| = ad − bc
-        </p>
-
-        <p>
-            A⁻¹ = adj(A) / |A|
-        </p>
-
-        <p>Matrix A is invertible if |A| ≠ 0.</p>
-    </div>
-
-    <!-- Determinants -->
-    <div class="formula-card">
-        <h2>4️⃣ Determinants</h2>
-
-        <p>
-            |a b|<br>
-            |c d| = ad − bc
-        </p>
-
-        <p>
-            For a 3 × 3 determinant:
-            expand along any row or column.
-        </p>
-
-        <p>
-            |kA| = k<sup>n</sup>|A|
-            for an n × n matrix.
-        </p>
-
-        <p>
-            If two rows or columns are identical,
-            determinant = 0.
-        </p>
-
-        <p>
-            Interchanging two rows/columns changes
-            the sign of determinant.
-        </p>
-
-        <p>
-            Determinant of identity matrix = 1.
-        </p>
-    </div>
-
-    <!-- Continuity -->
-    <div class="formula-card">
-        <h2>5️⃣ Continuity & Differentiability</h2>
-
-        <p>
-            f(x) is continuous at x = a if:
-        </p>
-
-        <p>
-            lim x→a f(x) = f(a)
-        </p>
-
-        <p>
-            Left hand limit = Right hand limit = f(a)
-        </p>
-
-        <p>
-            Differentiability ⇒ Continuity
-        </p>
-
-        <p>
-            Continuity ⇏ Differentiability
-        </p>
-    </div>
-
-    <!-- Differentiation -->
-    <div class="formula-card">
-        <h2>6️⃣ Differentiation</h2>
-
-        <p>d/dx(xⁿ) = nxⁿ⁻¹</p>
-
-        <p>d/dx(sin x) = cos x</p>
-
-        <p>d/dx(cos x) = −sin x</p>
-
-        <p>d/dx(tan x) = sec²x</p>
-
-        <p>d/dx(cot x) = −cosec²x</p>
-
-        <p>d/dx(sec x) = sec x tan x</p>
-
-        <p>d/dx(cosec x) = −cosec x cot x</p>
-
-        <p>d/dx(eˣ) = eˣ</p>
-
-        <p>d/dx(aˣ) = aˣ log a</p>
-
-        <p>d/dx(log x) = 1/x</p>
-
-        <p><b>Product rule:</b></p>
-        <p>(uv)' = u'v + uv'</p>
-
-        <p><b>Quotient rule:</b></p>
-        <p>
-            (u/v)' = (vu' − uv') / v²
-        </p>
-
-        <p><b>Chain rule:</b></p>
-        <p>
-            dy/dx = (dy/du)(du/dx)
-        </p>
-    </div>
-
-    <!-- Applications of Derivatives -->
-    <div class="formula-card">
-        <h2>7️⃣ Applications of Derivatives</h2>
-
-        <p>
-            Increasing function:
-            f'(x) > 0
-        </p>
-
-        <p>
-            Decreasing function:
-            f'(x) < 0
-        </p>
-
-        <p>
-            Critical point:
-            f'(x) = 0
-        </p>
-
-        <p>
-            Local maximum:
-            f'(a)=0 and f''(a)<0
-        </p>
-
-        <p>
-            Local minimum:
-            f'(a)=0 and f''(a)>0
-        </p>
-
-        <p>
-            Slope of tangent = dy/dx
-        </p>
-
-        <p>
-            Slope of normal = −1/(dy/dx)
-        </p>
-    </div>
-
-    <!-- Integration -->
-    <div class="formula-card">
-        <h2>8️⃣ Integrals</h2>
-
-        <p>∫xⁿ dx = xⁿ⁺¹/(n+1) + C, n ≠ −1</p>
-
-        <p>∫1/x dx = log|x| + C</p>
-
-        <p>∫eˣ dx = eˣ + C</p>
-
-        <p>∫sin x dx = −cos x + C</p>
-
-        <p>∫cos x dx = sin x + C</p>
-
-        <p>∫sec²x dx = tan x + C</p>
-
-        <p>∫cosec²x dx = −cot x + C</p>
-
-        <p>∫sec x tan x dx = sec x + C</p>
-
-        <p>∫cosec x cot x dx = −cosec x + C</p>
-
-        <p><b>Integration by parts:</b></p>
-
-        <p>
-            ∫u dv = uv − ∫v du
-        </p>
-    </div>
-
-    <!-- Definite Integrals -->
-    <div class="formula-card">
-        <h2>9️⃣ Definite Integrals</h2>
-
-        <p>
-            ∫ₐᵇ f(x)dx =
-            F(b) − F(a)
-        </p>
-
-        <p>
-            ∫ₐᵇ f(x)dx =
-            ∫ₐᵇ f(a+b−x)dx
-        </p>
-
-        <p>
-            If f(x) is even:
-            ∫₋ₐᵃ f(x)dx =
-            2∫₀ᵃ f(x)dx
-        </p>
-
-        <p>
-            If f(x) is odd:
-            ∫₋ₐᵃ f(x)dx = 0
-        </p>
-    </div>
-
-    <!-- Area Under Curves -->
-    <div class="formula-card">
-        <h2>🔟 Applications of Integrals</h2>
-
-        <p>
-            Area under curve =
-            ∫ₐᵇ y dx
-        </p>
-
-        <p>
-            Area between two curves =
-            ∫ₐᵇ |f(x) − g(x)| dx
-        </p>
-
-        <p>
-            If curve is x = f(y):
-            Area = ∫ₐᵇ x dy
-        </p>
-    </div>
-
-    <!-- Differential Equations -->
-    <div class="formula-card">
-        <h2>1️⃣1️⃣ Differential Equations</h2>
-
-        <p>
-            Order = highest order derivative.
-        </p>
-
-        <p>
-            Degree = highest power of the highest order derivative
-            after removing radicals/fractions involving derivatives.
-        </p>
-
-        <p>
-            Variable separable form:
-            dy/dx = f(x)g(y)
-        </p>
-
-        <p>
-            Then:
-            dy/g(y) = f(x)dx
-        </p>
-
-        <p>
-            Linear differential equation:
-            dy/dx + Py = Q
-        </p>
-
-        <p>
-            Integrating factor:
-            IF = e<sup>∫Pdx</sup>
-        </p>
-    </div>
-
-    <!-- Vector Algebra -->
-    <div class="formula-card">
-        <h2>1️⃣2️⃣ Vector Algebra</h2>
-
-        <p>
-            |a| = √(a₁² + a₂² + a₃²)
-        </p>
-
-        <p>
-            a · b = |a||b|cosθ
-        </p>
-
-        <p>
-            a × b = |a||b|sinθ n̂
-        </p>
-
-        <p>
-            a · b = 0 for perpendicular vectors.
-        </p>
-
-        <p>
-            a × b = 0 for parallel vectors.
-        </p>
-
-        <p>
-            Unit vector:
-            â = a/|a|
-        </p>
-
-        <p>
-            i × j = k
-        </p>
-
-        <p>
-            j × k = i
-        </p>
-
-        <p>
-            k × i = j
-        </p>
-    </div>
-
-    <!-- 3D Geometry -->
-    <div class="formula-card">
-        <h2>1️⃣3️⃣ Three-Dimensional Geometry</h2>
-
-        <p>
-            Distance between two points:
-        </p>
-
-        <p>
-            √[(x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)²]
-        </p>
-
-        <p>
-            Section formula:
-        </p>
-
-        <p>
-            ((mx₂+nx₁)/(m+n),
-            (my₂+ny₁)/(m+n),
-            (mz₂+nz₁)/(m+n))
-        </p>
-
-        <p>
-            Direction cosines:
-            l² + m² + n² = 1
-        </p>
-
-        <p>
-            Angle between two lines:
-        </p>
-
-        <p>
-            cosθ = l₁l₂ + m₁m₂ + n₁n₂
-        </p>
-
-        <p>
-            Equation of a plane:
-            ax + by + cz + d = 0
-        </p>
-    </div>
-
-    <!-- Probability -->
-    <div class="formula-card">
-        <h2>1️⃣4️⃣ Probability</h2>
-
-        <p>
-            P(A') = 1 − P(A)
-        </p>
-
-        <p>
-            P(A ∪ B) =
-            P(A) + P(B) − P(A ∩ B)
-        </p>
-
-        <p>
-            Conditional probability:
-            P(A|B) = P(A∩B)/P(B)
-        </p>
-
-        <p>
-            P(A∩B) = P(A)P(B|A)
-        </p>
-
-        <p>
-            For independent events:
-            P(A∩B) = P(A)P(B)
-        </p>
-
-        <p>
-            Bayes' theorem:
-        </p>
-
-        <p>
-            P(Aᵢ|B) =
-            [P(Aᵢ)P(B|Aᵢ)] /
-            ΣP(Aⱼ)P(B|Aⱼ)
-        </p>
-
-    </div>
-
-</section>
-
-<style>
-
-.formula-section {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.formula-section h1 {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.formula-subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.formula-card {
-    background: #ffffff;
-    margin: 18px 0;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.formula-card h2 {
-    margin-top: 0;
-}
-
-.formula-card p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 9px 0;
-}
-
-@media (max-width: 600px) {
-
-    .formula-section {
-        padding: 12px;
-    }
-
-    .formula-card {
-        padding: 15px;
-    }
-
-    .formula-card p {
-        font-size: 15px;
-    }
-}
-
-</style>
-
-<!-- ================= END FORMULA REVISION ================= -->
-<div class="card">
-<h2>📌 Important Formulas</h2>
-
-<h3>Matrices</h3>
-
-<div class="formula">
-(AB)ᵀ = BᵀAᵀ
-</div>
-
-<div class="formula">
-(AB)⁻¹ = B⁻¹A⁻¹
-</div>
-
-<div class="formula">
-A⁻¹ = adj(A) / |A|
-</div>
-
-<h3>Determinants</h3>
-
-<div class="formula">
-|a b; c d| = ad − bc
-</div>
-
-<div class="formula">
-|A| ≠ 0 ⇒ A is non-singular
-</div>
-
-<h3>Differentiation</h3>
-
-<div class="formula">
-d/dx (xⁿ) = nxⁿ⁻¹
-</div>
-
-<div class="formula">
-d/dx (sin x) = cos x
-</div>
-
-<div class="formula">
-d/dx (cos x) = −sin x
-</div>
-
-<div class="formula">
-d/dx (eˣ) = eˣ
-</div>
-
-<div class="formula">
-d/dx (log x) = 1/x
-</div>
-
-<h3>Integration</h3>
-
-<div class="formula">
-∫xⁿ dx = xⁿ⁺¹/(n+1) + C
-</div>
-
-<div class="formula">
-∫1/x dx = log|x| + C
-</div>
-
-<div class="formula">
-∫eˣ dx = eˣ + C
-</div>
-
-<div class="formula">
-∫cos x dx = sin x + C
-</div>
-
-<div class="formula">
-∫sin x dx = −cos x + C
-</div>
-
-<h3>Vectors</h3>
-
-<div class="formula">
-a · b = |a||b| cos θ
-</div>
-
-<div class="formula">
-|a × b| = |a||b| sin θ
-</div>
-
-<h3>Probability</h3>
-
-<div class="formula">
-P(A') = 1 − P(A)
-</div>
-
-<div class="formula">
-P(A ∪ B) = P(A) + P(B) − P(A ∩ B)
-</div>
+<button class="tool red" onclick="deleteCurrentPage()">🗑️ Delete Page</button>
 
 </div>
 
-<div class="card">
-<h2>📝 Practice Questions</h2>
+<div class="section">
 
-<div class="question">
-<b>1.</b> Find the inverse of the matrix
-<br><br>
-A = [ 2  1 ]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;[ 1  1 ]
+<h3>Text Settings</h3>
 
-<br><br>
+<label>Text</label>
+<input id="textInput" placeholder="Type text">
 
-<button onclick="showAnswer('a1')">Show Answer</button>
+<label>Font Size</label>
+<input id="fontSize" type="number" value="24">
 
-<div class="answer" id="a1">
-Answer: A⁻¹ = [ 1  −1 ]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[−1&nbsp;&nbsp;2 ]
-</div>
-</div>
-
-<div class="question">
-<b>2.</b> Differentiate y = x³ + 2x² − 5x + 7.
-
-<br><br>
-
-<button onclick="showAnswer('a2')">Show Answer</button>
-
-<div class="answer" id="a2">
-dy/dx = 3x² + 4x − 5
-</div>
-</div>
-
-<div class="question">
-<b>3.</b> Evaluate ∫(2x + 3) dx.
-
-<br><br>
-
-<button onclick="showAnswer('a3')">Show Answer</button>
-
-<div class="answer" id="a3">
-Answer: x² + 3x + C
-</div>
-</div>
+<label>Text Color</label>
+<input id="textColor" type="color" value="#000000">
 
 </div>
 
-<div class="card">
+<div class="section">
 
-<h2>🔥 KCET / JEE Style MCQs</h2>
+<h3>Watermark</h3>
 
-<div class="question">
-<b>1.</b> If A is a square matrix and |A| = 0, then A is:
+<input id="watermarkInput" placeholder="Watermark text">
 
-<br><br>
+<label>Opacity</label>
+<input id="watermarkOpacity"
+       type="range"
+       min="0.05"
+       max="1"
+       step="0.05"
+       value="0.3">
 
-A) Identity matrix<br>
-B) Singular matrix<br>
-C) Non-singular matrix<br>
-D) Zero matrix
+<label>Watermark Size</label>
+<input id="watermarkSize" type="number" value="50">
 
-<br><br>
-
-<button onclick="showAnswer('m1')">Show Answer</button>
-
-<div class="answer" id="m1">
-Correct Answer: B) Singular matrix
-</div>
 </div>
 
-<div class="question">
-<b>2.</b> The derivative of sin x cos x is:
+<div class="section">
 
-<br><br>
+<h3>Zoom</h3>
 
-A) sin²x<br>
-B) cos²x<br>
-C) cos²x − sin²x<br>
-D) sin²x − cos²x
+<button class="tool" onclick="zoomOut()">➖ Zoom Out</button>
 
-<br><br>
+<button class="tool" onclick="zoomIn()">➕ Zoom In</button>
 
-<button onclick="showAnswer('m2')">Show Answer</button>
-
-<div class="answer" id="m2">
-Correct Answer: C) cos²x − sin²x
-</div>
 </div>
 
-<div class="question">
-<b>3.</b> If two vectors are perpendicular, their dot product is:
+<div class="section">
 
-<br><br>
+<button class="tool" onclick="clearOverlays()">🧹 Clear Added Items</button>
 
-A) 1<br>
-B) −1<br>
-C) 0<br>
-D) Maximum
+<button class="tool" onclick="resetEditor()">♻ Reset</button>
 
-<br><br>
-
-<button onclick="showAnswer('m3')">Show Answer</button>
-
-<div class="answer" id="m3">
-Correct Answer: C) 0
-</div>
 </div>
 
-<div class="question">
-<b>4.</b> ∫₀¹ x dx is:
+<input id="pdfInput"
+       type="file"
+       accept="application/pdf"
+       hidden
+       onchange="loadPDF(event)">
 
-<br><br>
+<input id="imageInput"
+       type="file"
+       accept="image/*"
+       hidden
+       onchange="loadImage(event)">
 
-A) 1<br>
-B) 1/2<br>
-C) 2<br>
-D) 0
-
-<br><br>
-
-<button onclick="showAnswer('m4')">Show Answer</button>
-
-<div class="answer" id="m4">
-Correct Answer: B) 1/2
 </div>
+
+<!-- PAGE THUMBNAILS -->
+
+<div class="pages" id="pages"></div>
+
+<!-- EDITOR -->
+
+<div class="editorArea" id="editorArea">
+
+<div id="pageWrapper" class="pageWrapper">
+
+<canvas id="pdfCanvas"></canvas>
+
 </div>
 
 </div>
 
 </div>
 
-<footer>
-<p>© 2026 My AI Study Hub</p>
-<p>Keep Learning 🚀</p>
-</footer>
+<div id="status" class="status"></div>
 
 <script>
-function showAnswer(id) {
-    const answer = document.getElementById(id);
 
-    if (answer.style.display === "block") {
-        answer.style.display = "none";
-    } else {
-        answer.style.display = "block";
-    }
-}
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2nd PUC Physics - My AI Study Hub</title>
-
-<style>
-*{box-sizing:border-box}
-
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f7fb;
-    color:#222;
-}
-
-header{
-    background:linear-gradient(135deg,#0f766e,#2563eb);
-    color:white;
-    text-align:center;
-    padding:30px 15px;
-}
-
-header h1{margin:0;font-size:30px}
-header p{margin-bottom:0}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
-.back{
-    display:inline-block;
-    margin-bottom:20px;
-    padding:10px 16px;
-    background:#111827;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-}
-
-.card{
-    background:white;
-    margin-bottom:20px;
-    padding:22px;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.card h2{color:#2563eb;margin-top:0}
-
-.formula{
-    background:#eff6ff;
-    padding:12px;
-    margin:8px 0;
-    border-left:4px solid #2563eb;
-    border-radius:6px;
-    font-weight:bold;
-}
-
-.question{
-    background:#f9fafb;
-    padding:15px;
-    margin:12px 0;
-    border-radius:10px;
-    border:1px solid #ddd;
-}
-
-button{
-    border:0;
-    padding:10px 15px;
-    border-radius:7px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-}
-
-.answer{
-    display:none;
-    margin-top:10px;
-    padding:10px;
-    background:#dcfce7;
-    border-radius:7px;
-}
-
-footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>⚡ 2nd PUC Physics</h1>
-<p>Concepts • Formulas • Practice • KCET • JEE</p>
-</header>
-
-<div class="container">
-
-<a class="back" href="index.html">⬅ Back to Home</a>
-
-<div class="card">
-<h2>📚 Chapters</h2>
-
-<p>1. Electric Charges and Fields</p>
-<p>2. Electrostatic Potential and Capacitance</p>
-<p>3. Current Electricity</p>
-<p>4. Moving Charges and Magnetism</p>
-<p>5. Magnetism and Matter</p>
-<p>6. Electromagnetic Induction</p>
-<p>7. Alternating Current</p>
-<p>8. Electromagnetic Waves</p>
-<p>9. Ray Optics and Optical Instruments</p>
-<p>10. Wave Optics</p>
-<p>11. Dual Nature of Radiation and Matter</p>
-<p>12. Atoms</p>
-<p>13. Nuclei</p>
-<p>14. Semiconductor Electronics</p>
-    <body>
-        <section id="definitions">
-  <h2>📚 Important Definitions with Examples</h2>  <div class="definition-card">
-    <h3>⚡ PHYSICS — 2nd PUC</h3><h4>1. Electric Charge</h4>
-<p><b>Definition:</b> Electric charge is a fundamental property of matter responsible for electric forces.</p>
-<p><b>Example:</b> An electron has charge <b>−1.6 × 10⁻¹⁹ C</b>.</p>
-
-<h4>2. Coulomb's Law</h4>
-<p><b>Definition:</b> The electrostatic force between two point charges is directly proportional to the product of their charges and inversely proportional to the square of the distance between them.</p>
-<p><b>Formula:</b> F = (1/4πε₀) × (q₁q₂/r²)</p>
-<p><b>Example:</b> Two charged particles separated by a distance exert an electrostatic force on each other.</p>
-
-<h4>3. Electric Field</h4>
-<p><b>Definition:</b> Electric field at a point is the force experienced by a unit positive test charge placed at that point.</p>
-<p><b>Formula:</b> E = F/q</p>
-<p><b>Example:</b> A positive charge produces an electric field directed away from it.</p>
-
-<h4>4. Electric Potential</h4>
-<p><b>Definition:</b> Electric potential at a point is the work done in bringing a unit positive test charge from infinity to that point.</p>
-<p><b>Formula:</b> V = W/q</p>
-<p><b>Example:</b> The potential near a positive point charge is positive.</p>
-
-<h4>5. Electric Dipole</h4>
-<p><b>Definition:</b> An electric dipole is a pair of equal and opposite charges separated by a small distance.</p>
-<p><b>Example:</b> A system containing +q and −q separated by distance 2a forms an electric dipole.</p>
-
-<h4>6. Electric Dipole Moment</h4>
-<p><b>Definition:</b> Electric dipole moment is the product of the magnitude of either charge and the separation between the charges.</p>
-<p><b>Formula:</b> p = q × 2a</p>
-<p><b>SI Unit:</b> C m</p>
-
-<h4>7. Electric Flux</h4>
-<p><b>Definition:</b> Electric flux is a measure of the number of electric field lines passing normally through a surface.</p>
-<p><b>Formula:</b> Φ = EA cosθ</p>
-<p><b>Example:</b> Maximum flux occurs when the electric field is perpendicular to the surface.</p>
-
-<h4>8. Gauss's Law</h4>
-<p><b>Definition:</b> The total electric flux through a closed surface is equal to 1/ε₀ times the net charge enclosed by the surface.</p>
-<p><b>Formula:</b> Φ = q<sub>enclosed</sub>/ε₀</p>
-
-<h4>9. Capacitance</h4>
-<p><b>Definition:</b> Capacitance of a conductor is the ratio of charge stored on it to its potential.</p>
-<p><b>Formula:</b> C = Q/V</p>
-<p><b>SI Unit:</b> Farad (F)</p>
-
-<h4>10. Dielectric</h4>
-<p><b>Definition:</b> A dielectric is an insulating material that becomes polarized when placed in an electric field.</p>
-<p><b>Example:</b> Glass, mica and plastic are commonly used as dielectric materials.</p>
-
-<h4>11. Electric Current</h4>
-<p><b>Definition:</b> Electric current is the rate of flow of electric charge through a conductor.</p>
-<p><b>Formula:</b> I = Q/t</p>
-<p><b>SI Unit:</b> Ampere (A)</p>
-
-<h4>12. Drift Velocity</h4>
-<p><b>Definition:</b> Drift velocity is the average velocity acquired by free electrons in a conductor due to an applied electric field.</p>
-<p><b>Example:</b> Electrons in a copper wire acquire a small drift velocity when a potential difference is applied.</p>
-
-<h4>13. Resistance</h4>
-<p><b>Definition:</b> Resistance is the opposition offered by a conductor to the flow of electric current.</p>
-<p><b>Formula:</b> R = V/I</p>
-<p><b>SI Unit:</b> Ohm (Ω)</p>
-
-<h4>14. Resistivity</h4>
-<p><b>Definition:</b> Resistivity is the resistance of a material of unit length and unit cross-sectional area.</p>
-<p><b>Formula:</b> ρ = RA/l</p>
-<p><b>SI Unit:</b> Ω m</p>
-
-<h4>15. Kirchhoff's Current Law</h4>
-<p><b>Definition:</b> The algebraic sum of currents entering a junction is equal to the algebraic sum of currents leaving the junction.</p>
-<p><b>Example:</b> At a circuit junction, current entering must equal current leaving.</p>
-
-<h4>16. Kirchhoff's Voltage Law</h4>
-<p><b>Definition:</b> The algebraic sum of potential differences around any closed circuit is zero.</p>
-
-<h4>17. Magnetic Field</h4>
-<p><b>Definition:</b> The region around a magnet or current-carrying conductor where a magnetic force can be experienced is called a magnetic field.</p>
-<p><b>Example:</b> A current-carrying wire produces a magnetic field around it.</p>
-
-<h4>18. Magnetic Flux</h4>
-<p><b>Definition:</b> Magnetic flux through a surface is the product of magnetic field, area and cosine of the angle between them.</p>
-<p><b>Formula:</b> Φ = BA cosθ</p>
-<p><b>SI Unit:</b> Weber (Wb)</p>
-
-<h4>19. Electromagnetic Induction</h4>
-<p><b>Definition:</b> The phenomenon of production of induced emf in a circuit due to a change in magnetic flux linked with the circuit is called electromagnetic induction.</p>
-<p><b>Example:</b> Moving a magnet inside a coil produces an induced current.</p>
-
-<h4>20. Lenz's Law</h4>
-<p><b>Definition:</b> The direction of induced current is such that it opposes the change in magnetic flux that produces it.</p>
-
-<h4>21. Alternating Current</h4>
-<p><b>Definition:</b> An electric current whose magnitude and direction change periodically with time is called alternating current.</p>
-<p><b>Example:</b> Household AC supply is an example of alternating current.</p>
-
-<h4>22. Electromagnetic Wave</h4>
-<p><b>Definition:</b> Electromagnetic waves are waves consisting of oscillating electric and magnetic fields perpendicular to each other and to the direction of propagation.</p>
-<p><b>Example:</b> Radio waves, visible light and X-rays are electromagnetic waves.</p>
-
-<h4>23. Photoelectric Effect</h4>
-<p><b>Definition:</b> The phenomenon of emission of electrons from a metal surface when electromagnetic radiation of suitable frequency falls on it is called the photoelectric effect.</p>
-<p><b>Example:</b> UV light can cause electrons to be emitted from certain metal surfaces.</p>
-
-<h4>24. Work Function</h4>
-<p><b>Definition:</b> Work function is the minimum energy required to remove an electron from the surface of a metal.</p>
-<p><b>Symbol:</b> φ</p>
-
-<h4>25. de Broglie Wavelength</h4>
-<p><b>Definition:</b> The wavelength associated with a moving particle is called its de Broglie wavelength.</p>
-<p><b>Formula:</b> λ = h/p</p>
-
-<h4>26. Nuclear Fission</h4>
-<p><b>Definition:</b> Nuclear fission is the process in which a heavy nucleus splits into two or more lighter nuclei with the release of energy.</p>
-<p><b>Example:</b> Fission of uranium-235.</p>
-
-<h4>27. Nuclear Fusion</h4>
-<p><b>Definition:</b> Nuclear fusion is the process in which two light nuclei combine to form a heavier nucleus with the release of energy.</p>
-<p><b>Example:</b> Fusion reactions occur in the Sun.</p>
-
-<h4>28. Semiconductor</h4>
-<p><b>Definition:</b> A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator.</p>
-<p><b>Example:</b> Silicon and germanium.</p>
-
-<h4>29. Intrinsic Semiconductor</h4>
-<p><b>Definition:</b> A pure semiconductor without any intentional impurity is called an intrinsic semiconductor.</p>
-
-<h4>30. Extrinsic Semiconductor</h4>
-<p><b>Definition:</b> A semiconductor whose conductivity is increased by adding a suitable impurity is called an extrinsic semiconductor.</p>
-<p><b>Example:</b> Silicon doped with phosphorus forms an n-type semiconductor.</p>
-
-  </div>
-</section><style>
-  #definitions {
-    padding: 20px;
-  }
-
-  #definitions h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .definition-card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-
-  .definition-card h3 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .definition-card h4 {
-    margin-top: 20px;
-    margin-bottom: 5px;
-  }
-
-  .definition-card p {
-    margin: 6px 0;
-  }
-</style>
-<!-- ================= PHYSICS FORMULA BANK ================= -->
-
-<section class="physics-formulas">
-
-<h1>⚡ 2nd PUC Physics Formula Bank</h1>
-<p class="subtitle">
-Important formulas for Board, KCET & JEE revision
-</p>
-
-<div class="physics-card">
-<h2>1️⃣ Electric Charges & Fields</h2>
-
-<p>Coulomb's law: F = (1/4πε₀) × (q₁q₂/r²)</p>
-<p>Electric field: E = F/q</p>
-<p>Point charge: E = (1/4πε₀)(q/r²)</p>
-<p>Electric dipole moment: p = q × 2a</p>
-<p>Dipole field on axial line:
-E = (1/4πε₀) × 2pr/(r²−a²)²</p>
-<p>For r ≫ a: E = (1/4πε₀)(2p/r³)</p>
-<p>Dipole field on equatorial line:
-E = (1/4πε₀)(p/(r²+a²)<sup>3/2</sup>)</p>
-<p>Electric flux: Φ = E A cosθ</p>
-<p>Gauss law: Φ = q<sub>enclosed</sub>/ε₀</p>
-</div>
-
-<div class="physics-card">
-<h2>2️⃣ Electrostatic Potential & Capacitance</h2>
-
-<p>Potential: V = W/q</p>
-<p>Point charge: V = (1/4πε₀)(q/r)</p>
-<p>Potential energy: U = qV</p>
-<p>Dipole potential energy: U = −pE cosθ</p>
-<p>Capacitance: C = Q/V</p>
-<p>Parallel plate capacitor: C = ε₀A/d</p>
-<p>With dielectric: C = Kε₀A/d</p>
-<p>Energy stored: U = ½CV² = ½QV = Q²/(2C)</p>
-<p>Energy density: u = ½ε₀E²</p>
-<p>Series: 1/C = 1/C₁ + 1/C₂ + ...</p>
-<p>Parallel: C = C₁ + C₂ + ...</p>
-</div>
-
-<div class="physics-card">
-<h2>3️⃣ Current Electricity</h2>
-
-<p>Current: I = Q/t</p>
-<p>Drift current: I = neAv<sub>d</sub></p>
-<p>Ohm's law: V = IR</p>
-<p>Resistance: R = ρL/A</p>
-<p>Conductivity: σ = 1/ρ</p>
-<p>Electrical power: P = VI = I²R = V²/R</p>
-<p>Electrical energy: W = VIt</p>
-<p>Series resistance: R = R₁ + R₂ + ...</p>
-<p>Parallel resistance: 1/R = 1/R₁ + 1/R₂ + ...</p>
-<p>Cell terminal voltage: V = E − Ir</p>
-<p>Kirchhoff's junction rule: ΣI = 0</p>
-<p>Kirchhoff's loop rule: ΣV = 0</p>
-</div>
-
-<div class="physics-card">
-<h2>4️⃣ Moving Charges & Magnetism</h2>
-
-<p>Magnetic force: F = qvB sinθ</p>
-<p>Force on current carrying wire: F = BIL sinθ</p>
-<p>Biot-Savart law: dB = (μ₀/4π)(I dl sinθ/r²)</p>
-<p>Long straight wire: B = μ₀I/(2πr)</p>
-<p>Circular coil centre: B = μ₀NI/(2R)</p>
-<p>Force between parallel wires:
-F/L = μ₀I₁I₂/(2πd)</p>
-<p>Charged particle radius: r = mv/(qB)</p>
-<p>Cyclotron frequency: f = qB/(2πm)</p>
-<p>Magnetic moment: M = NIA</p>
-<p>Torque: τ = MB sinθ</p>
-</div>
-
-<div class="physics-card">
-<h2>5️⃣ Magnetism & Matter</h2>
-
-<p>Magnetic dipole moment: M = m(2l)</p>
-<p>Torque on magnetic dipole: τ = MB sinθ</p>
-<p>Potential energy: U = −MB cosθ</p>
-<p>Magnetic field inside solenoid: B = μ₀nI</p>
-<p>Magnetic susceptibility: χ = M/H</p>
-<p>Relative permeability: μ<sub>r</sub> = 1 + χ</p>
-</div>
-
-<div class="physics-card">
-<h2>6️⃣ Electromagnetic Induction</h2>
-
-<p>Magnetic flux: Φ = BA cosθ</p>
-<p>Faraday's law: ε = −dΦ/dt</p>
-<p>For N turns: ε = −N(dΦ/dt)</p>
-<p>Motional emf: ε = Blv</p>
-<p>Self inductance: ε = −L(dI/dt)</p>
-<p>Energy in inductor: U = ½LI²</p>
-</div>
-
-<div class="physics-card">
-<h2>7️⃣ Alternating Current</h2>
-
-<p>AC voltage: V = V₀ sinωt</p>
-<p>RMS voltage: V<sub>rms</sub> = V₀/√2</p>
-<p>RMS current: I<sub>rms</sub> = I₀/√2</p>
-<p>Inductive reactance: X<sub>L</sub> = ωL</p>
-<p>Capacitive reactance: X<sub>C</sub> = 1/(ωC)</p>
-<p>Impedance: Z = √[R² + (X<sub>L</sub>−X<sub>C</sub>)²]</p>
-<p>Power factor: cosφ = R/Z</p>
-<p>Average power: P = V<sub>rms</sub>I<sub>rms</sub>cosφ</p>
-<p>Resonance: X<sub>L</sub> = X<sub>C</sub></p>
-<p>Resonant frequency: f₀ = 1/(2π√LC)</p>
-</div>
-
-<div class="physics-card">
-<h2>8️⃣ Electromagnetic Waves</h2>
-
-<p>Speed of EM wave: c = 1/√(μ₀ε₀)</p>
-<p>Wave relation: c = fλ</p>
-<p>Electric and magnetic fields:
-E/B = c</p>
-<p>Energy density: u = ½ε₀E²</p>
-</div>
-
-<div class="physics-card">
-<h2>9️⃣ Ray Optics</h2>
-
-<p>Mirror formula: 1/f = 1/v + 1/u</p>
-<p>Magnification: m = −v/u</p>
-<p>Lens formula: 1/f = 1/v − 1/u</p>
-<p>Lens magnification: m = v/u</p>
-<p>Lens maker formula:
-1/f = (μ−1)(1/R₁−1/R₂)</p>
-<p>Power of lens: P = 1/f (f in metres)</p>
-<p>Combination of lenses: P = P₁ + P₂</p>
-<p>Snell's law: n₁sin i = n₂sin r</p>
-<p>Refractive index: n = c/v</p>
-<p>Critical angle: sin C = 1/μ</p>
-</div>
-
-<div class="physics-card">
-<h2>🔟 Wave Optics</h2>
-
-<p>Young's fringe width: β = λD/d</p>
-<p>Bright fringe: path difference = nλ</p>
-<p>Dark fringe: path difference = (2n+1)λ/2</p>
-<p>Single slit minima: a sinθ = nλ</p>
-<p>Intensity in interference:
-I = I₁ + I₂ + 2√(I₁I₂)cosφ</p>
-</div>
-
-<div class="physics-card">
-<h2>1️⃣1️⃣ Dual Nature of Radiation</h2>
-
-<p>Photon energy: E = hν = hc/λ</p>
-<p>Photon momentum: p = h/λ</p>
-<p>Photoelectric equation:
-K<sub>max</sub> = hν − φ</p>
-<p>Stopping potential: eV₀ = K<sub>max</sub></p>
-<p>de Broglie wavelength: λ = h/p</p>
-<p>For electron: λ = h/√(2meV)</p>
-</div>
-
-<div class="physics-card">
-<h2>1️⃣2️⃣ Atoms</h2>
-
-<p>Bohr angular momentum:
-mvr = nh/(2π)</p>
-<p>Bohr radius: r<sub>n</sub> = n²r₁</p>
-<p>Energy of hydrogen atom:
-E<sub>n</sub> = −13.6/n² eV</p>
-<p>Rydberg formula:
-1/λ = R(1/n₁² − 1/n₂²)</p>
-</div>
-
-<div class="physics-card">
-<h2>1️⃣3️⃣ Nuclei</h2>
-
-<p>Nuclear radius: R = R₀A<sup>1/3</sup></p>
-<p>Mass-energy relation: E = mc²</p>
-<p>Mass defect: Δm = Zm<sub>p</sub> + Nm<sub>n</sub> − M</p>
-<p>Binding energy: BE = Δmc²</p>
-<p>Radioactive decay:
-N = N₀e<sup>−λt</sup></p>
-<p>Activity: A = λN</p>
-<p>Half-life: T<sub>1/2</sub> = 0.693/λ</p>
-<p>Mean life: τ = 1/λ</p>
-</div>
-
-<div class="physics-card">
-<h2>1️⃣4️⃣ Semiconductor Electronics</h2>
-
-<p>Conductivity: σ = neμ</p>
-<p>Diode current:
-I = I₀[e<sup>eV/kT</sup> − 1]</p>
-<p>Transistor current:
-I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub></p>
-<p>Current gain:
-β = I<sub>C</sub>/I<sub>B</sub></p>
-<p>α = I<sub>C</sub>/I<sub>E</sub></p>
-<p>Relation:
-β = α/(1−α)</p>
-</div>
-
-</section>
-
-<style>
-
-.physics-formulas {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.physics-formulas h1 {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.physics-formulas .subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.physics-card {
-    background: #ffffff;
-    margin: 18px 0;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.physics-card h2 {
-    margin-top: 0;
-}
-
-.physics-card p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 9px 0;
-}
-
-@media (max-width: 600px) {
-
-    .physics-formulas {
-        padding: 12px;
-    }
-
-    .physics-card {
-        padding: 15px;
-    }
-
-    .physics-card p {
-        font-size: 15px;
-    }
-
-}
-
-</style>
-
-<!-- ============== END PHYSICS FORMULA BANK ============== -->
-</body>
-  <!-- ================= PHYSICS DERIVATIONS BANK ================= -->
-
-<section class="derivations-section">
-
-<h1>📖 2nd PUC Physics Derivations</h1>
-<p class="derivation-subtitle">
-Important derivations for Board, KCET & JEE revision
-</p>
-
-<!-- 1. ELECTRIC CHARGES AND FIELDS -->
-<div class="derivation-card">
-<h2>⚡ 1. Electric Charges & Fields</h2>
-
-<h3>1. Electric Field on the Axial Line of a Dipole</h3>
-
-<p>Consider an electric dipole having charges +q and −q separated by distance 2a.</p>
-
-<p>Dipole moment:</p>
-<div class="equation">p = 2aq</div>
-
-<p>Let P be a point on the axial line at distance r from the centre.</p>
-
-<p>Electric field due to +q:</p>
-<div class="equation">
-E₁ = (1/4πε₀) q/(r−a)²
-</div>
-
-<p>Electric field due to −q:</p>
-<div class="equation">
-E₂ = (1/4πε₀) q/(r+a)²
-</div>
-
-<p>Net electric field:</p>
-<div class="equation">
-E = E₁ − E₂
-</div>
-
-<p>Therefore:</p>
-<div class="equation">
-E = (1/4πε₀) 2pr/(r²−a²)²
-</div>
-
-<p>For r ≫ a:</p>
-<div class="equation">
-E = (1/4πε₀)(2p/r³)
-</div>
-
-
-<h3>2. Electric Field on the Equatorial Line of a Dipole</h3>
-
-<p>At a point P on the perpendicular bisector of the dipole:</p>
-
-<div class="equation">
-E = (1/4πε₀) p/(r²+a²)<sup>3/2</sup>
-</div>
-
-<p>For r ≫ a:</p>
-
-<div class="equation">
-E = (1/4πε₀)(p/r³)
-</div>
-
-<p>The direction is opposite to the direction of the dipole moment.</p>
-
-
-<h3>3. Gauss's Law</h3>
-
-<p>The total electric flux through a closed surface is:</p>
-
-<div class="equation">
-Φ = ∮ E · dA
-</div>
-
-<p>According to Gauss's law:</p>
-
-<div class="equation">
-∮ E · dA = q<sub>enclosed</sub>/ε₀
-</div>
-
-</div>
-
-
-<!-- 2. ELECTROSTATIC POTENTIAL -->
-<div class="derivation-card">
-
-<h2>🔋 2. Electrostatic Potential & Capacitance</h2>
-
-<h3>4. Capacitance of a Parallel Plate Capacitor</h3>
-
-<p>Consider two parallel plates of area A separated by distance d.</p>
-
-<p>Surface charge density:</p>
-
-<div class="equation">
-σ = Q/A
-</div>
-
-<p>Electric field between the plates:</p>
-
-<div class="equation">
-E = σ/ε₀
-</div>
-
-<p>Potential difference:</p>
-
-<div class="equation">
-V = Ed = Qd/(ε₀A)
-</div>
-
-<p>Since C = Q/V:</p>
-
-<div class="equation">
-C = ε₀A/d
-</div>
-
-<h3>5. Energy Stored in a Capacitor</h3>
-
-<p>Small work done in charging the capacitor:</p>
-
-<div class="equation">
-dW = Vdq
-</div>
-
-<p>Since V = q/C:</p>
-
-<div class="equation">
-dW = q/C dq
-</div>
-
-<p>Integrating from 0 to Q:</p>
-
-<div class="equation">
-W = Q²/(2C)
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-W = ½CV² = ½QV = Q²/(2C)
-</div>
-
-</div>
-
-
-<!-- 3. CURRENT ELECTRICITY -->
-<div class="derivation-card">
-
-<h2>🔌 3. Current Electricity</h2>
-
-<h3>6. Relation Between Current and Drift Velocity</h3>
-
-<p>Let n be the number of free electrons per unit volume.</p>
-
-<p>Volume of conductor swept in time t:</p>
-
-<div class="equation">
-Volume = Av<sub>d</sub>t
-</div>
-
-<p>Number of electrons:</p>
-
-<div class="equation">
-N = nAv<sub>d</sub>t
-</div>
-
-<p>Total charge:</p>
-
-<div class="equation">
-Q = neAv<sub>d</sub>t
-</div>
-
-<p>Therefore current:</p>
-
-<div class="equation">
-I = Q/t
-</div>
-
-<div class="equation">
-I = neAv<sub>d</sub>
-</div>
-
-
-<h3>7. Ohm's Law from Drift Velocity</h3>
-
-<p>Drift velocity:</p>
-
-<div class="equation">
-v<sub>d</sub> = eEτ/m
-</div>
-
-<p>Since E = V/L:</p>
-
-<div class="equation">
-v<sub>d</sub> = eVτ/(mL)
-</div>
-
-<p>Using I = neAv<sub>d</sub>:</p>
-
-<div class="equation">
-I = ne²AτV/(mL)
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-V = IR
-</div>
-
-<p>where:</p>
-
-<div class="equation">
-R = mL/(ne²Aτ)
-</div>
-
-</div>
-
-
-<!-- 4. MOVING CHARGES -->
-<div class="derivation-card">
-
-<h2>🧲 4. Moving Charges & Magnetism</h2>
-
-<h3>8. Magnetic Field Due to a Long Straight Current-Carrying Wire</h3>
-
-<p>From Biot-Savart law:</p>
-
-<div class="equation">
-dB = (μ₀/4π) I dl sinθ/r²
-</div>
-
-<p>For a long straight conductor, integration gives:</p>
-
-<div class="equation">
-B = μ₀I/(2πr)
-</div>
-
-
-<h3>9. Magnetic Field at the Centre of a Circular Current Loop</h3>
-
-<p>For a circular loop of radius R:</p>
-
-<div class="equation">
-dB = (μ₀/4π) I dl/R²
-</div>
-
-<p>Integrating around the complete circle:</p>
-
-<div class="equation">
-B = μ₀I/(4πR²) × 2πR
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-B = μ₀I/(2R)
-</div>
-
-<p>For N turns:</p>
-
-<div class="equation">
-B = μ₀NI/(2R)
-</div>
-
-
-<h3>10. Force Between Two Parallel Current-Carrying Conductors</h3>
-
-<p>Magnetic field produced by the first wire:</p>
-
-<div class="equation">
-B₁ = μ₀I₁/(2πd)
-</div>
-
-<p>Force on length L of the second wire:</p>
-
-<div class="equation">
-F = B₁I₂L
-</div>
-
-<p>Hence:</p>
-
-<div class="equation">
-F/L = μ₀I₁I₂/(2πd)
-</div>
-
-
-<h3>11. Radius of Circular Path of Charged Particle</h3>
-
-<p>Magnetic force provides centripetal force:</p>
-
-<div class="equation">
-qvB = mv²/r
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-r = mv/(qB)
-</div>
-
-<p>Angular frequency:</p>
-
-<div class="equation">
-ω = qB/m
-</div>
-
-</div>
-
-
-<!-- 5. ELECTROMAGNETIC INDUCTION -->
-<div class="derivation-card">
-
-<h2>🔄 5. Electromagnetic Induction</h2>
-
-<h3>12. Faraday's Law</h3>
-
-<p>Magnetic flux through a coil:</p>
-
-<div class="equation">
-Φ = BA cosθ
-</div>
-
-<p>Induced emf is equal to the negative rate of change of magnetic flux:</p>
-
-<div class="equation">
-ε = −dΦ/dt
-</div>
-
-<p>For N turns:</p>
-
-<div class="equation">
-ε = −N(dΦ/dt)
-</div>
-
-<p>The negative sign represents Lenz's law.</p>
-
-
-<h3>13. Motional EMF</h3>
-
-<p>Consider a conductor of length l moving with velocity v perpendicular to a magnetic field B.</p>
-
-<p>Magnetic force on charge q:</p>
-
-<div class="equation">
-F = qvB
-</div>
-
-<p>At equilibrium:</p>
-
-<div class="equation">
-qE = qvB
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-E = vB
-</div>
-
-<p>Potential difference:</p>
-
-<div class="equation">
-ε = El
-</div>
-
-<p>Hence:</p>
-
-<div class="equation">
-ε = Blv
-</div>
-
-</div>
-
-
-<!-- 6. AC -->
-<div class="derivation-card">
-
-<h2>🔌 6. Alternating Current</h2>
-
-<h3>14. RMS Value of AC</h3>
-
-<p>Instantaneous current:</p>
-
-<div class="equation">
-i = I₀ sinωt
-</div>
-
-<p>RMS current is defined as:</p>
-
-<div class="equation">
-I<sub>rms</sub> = √(average of i²)
-</div>
-
-<p>Since the average value of sin²ωt is 1/2:</p>
-
-<div class="equation">
-I<sub>rms</sub> = I₀/√2
-</div>
-
-<p>Similarly:</p>
-
-<div class="equation">
-V<sub>rms</sub> = V₀/√2
-</div>
-
-
-<h3>15. Impedance of Series LCR Circuit</h3>
-
-<p>Inductive reactance:</p>
-
-<div class="equation">
-X<sub>L</sub> = ωL
-</div>
-
-<p>Capacitive reactance:</p>
-
-<div class="equation">
-X<sub>C</sub> = 1/(ωC)
-</div>
-
-<p>Net reactance:</p>
-
-<div class="equation">
-X = X<sub>L</sub> − X<sub>C</sub>
-</div>
-
-<p>Therefore impedance:</p>
-
-<div class="equation">
-Z = √[R² + (X<sub>L</sub>−X<sub>C</sub>)²]
-</div>
-
-
-<h3>16. Resonance Frequency</h3>
-
-<p>At resonance:</p>
-
-<div class="equation">
-X<sub>L</sub> = X<sub>C</sub>
-</div>
-
-<div class="equation">
-ωL = 1/(ωC)
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-ω₀ = 1/√LC
-</div>
-
-<p>Hence:</p>
-
-<div class="equation">
-f₀ = 1/(2π√LC)
-</div>
-
-</div>
-
-
-<!-- 7. RAY OPTICS -->
-<div class="derivation-card">
-
-<h2>🔭 7. Ray Optics</h2>
-
-<h3>17. Lens Formula</h3>
-
-<p>Using the geometry of refraction through a thin lens and the paraxial approximation, the relation between object distance u, image distance v and focal length f is:</p>
-
-<div class="equation">
-1/f = 1/v − 1/u
-</div>
-
-
-<h3>18. Lens Maker's Formula</h3>
-
-<p>For a thin lens in air, applying refraction at both spherical surfaces gives:</p>
-
-<div class="equation">
-1/f = (μ−1)(1/R₁ − 1/R₂)
-</div>
-
-<p>where μ is the refractive index of the lens material.</p>
-
-
-<h3>19. Mirror Formula</h3>
-
-<p>Using the geometry of a spherical mirror and the paraxial approximation:</p>
-
-<div class="equation">
-1/f = 1/v + 1/u
-</div>
-
-<p>Magnification:</p>
-
-<div class="equation">
-m = −v/u
-</div>
-
-</div>
-
-
-<!-- 8. WAVE OPTICS -->
-<div class="derivation-card">
-
-<h2>🌊 8. Wave Optics</h2>
-
-<h3>20. Young's Double-Slit Experiment</h3>
-
-<p>Let slit separation be d and screen distance be D.</p>
-
-<p>Path difference at a point P:</p>
-
-<div class="equation">
-Δ = d sinθ
-</div>
-
-<p>For small angles:</p>
-
-<div class="equation">
-sinθ ≈ y/D
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-Δ = dy/D
-</div>
-
-<p>For bright fringes:</p>
-
-<div class="equation">
-Δ = nλ
-</div>
-
-<p>Thus:</p>
-
-<div class="equation">
-yₙ = nλD/d
-</div>
-
-<p>Fringe width:</p>
-
-<div class="equation">
-β = λD/d
-</div>
-
-
-<h3>21. Single-Slit Diffraction</h3>
-
-<p>For minima:</p>
-
-<div class="equation">
-a sinθ = nλ
-</div>
-
-<p>where n = 1, 2, 3, ...</p>
-
-</div>
-
-
-<!-- 9. DUAL NATURE -->
-<div class="derivation-card">
-
-<h2>💡 9. Dual Nature of Radiation & Matter</h2>
-
-<h3>22. Einstein's Photoelectric Equation</h3>
-
-<p>Energy of incident photon:</p>
-
-<div class="equation">
-E = hν
-</div>
-
-<p>Part of this energy is used as work function φ.</p>
-
-<p>The remaining energy becomes maximum kinetic energy:</p>
-
-<div class="equation">
-K<sub>max</sub> = hν − φ
-</div>
-
-<p>Since K<sub>max</sub> = eV₀:</p>
-
-<div class="equation">
-eV₀ = hν − φ
-</div>
-
-
-<h3>23. de Broglie Wavelength</h3>
-
-<p>According to de Broglie:</p>
-
-<div class="equation">
-λ = h/p
-</div>
-
-<p>Since p = mv:</p>
-
-<div class="equation">
-λ = h/(mv)
-</div>
-
-<p>For an electron accelerated through potential V:</p>
-
-<div class="equation">
-λ = h/√(2meV)
-</div>
-
-</div>
-
-
-<!-- 10. ATOMS -->
-<div class="derivation-card">
-
-<h2>⚛️ 10. Atoms</h2>
-
-<h3>24. Bohr Radius</h3>
-
-<p>Coulomb force provides centripetal force:</p>
-
-<div class="equation">
-(1/4πε₀)(e²/r²) = mv²/r
-</div>
-
-<p>Bohr's angular momentum condition:</p>
-
-<div class="equation">
-mvr = nh/(2π)
-</div>
-
-<p>Combining the two equations:</p>
-
-<div class="equation">
-rₙ = 4πε₀n²h²/(me²4π²)
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-rₙ ∝ n²
-</div>
-
-
-<h3>25. Energy of Electron in Hydrogen Atom</h3>
-
-<p>Total energy:</p>
-
-<div class="equation">
-E = K + U
-</div>
-
-<p>Using Bohr's model:</p>
-
-<div class="equation">
-Eₙ = −13.6/n² eV
-</div>
-
-<p>For hydrogen atom ground state:</p>
-
-<div class="equation">
-E₁ = −13.6 eV
-</div>
-
-</div>
-
-
-<!-- 11. NUCLEI -->
-<div class="derivation-card">
-
-<h2>☢️ 11. Nuclei</h2>
-
-<h3>26. Radioactive Decay Law</h3>
-
-<p>Rate of decay is proportional to the number of undecayed nuclei:</p>
-
-<div class="equation">
-−dN/dt = λN
-</div>
-
-<p>Rearranging:</p>
-
-<div class="equation">
-dN/N = −λdt
-</div>
-
-<p>Integrating:</p>
-
-<div class="equation">
-ln(N/N₀) = −λt
-</div>
-
-<p>Therefore:</p>
-
-<div class="equation">
-N = N₀e<sup>−λt</sup>
-</div>
-
-
-<h3>27. Half-Life</h3>
-
-<p>At t = T<sub>1/2</sub>:</p>
-
-<div class="equation">
-N = N₀/2
-</div>
-
-<p>Using the decay equation:</p>
-
-<div class="equation">
-T<sub>1/2</sub> = 0.693/λ
-</div>
-
-
-<h3>28. Nuclear Binding Energy</h3>
-
-<p>Mass defect:</p>
-
-<div class="equation">
-Δm = Zm<sub>p</sub> + Nm<sub>n</sub> − M
-</div>
-
-<p>Using Einstein's mass-energy relation:</p>
-
-<div class="equation">
-BE = Δmc²
-</div>
-
-</div>
-
-
-<!-- 12. SEMICONDUCTORS -->
-<div class="derivation-card">
-
-<h2>💻 12. Semiconductor Electronics</h2>
-
-<h3>29. Transistor Current Relation</h3>
-
-<p>At the transistor:</p>
-
-<div class="equation">
-I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>
-</div>
-
-<p>Current gain in common-emitter configuration:</p>
-
-<div class="equation">
-β = I<sub>C</sub>/I<sub>B</sub>
-</div>
-
-<p>Current gain in common-base configuration:</p>
-
-<div class="equation">
-α = I<sub>C</sub>/I<sub>E</sub>
-</div>
-
-<p>The relation between α and β is:</p>
-
-<div class="equation">
-β = α/(1−α)
-</div>
-
-</div>
-
-
-</section>
-
-
-<style>
-
-.derivations-section {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.derivations-section h1 {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.derivation-subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.derivation-card {
-    background: #ffffff;
-    margin: 20px 0;
-    padding: 22px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.derivation-card h2 {
-    margin-top: 0;
-}
-
-.derivation-card h3 {
-    margin-top: 25px;
-}
-
-.derivation-card p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 9px 0;
-}
-
-.equation {
-    background: #f5f5f5;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 8px;
-    font-size: 17px;
-    font-weight: bold;
-    overflow-x: auto;
-}
-
-@media (max-width: 600px) {
-
-    .derivations-section {
-        padding: 12px;
-    }
-
-    .derivation-card {
-        padding: 15px;
-    }
-
-    .derivation-card p {
-        font-size: 15px;
-    }
-
-    .equation {
-        font-size: 15px;
-    }
-
-}
-
-</style>
-
-<!-- ============== END PHYSICS DERIVATIONS BANK ============== -->  
-</div>
-
-<div class="card">
-<h2>📌 Important Formulas</h2>
-
-<h3>⚡ Electrostatics</h3>
-
-<div class="formula">
-F = (1/4πε₀) × (q₁q₂/r²)
-</div>
-
-<div class="formula">
-E = F/q
-</div>
-
-<div class="formula">
-V = (1/4πε₀) × (q/r)
-</div>
-
-<div class="formula">
-C = Q/V
-</div>
-
-<div class="formula">
-C = ε₀A/d
-</div>
-
-<h3>🔋 Current Electricity</h3>
-
-<div class="formula">
-V = IR
-</div>
-
-<div class="formula">
-R = ρL/A
-</div>
-
-<div class="formula">
-P = VI = I²R = V²/R
-</div>
-
-<h3>🧲 Moving Charges and Magnetism</h3>
-
-<div class="formula">
-F = qvB sinθ
-</div>
-
-<div class="formula">
-F = BIL sinθ
-</div>
-
-<div class="formula">
-B = μ₀I/(2πr)
-</div>
-
-<div class="formula">
-B = μ₀nI
-</div>
-
-<h3>🔄 Electromagnetic Induction</h3>
-
-<div class="formula">
-ε = −dΦ/dt
-</div>
-
-<div class="formula">
-Φ = BA cosθ
-</div>
-
-<h3>〰️ Alternating Current</h3>
-
-<div class="formula">
-Vᵣₘₛ = V₀/√2
-</div>
-
-<div class="formula">
-Iᵣₘₛ = I₀/√2
-</div>
-
-<div class="formula">
-Xᴸ = ωL
-</div>
-
-<div class="formula">
-Xᶜ = 1/(ωC)
-</div>
-
-<h3>🔭 Optics</h3>
-
-<div class="formula">
-1/f = 1/v − 1/u
-</div>
-
-<div class="formula">
-m = v/u
-</div>
-
-<div class="formula">
-n = sin i / sin r
-</div>
-
-<h3>☢️ Modern Physics</h3>
-
-<div class="formula">
-E = hf
-</div>
-
-<div class="formula">
-E = hc/λ
-</div>
-
-<div class="formula">
-λ = h/p
-</div>
-
-<div class="formula">
-E = mc²
-</div>
-
-</div>
-
-<div class="card">
-<h2>📝 Board Practice Questions</h2>
-
-<div class="question">
-<b>1.</b> State Coulomb's law and write its mathematical expression.
-
-<br><br>
-
-<button onclick="showAnswer('p1')">Show Answer</button>
-
-<div class="answer" id="p1">
-Coulomb's law states that the electrostatic force between two point charges
-is directly proportional to the product of their charges and inversely
-proportional to the square of the distance between them.
-<br><br>
-F = (1/4πε₀)(q₁q₂/r²)
-</div>
-</div>
-
-<div class="question">
-<b>2.</b> What is the SI unit of capacitance?
-
-<br><br>
-
-<button onclick="showAnswer('p2')">Show Answer</button>
-
-<div class="answer" id="p2">
-The SI unit of capacitance is farad (F).
-</div>
-</div>
-
-<div class="question">
-<b>3.</b> Write the expression for force on a moving charge in a magnetic field.
-
-<br><br>
-
-<button onclick="showAnswer('p3')">Show Answer</button>
-
-<div class="answer" id="p3">
-F = qvB sinθ
-</div>
-</div>
-
-</div>
-
-<div class="card">
-<h2>🔥 KCET / JEE Style MCQs</h2>
-
-<div class="question">
-<b>1.</b> The SI unit of electric field is:
-
-<br><br>
-
-A) Volt<br>
-B) Newton/Coulomb<br>
-C) Coulomb/Newton<br>
-D) Joule
-
-<br><br>
-
-<button onclick="showAnswer('m1')">Show Answer</button>
-
-<div class="answer" id="m1">
-Correct Answer: B) Newton/Coulomb
-</div>
-</div>
-
-<div class="question">
-<b>2.</b> A charged particle enters a uniform magnetic field perpendicular to the field. Its path is:
-
-<br><br>
-
-A) Straight line<br>
-B) Circle<br>
-C) Parabola<br>
-D) Ellipse
-
-<br><br>
-
-<button onclick="showAnswer('m2')">Show Answer</button>
-
-<div class="answer" id="m2">
-Correct Answer: B) Circle
-</div>
-</div>
-
-<div class="question">
-<b>3.</b> If the frequency of an electromagnetic wave is increased, its wavelength:
-
-<br><br>
-
-A) Increases<br>
-B) Decreases<br>
-C) Remains constant<br>
-D) Becomes zero
-
-<br><br>
-
-<button onclick="showAnswer('m3')">Show Answer</button>
-
-<div class="answer" id="m3">
-Correct Answer: B) Decreases
-</div>
-</div>
-
-<div class="question">
-<b>4.</b> The energy of a photon is:
-
-<br><br>
-
-A) h/ν<br>
-B) hν<br>
-C) ν/h<br>
-D) hcν
-
-<br><br>
-
-<button onclick="showAnswer('m4')">Show Answer</button>
-
-<div class="answer" id="m4">
-Correct Answer: B) hν
-</div>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-<p>© 2026 My AI Study Hub</p>
-<p>Keep Learning ⚡</p>
-</footer>
-
-<script>
-function showAnswer(id){
-    const answer=document.getElementById(id);
-
-    if(answer.style.display==="block"){
-        answer.style.display="none";
-    }else{
-        answer.style.display="block";
-    }
-}
-</script>
-
-</body>
-    </html>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2nd PUC Chemistry - My AI Study Hub</title>
-
-<style>
-*{box-sizing:border-box}
-
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f7fb;
-    color:#222;
-}
-
-header{
-    background:linear-gradient(135deg,#059669,#0f766e);
-    color:white;
-    text-align:center;
-    padding:30px 15px;
-}
-
-header h1{margin:0;font-size:30px}
-header p{margin-bottom:0}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
-.back{
-    display:inline-block;
-    margin-bottom:20px;
-    padding:10px 16px;
-    background:#111827;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-}
-
-.card{
-    background:white;
-    margin-bottom:20px;
-    padding:22px;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.card h2{
-    color:#059669;
-    margin-top:0;
-}
-
-.formula{
-    background:#ecfdf5;
-    padding:12px;
-    margin:8px 0;
-    border-left:4px solid #059669;
-    border-radius:6px;
-    font-weight:bold;
-}
-
-.question{
-    background:#f9fafb;
-    padding:15px;
-    margin:12px 0;
-    border-radius:10px;
-    border:1px solid #ddd;
-}
-
-button{
-    border:0;
-    padding:10px 15px;
-    border-radius:7px;
-    background:#059669;
-    color:white;
-    cursor:pointer;
-}
-
-.answer{
-    display:none;
-    margin-top:10px;
-    padding:10px;
-    background:#dcfce7;
-    border-radius:7px;
-}
-
-footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-</style>
-}
-</head>
-
-<body>
-
-<header>
-<h1>🧪 2nd PUC Chemistry</h1>
-<p>Concepts • Reactions • Formulas • KCET • JEE</p>
-</header>
-
-<div class="container">
-
-<a class="back" href="index.html">⬅ Back to Home</a>
-
-<div class="card">
-<h2>📚 Chapters</h2>
-
-<p>1. Solutions</p>
-<p>2. Electrochemistry</p>
-<p>3. Chemical Kinetics</p>
-<p>4. The d- and f-Block Elements</p>
-<p>5. Coordination Compounds</p>
-<p>6. Haloalkanes and Haloarenes</p>
-<p>7. Alcohols, Phenols and Ethers</p>
-<p>8. Aldehydes, Ketones and Carboxylic Acids</p>
-<p>9. Amines</p>
-<p>10. Biomolecules</p>
-<p>11. Polymers</p>
-<p>12. Chemistry in Everyday Life</p>
-    <body>
-       <section id="chemistry-definitions">
-  <h2>🧪 Chemistry — Important Definitions with Examples</h2>  <div class="definition-card"><h3>⚗️ SOLUTIONS</h3>
-
-<h4>1. Solution</h4>
-<p><b>Definition:</b> A homogeneous mixture of two or more components is called a solution.</p>
-<p><b>Example:</b> Salt dissolved in water.</p>
-
-<h4>2. Solute</h4>
-<p><b>Definition:</b> The component of a solution that is present in smaller amount and gets dissolved is called the solute.</p>
-<p><b>Example:</b> Salt in salt water.</p>
-
-<h4>3. Solvent</h4>
-<p><b>Definition:</b> The component of a solution that dissolves the solute is called the solvent.</p>
-<p><b>Example:</b> Water in salt water.</p>
-
-<h4>4. Molarity</h4>
-<p><b>Definition:</b> Molarity is the number of moles of solute present in one litre of solution.</p>
-<p><b>Formula:</b> M = moles of solute / volume of solution in litres</p>
-<p><b>Example:</b> A 1 M NaCl solution contains 1 mole of NaCl per litre of solution.</p>
-
-<h4>5. Molality</h4>
-<p><b>Definition:</b> Molality is the number of moles of solute present in one kilogram of solvent.</p>
-<p><b>Formula:</b> m = moles of solute / mass of solvent in kg</p>
-
-<h4>6. Mole Fraction</h4>
-<p><b>Definition:</b> Mole fraction is the ratio of the number of moles of one component to the total number of moles of all components.</p>
-<p><b>Formula:</b> X<sub>A</sub> = n<sub>A</sub> / (n<sub>A</sub> + n<sub>B</sub>)</p>
-
-
-<h3>🔋 ELECTROCHEMISTRY</h3>
-
-<h4>7. Electrochemistry</h4>
-<p><b>Definition:</b> The branch of chemistry that deals with the relationship between chemical reactions and electrical energy is called electrochemistry.</p>
-<p><b>Example:</b> A Daniell cell converts chemical energy into electrical energy.</p>
-
-<h4>8. Electrolyte</h4>
-<p><b>Definition:</b> A substance that conducts electricity in aqueous solution or molten state due to the presence of ions is called an electrolyte.</p>
-<p><b>Example:</b> NaCl solution.</p>
-
-<h4>9. Strong Electrolyte</h4>
-<p><b>Definition:</b> An electrolyte that completely ionizes in solution is called a strong electrolyte.</p>
-<p><b>Example:</b> HCl, NaOH and NaCl.</p>
-
-<h4>10. Weak Electrolyte</h4>
-<p><b>Definition:</b> An electrolyte that partially ionizes in solution is called a weak electrolyte.</p>
-<p><b>Example:</b> CH<sub>3</sub>COOH.</p>
-
-<h4>11. Electrode</h4>
-<p><b>Definition:</b> A conductor through which electric current enters or leaves an electrolyte is called an electrode.</p>
-<p><b>Example:</b> Copper electrode in a copper sulphate solution.</p>
-
-<h4>12. Oxidation</h4>
-<p><b>Definition:</b> Oxidation is the loss of electrons by a species.</p>
-<p><b>Example:</b> Zn → Zn²⁺ + 2e⁻</p>
-
-<h4>13. Reduction</h4>
-<p><b>Definition:</b> Reduction is the gain of electrons by a species.</p>
-<p><b>Example:</b> Cu²⁺ + 2e⁻ → Cu</p>
-
-<h4>14. Anode</h4>
-<p><b>Definition:</b> The electrode at which oxidation takes place is called the anode.</p>
-
-<h4>15. Cathode</h4>
-<p><b>Definition:</b> The electrode at which reduction takes place is called the cathode.</p>
-
-
-<h3>⚡ CHEMICAL KINETICS</h3>
-
-<h4>16. Chemical Kinetics</h4>
-<p><b>Definition:</b> The branch of chemistry that deals with the rate of chemical reactions and the factors affecting it is called chemical kinetics.</p>
-
-<h4>17. Rate of Reaction</h4>
-<p><b>Definition:</b> The change in concentration of a reactant or product per unit time is called the rate of reaction.</p>
-<p><b>Example:</b> The concentration of a reactant decreases as a reaction proceeds.</p>
-
-<h4>18. Order of Reaction</h4>
-<p><b>Definition:</b> The sum of the powers of concentration terms in the experimentally determined rate equation is called the order of reaction.</p>
-<p><b>Example:</b> Rate = k[A]²[B] has overall order 3.</p>
-
-<h4>19. Molecularity</h4>
-<p><b>Definition:</b> The number of reacting species taking part in an elementary reaction step is called its molecularity.</p>
-<p><b>Example:</b> A reaction involving two reacting molecules has molecularity two.</p>
-
-<h4>20. Activation Energy</h4>
-<p><b>Definition:</b> The minimum energy that reacting molecules must possess for an effective collision is called activation energy.</p>
-<p><b>Example:</b> A catalyst provides an alternative pathway with lower activation energy.</p>
-
-
-<h3>🔥 SURFACE CHEMISTRY</h3>
-
-<h4>21. Adsorption</h4>
-<p><b>Definition:</b> The accumulation of particles of a substance on the surface of another substance is called adsorption.</p>
-<p><b>Example:</b> Activated charcoal adsorbs gases.</p>
-
-<h4>22. Absorption</h4>
-<p><b>Definition:</b> The uniform distribution of one substance throughout the bulk of another substance is called absorption.</p>
-<p><b>Example:</b> Water absorbed by a sponge.</p>
-
-<h4>23. Catalyst</h4>
-<p><b>Definition:</b> A substance that changes the rate of a chemical reaction without being consumed permanently in the reaction is called a catalyst.</p>
-<p><b>Example:</b> MnO₂ catalyses the decomposition of KClO₃.</p>
-
-<h4>24. Colloid</h4>
-<p><b>Definition:</b> A heterogeneous system in which particles of one substance are dispersed in another substance with particle size generally between true solutions and suspensions is called a colloid.</p>
-<p><b>Example:</b> Milk.</p>
-
-
-<h3>🧲 d- AND f-BLOCK ELEMENTS</h3>
-
-<h4>25. Transition Element</h4>
-<p><b>Definition:</b> An element whose atom or one of its stable ions has an incomplete d-subshell is called a transition element.</p>
-<p><b>Example:</b> Iron (Fe).</p>
-
-<h4>26. Lanthanides</h4>
-<p><b>Definition:</b> The elements in which the 4f orbitals are progressively filled are called lanthanides.</p>
-<p><b>Example:</b> Cerium (Ce).</p>
-
-<h4>27. Actinides</h4>
-<p><b>Definition:</b> The elements in which the 5f orbitals are progressively filled are called actinides.</p>
-<p><b>Example:</b> Uranium (U).
-
-
-<h3>🧪 COORDINATION COMPOUNDS</h3>
-
-<h4>28. Coordination Compound</h4>
-<p><b>Definition:</b> A compound containing a central metal atom or ion surrounded by ligands is called a coordination compound.</p>
-<p><b>Example:</b> [Cu(NH₃)₄]²⁺.</p>
-
-<h4>29. Ligand</h4>
-<p><b>Definition:</b> An ion or molecule that donates a pair of electrons to a central metal atom or ion is called a ligand.</p>
-<p><b>Example:</b> NH₃ acts as a ligand.</p>
-
-<h4>30. Coordination Number</h4>
-<p><b>Definition:</b> The number of donor atoms directly bonded to the central metal ion is called the coordination number.</p>
-<p><b>Example:</b> In [Co(NH₃)₆]³⁺, the coordination number is 6.</p>
-
-
-<h3>🌡️ THERMODYNAMICS</h3>
-
-<h4>31. System</h4>
-<p><b>Definition:</b> The part of the universe selected for studying a thermodynamic process is called the system.</p>
-<p><b>Example:</b> Gas enclosed in a cylinder.</p>
-
-<h4>32. Surroundings</h4>
-<p><b>Definition:</b> Everything outside the system that can interact with it is called the surroundings.</p>
-
-<h4>33. Enthalpy</h4>
-<p><b>Definition:</b> Enthalpy is a thermodynamic quantity representing the heat content of a system at constant pressure.</p>
-<p><b>Example:</b> Heat released during a combustion reaction is related to its enthalpy change.</p>
-
-<h4>34. Entropy</h4>
-<p><b>Definition:</b> Entropy is a measure of the randomness or disorder of a system.</p>
-<p><b>Example:</b> Gases generally have greater entropy than liquids.</p>
-
-<h4>35. Gibbs Energy</h4>
-<p><b>Definition:</b> Gibbs energy is a thermodynamic quantity used to determine the spontaneity of a process at constant temperature and pressure.</p>
-<p><b>Formula:</b> ΔG = ΔH − TΔS</p>
-
-
-<h3>⚖️ EQUILIBRIUM</h3>
-
-<h4>36. Chemical Equilibrium</h4>
-<p><b>Definition:</b> A state of a reversible reaction in which the forward and backward reaction rates are equal is called chemical equilibrium.</p>
-<p><b>Example:</b> N₂ + 3H₂ ⇌ 2NH₃.</p>
-
-<h4>37. Dynamic Equilibrium</h4>
-<p><b>Definition:</b> An equilibrium in which the forward and reverse reactions continue at equal rates is called dynamic equilibrium.</p>
-
-<h4>38. Acid</h4>
-<p><b>Definition:</b> According to the Brønsted-Lowry concept, an acid is a substance that donates a proton (H⁺).</p>
-<p><b>Example:</b> HCl donates H⁺ to water.</p>
-
-<h4>39. Base</h4>
-<p><b>Definition:</b> According to the Brønsted-Lowry concept, a base is a substance that accepts a proton (H⁺).</p>
-<p><b>Example:</b> NH₃ accepts H⁺ from water.</p>
-
-
-<h3>🧬 ORGANIC CHEMISTRY</h3>
-
-<h4>40. Homologous Series</h4>
-<p><b>Definition:</b> A series of organic compounds having the same functional group and general formula, with successive members differing by –CH₂–, is called a homologous series.</p>
-<p><b>Example:</b> CH₄, C₂H₆, C₃H₈, C₄H₁₀.</p>
-
-<h4>41. Functional Group</h4>
-<p><b>Definition:</b> An atom or group of atoms responsible for the characteristic chemical properties of an organic compound is called a functional group.</p>
-<p><b>Example:</b> –OH is the functional group of alcohols.</p>
-
-<h4>42. Isomerism</h4>
-<p><b>Definition:</b> The phenomenon in which compounds have the same molecular formula but different structures or spatial arrangements is called isomerism.</p>
-<p><b>Example:</b> Butane and isobutane have the same molecular formula C₄H₁₀ but different structures.</p>
-
-<h4>43. Alcohol</h4>
-<p><b>Definition:</b> Organic compounds containing a hydroxyl (–OH) group attached to a saturated carbon atom are called alcohols.</p>
-<p><b>Example:</b> Ethanol, C₂H₅OH.</p>
-
-<h4>44. Aldehyde</h4>
-<p><b>Definition:</b> Organic compounds containing the –CHO functional group are called aldehydes.</p>
-<p><b>Example:</b> Ethanal, CH₃CHO.</p>
-
-<h4>45. Ketone</h4>
-<p><b>Definition:</b> Organic compounds containing a carbonyl group bonded to two carbon groups are called ketones.</p>
-<p><b>Example:</b> Propanone, CH₃COCH₃.</p>
-
-<h4>46. Carboxylic Acid</h4>
-<p><b>Definition:</b> Organic compounds containing the carboxyl (–COOH) group are called carboxylic acids.</p>
-<p><b>Example:</b> Ethanoic acid, CH₃COOH.</p>
-
-<h4>47. Amines</h4>
-<p><b>Definition:</b> Organic derivatives of ammonia in which one or more hydrogen atoms are replaced by alkyl or aryl groups are called amines.</p>
-<p><b>Example:</b> Methylamine, CH₃NH₂.</p>
-
-
-<h3>🧫 BIOMOLECULES</h3>
-
-<h4>48. Carbohydrates</h4>
-<p><b>Definition:</b> Carbohydrates are polyhydroxy aldehydes or ketones, or compounds that produce them on hydrolysis.</p>
-<p><b>Example:</b> Glucose and sucrose.</p>
-
-<h4>49. Protein</h4>
-<p><b>Definition:</b> Proteins are polymers of α-amino acids linked together by peptide bonds.</p>
-<p><b>Example:</b> Insulin is a protein.</p>
-
-<h4>50. Enzyme</h4>
-<p><b>Definition:</b> Enzymes are biological catalysts that increase the rate of biochemical reactions.</p>
-<p><b>Example:</b> Amylase helps in the digestion of starch.</p>
-
-<h4>51. DNA</h4>
-<p><b>Definition:</b> DNA (deoxyribonucleic acid) is a biomolecule that stores and transmits genetic information.</p>
-<p><b>Example:</b> DNA is present in the chromosomes of cells.</p>
-
-<h4>52. Vitamins</h4>
-<p><b>Definition:</b> Vitamins are organic compounds required in small quantities for normal growth and proper functioning of the body.</p>
-<p><b>Example:</b> Vitamin C is found in citrus fruits.</p>
-
-
-<h3>🧴 POLYMERS</h3>
-
-<h4>53. Polymer</h4>
-<p><b>Definition:</b> A polymer is a high molecular mass substance formed by the repeated linking of small molecules called monomers.</p>
-<p><b>Example:</b> Polyethene is formed from ethene monomers.</p>
-
-<h4>54. Monomer</h4>
-<p><b>Definition:</b> A small molecule capable of joining repeatedly to form a polymer is called a monomer.</p>
-<p><b>Example:</b> Ethene is the monomer of polyethene.</p>
-
-<h4>55. Addition Polymerisation</h4>
-<p><b>Definition:</b> Polymerisation in which unsaturated monomers combine without elimination of small molecules is called addition polymerisation.</p>
-<p><b>Example:</b> Ethene → Polyethene.</p>
-
-<h4>56. Condensation Polymerisation</h4>
-<p><b>Definition:</b> Polymerisation in which monomers combine with elimination of small molecules such as H₂O or HCl is called condensation polymerisation.</p>
-<p><b>Example:</b> Formation of nylon-6,6.</p>
-
-  </div>
-       </section> 
-<!-- ================= CHEMISTRY FORMULA BANK ================= -->
-
-<section class="chemistry-formulas">
-
-<h1>🧪 2nd PUC Chemistry Formula Bank</h1>
-<p class="subtitle">
-Important formulas for Board, KCET & JEE revision
-</p>
-
-<div class="chem-card">
-<h2>1️⃣ Solutions</h2>
-
-<p>Molarity: M = moles of solute / volume of solution in litres</p>
-<p>Molality: m = moles of solute / mass of solvent in kg</p>
-<p>Mole fraction: X<sub>A</sub> = n<sub>A</sub>/(n<sub>A</sub> + n<sub>B</sub>)</p>
-<p>Raoult's law: p = x p°</p>
-<p>Relative lowering of vapour pressure:
-(p° − p)/p° = x<sub>solute</sub></p>
-<p>Elevation in boiling point: ΔT<sub>b</sub> = K<sub>b</sub>m</p>
-<p>Depression in freezing point: ΔT<sub>f</sub> = K<sub>f</sub>m</p>
-<p>Osmotic pressure: π = CRT</p>
-<p>Van't Hoff equation: π = nRT/V</p>
-</div>
-
-<div class="chem-card">
-<h2>2️⃣ Electrochemistry</h2>
-
-<p>Cell potential: E<sub>cell</sub> = E<sub>cathode</sub> − E<sub>anode</sub></p>
-<p>Gibbs energy: ΔG = −nFE</p>
-<p>Nernst equation:
-E = E° − (0.0591/n) log Q</p>
-<p>Conductance: G = 1/R</p>
-<p>Resistance: R = ρl/A</p>
-<p>Conductivity: κ = 1/ρ</p>
-<p>Molar conductivity:
-Λ<sub>m</sub> = κ × 1000/C</p>
-<p>Faraday's law:
-m = ZIt</p>
-<p>1 Faraday ≈ 96500 C mol⁻¹</p>
-</div>
-
-<div class="chem-card">
-<h2>3️⃣ Chemical Kinetics</h2>
-
-<p>Rate = change in concentration / time</p>
-<p>For first order reaction:
-k = (2.303/t) log(a/(a−x))</p>
-<p>First-order half-life:
-t<sub>1/2</sub> = 0.693/k</p>
-<p>Arrhenius equation:
-k = Ae<sup>−Eₐ/RT</sup></p>
-<p>Log form:
-log k = log A − Eₐ/(2.303RT)</p>
-</div>
-
-<div class="chem-card">
-<h2>4️⃣ Surface Chemistry</h2>
-
-<p>Freundlich adsorption isotherm:
-x/m = kP<sup>1/n</sup></p>
-<p>Log form:
-log(x/m) = log k + (1/n)log P</p>
-<p>At constant temperature, adsorption generally increases with pressure.</p>
-</div>
-
-<div class="chem-card">
-<h2>5️⃣ Solid State</h2>
-
-<p>Density of unit cell:
-ρ = ZM/(a³N<sub>A</sub>)</p>
-
-<p>For cubic unit cells:</p>
-
-<p>Simple cubic: Z = 1</p>
-<p>Body-centred cubic: Z = 2</p>
-<p>Face-centred cubic: Z = 4</p>
-
-<p>SC: a = 2r</p>
-<p>BCC: √3a = 4r</p>
-<p>FCC: √2a = 4r</p>
-
-<p>Bragg's equation:
-nλ = 2d sinθ</p>
-</div>
-
-<div class="chem-card">
-<h2>6️⃣ Coordination Compounds</h2>
-
-<p>Coordination number = number of donor atoms attached to central metal ion.</p>
-<p>Oxidation state is calculated from the overall charge of the complex.</p>
-<p>Magnetic moment:
-μ = √[n(n+2)] BM</p>
-
-<p>n = number of unpaired electrons.</p>
-</div>
-
-<div class="chem-card">
-<h2>7️⃣ Haloalkanes & Haloarenes</h2>
-
-<p>General formula of haloalkanes:
-C<sub>n</sub>H<sub>2n+1</sub>X</p>
-
-<p>SN1: two-step nucleophilic substitution.</p>
-<p>SN2: one-step nucleophilic substitution.</p>
-
-<p>Wurtz reaction:
-2R−X + 2Na → R−R + 2NaX</p>
-
-<p>Finkelstein reaction:
-R−Cl/R−Br + NaI → R−I + NaCl/NaBr</p>
-</div>
-
-<div class="chem-card">
-<h2>8️⃣ Alcohols, Phenols & Ethers</h2>
-
-<p>Alcohol functional group: R−OH</p>
-<p>Phenol: C<sub>6</sub>H<sub>5</sub>OH</p>
-<p>Ether: R−O−R'</p>
-
-<p>Williamson synthesis:
-RONa + R'X → ROR' + NaX</p>
-
-<p>Oxidation of primary alcohol:
-Primary alcohol → Aldehyde → Carboxylic acid</p>
-
-<p>Oxidation of secondary alcohol:
-Secondary alcohol → Ketone</p>
-</div>
-
-<div class="chem-card">
-<h2>9️⃣ Aldehydes, Ketones & Carboxylic Acids</h2>
-
-<p>Aldehyde group: −CHO</p>
-<p>Ketone group: &gt;C=O</p>
-<p>Carboxyl group: −COOH</p>
-
-<p>General aldehyde formula:
-R−CHO</p>
-
-<p>General ketone formula:
-R−CO−R'</p>
-
-<p>General carboxylic acid:
-R−COOH</p>
-
-<p>Acid strength increases when electron-withdrawing groups are present near −COOH.</p>
-</div>
-
-<div class="chem-card">
-<h2>🔟 Amines</h2>
-
-<p>Primary amine: R−NH<sub>2</sub></p>
-<p>Secondary amine: R<sub>2</sub>NH</p>
-<p>Tertiary amine: R<sub>3</sub>N</p>
-
-<p>Basic strength depends on electron availability at nitrogen.</p>
-
-<p>Diazotisation:
-ArNH<sub>2</sub> + NaNO<sub>2</sub> + HCl
-→ ArN<sub>2</sub><sup>+</sup>Cl<sup>−</sup></p>
-</div>
-
-<div class="chem-card">
-<h2>1️⃣1️⃣ Biomolecules</h2>
-
-<p>Glucose molecular formula:
-C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></p>
-
-<p>Fructose molecular formula:
-C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></p>
-
-<p>Sucrose:
-C<sub>12</sub>H<sub>22</sub>O<sub>11</sub></p>
-
-<p>Proteins are polymers of amino acids.</p>
-<p>DNA and RNA are nucleic acids.</p>
-</div>
-
-<div class="chem-card">
-<h2>1️⃣2️⃣ Polymers</h2>
-
-<p>Degree of polymerisation:
-DP = molecular mass of polymer / molecular mass of repeating unit</p>
-
-<p>Polyethylene repeating unit:
-(−CH<sub>2</sub>−CH<sub>2</sub>−)<sub>n</sub></p>
-
-<p>PVC repeating unit:
-(−CH<sub>2</sub>−CHCl−)<sub>n</sub></p>
-</div>
-
-<div class="chem-card">
-<h2>1️⃣3️⃣ Chemistry in Everyday Life</h2>
-
-<p>Antacids neutralise excess stomach acid.</p>
-<p>Analgesics are used to relieve pain.</p>
-<p>Antiseptics are applied to living tissues to prevent infection.</p>
-<p>Disinfectants are generally used on non-living surfaces.</p>
-</div>
-
-<div class="chem-card">
-<h2>⭐ Important Constants</h2>
-
-<p>Avogadro constant:
-N<sub>A</sub> = 6.022 × 10<sup>23</sup> mol<sup>−1</sup></p>
-
-<p>Gas constant:
-R = 8.314 J mol<sup>−1</sup> K<sup>−1</sup></p>
-
-<p>Faraday constant:
-F ≈ 96500 C mol<sup>−1</sup></p>
-
-<p>1 atm ≈ 1.013 × 10<sup>5</sup> Pa</p>
-
-<p>R = 0.0821 L atm mol<sup>−1</sup> K<sup>−1</sup></p>
-</body>
-    <!-- ================= CHEMISTRY DERIVATIONS BANK ================= -->
-
-<section class="chem-derivations">
-
-<h1>🧪 2nd PUC Chemistry Derivations</h1>
-<p class="chem-subtitle">
-Important derivations and mathematical results for Board, KCET & JEE revision
-</p>
-
-<!-- SOLUTIONS -->
-<div class="chem-derivation-card">
-<h2>1️⃣ Solutions</h2>
-
-<h3>1. Elevation in Boiling Point</h3>
-
-<p>For a dilute solution, the elevation in boiling point is proportional to the molality of the solution.</p>
-
-<div class="chem-equation">
-ΔT<sub>b</sub> ∝ m
-</div>
-
-<p>Introducing the proportionality constant K<sub>b</sub>:</p>
-
-<div class="chem-equation">
-ΔT<sub>b</sub> = K<sub>b</sub>m
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-K<sub>b</sub> = ΔT<sub>b</sub>/m
-</div>
-
-
-<h3>2. Depression in Freezing Point</h3>
-
-<p>The depression in freezing point is proportional to molality.</p>
-
-<div class="chem-equation">
-ΔT<sub>f</sub> ∝ m
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-ΔT<sub>f</sub> = K<sub>f</sub>m
-</div>
-
-
-<h3>3. Osmotic Pressure</h3>
-
-<p>For a dilute solution, osmotic pressure follows an equation analogous to the ideal-gas equation.</p>
-
-<div class="chem-equation">
-πV = nRT
-</div>
-
-<p>Since n/V = C:</p>
-
-<div class="chem-equation">
-π = CRT
-</div>
-
-<p>where C is the molar concentration.</p>
-
-
-<h3>4. Van't Hoff Factor</h3>
-
-<div class="chem-equation">
-i = observed colligative property /
-calculated colligative property
-</div>
-
-<p>Hence modified equations become:</p>
-
-<div class="chem-equation">
-ΔT<sub>b</sub> = iK<sub>b</sub>m
-</div>
-
-<div class="chem-equation">
-ΔT<sub>f</sub> = iK<sub>f</sub>m
-</div>
-
-<div class="chem-equation">
-π = iCRT
-</div>
-
-</div>
-
-
-<!-- ELECTROCHEMISTRY -->
-<div class="chem-derivation-card">
-
-<h2>2️⃣ Electrochemistry</h2>
-
-<h3>5. Relation Between Gibbs Energy and Cell Potential</h3>
-
-<p>Electrical work obtained from a reversible electrochemical cell is:</p>
-
-<div class="chem-equation">
-W = nFE
-</div>
-
-<p>Maximum useful work is related to Gibbs energy:</p>
-
-<div class="chem-equation">
-ΔG = −W
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-ΔG = −nFE
-</div>
-
-<p>Under standard conditions:</p>
-
-<div class="chem-equation">
-ΔG° = −nFE°
-</div>
-
-
-<h3>6. Nernst Equation</h3>
-
-<p>The thermodynamic relation is:</p>
-
-<div class="chem-equation">
-ΔG = ΔG° + RT ln Q
-</div>
-
-<p>Using:</p>
-
-<div class="chem-equation">
-ΔG = −nFE
-</div>
-
-<p>and:</p>
-
-<div class="chem-equation">
-ΔG° = −nFE°
-</div>
-
-<p>Substituting:</p>
-
-<div class="chem-equation">
-−nFE = −nFE° + RT ln Q
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-E = E° − (RT/nF) ln Q
-</div>
-
-<p>At 298 K:</p>
-
-<div class="chem-equation">
-E = E° − (0.0591/n) log Q
-</div>
-
-
-<h3>7. Relation Between Conductivity and Resistance</h3>
-
-<p>Resistance of a conductor is:</p>
-
-<div class="chem-equation">
-R = ρl/A
-</div>
-
-<p>Conductivity is the reciprocal of resistivity:</p>
-
-<div class="chem-equation">
-κ = 1/ρ
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-κ = l/(RA)
-</div>
-
-
-<h3>8. Molar Conductivity</h3>
-
-<p>Molar conductivity is conductivity multiplied by the volume containing one mole of electrolyte.</p>
-
-<div class="chem-equation">
-Λ<sub>m</sub> = κ × 1000/C
-</div>
-
-<p>where C is concentration in mol L⁻¹.</p>
-
-</div>
-
-
-<!-- CHEMICAL KINETICS -->
-<div class="chem-derivation-card">
-
-<h2>3️⃣ Chemical Kinetics</h2>
-
-<h3>9. First-Order Integrated Rate Equation</h3>
-
-<p>For a first-order reaction:</p>
-
-<div class="chem-equation">
-Rate = −d[A]/dt = k[A]
-</div>
-
-<p>Rearranging:</p>
-
-<div class="chem-equation">
-d[A]/[A] = −kdt
-</div>
-
-<p>Integrating between initial concentration [A]₀ and concentration [A]:</p>
-
-<div class="chem-equation">
-ln([A]₀/[A]) = kt
-</div>
-
-<p>Converting to common logarithm:</p>
-
-<div class="chem-equation">
-k = (2.303/t) log([A]₀/[A])
-</div>
-
-<p>If initial concentration is a and amount reacted is x:</p>
-
-<div class="chem-equation">
-k = (2.303/t) log[a/(a−x)]
-</div>
-
-
-<h3>10. Half-Life of First-Order Reaction</h3>
-
-<p>At half-life:</p>
-
-<div class="chem-equation">
-[A] = [A]₀/2
-</div>
-
-<p>Using the first-order equation:</p>
-
-<div class="chem-equation">
-k = (2.303/t<sub>1/2</sub>) log 2
-</div>
-
-<p>Since log 2 = 0.3010:</p>
-
-<div class="chem-equation">
-t<sub>1/2</sub> = 0.693/k
-</div>
-
-
-<h3>11. Arrhenius Equation</h3>
-
-<div class="chem-equation">
-k = Ae<sup>−E<sub>a</sub>/RT</sup>
-</div>
-
-<p>Taking logarithm:</p>
-
-<div class="chem-equation">
-ln k = ln A − E<sub>a</sub>/(RT)
-</div>
-
-<p>In common logarithm form:</p>
-
-<div class="chem-equation">
-log k = log A − E<sub>a</sub>/(2.303RT)
-</div>
-
-</div>
-
-
-<!-- THERMODYNAMICS -->
-<div class="chem-derivation-card">
-
-<h2>4️⃣ Thermodynamics</h2>
-
-<h3>12. Relation Between ΔG, ΔH and ΔS</h3>
-
-<p>Gibbs free energy is defined as:</p>
-
-<div class="chem-equation">
-G = H − TS
-</div>
-
-<p>For a change at constant temperature:</p>
-
-<div class="chem-equation">
-ΔG = ΔH − TΔS
-</div>
-
-<p>For standard conditions:</p>
-
-<div class="chem-equation">
-ΔG° = ΔH° − TΔS°
-</div>
-
-<p>For a spontaneous process:</p>
-
-<div class="chem-equation">
-ΔG < 0
-</div>
-
-<p>At equilibrium:</p>
-
-<div class="chem-equation">
-ΔG = 0
-</div>
-
-</div>
-
-
-<!-- SOLID STATE -->
-<div class="chem-derivation-card">
-
-<h2>5️⃣ Solid State</h2>
-
-<h3>13. Density of a Unit Cell</h3>
-
-<p>Density is mass divided by volume.</p>
-
-<div class="chem-equation">
-ρ = mass/volume
-</div>
-
-<p>Mass of one unit cell:</p>
-
-<div class="chem-equation">
-mass = ZM/N<sub>A</sub>
-</div>
-
-<p>For a cubic unit cell:</p>
-
-<div class="chem-equation">
-volume = a³
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-ρ = ZM/(a³N<sub>A</sub>)
-</div>
-
-
-<h3>14. Relation Between Edge Length and Atomic Radius</h3>
-
-<p><b>Simple Cubic:</b></p>
-
-<div class="chem-equation">
-a = 2r
-</div>
-
-<p><b>Body-Centred Cubic:</b></p>
-
-<div class="chem-equation">
-√3a = 4r
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-a = 4r/√3
-</div>
-
-<p><b>Face-Centred Cubic:</b></p>
-
-<div class="chem-equation">
-√2a = 4r
-</div>
-
-<p>Therefore:</p>
-
-<div class="chem-equation">
-a = 2√2r
-</div>
-
-</div>
-
-
-<!-- SURFACE CHEMISTRY -->
-<div class="chem-derivation-card">
-
-<h2>6️⃣ Surface Chemistry</h2>
-
-<h3>15. Freundlich Adsorption Isotherm</h3>
-
-<p>The Freundlich equation is:</p>
-
-<div class="chem-equation">
-x/m = kP<sup>1/n</sup>
-</div>
-
-<p>Taking logarithm:</p>
-
-<div class="chem-equation">
-log(x/m) = log k + (1/n)log P
-</div>
-
-<p>This has the form:</p>
-
-<div class="chem-equation">
-y = c + mx
-</div>
-
-<p>Therefore, a plot of log(x/m) against log P gives a straight line.</p>
-
-</div>
-
-
-<!-- COORDINATION COMPOUNDS -->
-<div class="chem-derivation-card">
-
-<h2>7️⃣ Coordination Compounds</h2>
-
-<h3>16. Magnetic Moment</h3>
-
-<p>If a complex has n unpaired electrons, its spin-only magnetic moment is:</p>
-
-<div class="chem-equation">
-μ = √[n(n+2)] BM
-</div>
-
-<p>where μ is magnetic moment in Bohr Magnetons.</p>
-
-</div>
-
-
-<!-- ORGANIC CHEMISTRY -->
-<div class="chem-derivation-card">
-
-<h2>8️⃣ Organic Chemistry — Important Conversions</h2>
-
-<h3>17. Primary Alcohol to Carboxylic Acid</h3>
-
-<div class="chem-equation">
-R−CH₂OH
-→ R−CHO
-→ R−COOH
-</div>
-
-<p>Primary alcohol is first oxidised to an aldehyde and then to a carboxylic acid.</p>
-
-
-<h3>18. Alcohol to Alkene</h3>
-
-<div class="chem-equation">
-R−CH₂−CH₂OH
-→ R−CH=CH₂ + H₂O
-</div>
-
-<p>This is dehydration of alcohol, generally using a suitable dehydrating condition.</p>
-
-
-<h3>19. Williamson Ether Synthesis</h3>
-
-<div class="chem-equation">
-RONa + R'X → ROR' + NaX
-</div>
-
-<p>Alkoxide ion reacts with a suitable alkyl halide to form an ether.</p>
-
-
-<h3>20. Wurtz Reaction</h3>
-
-<div class="chem-equation">
-2R−X + 2Na → R−R + 2NaX
-</div>
-
-
-<h3>21. Preparation of Diazonium Salt</h3>
-
-<div class="chem-equation">
-ArNH₂ + NaNO₂ + 2HCl
-→ ArN₂⁺Cl⁻ + NaCl + 2H₂O
-</div>
-
-<p>The reaction is carried out at low temperature, typically around 273–278 K.</p>
-
-</div>
-
-
-<!-- BIOMOLECULES -->
-<div class="chem-derivation-card">
-
-<h2>9️⃣ Biomolecules</h2>
-
-<h3>22. Formation of Peptide Bond</h3>
-
-<p>Two amino acids combine by condensation to form a peptide bond.</p>
-
-<div class="chem-equation">
-Amino acid + Amino acid
-→ Dipeptide + H₂O
-</div>
-
-<p>The linkage formed is:</p>
-
-<div class="chem-equation">
-−CO−NH−
-</div>
-
-</div>
-
-
-<!-- POLYMERS -->
-<div class="chem-derivation-card">
-
-<h2>🔟 Polymers</h2>
-
-<h3>23. Degree of Polymerisation</h3>
-
-<p>Degree of polymerisation is the number of repeating units present in a polymer chain.</p>
-
-<div class="chem-equation">
-DP =
-Molar mass of polymer /
-Molar mass of repeating unit
-</div>
-
-<p>For an addition polymer:</p>
-
-<div class="chem-equation">
-DP = M<sub>polymer</sub>/M<sub>repeat unit</sub>
-</div>
-
-</div>
-
-
-<!-- IMPORTANT RELATIONS -->
-<div class="chem-derivation-card">
-
-<h2>⭐ Important Relations for Numericals</h2>
-
-<p>Moles:</p>
-<div class="chem-equation">
-n = given mass / molar mass
-</div>
-
-<p>Molarity:</p>
-<div class="chem-equation">
-M = n/V
-</div>
-
-<p>Molality:</p>
-<div class="chem-equation">
-m = n/mass of solvent in kg
-</div>
-
-<p>Mole fraction:</p>
-<div class="chem-equation">
-X<sub>A</sub> = n<sub>A</sub>/Σn
-</div>
-
-<p>Ideal gas equation:</p>
-<div class="chem-equation">
-PV = nRT
-</div>
-
-<p>Gibbs energy and equilibrium constant:</p>
-<div class="chem-equation">
-ΔG° = −RT ln K
-</div>
-
-<p>At 298 K:</p>
-<div class="chem-equation">
-ΔG° = −2.303RT log K
-</div>
-
-</div>
-
-</section>
-
-
-<style>
-
-.chem-derivations {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.chem-derivations h1 {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.chem-subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.chem-derivation-card {
-    background: #ffffff;
-    margin: 20px 0;
-    padding: 22px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.chem-derivation-card h2 {
-    margin-top: 0;
-}
-
-.chem-derivation-card h3 {
-    margin-top: 25px;
-}
-
-.chem-derivation-card p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 9px 0;
-}
-
-.chem-equation {
-    background: #f5f5f5;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 8px;
-    font-size: 17px;
-    font-weight: bold;
-    overflow-x: auto;
-}
-
-@media (max-width: 600px) {
-
-    .chem-derivations {
-        padding: 12px;
-    }
-
-    .chem-derivation-card {
-        padding: 15px;
-    }
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-    .chem-derivation-card p {
-        font-size: 15px;
-    }
+let pdfDocument = null;
 
-    .chem-equation {
-        font-size: 15px;
-    }
+let currentPage = 1;
 
-}
-
-</style>
-
-<!-- ============== END CHEMISTRY DERIVATIONS BANK ============== -->
-</div>
-
-</section>
-
-<style>
-
-.chemistry-formulas {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.chemistry-formulas h1 {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.chemistry-formulas .subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.chem-card {
-    background: #ffffff;
-    margin: 18px 0;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.chem-card h2 {
-    margin-top: 0;
-}
-
-.chem-card p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 9px 0;
-}
-
-@media (max-width: 600px) {
-
-    .chemistry-formulas {
-        padding: 12px;
-    }
-
-    .chem-card {
-        padding: 15px;
-    }
-
-    .chem-card p {
-        font-size: 15px;
-    }
-
-}
-
-</style>
-
-<!-- ============== END CHEMISTRY FORMULA BANK ============== -->
-</div>
-
-<div class="card">
-<h2>📌 Important Formulas</h2>
-
-<h3>🧪 Solutions</h3>
-
-<div class="formula">
-Molarity (M) = moles of solute / volume of solution in L
-</div>
-
-<div class="formula">
-Molality (m) = moles of solute / mass of solvent in kg
-</div>
-
-<div class="formula">
-M₁V₁ = M₂V₂
-</div>
-
-<h3>⚡ Electrochemistry</h3>
-
-<div class="formula">
-ΔG° = −nFE°
-</div>
-
-<div class="formula">
-E°cell = E°cathode − E°anode
-</div>
-
-<div class="formula">
-Q = It
-</div>
-
-<h3>⏱ Chemical Kinetics</h3>
-
-<div class="formula">
-Rate = k[A]ⁿ
-</div>
-
-<div class="formula">
-For first order: k = (2.303/t) log(a/(a−x))
-</div>
-
-<div class="formula">
-t₁/₂ = 0.693/k
-</div>
-
-<h3>⚗️ Organic Chemistry</h3>
-
-<div class="formula">
-Alcohol + Na → Sodium alkoxide + H₂
-</div>
-
-<div class="formula">
-Aldehyde + [O] → Carboxylic acid
-</div>
-
-<div class="formula">
-R−NH₂ + HCl → R−NH₃⁺Cl⁻
-</div>
-
-</div>
-
-<div class="card">
-<h2>⚗️ Important Organic Reactions</h2>
-
-<div class="formula">
-R−X + KOH(aq) → R−OH + KX
-</div>
-
-<div class="formula">
-R−X + KOH(alc) → Alkene + KX + H₂O
-</div>
-
-<div class="formula">
-R−OH + [O] → Aldehyde/Ketone
-</div>
-
-<div class="formula">
-R−CHO + [O] → R−COOH
-</div>
-
-<div class="formula">
-R−COOH + R'−OH ⇌ R−COOR' + H₂O
-</div>
-
-</div>
-
-<div class="card">
-<h2>📝 Board Practice Questions</h2>
-
-<div class="question">
-<b>1.</b> Define molarity and write its formula.
-
-<br><br>
-
-<button onclick="showAnswer('q1')">Show Answer</button>
-
-<div class="answer" id="q1">
-Molarity is the number of moles of solute present in one litre of solution.
-<br><br>
-M = moles of solute / volume of solution in litres.
-</div>
-</div>
-
-<div class="question">
-<b>2.</b> Write the Nernst equation for a cell.
-
-<br><br>
-
-<button onclick="showAnswer('q2')">Show Answer</button>
-
-<div class="answer" id="q2">
-E = E° − (0.0591/n) log Q at 298 K.
-</div>
-</div>
-
-<div class="question">
-<b>3.</b> What is the half-life of a first-order reaction?
-
-<br><br>
-
-<button onclick="showAnswer('q3')">Show Answer</button>
-
-<div class="answer" id="q3">
-For a first-order reaction:
-<br><br>
-t₁/₂ = 0.693/k
-</div>
-</div>
-
-</div>
+let zoom = 1.25;
 
-<div class="card">
-<h2>🔥 KCET / JEE Style MCQs</h2>
+let pageStates = [];
 
-<div class="question">
-<b>1.</b> The unit of molarity is:
+let draggedElement = null;
 
-<br><br>
+let dragOffsetX = 0;
 
-A) mol kg⁻¹<br>
-B) mol L⁻¹<br>
-C) kg mol⁻¹<br>
-D) L mol⁻¹
+let dragOffsetY = 0;
 
-<br><br>
 
-<button onclick="showAnswer('m1')">Show Answer</button>
+/* ---------------- STATUS ---------------- */
 
-<div class="answer" id="m1">
-Correct Answer: B) mol L⁻¹
-</div>
-</div>
+function status(message){
 
-<div class="question">
-<b>2.</b> In a galvanic cell, oxidation occurs at:
+    const s = document.getElementById("status");
 
-<br><br>
+    s.innerText = message;
 
-A) Cathode<br>
-B) Anode<br>
-C) Salt bridge<br>
-D) Electrolyte
+    s.style.display = "block";
 
-<br><br>
-
-<button onclick="showAnswer('m2')">Show Answer</button>
-
-<div class="answer" id="m2">
-Correct Answer: B) Anode
-</div>
-</div>
-
-<div class="question">
-<b>3.</b> The half-life of a first-order reaction is:
-
-<br><br>
-
-A) Dependent on initial concentration<br>
-B) Independent of initial concentration<br>
-C) Always zero<br>
-D) Always one
-
-<br><br>
-
-<button onclick="showAnswer('m3')">Show Answer</button>
-
-<div class="answer" id="m3">
-Correct Answer: B) Independent of initial concentration
-</div>
-</div>
-
-<div class="question">
-<b>4.</b> Which functional group is present in alcohols?
-
-<br><br>
-
-A) −CHO<br>
-B) −COOH<br>
-C) −OH<br>
-D) −NH₂
-
-<br><br>
-
-<button onclick="showAnswer('m4')">Show Answer</button>
-
-<div class="answer" id="m4">
-Correct Answer: C) −OH
-</div>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-<p>© 2026 My AI Study Hub</p>
-<p>Keep Learning 🧪</p>
-</footer>
-
-<script>
-function showAnswer(id){
-    const answer=document.getElementById(id);
-
-    if(answer.style.display==="block"){
-        answer.style.display="none";
-    }else{
-        answer.style.display="block";
-    }
-}
-</script>
-
-</body>
-    </html>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MCQ Practice - My AI Study Hub</title>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-}
-
-header {
-    background: linear-gradient(135deg, #dc2626, #7c3aed);
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 30px;
-}
-
-.container {
-    max-width: 850px;
-    margin: auto;
-    padding: 20px;
-}
-
-.back {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 10px 16px;
-    background: #111827;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-.quiz-card {
-    background: white;
-    padding: 22px;
-    margin-bottom: 18px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.subject {
-    color: #7c3aed;
-    font-weight: bold;
-}
-
-.option {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-    background: #f9fafb;
-    color: #222;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.option:hover {
-    background: #ede9fe;
-}
-
-.option.correct {
-    background: #dcfce7;
-    border-color: #16a34a;
-}
-
-.option.wrong {
-    background: #fee2e2;
-    border-color: #dc2626;
-}
-
-.result {
-    display: none;
-    background: #ecfdf5;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#score {
-    font-size: 28px;
-    font-weight: bold;
-    color: #16a34a;
-}
-
-#submitBtn,
-#restartBtn {
-    display: block;
-    margin: 25px auto;
-    padding: 13px 25px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    background: #7c3aed;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-footer {
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-}
-    #timer {
-    font-size: 45px;
-    font-weight: bold;
-    color: #4f46e5;
-    margin: 15px;
-}
-
-.welcome button {
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 8px;
-    background: #4f46e5;
-    color: white;
-    cursor: pointer;
-} #searchBox {
-    width: 100%;
-    padding: 14px;
-    margin-top: 10px;
-    border: 2px solid #4f46e5;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
+    setTimeout(()=>{
+        s.style.display="none";
+    },2500);
 }
-
-#searchResult {
-    font-weight: bold;
-    margin-top: 12px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>📝 MCQ Practice</h1>
-    <p>2nd PUC • KCET • JEE Practice</p>
-</header>
-
-<div class="container">
-    <div class="welcome">
-    <h2>🔍 Search Study Hub</h2>
-
-    <input
-        type="text"
-        id="searchBox"
-        placeholder="Search Maths, Physics, Chemistry..."
-        onkeyup="searchStudy()"
-    >
-
-    <p id="searchResult"></p>
-    </div>
-
-<a class="back" href="index.html">⬅ Back to Home</a>
 
-<div class="result" id="result">
-    <h2>🎉 Quiz Completed!</h2>
-    <p>Your Score:</p>
-    <div id="score">0/10</div>
-    <p id="message"></p>
-</div>
 
+/* ---------------- OPEN PDF ---------------- */
 
-<!-- QUESTION 1 -->
+function openPDF(){
 
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-
-    <h3>1. If |A| = 0, then matrix A is:</h3>
-
-    <button class="option" data-correct="false">
-        A) Identity matrix
-    </button>
-
-    <button class="option" data-correct="true">
-        B) Singular matrix
-    </button>
-
-    <button class="option" data-correct="false">
-        C) Non-singular matrix
-    </button>
-
-    <button class="option" data-correct="false">
-        D) Orthogonal matrix
-    </button>
-</div>
-
-
-<!-- QUESTION 2 -->
-
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-
-    <h3>2. ∫₀¹ x dx is equal to:</h3>
-
-    <button class="option" data-correct="false">
-        A) 1
-    </button>
-
-    <button class="option" data-correct="true">
-        B) 1/2
-    </button>
-
-    <button class="option" data-correct="false">
-        C) 2
-    </button>
-
-    <button class="option" data-correct="false">
-        D) 0
-    </button>
-</div>
-
-
-<!-- QUESTION 3 -->
-
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-
-    <h3>3. d/dx(sin x) is:</h3>
-
-    <button class="option" data-correct="true">
-        A) cos x
-    </button>
-
-    <button class="option" data-correct="false">
-        B) −cos x
-    </button>
-
-    <button class="option" data-correct="false">
-        C) sin x
-    </button>
-
-    <button class="option" data-correct="false">
-        D) −sin x
-    </button>
-</div>
-
-
-<!-- QUESTION 4 -->
-
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-
-    <h3>4. The SI unit of electric field is:</h3>
-
-    <button class="option" data-correct="false">
-        A) Joule
-    </button>
-
-    <button class="option" data-correct="true">
-        B) Newton/Coulomb
-    </button>
-
-    <button class="option" data-correct="false">
-        C) Coulomb
-    </button>
-
-    <button class="option" data-correct="false">
-        D) Watt
-    </button>
-</div>
-
-
-<!-- QUESTION 5 -->
-
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-
-    <h3>5. Force on a moving charge in a magnetic field is:</h3>
-
-    <button class="option" data-correct="true">
-        A) qvB sinθ
-    </button>
-
-    <button class="option" data-correct="false">
-        B) qE
-    </button>
-
-    <button class="option" data-correct="false">
-        C) IR
-    </button>
-
-    <button class="option" data-correct="false">
-        D) V/R
-    </button>
-</div>
-
-
-<!-- QUESTION 6 -->
-
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-
-    <h3>6. Energy of a photon is:</h3>
-
-    <button class="option" data-correct="false">
-        A) h/ν
-    </button>
-
-    <button class="option" data-correct="true">
-        B) hν
-    </button>
-
-    <button class="option" data-correct="false">
-        C) ν/h
-    </button>
-
-    <button class="option" data-correct="false">
-        D) hcν
-    </button>
-</div>
-
-
-<!-- QUESTION 7 -->
-
-<div class="quiz-card">
-    <p class="subject">🧪 Chemistry</p>
-
-    <h3>7. The unit of molarity is:</h3>
-
-    <button class="option" data-correct="false">
-        A) mol kg⁻¹
-    </button>
-
-    <button class="option" data-correct="true">
-        B) mol L⁻¹
-    </button>
-
-    <button class="option" data-correct="false">
-        C) kg mol⁻¹
-    </button>
-
-    <button class="option" data-correct="false">
-        D) L mol⁻¹
-    </button>
-</div>
-
-
-<!-- QUESTION 8 -->
-
-<div class="quiz-card">
-    <p class="subject">🧪 Chemistry</p>
-
-    <h3>8. Oxidation occurs at which electrode in a galvanic cell?</h3>
-
-    <button class="option" data-correct="true">
-        A) Anode
-    </button>
-
-    <button class="option" data-correct="false">
-        B) Cathode
-    </button>
-
-    <button class="option" data-correct="false">
-        C) Salt bridge
-    </button>
-
-    <button class="option" data-correct="false">
-        D) Electrolyte
-    </button>
-</div>
-
-
-<!-- QUESTION 9 -->
-
-<div class="quiz-card">
-    <p class="subject">🧪 Chemistry</p>
-
-    <h3>9. The functional group of alcohol is:</h3>
-
-    <button class="option" data-correct="false">
-        A) −CHO
-    </button>
-
-    <button class="option" data-correct="false">
-        B) −COOH
-    </button>
-
-    <button class="option" data-correct="true">
-        C) −OH
-    </button>
-
-    <button class="option" data-correct="false">
-        D) −NH₂
-    </button>
-</div>
-
-
-<!-- QUESTION 10 -->
-
-<div class="quiz-card">
-    <p class="subject">🧪 Chemistry</p>
-
-    <h3>10. For a first-order reaction, half-life is:</h3>
-
-    <button class="option" data-correct="false">
-        A) Dependent on initial concentration
-    </button>
-
-    <button class="option" data-correct="true">
-        B) Independent of initial concentration
-    </button>
-
-    <button class="option" data-correct="false">
-        C) Always zero
-    </button>
-
-    <button class="option" data-correct="false">
-        D) Always one
-    </button>
-</div>
-    <!-- QUESTION 11 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>11. The determinant of the identity matrix of order 3 is:</h3>
-
-    <button class="option" data-correct="true">A) 1</button>
-    <button class="option" data-correct="false">B) 0</button>
-    <button class="option" data-correct="false">C) 3</button>
-    <button class="option" data-correct="false">D) −1</button>
-</div>
-
-<!-- QUESTION 12 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>12. If A is a square matrix, then (Aᵀ)ᵀ is:</h3>
-
-    <button class="option" data-correct="true">A) A</button>
-    <button class="option" data-correct="false">B) −A</button>
-    <button class="option" data-correct="false">C) A⁻¹</button>
-    <button class="option" data-correct="false">D) 0</button>
-</div>
-
-<!-- QUESTION 13 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>13. d/dx(x⁵) is:</h3>
-
-    <button class="option" data-correct="true">A) 5x⁴</button>
-    <button class="option" data-correct="false">B) x⁴</button>
-    <button class="option" data-correct="false">C) 4x⁵</button>
-    <button class="option" data-correct="false">D) 5x</button>
-</div>
-
-<!-- QUESTION 14 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>14. ∫ cos x dx is:</h3>
-
-    <button class="option" data-correct="true">A) sin x + C</button>
-    <button class="option" data-correct="false">B) −sin x + C</button>
-    <button class="option" data-correct="false">C) cos x + C</button>
-    <button class="option" data-correct="false">D) −cos x + C</button>
-</div>
-
-<!-- QUESTION 15 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>15. If two vectors are perpendicular, their dot product is:</h3>
-
-    <button class="option" data-correct="false">A) 1</button>
-    <button class="option" data-correct="false">B) −1</button>
-    <button class="option" data-correct="true">C) 0</button>
-    <button class="option" data-correct="false">D) Maximum</button>
-</div>
-
-<!-- QUESTION 16 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>16. The principal value of sin⁻¹(1) is:</h3>
-
-    <button class="option" data-correct="false">A) 0</button>
-    <button class="option" data-correct="true">B) π/2</button>
-    <button class="option" data-correct="false">C) π</button>
-    <button class="option" data-correct="false">D) 2π</button>
-</div>
-
-<!-- QUESTION 17 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>17. P(A) + P(A') is equal to:</h3>
-
-    <button class="option" data-correct="false">A) 0</button>
-    <button class="option" data-correct="true">B) 1</button>
-    <button class="option" data-correct="false">C) 2</button>
-    <button class="option" data-correct="false">D) P(A)</button>
-</div>
-
-<!-- QUESTION 18 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>18. The magnitude of the zero vector is:</h3>
-
-    <button class="option" data-correct="true">A) 0</button>
-    <button class="option" data-correct="false">B) 1</button>
-    <button class="option" data-correct="false">C) −1</button>
-    <button class="option" data-correct="false">D) Undefined</button>
-</div>
-
-<!-- QUESTION 19 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>19. The derivative of eˣ is:</h3>
-
-    <button class="option" data-correct="true">A) eˣ</button>
-    <button class="option" data-correct="false">B) xeˣ</button>
-    <button class="option" data-correct="false">C) eˣ⁻¹</button>
-    <button class="option" data-correct="false">D) 1/eˣ</button>
-</div>
-
-<!-- QUESTION 20 -->
-<div class="quiz-card">
-    <p class="subject">📐 Mathematics</p>
-    <h3>20. ∫₀¹ 1 dx is:</h3>
-
-    <button class="option" data-correct="true">A) 1</button>
-    <button class="option" data-correct="false">B) 0</button>
-    <button class="option" data-correct="false">C) 2</button>
-    <button class="option" data-correct="false">D) −1</button>
-</div>
-
-<!-- QUESTION 21 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>21. The SI unit of electric charge is:</h3>
-
-    <button class="option" data-correct="true">A) Coulomb</button>
-    <button class="option" data-correct="false">B) Volt</button>
-    <button class="option" data-correct="false">C) Ohm</button>
-    <button class="option" data-correct="false">D) Tesla</button>
-</div>
-
-<!-- QUESTION 22 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>22. Ohm's law is:</h3>
-
-    <button class="option" data-correct="false">A) P = VI</button>
-    <button class="option" data-correct="true">B) V = IR</button>
-    <button class="option" data-correct="false">C) Q = It</button>
-    <button class="option" data-correct="false">D) F = qE</button>
-</div>
-
-<!-- QUESTION 23 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>23. The SI unit of resistance is:</h3>
-
-    <button class="option" data-correct="false">A) Volt</button>
-    <button class="option" data-correct="true">B) Ohm</button>
-    <button class="option" data-correct="false">C) Ampere</button>
-    <button class="option" data-correct="false">D) Watt</button>
-</div>
-
-<!-- QUESTION 24 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>24. The magnetic force on a stationary charged particle is:</h3>
-
-    <button class="option" data-correct="true">A) Zero</button>
-    <button class="option" data-correct="false">B) Maximum</button>
-    <button class="option" data-correct="false">C) qB</button>
-    <button class="option" data-correct="false">D) qvB</button>
-</div>
-
-<!-- QUESTION 25 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>25. The speed of electromagnetic waves in vacuum is approximately:</h3>
-
-    <button class="option" data-correct="false">A) 3 × 10⁶ m/s</button>
-    <button class="option" data-correct="true">B) 3 × 10⁸ m/s</button>
-    <button class="option" data-correct="false">C) 3 × 10⁵ m/s</button>
-    <button class="option" data-correct="false">D) 3 × 10¹⁰ m/s</button>
-</div>
-
-<!-- QUESTION 26 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>26. The SI unit of magnetic field is:</h3>
-
-    <button class="option" data-correct="true">A) Tesla</button>
-    <button class="option" data-correct="false">B) Weber</button>
-    <button class="option" data-correct="false">C) Henry</button>
-    <button class="option" data-correct="false">D) Farad</button>
-</div>
-
-<!-- QUESTION 27 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>27. The energy stored in a capacitor is:</h3>
-
-    <button class="option" data-correct="false">A) CV</button>
-    <button class="option" data-correct="true">B) ½CV²</button>
-    <button class="option" data-correct="false">C) C/V</button>
-    <button class="option" data-correct="false">D) V/C</button>
-</div>
-
-<!-- QUESTION 28 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>28. The SI unit of frequency is:</h3>
-
-    <button class="option" data-correct="true">A) Hertz</button>
-    <button class="option" data-correct="false">B) Joule</button>
-    <button class="option" data-correct="false">C) Newton</button>
-    <button class="option" data-correct="false">D) Pascal</button>
-</div>
-
-<!-- QUESTION 29 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>29. Photon energy is directly proportional to:</h3>
-
-    <button class="option" data-correct="true">A) Frequency</button>
-    <button class="option" data-correct="false">B) Wavelength</button>
-    <button class="option" data-correct="false">C) Time period</button>
-    <button class="option" data-correct="false">D) Amplitude only</button>
-</div>
-
-<!-- QUESTION 30 -->
-<div class="quiz-card">
-    <p class="subject">⚡ Physics</p>
-    <h3>30. In electromagnetic induction, induced emf is proportional to the rate of change of:</h3>
-
-    <button class="option" data-correct="false">A) Charge</button>
-    <button class="option" data-correct="true">B) Magnetic flux</button>
-    <button class="option" data-correct="false">C) Resistance</button>
-    <button class="option" data-correct="false">D) Mass</button>
-</div>
-
-<button id="restartBtn" style="display:none;">
-    🔄 Restart Quiz
-</button>
-
-</div>
-<div class="welcome">
-    <h2>⏱️ Study Timer</h2>
-    <p id="timer">25:00</p>
-
-    <button onclick="startTimer()">▶ Start</button>
-    <button onclick="pauseTimer()">⏸ Pause</button>
-    <button onclick="resetTimer()">🔄 Reset</button>
-</div>
-<footer>
-    <p>© 2026 My AI Study Hub</p>
-    <p>Keep Practicing 🚀</p>
-</footer>
-
-
-<script>
-let timerSeconds = 25 * 60;
-let timerInterval = null;
-
-function updateTimer() {
-    let minutes = Math.floor(timerSeconds / 60);
-    let seconds = timerSeconds % 60;
-
-    document.getElementById("timer").textContent =
-        String(minutes).padStart(2, "0") + ":" +
-        String(seconds).padStart(2, "0");
-}
-
-function startTimer() {
-    if (timerInterval !== null) return;
-
-    timerInterval = setInterval(function () {
-        if (timerSeconds > 0) {
-            timerSeconds--;
-            updateTimer();
-        } else {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            alert("🎉 Study session completed!");
-        }
-    }, 1000);
-}
-
-function pauseTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-}
+    document.getElementById("pdfInput").click();
 
-function resetTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    timerSeconds = 25 * 60;
-    updateTimer();
 }
 
-updateTimer();
-let score = 0;
-let answered = 0;
 
-const options = document.querySelectorAll(".option");
+async function loadPDF(event){
 
-options.forEach(function(option) {
+    const file = event.target.files[0];
 
-    option.addEventListener("click", function() {
+    if(!file) return;
 
-        const question = option.parentElement;
+    const arrayBuffer = await file.arrayBuffer();
 
-        if (question.dataset.answered === "true") {
-            return;
-        }
+    pdfDocument = await pdfjsLib.getDocument({
+        data:arrayBuffer
+    }).promise;
 
-        question.dataset.answered = "true";
+    pageStates = [];
 
-        const questionOptions = question.querySelectorAll(".option");
+    for(let i=0;i<pdfDocument.numPages;i++){
 
-        questionOptions.forEach(function(btn) {
-            btn.disabled = true;
+        pageStates.push({
+            rotation:0,
+            overlays:[]
         });
 
-        if (option.dataset.correct === "true") {
+    }
 
-            option.classList.add("correct");
-            score++;
+    currentPage=1;
 
-        } else {
+    await renderThumbnails();
 
-            option.classList.add("wrong");
+    await renderPage();
 
-            questionOptions.forEach(function(btn) {
+    status("PDF loaded successfully");
 
-                if (btn.dataset.correct === "true") {
-                    btn.classList.add("correct");
-                }
+}
 
+
+/* ---------------- RENDER PAGE ---------------- */
+
+async function renderPage(){
+
+    if(!pdfDocument) return;
+
+    const page =
+        await pdfDocument.getPage(currentPage);
+
+    const viewport =
+        page.getViewport({
+            scale:zoom,
+            rotation:pageStates[currentPage-1].rotation
+        });
+
+    const canvas =
+        document.getElementById("pdfCanvas");
+
+    const ctx =
+        canvas.getContext("2d");
+
+    canvas.width=viewport.width;
+    canvas.height=viewport.height;
+
+    await page.render({
+        canvasContext:ctx,
+        viewport:viewport
+    }).promise;
+
+    const wrapper =
+        document.getElementById("pageWrapper");
+
+    wrapper.style.width =
+        viewport.width+"px";
+
+    wrapper.style.height =
+        viewport.height+"px";
+
+    removeOverlayElements();
+
+    renderOverlays();
+
+    updateActiveThumbnail();
+
+}
+
+
+/* ---------------- THUMBNAILS ---------------- */
+
+async function renderThumbnails(){
+
+    const container =
+        document.getElementById("pages");
+
+    container.innerHTML="";
+
+    for(let i=1;i<=pdfDocument.numPages;i++){
+
+        const page =
+            await pdfDocument.getPage(i);
+
+        const viewport =
+            page.getViewport({
+                scale:.25
             });
+
+        const div =
+            document.createElement("div");
+
+        div.className="thumbnail";
+
+        div.dataset.page=i;
+
+        const canvas =
+            document.createElement("canvas");
+
+        canvas.width=viewport.width;
+
+        canvas.height=viewport.height;
+
+        await page.render({
+            canvasContext:
+                canvas.getContext("2d"),
+            viewport:viewport
+        }).promise;
+
+        const label =
+            document.createElement("div");
+
+        label.className="pageLabel";
+
+        label.innerText="Page "+i;
+
+        const del =
+            document.createElement("button");
+
+        del.className="deletePage";
+
+        del.innerText="×";
+
+        del.onclick=(e)=>{
+
+            e.stopPropagation();
+
+            deletePage(i);
+
+        };
+
+        div.onclick=()=>{
+
+            currentPage=i;
+
+            renderPage();
+
+        };
+
+        div.appendChild(canvas);
+
+        div.appendChild(label);
+
+        div.appendChild(del);
+
+        container.appendChild(div);
+
+    }
+
+    updateActiveThumbnail();
+
+}
+
+
+/* ---------------- ACTIVE THUMBNAIL ---------------- */
+
+function updateActiveThumbnail(){
+
+    document
+    .querySelectorAll(".thumbnail")
+    .forEach(x=>{
+
+        x.classList.remove("active");
+
+        if(Number(x.dataset.page)===currentPage)
+            x.classList.add("active");
+
+    });
+
+}
+
+
+/* ---------------- NAVIGATION ---------------- */
+
+function nextPage(){
+
+    if(!pdfDocument) return;
+
+    if(currentPage<pdfDocument.numPages){
+
+        currentPage++;
+
+        renderPage();
+
+    }
+
+}
+
+
+function previousPage(){
+
+    if(!pdfDocument) return;
+
+    if(currentPage>1){
+
+        currentPage--;
+
+        renderPage();
+
+    }
+
+}
+
+
+/* ---------------- DELETE PAGE ---------------- */
+
+function deleteCurrentPage(){
+
+    if(!pdfDocument) return;
+
+    deletePage(currentPage);
+
+}
+
+
+function deletePage(pageNumber){
+
+    if(pdfDocument.numPages<=1){
+
+        status("At least one page is required");
+
+        return;
+
+    }
+
+    pageStates.splice(pageNumber-1,1);
+
+    createBlankPDFFromStates();
+
+}
+
+
+/* ---------------- BLANK PAGE ---------------- */
+
+function addBlankPage(){
+
+    pageStates.push({
+        rotation:0,
+        overlays:[]
+    });
+
+    createBlankPDFFromStates();
+
+}
+
+
+async function createBlankPDFFromStates(){
+
+    /*
+    Recreate a temporary PDF containing
+    the existing pages.
+
+    The final export rebuilds everything.
+    */
+
+    if(pageStates.length===0) return;
+
+    const container =
+        document.getElementById("pages");
+
+    container.innerHTML="";
+
+    currentPage =
+        Math.min(currentPage,pageStates.length);
+
+    await renderPageCountOnly();
+
+    status("Page structure updated");
+
+}
+
+
+async function renderPageCountOnly(){
+
+    const container =
+        document.getElementById("pages");
+
+    container.innerHTML="";
+
+    for(let i=1;i<=pageStates.length;i++){
+
+        const div =
+            document.createElement("div");
+
+        div.className="thumbnail";
+
+        div.dataset.page=i;
+
+        div.style.height="150px";
+
+        div.style.display="flex";
+
+        div.style.alignItems="center";
+
+        div.style.justifyContent="center";
+
+        div.style.flexDirection="column";
+
+        div.innerHTML=
+            "📄<br>Page "+i;
+
+        div.onclick=()=>{
+
+            currentPage=i;
+
+            renderPage();
+
+        };
+
+        container.appendChild(div);
+
+    }
+
+    updateActiveThumbnail();
+
+    renderCurrentExistingPage();
+
+}
+
+
+async function renderCurrentExistingPage(){
+
+    if(currentPage<=pdfDocument.numPages){
+
+        await renderPage();
+
+    }else{
+
+        renderBlankPage();
+
+    }
+
+}
+
+
+/* ---------------- BLANK PAGE RENDER ---------------- */
+
+function renderBlankPage(){
+
+    const canvas =
+        document.getElementById("pdfCanvas");
+
+    const wrapper =
+        document.getElementById("pageWrapper");
+
+    canvas.width=600;
+
+    canvas.height=800;
+
+    const ctx=canvas.getContext("2d");
+
+    ctx.fillStyle="white";
+
+    ctx.fillRect(0,0,600,800);
+
+    wrapper.style.width="600px";
+
+    wrapper.style.height="800px";
+
+    removeOverlayElements();
+
+    renderOverlays();
+
+}
+
+
+/* ---------------- OVERLAYS ---------------- */
+
+function removeOverlayElements(){
+
+    document
+    .querySelectorAll(".overlay")
+    .forEach(e=>e.remove());
+
+}
+
+
+function renderOverlays(){
+
+    const state =
+        pageStates[currentPage-1];
+
+    if(!state) return;
+
+    state.overlays.forEach((item,index)=>{
+
+        let el;
+
+        if(item.type==="text" ||
+           item.type==="watermark"){
+
+            el=document.createElement("div");
+
+            el.className="overlay textOverlay";
+
+            el.innerText=item.text;
+
+            el.style.fontSize=item.size+"px";
+
+            el.style.color=item.color;
+
+            el.style.opacity=item.opacity;
 
         }
 
-        answered++;
+        if(item.type==="image"){
+
+            el=document.createElement("div");
+
+            el.className="overlay imageOverlay";
+
+            el.style.width=item.width+"px";
+
+            el.style.height=item.height+"px";
+
+            const img=document.createElement("img");
+
+            img.src=item.src;
+
+            el.appendChild(img);
+
+        }
+
+        el.style.left=item.x+"px";
+
+        el.style.top=item.y+"px";
+
+        el.dataset.index=index;
+
+        makeDraggable(el);
+
+        document
+        .getElementById("pageWrapper")
+        .appendChild(el);
+
     });
 
-});
+}
 
 
-document.getElementById("submitBtn").addEventListener("click", function() {
+/* ---------------- DRAGGING ---------------- */
 
-    if (answered < 30) {
+function makeDraggable(element){
 
-        alert("Please answer all 10 questions first.");
+    element.addEventListener("mousedown",function(e){
 
-        return;
-    }
+        draggedElement=element;
 
-    document.getElementById("result").style.display = "block";
+        const rect=
+            element.getBoundingClientRect();
 
-    document.getElementById("score").textContent =
-        score + "/30";
+        dragOffsetX=
+            e.clientX-rect.left;
 
-    let message = "";
+        dragOffsetY=
+            e.clientY-rect.top;
 
-    if (score === 30) {
-        message = "🏆 Excellent! Perfect score!";
-    }
-    else if (score >= 28) {
-        message = "🔥 Great job! Keep practicing!";
-    }
-    else if (score >= 15) {
-        message = "👍 Good effort! Practice more.";
-    }
-    else {
-        message = "📚 Keep studying and try again!";
-    }
+        function move(ev){
 
-    document.getElementById("message").textContent = message;
+            if(!draggedElement) return;
 
-    document.getElementById("submitBtn").style.display = "none";
+            const wrapper =
+                document
+                .getElementById("pageWrapper")
+                .getBoundingClientRect();
 
-    document.getElementById("restartBtn").style.display = "block";
+            let x=
+                ev.clientX-wrapper.left-dragOffsetX;
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+            let y=
+                ev.clientY-wrapper.top-dragOffsetY;
+
+            x=Math.max(0,x);
+
+            y=Math.max(0,y);
+
+            element.style.left=x+"px";
+
+            element.style.top=y+"px";
+
+        }
+
+        function up(){
+
+            if(draggedElement){
+
+                const index=
+                    Number(draggedElement.dataset.index);
+
+                const state=
+                    pageStates[currentPage-1];
+
+                if(state && state.overlays[index]){
+
+                    state.overlays[index].x=
+                        parseFloat(draggedElement.style.left);
+
+                    state.overlays[index].y=
+                        parseFloat(draggedElement.style.top);
+
+                }
+
+            }
+
+            draggedElement=null;
+
+            document.removeEventListener(
+                "mousemove",move);
+
+            document.removeEventListener(
+                "mouseup",up);
+
+        }
+
+        document.addEventListener(
+            "mousemove",move);
+
+        document.addEventListener(
+            "mouseup",up);
+
     });
 
-});
+}
 
 
-document.getElementById("restartBtn").addEventListener("click", function() {
+/* ---------------- ADD TEXT ---------------- */
+
+function addText(){
+
+    if(!pdfDocument) return;
+
+    const text=
+        document.getElementById("textInput").value ||
+        prompt("Enter text");
+
+    if(!text) return;
+
+    const size=
+        Number(document.getElementById("fontSize").value)||24;
+
+    const color=
+        document.getElementById("textColor").value;
+
+    pageStates[currentPage-1].overlays.push({
+
+        type:"text",
+
+        text:text,
+
+        x:50,
+
+        y:50,
+
+        size:size,
+
+        color:color,
+
+        opacity:1
+
+    });
+
+    renderPage();
+
+}
+
+
+/* ---------------- WATERMARK ---------------- */
+
+function addWatermark(){
+
+    if(!pdfDocument) return;
+
+    const text=
+        document.getElementById("watermarkInput").value ||
+        prompt("Enter watermark");
+
+    if(!text) return;
+
+    const size=
+        Number(
+            document.getElementById("watermarkSize").value
+        )||50;
+
+    const opacity=
+        Number(
+            document.getElementById("watermarkOpacity").value
+        );
+
+    pageStates[currentPage-1].overlays.push({
+
+        type:"watermark",
+
+        text:text,
+
+        x:100,
+
+        y:300,
+
+        size:size,
+
+        color:"#555555",
+
+        opacity:opacity
+
+    });
+
+    renderPage();
+
+}
+
+
+/* ---------------- ADD IMAGE ---------------- */
+
+function chooseImage(){
+
+    document.getElementById("imageInput").click();
+
+}
+
+
+function loadImage(event){
+
+    const file=event.target.files[0];
+
+    if(!file) return;
+
+    const reader=new FileReader();
+
+    reader.onload=function(e){
+
+        pageStates[currentPage-1].overlays.push({
+
+            type:"image",
+
+            src:e.target.result,
+
+            x:50,
+
+            y:50,
+
+            width:200,
+
+            height:150
+
+        });
+
+        renderPage();
+
+    };
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* ---------------- PAGE NUMBER ---------------- */
+
+function addPageNumber(){
+
+    if(!pdfDocument) return;
+
+    pageStates.forEach((state,index)=>{
+
+        state.overlays.push({
+
+            type:"text",
+
+            text:String(index+1),
+
+            x:280,
+
+            y:750,
+
+            size:18,
+
+            color:"#000000",
+
+            opacity:1
+
+        });
+
+    });
+
+    renderPage();
+
+}
+
+
+/* ---------------- ROTATE ---------------- */
+
+function rotatePage(){
+
+    if(!pdfDocument) return;
+
+    const state=
+        pageStates[currentPage-1];
+
+    state.rotation=
+        (state.rotation+90)%360;
+
+    renderPage();
+
+}
+
+
+/* ---------------- ZOOM ---------------- */
+
+function zoomIn(){
+
+    zoom+=.15;
+
+    renderPage();
+
+}
+
+
+function zoomOut(){
+
+    zoom=Math.max(.5,zoom-.15);
+
+    renderPage();
+
+}
+
+
+/* ---------------- CLEAR ---------------- */
+
+function clearOverlays(){
+
+    if(!pdfDocument) return;
+
+    pageStates[currentPage-1].overlays=[];
+
+    renderPage();
+
+}
+
+
+/* ---------------- RESET ---------------- */
+
+function resetEditor(){
 
     location.reload();
 
-});
-function searchStudy() {
-    const search = document.getElementById("searchBox").value.toLowerCase();
-    const result = document.getElementById("searchResult");
+}
 
-    if (search === "") {
-        result.textContent = "";
+
+/* ---------------- DOWNLOAD ---------------- */
+
+async function downloadPDF(){
+
+    if(!pdfDocument){
+
+        alert("Please open a PDF first.");
+
         return;
-    }
-
-    const pages = {
-        "math": "maths.html",
-        "maths": "maths.html",
-        "physics": "physics.html",
-        "chemistry": "chemistry.html",
-        "mcq": "mcq.html"
-    };
-
-    for (const word in pages) {
-        if (search.includes(word)) {
-            result.innerHTML =
-                '✅ Found! <a href="' + pages[word] + '">Open ' +
-                word.charAt(0).toUpperCase() + word.slice(1) +
-                '</a>';
-            return;
-        }
-    }
-
-    result.textContent = "❌ No matching subject found.";
-}
-</script>
-     <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Chapter-wise MCQs - My AI Study Hub</title>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-}
-
-header {
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 30px;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-.back {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 10px 16px;
-    background: #111827;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-.subject {
-    background: white;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.subject h2 {
-    margin-top: 0;
-    color: #4f46e5;
-}
-
-.chapter {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 8px;
-    background: #eef2ff;
-    color: #222;
-    text-align: left;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.chapter:hover {
-    background: #ddd6fe;
-}
-
-.quiz {
-    display: none;
-    background: white;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.quiz h2 {
-    color: #4f46e5;
-}
-
-.question {
-    padding: 15px;
-    margin: 15px 0;
-    background: #f9fafb;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-}
-
-.option {
-    display: block;
-    width: 100%;
-    margin: 8px 0;
-    padding: 11px;
-    text-align: left;
-    border: 1px solid #ddd;
-    border-radius: 7px;
-    background: white;
-    cursor: pointer;
-}
-
-.correct {
-    background: #dcfce7 !important;
-    border-color: #16a34a !important;
-}
-
-.wrong {
-    background: #fee2e2 !important;
-    border-color: #dc2626 !important;
-}
-
-#score {
-    font-size: 22px;
-    font-weight: bold;
-    color: #16a34a;
-}
-
-footer {
-    margin-top: 30px;
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>📚 Chapter-wise MCQs</h1>
-    <p>Choose a subject and chapter</p>
-</header>
-
-<div class="container">
-
-<a class="back" href="index.html">⬅ Back to Home</a>
-
-<div class="subject">
-    <h2>📐 Mathematics</h2>
-
-    <button class="chapter" onclick="showQuiz('relations')">
-        Relations and Functions
-    </button>
-
-    <button class="chapter" onclick="showQuiz('matrices')">
-        Matrices
-    </button>
-
-    <button class="chapter" onclick="showQuiz('calculus')">
-        Continuity, Differentiability and Calculus
-    </button>
-
-    <button class="chapter" onclick="showQuiz('vectors')">
-        Vector Algebra
-    </button>
-
-    <button class="chapter" onclick="showQuiz('probability')">
-        Probability
-    </button>
-</div>
-
-<div class="subject">
-    <h2>⚡ Physics</h2>
-
-    <button class="chapter" onclick="showQuiz('electrostatics')">
-        Electric Charges and Fields
-    </button>
-
-    <button class="chapter" onclick="showQuiz('current')">
-        Current Electricity
-    </button>
-
-    <button class="chapter" onclick="showQuiz('magnetism')">
-        Moving Charges and Magnetism
-    </button>
-
-    <button class="chapter" onclick="showQuiz('emi')">
-        Electromagnetic Induction
-    </button>
-
-    <button class="chapter" onclick="showQuiz('modern')">
-        Modern Physics
-    </button>
-</div>
-
-<div class="subject">
-    <h2>🧪 Chemistry</h2>
-
-    <button class="chapter" onclick="showQuiz('solutions')">
-        Solutions
-    </button>
-
-    <button class="chapter" onclick="showQuiz('electrochemistry')">
-        Electrochemistry
-    </button>
-
-    <button class="chapter" onclick="showQuiz('kinetics')">
-        Chemical Kinetics
-    </button>
-
-    <button class="chapter" onclick="showQuiz('organic')">
-        Organic Chemistry
-    </button>
-</div>
-
-
-<!-- QUIZ AREA -->
-
-<div class="quiz" id="quiz">
-
-    <h2 id="quizTitle">Chapter Quiz</h2>
-
-    <div id="questions"></div>
-
-    <button class="chapter"
-            style="background:#4f46e5;color:white;text-align:center;"
-            onclick="calculateScore()">
-        Submit Quiz
-    </button>
-
-    <p id="score"></p>
-    <button
-    onclick="resetQuiz()"
-    style="display:block;
-           width:100%;
-           padding:14px;
-           margin-top:15px;
-           border:none;
-           border-radius:10px;
-           background:#111827;
-           color:white;
-           font-size:16px;
-           cursor:pointer;">
-    🔄 Try Again
-    </button>
 
     }
-}
-</div>
 
-</div>
+    status("Creating PDF...");
 
-<footer>
-    <p>© 2026 My AI Study Hub</p>
-    <p>Keep Learning 📚</p>
-</footer>
+    try{
 
+        const sourceBytes =
+            await getCurrentPDFBytes();
 
-<script>
+        const sourcePDF =
+            await PDFLib.PDFDocument.load(sourceBytes);
 
-const quizData = {
+        const finalPDF =
+            await PDFLib.PDFDocument.create();
 
-relations: {
-    title: "📐 Relations and Functions",
-    questions: [
-        {
-            q: "A relation from A to B is a subset of:",
-            options: ["A × B", "B × A", "A + B", "A − B"],
-            answer: 0
-        },
-        {
-            q: "A function assigns every element of the domain to:",
-            options: [
-                "At least two elements",
-                "Exactly one element",
-                "No element",
-                "Only zero"
-            ],
-            answer: 1
-        }
-    ]
-},
+        const helvetica =
+            await finalPDF.embedFont(
+                PDFLib.StandardFonts.Helvetica
+            );
 
-matrices: {
-    title: "📐 Matrices",
-    questions: [
-        {
-            q: "If |A| = 0, matrix A is:",
-            options: [
-                "Identity",
-                "Singular",
-                "Non-singular",
-                "Orthogonal"
-            ],
-            answer: 1
-        },
-        {
-            q: "(AB)ᵀ is equal to:",
-            options: [
-                "AᵀBᵀ",
-                "BᵀAᵀ",
-                "AB",
-                "BA"
-            ],
-            answer: 1
-        }
-    ]
-},
+        const pagesToCopy =
+            Math.min(
+                sourcePDF.getPageCount(),
+                pageStates.length
+            );
 
-calculus: {
-    title: "📐 Calculus",
-    questions: [
-        {
-            q: "d/dx(sin x) is:",
-            options: [
-                "sin x",
-                "−sin x",
-                "cos x",
-                "−cos x"
-            ],
-            answer: 2
-        },
-        {
-            q: "∫ cos x dx is:",
-            options: [
-                "sin x + C",
-                "−sin x + C",
-                "cos x + C",
-                "−cos x + C"
-            ],
-            answer: 0
-        }
-    ]
-},
+        for(let i=0;i<pagesToCopy;i++){
 
-vectors: {
-    title: "📐 Vector Algebra",
-    questions: [
-        {
-            q: "If two vectors are perpendicular, their dot product is:",
-            options: ["1", "−1", "0", "Maximum"],
-            answer: 2
-        },
-        {
-            q: "The magnitude of the zero vector is:",
-            options: ["0", "1", "−1", "Undefined"],
-            answer: 0
-        }
-    ]
-},
+            const [page] =
+                await finalPDF.copyPages(
+                    sourcePDF,[i]
+                );
 
-probability: {
-    title: "📐 Probability",
-    questions: [
-        {
-            q: "P(A) + P(A') is:",
-            options: ["0", "1", "2", "P(A)"],
-            answer: 1
-        },
-        {
-            q: "Probability of an impossible event is:",
-            options: ["0", "1", "−1", "2"],
-            answer: 0
-        }
-    ]
-},
+            finalPDF.addPage(page);
 
-electrostatics: {
-    title: "⚡ Electric Charges and Fields",
-    questions: [
-        {
-            q: "The SI unit of electric charge is:",
-            options: ["Volt", "Coulomb", "Ohm", "Tesla"],
-            answer: 1
-        },
-        {
-            q: "Coulomb's law contains inverse proportionality to:",
-            options: ["r", "r²", "1/r", "r³"],
-            answer: 1
-        }
-    ]
-},
+            const finalPage =
+                finalPDF.getPage(i);
 
-current: {
-    title: "⚡ Current Electricity",
-    questions: [
-        {
-            q: "Ohm's law is:",
-            options: ["V = IR", "P = VI", "Q = It", "F = qE"],
-            answer: 0
-        },
-        {
-            q: "SI unit of resistance is:",
-            options: ["Volt", "Ampere", "Ohm", "Watt"],
-            answer: 2
-        }
-    ]
-},
+            const state=
+                pageStates[i];
 
-magnetism: {
-    title: "⚡ Moving Charges and Magnetism",
-    questions: [
-        {
-            q: "Magnetic force on a charge is:",
-            options: [
-                "qE",
-                "qvB sinθ",
-                "IR",
-                "V/R"
-            ],
-            answer: 1
-        },
-        {
-            q: "SI unit of magnetic field is:",
-            options: ["Tesla", "Weber", "Henry", "Farad"],
-            answer: 0
-        }
-    ]
-},
+            const {width,height}=
+                finalPage.getSize();
 
-emi: {
-    title: "⚡ Electromagnetic Induction",
-    questions: [
-        {
-            q: "Faraday's law relates induced emf to the rate of change of:",
-            options: [
-                "Charge",
-                "Magnetic flux",
-                "Resistance",
-                "Mass"
-            ],
-            answer: 1
-        },
-        {
-            q: "Magnetic flux is measured in:",
-            options: ["Tesla", "Weber", "Ohm", "Volt"],
-            answer: 1
-        }
-    ]
-},
+            /*
+             * Add overlays
+             */
 
-modern: {
-    title: "⚡ Modern Physics",
-    questions: [
-        {
-            q: "Energy of a photon is:",
-            options: ["hν", "h/ν", "ν/h", "hcν"],
-            answer: 0
-        },
-        {
-            q: "de Broglie wavelength is:",
-            options: ["h/p", "p/h", "hp", "h + p"],
-            answer: 0
-        }
-    ]
-},
+            for(const item of state.overlays){
 
-solutions: {
-    title: "🧪 Solutions",
-    questions: [
-        {
-            q: "SI unit of molarity is:",
-            options: [
-                "mol kg⁻¹",
-                "mol L⁻¹",
-                "kg mol⁻¹",
-                "L mol⁻¹"
-            ],
-            answer: 1
-        },
-        {
-            q: "Molality is expressed in:",
-            options: [
-                "mol L⁻¹",
-                "mol kg⁻¹",
-                "kg mol⁻¹",
-                "L mol⁻¹"
-            ],
-            answer: 1
-        }
-    ]
-},
+                if(item.type==="text" ||
+                   item.type==="watermark"){
 
-electrochemistry: {
-    title: "🧪 Electrochemistry",
-    questions: [
-        {
-            q: "Oxidation occurs at the:",
-            options: ["Cathode", "Anode", "Salt bridge", "Electrolyte"],
-            answer: 1
-        },
-        {
-            q: "Reduction occurs at the:",
-            options: ["Anode", "Cathode", "Salt bridge", "Wire"],
-            answer: 1
-        }
-    ]
-},
+                    let colorHex=
+                        item.color.replace("#","");
 
-kinetics: {
-    title: "🧪 Chemical Kinetics",
-    questions: [
-        {
-            q: "For a first-order reaction, half-life is:",
-            options: [
-                "0.693/k",
-                "k/0.693",
-                "k",
-                "1/k²"
-            ],
-            answer: 0
-        },
-        {
-            q: "Rate of reaction is generally expressed as change in concentration per unit:",
-            options: ["Mass", "Time", "Volume", "Temperature"],
-            answer: 1
-        }
-    ]
-},
+                    const r=
+                        parseInt(
+                            colorHex.substring(0,2),16
+                        )/255;
 
-organic: {
-    title: "🧪 Organic Chemistry",
-    questions: [
-        {
-            q: "The functional group of alcohols is:",
-            options: ["−CHO", "−COOH", "−OH", "−NH₂"],
-            answer: 2
-        },
-        {
-            q: "The functional group of amines is:",
-            options: ["−OH", "−COOH", "−NH₂", "−CHO"],
-            answer: 2
-        }
-    ]
-}
+                    const g=
+                        parseInt(
+                            colorHex.substring(2,4),16
+                        )/255;
 
-};
+                    const b=
+                        parseInt(
+                            colorHex.substring(4,6),16
+                        )/255;
 
-let currentQuestions = [];
+                    finalPage.drawText(
+                        item.text,
+                        {
+                            x:item.x/zoom,
+                            y:height-
+                              item.y/zoom-
+                              item.size/zoom,
 
-function showQuiz(chapter) {
-    const quizData = {
+                            size:item.size/zoom,
 
-relations: {
-    title: "📐 Relations and Functions",
-    questions: [
-        {q:"A relation from A to B is a subset of:",options:["A × B","B × A","A + B","A − B"],answer:0},
-        {q:"A function assigns every element of the domain to:",options:["At least two elements","Exactly one element","No element","Only zero"],answer:1},
-        {q:"The domain of a function consists of:",options:["Input values","Output values","Only zero","Only one"],answer:0},
-        {q:"A function which is both one-one and onto is called:",options:["Constant","Identity","Bijective","Zero"],answer:2},
-        {q:"A function f:A→B is onto when:",options:["Every element of A has two images","Every element of B has a pre-image","No element has an image","A is empty"],answer:1},
-        {q:"The range of a function is a subset of its:",options:["Domain","Codomain","Relation","Inverse"],answer:1},
-        {q:"The identity function on A is defined by:",options:["f(x)=0","f(x)=1","f(x)=x","f(x)=−x"],answer:2},
-        {q:"If f(x)=2x+1, then f(2) is:",options:["3","4","5","6"],answer:2},
-        {q:"A constant function maps every element of its domain to:",options:["Different values","One fixed value","Zero only","Its inverse"],answer:1},
-        {q:"If f and g are functions, (g∘f)(x) means:",options:["f(g(x))","g(f(x))","f(x)+g(x)","f(x)−g(x)"],answer:1}
-    ]
-},
+                            font:helvetica,
 
-matrices: {
-    title: "📐 Matrices",
-    questions: [
-        {q:"If |A|=0, matrix A is:",options:["Identity","Singular","Non-singular","Orthogonal"],answer:1},
-        {q:"(AB)ᵀ is equal to:",options:["AᵀBᵀ","BᵀAᵀ","AB","BA"],answer:1},
-        {q:"The determinant of an identity matrix is:",options:["0","1","−1","Depends on order"],answer:1},
-        {q:"A square matrix A is invertible if:",options:["|A|=0","|A|≠0","A=0","A is rectangular"],answer:1},
-        {q:"The order of a matrix with 3 rows and 2 columns is:",options:["2×3","3×2","3+2","6×1"],answer:1},
-        {q:"The transpose of a row matrix is a:",options:["Row matrix","Column matrix","Square matrix always","Zero matrix"],answer:1},
-        {q:"A matrix having equal number of rows and columns is:",options:["Rectangular","Square","Row","Column"],answer:1},
-        {q:"If A is invertible, then AA⁻¹ equals:",options:["A","0","I","A²"],answer:2},
-        {q:"A matrix with all diagonal elements 1 and other elements 0 is:",options:["Zero matrix","Identity matrix","Row matrix","Column matrix"],answer:1},
-        {q:"For a 2×2 matrix [a b; c d], determinant is:",options:["ad−bc","ab−cd","ac−bd","ad+bc"],answer:0}
-    ]
-},
+                            color:
+                                PDFLib.rgb(r,g,b),
 
-calculus: {
-    title: "📐 Calculus",
-    questions: [
-        {q:"d/dx(sin x) is:",options:["sin x","−sin x","cos x","−cos x"],answer:2},
-        {q:"d/dx(cos x) is:",options:["sin x","−sin x","cos x","−cos x"],answer:1},
-        {q:"d/dx(x⁵) is:",options:["5x⁴","x⁴","4x⁵","5x"],answer:0},
-        {q:"∫cos x dx is:",options:["sin x+C","−sin x+C","cos x+C","−cos x+C"],answer:0},
-        {q:"∫sin x dx is:",options:["cos x+C","−cos x+C","sin x+C","−sin x+C"],answer:1},
-        {q:"d/dx(eˣ) is:",options:["eˣ","xeˣ","eˣ⁻¹","1/eˣ"],answer:0},
-        {q:"d/dx(log x) is:",options:["x","1/x","log x","eˣ"],answer:1},
-        {q:"∫1/x dx is:",options:["x+C","1/x+C","log|x|+C","eˣ+C"],answer:2},
-        {q:"If a function is differentiable at a point, it is necessarily:",options:["Discontinuous","Continuous","Constant","Periodic"],answer:1},
-        {q:"∫₀¹ x dx equals:",options:["0","1/2","1","2"],answer:1}
-    ]
-},
+                            opacity:item.opacity
+                        }
+                    );
 
-vectors: {
-    title: "📐 Vector Algebra",
-    questions: [
-        {q:"If two vectors are perpendicular, their dot product is:",options:["1","−1","0","Maximum"],answer:2},
-        {q:"The magnitude of the zero vector is:",options:["0","1","−1","Undefined"],answer:0},
-        {q:"a·b is equal to:",options:["|a||b|sinθ","|a||b|cosθ","a+b","a×b"],answer:1},
-        {q:"|a×b| is equal to:",options:["|a||b|cosθ","|a||b|sinθ","a·b","0 always"],answer:1},
-        {q:"The cross product of two parallel vectors is:",options:["1","−1","0","Maximum"],answer:2},
-        {q:"A unit vector has magnitude:",options:["0","1","2","−1"],answer:1},
-        {q:"i·i is:",options:["0","1","−1","i"],answer:1},
-        {q:"i×j is:",options:["i","j","k","0"],answer:2},
-        {q:"j×k is:",options:["i","j","k","0"],answer:0},
-        {q:"k×i is:",options:["i","j","k","0"],answer:1}
-    ]
-},
-
-probability: {
-    title: "📐 Probability",
-    questions: [
-        {q:"P(A)+P(A') is:",options:["0","1","2","P(A)"],answer:1},
-        {q:"Probability of an impossible event is:",options:["0","1","−1","2"],answer:0},
-        {q:"Probability of a sure event is:",options:["0","1","−1","1/2"],answer:1},
-        {q:"The probability of an event lies between:",options:["−1 and 1","0 and 1","1 and 2","−∞ and ∞"],answer:1},
-        {q:"For mutually exclusive events A and B, P(A∩B) is:",options:["1","0","P(A)","P(B)"],answer:1},
-        {q:"P(A∪B) equals:",options:["P(A)+P(B)−P(A∩B)","P(A)P(B)","P(A)−P(B)","1"],answer:0},
-        {q:"If A and B are independent, P(A∩B) is:",options:["P(A)+P(B)","P(A)P(B)","P(A)−P(B)","0"],answer:1},
-        {q:"The probability of getting a head on a fair coin is:",options:["0","1/2","1","2"],answer:1},
-        {q:"A standard die has how many possible outcomes?",options:["4","5","6","8"],answer:2},
-        {q:"Probability of getting an even number on a fair die is:",options:["1/6","1/3","1/2","2/3"],answer:2}
-    ]
-},
-
-electrostatics: {
-    title: "⚡ Electric Charges and Fields",
-    questions: [
-        {q:"The SI unit of electric charge is:",options:["Volt","Coulomb","Ohm","Tesla"],answer:1},
-        {q:"Coulomb's law contains inverse proportionality to:",options:["r","r²","1/r","r³"],answer:1},
-        {q:"Electric field is force per unit:",options:["Mass","Charge","Time","Energy"],answer:1},
-        {q:"SI unit of electric field is:",options:["N/C","J/C","C/N","N·m"],answer:0},
-        {q:"Electric field inside a conductor in electrostatic equilibrium is:",options:["Maximum","Zero","Infinite","Variable"],answer:1},
-        {q:"Electric flux is measured in:",options:["N·m²/C","N/C","C/N","J"],answer:0},
-        {q:"Gauss's law relates electric flux to:",options:["Mass","Enclosed charge","Current","Resistance"],answer:1},
-        {q:"The electric field due to a point charge varies as:",options:["r","r²","1/r","1/r²"],answer:3},
-        {q:"Electric potential is a:",options:["Vector","Scalar","Tensor","Unitless vector"],answer:1},
-        {q:"Work done in moving a charge along an equipotential surface is:",options:["Maximum","Zero","Infinite","Negative always"],answer:1}
-    ]
-},
-
-current: {
-    title: "⚡ Current Electricity",
-    questions: [
-        {q:"Ohm's law is:",options:["V=IR","P=VI","Q=It","F=qE"],answer:0},
-        {q:"SI unit of resistance is:",options:["Volt","Ampere","Ohm","Watt"],answer:2},
-        {q:"Electric current is measured in:",options:["Volt","Ampere","Ohm","Joule"],answer:1},
-        {q:"Resistance of a wire is R=:",options:["ρA/L","ρL/A","LA/ρ","ρ/L"],answer:1},
-        {q:"Electrical power is:",options:["VI","V/I","I/V","IR"],answer:0},
-        {q:"The SI unit of resistivity is:",options:["Ω m","Ω/m","m/Ω","Ω"],answer:0},
-        {q:"In a series circuit, current is:",options:["Different everywhere","Same everywhere","Zero","Infinite"],answer:1},
-        {q:"In a parallel circuit, voltage across each branch is:",options:["Same","Different always","Zero","Infinite"],answer:0},
-        {q:"Kirchhoff's current law is based on conservation of:",options:["Energy","Charge","Mass","Momentum"],answer:1},
-        {q:"Electrical energy is commonly measured in:",options:["kWh","Newton","Pascal","Tesla"],answer:0}
-    ]
-},
-
-magnetism: {
-    title: "⚡ Moving Charges and Magnetism",
-    questions: [
-        {q:"Magnetic force on a charge is:",options:["qE","qvB sinθ","IR","V/R"],answer:1},
-        {q:"SI unit of magnetic field is:",options:["Tesla","Weber","Henry","Farad"],answer:0},
-        {q:"Magnetic force is maximum when θ is:",options:["0°","30°","60°","90°"],answer:3},
-        {q:"Magnetic force is zero when velocity is:",options:["Parallel to B","Perpendicular to B","At 45°","Always maximum"],answer:0},
-        {q:"A charged particle moving perpendicular to a uniform magnetic field follows:",options:["Straight line","Circular path","Parabolic path","Random path"],answer:1},
-        {q:"The magnetic force does no work because it is perpendicular to:",options:["Velocity","Mass","Charge","Time"],answer:0},
-        {q:"The SI unit of magnetic flux is:",options:["Tesla","Weber","Ohm","Volt"],answer:1},
-        {q:"A current-carrying conductor in a magnetic field experiences:",options:["Magnetic force","Gravitational force only","No force always","Electrostatic force only"],answer:0},
-        {q:"The magnetic field at the centre of a circular current loop depends on:",options:["Current","Radius","Both current and radius","Neither"],answer:2},
-        {q:"The force between two parallel current-carrying conductors can be:",options:["Attractive or repulsive","Only attractive","Only repulsive","Always zero"],answer:0}
-    ]
-},
-
-emi: {
-    title: "⚡ Electromagnetic Induction",
-    questions: [
-        {q:"Faraday's law relates induced emf to the rate of change of:",options:["Charge","Magnetic flux","Resistance","Mass"],answer:1},
-        {q:"Magnetic flux is measured in:",options:["Tesla","Weber","Ohm","Volt"],answer:1},
-        {q:"Lenz's law follows conservation of:",options:["Charge","Energy","Mass","Momentum"],answer:1},
-        {q:"Induced current flows only when magnetic flux is:",options:["Constant","Changing","Zero always","Infinite"],answer:1},
-        {q:"The SI unit of inductance is:",options:["Henry","Farad","Tesla","Weber"],answer:0},
-        {q:"A transformer works on the principle of:",options:["Electromagnetic induction","Electrostatics","Photoelectric effect","Nuclear fission"],answer:0},
-        {q:"A step-up transformer increases:",options:["Voltage","Frequency","Charge","Resistance only"],answer:0},
-        {q:"A transformer works with:",options:["DC only","AC","Both always","Static charge"],answer:1},
-        {q:"The induced emf opposes the change producing it according to:",options:["Ohm's law","Lenz's law","Coulomb's law","Gauss's law"],answer:1},
-        {q:"Faraday's law contains a negative sign due to:",options:["Ohm's law","Lenz's law","Newton's law","Kirchhoff's law"],answer:1}
-    ]
-},
-
-modern: {
-    title: "⚡ Modern Physics",
-    questions: [
-        {q:"Energy of a photon is:",options:["hν","h/ν","ν/h","hcν"],answer:0},
-        {q:"de Broglie wavelength is:",options:["h/p","p/h","hp","h+p"],answer:0},
-        {q:"Photoelectric effect supports the:",options:["Wave nature only","Particle nature of light","Nuclear nature","Magnetic nature"],answer:1},
-        {q:"The SI unit of Planck's constant is:",options:["J s","J/s","N/C","W"],answer:0},
-        {q:"Einstein's mass-energy relation is:",options:["E=mc²","E=mv²","E=m/c²","E=mc"],answer:0},
-        {q:"The nucleus contains:",options:["Only electrons","Protons and neutrons","Only neutrons","Only protons"],answer:1},
-        {q:"The charge of a proton is:",options:["Negative","Positive","Zero","Variable"],answer:1},
-        {q:"The charge of a neutron is:",options:["Positive","Negative","Zero","Variable"],answer:2},
-        {q:"Radioactive decay is generally:",options:["Predictable for one nucleus","Random","Always immediate","Reversible"],answer:1},
-        {q:"Half-life is the time required for the number of undecayed nuclei to become:",options:["Zero","Half","Double","One-fourth"],answer:1}
-    ]
-},
-
-solutions: {
-    title: "🧪 Solutions",
-    questions: [
-        {q:"SI unit of molarity is:",options:["mol kg⁻¹","mol L⁻¹","kg mol⁻¹","L mol⁻¹"],answer:1},
-        {q:"Molality is expressed in:",options:["mol L⁻¹","mol kg⁻¹","kg mol⁻¹","L mol⁻¹"],answer:1},
-        {q:"Molarity depends on:",options:["Temperature","Mass of solvent only","Moles only","Pressure only"],answer:0},
-        {q:"Molality is based on mass of:",options:["Solution","Solvent","Solute only","Gas"],answer:1},
-        {q:"Raoult's law deals with:",options:["Vapour pressure","Electric current","Reaction rate","Magnetic field"],answer:0},
-        {q:"Osmosis involves movement of:",options:["Solute only","Solvent through semipermeable membrane","Electrons","Protons"],answer:1},
-        {q:"A solution with pH 7 at 25°C is:",options:["Acidic","Basic","Neutral","Strongly acidic"],answer:2},
-        {q:"Concentration expressed as moles per litre is:",options:["Molality","Molarity","Normality only","Mole fraction"],answer:1},
-        {q:"Colligative properties depend on the number of:",options:["Particles","Types of atoms only","Colours","Bonds"],answer:0},
-        {q:"Elevation of boiling point is a:",options:["Colligative property","Chemical reaction","Nuclear property","Magnetic property"],answer:0}
-    ]
-},
-
-electrochemistry: {
-    title: "🧪 Electrochemistry",
-    questions: [
-        {q:"Oxidation occurs at the:",options:["Cathode","Anode","Salt bridge","Electrolyte"],answer:1},
-        {q:"Reduction occurs at the:",options:["Anode","Cathode","Salt bridge","Wire"],answer:1},
-        {q:"The SI unit of conductance is:",options:["Siemens","Ohm","Volt","Ampere"],answer:0},
-        {q:"A galvanic cell converts:",options:["Electrical energy to chemical energy","Chemical energy to electrical energy","Heat to mass","Light to sound"],answer:1},
-        {q:"The salt bridge helps maintain:",options:["Electrical neutrality","High temperature","Pressure","Mass"],answer:0},
-        {q:"E°cell is:",options:["E°anode−E°cathode","E°cathode−E°anode","E°anode+E°cathode always","Zero"],answer:1},
-        {q:"Electrolysis uses:",options:["Electrical energy","Only heat","Only light","No energy"],answer:0},
-        {q:"Faraday's constant is approximately:",options:["96500 C mol⁻¹","965 C mol⁻¹","9.65 C mol⁻¹","965000 C mol⁻¹"],answer:0},
-        {q:"A stronger oxidizing agent has a higher:",options:["Reduction potential","Mass","Density","Temperature"],answer:0},
-        {q:"The Nernst equation relates electrode potential to:",options:["Concentration","Mass only","Volume only","Colour"],answer:0}
-    ]
-},
-
-kinetics: {
-    title: "🧪 Chemical Kinetics",
-    questions: [
-        {q:"For a first-order reaction, half-life is:",options:["0.693/k","k/0.693","k","1/k²"],answer:0},
-        {q:"Rate of reaction is change in concentration per unit:",options:["Mass","Time","Volume","Temperature"],answer:1},
-        {q:"The rate constant is represented by:",options:["k","R","Kc only","p"],answer:0},
-        {q:"For a first-order reaction, half-life is independent of:",options:["Initial concentration","Rate constant","Time","Temperature"],answer:0},
-        {q:"A catalyst generally:",options:["Changes equilibrium constant","Changes reaction rate","Gets permanently consumed","Changes atomic number"],answer:1},
-        {q:"Activation energy is the minimum energy needed for:",options:["Effective collision","Evaporation only","Freezing","Ion formation always"],answer:0},
-        {q:"Increasing temperature generally increases reaction:",options:["Rate","Mass","Atomic number","Volume always"],answer:0},
-        {q:"Reaction order is determined experimentally from:",options:["Rate law","Molecular mass","Colour","Density"],answer:0},
-        {q:"A zero-order reaction has rate independent of:",options:["Reactant concentration","Temperature","Catalyst","Time"],answer:0},
-        {q:"The unit of rate depends on:",options:["Reaction order","Colour","Pressure only","Atomic number"],answer:0}
-    ]
-},
-
-organic: {
-    title: "🧪 Organic Chemistry",
-    questions: [
-        {q:"The functional group of alcohols is:",options:["−CHO","−COOH","−OH","−NH₂"],answer:2},
-        {q:"The functional group of amines is:",options:["−OH","−COOH","−NH₂","−CHO"],answer:2},
-        {q:"Aldehydes contain:",options:["−CHO","−OH","−NH₂","−COO−"],answer:0},
-        {q:"Carboxylic acids contain:",options:["−OH only","−COOH","−CHO","−NH₂"],answer:1},
-        {q:"The general formula of an alkane is:",options:["CₙH₂ₙ","CₙH₂ₙ₊₂","CₙH₂ₙ₋₂","CₙHₙ"],answer:1},
-        {q:"Ethanol reacts with sodium to release:",options:["O₂","H₂","N₂","CO₂"],answer:1},
-        {q:"Oxidation of a primary alcohol can give:",options:["Aldehyde","Alkane only","Amine only","Ether only"],answer:0},
-        {q:"Esters generally have:",options:["Fruity odours","No smell always","Metallic smell","Ammonia smell"],answer:0},
-        {q:"Amines are derivatives of:",options:["Ammonia","Water","Methane only","Carbon dioxide"],answer:0},
-        {q:"The bond joining amino acids in proteins is called:",options:["Ester bond","Peptide bond","Ionic bond","Metallic bond"],answer:1}
-    ]
-}
-
-};
-
-    const quiz = quizData[chapter];
-
-    currentQuestions = quiz.questions;
-
-    document.getElementById("quiz").style.display = "block";
-
-    document.getElementById("quizTitle").textContent = quiz.title;
-
-    document.getElementById("score").textContent = "";
-
-    const questionsDiv = document.getElementById("questions");
-
-    questionsDiv.innerHTML = "";
-
-    quiz.questions.forEach(function(item, index) {
-
-        const questionDiv = document.createElement("div");
-
-        questionDiv.className = "question";
-
-        questionDiv.innerHTML =
-            "<h3>" + (index + 1) + ". " + item.q + "</h3>";
-
-        item.options.forEach(function(option, optionIndex) {
-
-            const button = document.createElement("button");
-
-            button.className = "option";
-
-            button.textContent = option;
-
-            button.onclick = function() {
-
-                const buttons =
-                    questionDiv.querySelectorAll(".option");
-
-                buttons.forEach(function(btn) {
-                    btn.disabled = true;
-                });
-
-                if (optionIndex === item.answer) {
-                    button.classList.add("correct");
-                } else {
-                    button.classList.add("wrong");
-                    buttons[item.answer].classList.add("correct");
                 }
-            };
 
-            questionDiv.appendChild(button);
-        });
+                if(item.type==="image"){
 
-        questionsDiv.appendChild(questionDiv);
-    });
+                    try{
 
-    document.getElementById("quiz").scrollIntoView({
-        behavior: "smooth"
-    });
+                        let image;
+
+                        if(
+                            item.src.startsWith(
+                                "data:image/png"
+                            )
+                        ){
+
+                            image=
+                                await finalPDF.embedPng(
+                                    item.src
+                                );
+
+                        }else{
+
+                            image=
+                                await finalPDF.embedJpg(
+                                    item.src
+                                );
+
+                        }
+
+                        finalPage.drawImage(
+                            image,
+                            {
+                                x:item.x/zoom,
+                                y:height-
+                                  item.y/zoom-
+                                  item.height/zoom,
+
+                                width:item.width/zoom,
+
+                                height:item.height/zoom
+                            }
+                        );
+
+                    }catch(err){
+
+                        console.log(
+                            "Image error",
+                            err
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        /*
+         * Add blank pages if user created them.
+         */
+
+        if(pageStates.length>
+           sourcePDF.getPageCount()){
+
+            for(
+                let i=sourcePDF.getPageCount();
+                i<pageStates.length;
+                i++
+            ){
+
+                const blank=
+                    finalPDF.addPage([
+                        595.28,
+                        841.89
+                    ]);
+
+                const state=
+                    pageStates[i];
+
+                const {width,height}=
+                    blank.getSize();
+
+                for(const item of state.overlays){
+
+                    if(item.type==="text" ||
+                       item.type==="watermark"){
+
+                        blank.drawText(
+                            item.text,
+                            {
+                                x:item.x/zoom,
+
+                                y:height-
+                                  item.y/zoom-
+                                  item.size/zoom,
+
+                                size:item.size/zoom,
+
+                                font:helvetica,
+
+                                color:
+                                    PDFLib.rgb(
+                                        0,0,0
+                                    ),
+
+                                opacity:item.opacity
+                            }
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        const bytes=
+            await finalPDF.save();
+
+        const blob=
+            new Blob(
+                [bytes],
+                {type:"application/pdf"}
+            );
+
+        const url=
+            URL.createObjectURL(blob);
+
+        const a=
+            document.createElement("a");
+
+        a.href=url;
+
+        a.download=
+            "edited-pdf.pdf";
+
+        document.body.appendChild(a);
+
+        a.click();
+
+        a.remove();
+
+        URL.revokeObjectURL(url);
+
+        status("PDF downloaded successfully");
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Could not create the PDF.\n\n"+
+            error.message
+        );
+
+    }
+
 }
 
-function calculateScore() {
 
-    const questionDivs =
-        document.querySelectorAll("#questions .question");
+/*
+ * Get original PDF bytes.
+ *
+ * PDF.js keeps the loaded document internally,
+ * so we request the data from the document.
+ */
 
-    let score = 0;
+async function getCurrentPDFBytes(){
 
-    questionDivs.forEach(function(questionDiv, index) {
+    if(pdfDocument && pdfDocument.getData){
 
-        const buttons =
-            questionDiv.querySelectorAll(".option");
+        return await pdfDocument.getData();
 
-        buttons.forEach(function(button, optionIndex) {
+    }
 
-            if (
-                button.disabled &&
-                optionIndex === currentQuestions[index].answer &&
-                button.classList.contains("correct")
-            ) {
-                score++;
-            }
-        });
-    });
+    throw new Error(
+        "Original PDF data is unavailable."
+    );
 
-    document.getElementById("score").textContent =
-        "Score: " + score + "/" + currentQuestions.length;
 }
 
 </script>
 
 </body>
-</html><a href="chapter-mcqs.html" class="study-button">
-    📚 Chapter-wise MCQs
-</a><a href="chapter-mcqs.html"
-   style="display:block;
-          width:90%;
-          max-width:500px;
-          margin:20px auto;
-          padding:16px;
-          text-align:center;
-          background:#4f46e5;
-          color:white;
-          text-decoration:none;
-          border-radius:12px;
-          font-size:18px;
-          font-weight:bold;">
-    📚 Chapter-wise MCQs
-</a>
-      
-<body>
-    <div class="watermark">Mr Maths Cool</div>
-<head>
-    <style>
-/* 📱 MOBILE-FRIENDLY DESIGN */
-* {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-}
-
-/* Images automatically fit the screen */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Tables can scroll instead of breaking the page */
-table {
-    max-width: 100%;
-}
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-}
-
-/* Make inputs and buttons fit mobile screens */
-input,
-textarea,
-select,
-button {
-    max-width: 100%;
-}
-
-/* Cards / sections */
-.container,
-.content,
-.section,
-.card {
-    max-width: 100%;
-}
-
-/* 📱 Phones */
-@media (max-width: 600px) {
-
-    body {
-        font-size: 15px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 23px;
-    }
-
-    h3 {
-        font-size: 20px;
-    }
-
-    .container,
-    .content {
-        width: 94%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .card {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    button,
-    .button,
-    a.button {
-        max-width: 100%;
-    }
-}
-
-/* 📱 Very small phones */
-@media (max-width: 360px) {
-
-    body {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 21px;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
-}
-
-/* 📲 Tablets */
-@media (min-width: 601px) and (max-width: 900px) {
-
-    .container,
-    .content {
-        width: 92%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-    </style>
+</html>
